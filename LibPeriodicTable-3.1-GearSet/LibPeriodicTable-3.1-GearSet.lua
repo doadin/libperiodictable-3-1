@@ -1,7 +1,7 @@
 -- (c) 2007 Nymbia.  see LGPLv2.1.txt for full details.
 --DO NOT MAKE CHANGES TO THIS FILE BEFORE READING THE WIKI PAGE REGARDING CHANGING THESE FILES
 if not LibStub("LibPeriodicTable-3.1", true) then error("PT3 must be loaded before data") end
-LibStub("LibPeriodicTable-3.1"):AddData("GearSet", "$Rev: 77395 $", {
+LibStub("LibPeriodicTable-3.1"):AddData("GearSet", "$Rev$", {
 	["GearSet.Battlegear of Undead Slaying"]="23090,23087,23078",
 	["GearSet.Bloodmail Regalia"]="14614,14616,14615,14611,14612",
 	["GearSet.Cadaverous Garb"]="14637,14636,14640,14638,14641",

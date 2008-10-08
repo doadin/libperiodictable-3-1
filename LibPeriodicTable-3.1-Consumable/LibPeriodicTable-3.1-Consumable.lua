@@ -1,7 +1,7 @@
 -- (c) 2007 Nymbia.  see LGPLv2.1.txt for full details.
 --DO NOT MAKE CHANGES TO THIS FILE BEFORE READING THE WIKI PAGE REGARDING CHANGING THESE FILES
 if not LibStub("LibPeriodicTable-3.1", true) then error("PT3 must be loaded before data") end
-LibStub("LibPeriodicTable-3.1"):AddData("Consumable", "$Rev: 77769 $", {
+LibStub("LibPeriodicTable-3.1"):AddData("Consumable", "$Rev$", {
 	["Consumable.Anti-Venom"]="6452:25,6453:35,13462:60,2633:60,19440:60,12586:60,9030:60,3386:60,31437:70,25550:70",
 	["Consumable.Bandage.Basic"]="2581:114,8545:1104,21991:3400,14530:2000,6451:640,3531:301,1251:66,8544:800,21990:2800,14529:1360,6450:400,3530:161",
 	["Consumable.Bandage.Battleground.Alterac Valley"]="19307:2000",
@@ -37,7 +37,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("Consumable", "$Rev: 77769 $", {
 	["Consumable.Buff.Armor.Target"]="3013:60,1478:120,4421:180,10305:240,27500:300",
 	["Consumable.Buff.Attack Crit.Flask"]="32597:20",
 	["Consumable.Buff.Attack Damage"]="23501:10,22788:40",
-	["Consumable.Buff.Attack Power.Self"]="22779:30,12820:35,29528:60,28102:60,31679:120,9224:265",
+	["Consumable.Buff.Attack Power.Self"]="23989:10,22779:30,12820:35,29528:60,28102:60,31679:120,9224:265",
 	["Consumable.Buff.Attack Power.Flask"]="32599:20,22854:120,32901:120",
 	["Consumable.Buff.Attack Power.Target"]="12460:40",
 	["Consumable.Buff.Attack Speed.Self"]="29529:80,22838:400",
