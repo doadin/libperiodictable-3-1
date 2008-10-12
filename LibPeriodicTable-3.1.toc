@@ -10,7 +10,6 @@
 ## X-License: LGPL v2.1
 ## X-AceForum: 0
 
-## LoadOnDemand: 1
 
 LibStub\LibStub.lua
 LibPeriodicTable-3.1\LibPeriodicTable-3.1.lua
