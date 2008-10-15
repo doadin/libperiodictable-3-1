@@ -2,7 +2,7 @@
 ## Notes: Library of compressed itemid sets.
 ## Author: Nymbia
 ## X-eMail: nymbia@gmail.com
-## Interface: 20400
+## Interface: 30000
 ## Version: 3.1
 
 ## X-Website: http://www.wowace.com/wiki/PeriodicTable-3.1
