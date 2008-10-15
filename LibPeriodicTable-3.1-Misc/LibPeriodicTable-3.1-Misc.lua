@@ -105,4 +105,10 @@ LibStub("LibPeriodicTable-3.1"):AddData("Misc", "$Rev$", {
 	["Misc.Reagent.Class.Rogue"]="5140,5530",
 	["Misc.Reagent.Class.Shaman"]="17030,17057,17058,5175,5176,5177,5178",
 	["Misc.Reagent.Class.Warlock"]="5565,6265,16583",
+
+	["Misc.Spell.Mount.Ahn'Qiraj"]="-25953:100,-26056:100,-26054:100,-26055:100",
+	["Misc.Spell.Mount.Flying.Fast"]="-41514",
+	["Misc.Spell.Mount.Flying.Slow"]="-32239",
+	["Misc.Spell.Mount.Ground.Fast"]="-16081,-22718,-22721,-23509,-43688,-51412",
+	["Misc.Spell.Mount.Ground.Slow"]="-32420",
 })
