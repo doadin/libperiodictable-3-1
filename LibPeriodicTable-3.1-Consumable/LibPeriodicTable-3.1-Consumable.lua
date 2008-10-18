@@ -121,11 +121,11 @@ LibStub("LibPeriodicTable-3.1"):AddData("Consumable", "$Rev$", {
 	-- Basic foods regenerate health only.
 	-- Combo Foods regenerate hp & mana.  Please add Combo foods to the Combo Health and Combo Mana categories below as well.
 	-- Bonus foods provide some kind of buff which is listed by buff under Consumable.Food.Buff.*  Please add items to both lists.
-	["Consumable.Food.Bread"]="m,Consumable.Food.Edible.Bread.Basic,Consumable.Food.Edible.Bread.Bonus,Consumable.Food.Edible.Bread.Conjured",
+	["Consumable.Food.Bread"]="m,Consumable.Food.Edible.Bread.Basic,Consumable.Food.Edible.Bread.Bonus,Consumable.Food.Edible.Bread.Conjured,Consumable.Food.Edible.Bread.Combo.Conjured,Consumable.Food.Edible.Bread.Combo.Non-Conjured",
 	["Consumable.Food.Cheese"]="m,Consumable.Food.Edible.Cheese.Basic,Consumable.Food.Edible.Cheese.Bonus",
-	["Consumable.Food.Fish"]="m,Consumable.Food.Edible.Fish.Basic,Consumable.Food.Edible.Fish.Bonus,Consumable.Food.Inedible.Fish",
-	["Consumable.Food.Fruit"]="m,Consumable.Food.Edible.Fruit.Basic,Consumable.Food.Edible.Fruit.Bonus",
-	["Consumable.Food.Fungus"]="m,Consumable.Food.Edible.Fungus.Basic,Consumable.Food.Edible.Fungus.Bonus",
+	["Consumable.Food.Fish"]="m,Consumable.Food.Edible.Fish.Basic,Consumable.Food.Edible.Fish.Bonus,Consumable.Food.Inedible.Fish,Consumable.Food.Edible.Fish.Combo",
+	["Consumable.Food.Fruit"]="m,Consumable.Food.Edible.Fruit.Basic,Consumable.Food.Edible.Fruit.Bonus,Consumable.Food.Edible.Fruit.Combo",
+	["Consumable.Food.Fungus"]="m,Consumable.Food.Edible.Fungus.Basic,Consumable.Food.Edible.Fungus.Bonus,Consumable.Food.Edible.Fungus.Combo,Consumable.Food.Inedible.Fungus",
 	["Consumable.Food.Meat"]="m,Consumable.Food.Edible.Meat.Basic,Consumable.Food.Edible.Meat.Bonus,Consumable.Food.Inedible.Meat",
 	["Consumable.Food.Misc"]="m,Consumable.Food.Edible.Misc.Basic,Consumable.Food.Edible.Misc.Bonus",
 	["Consumable.Food.Edible.Basic.Conjured"]="m,Consumable.Food.Edible.Bread.Conjured,Consumable.Food.Edible.Bread.Combo.Conjured",
@@ -157,8 +157,10 @@ LibStub("LibPeriodicTable-3.1"):AddData("Consumable", "$Rev$", {
 	["Consumable.Food.Edible.Misc.Basic"]="961:61,4656:61,17344:61,5066:243,3448:294,5473:294,17407:874,19225:2148,733:552,5526:552,7228:552,6316:243,13933:2148,16166:61,16167:243,16170:552,16171:2148,18255:1392,29412:4320,24338:2148,24408:4320,33048:7500",
 	["Consumable.Food.Edible.Misc.Combo"]="21215:100,20390:75,20389:75,20388:75,21537:100",
 	["Consumable.Food.Edible.Misc.Bonus"]="21254:48,30357:7500,30361:7500,13931:874,18254:1933,24540:2148,22645:243,28501:4320,30358:7500,30359:7500,20452:2148,724:243,1082:552,3663:552,3664:552,5525:243,6888:61,11584:61,12212:874,12214:874,12215:1392,17198:61,23756:61",
-	["Consumable.Food.Inedible.Fish"]="2675,4603:874,4655,5468,5503,5504,6289:61,6291:30,6303:30,6308:243,6317:61,6361:61,6362:552,7974,8365:552,12206,13754:874,13755:874,13756:874,13758:874,13759:874,13760:874,13889:1392,13893:1392,15924,13890,13888:1392,27422,27435,27437,27438,27439,27429,27425",
-	["Consumable.Food.Inedible.Meat"]="729,20424,769,1015,1081,2672,2673,2677,2924,3173,3404,3667,3712,3730,3731,4739,5051,5465,5467,5469,5470,5471,12037,12184,12202,12203,12204,12205,12208,12223,27669,27671,27677,27678,22644,24477,27668,23676,31670,27674,31671,27682,27681,35562",
+	["Consumable.Food.Inedible.Fish"]="2675,4603:874,4655,5468,5503,5504,6289:61,6291:30,6303:30,6308:243,6317:61,6361:61,6362:552,7974,8365:552,12206,13754:874,13755:874,13756:874,13758:874,13759:874,13760:874,13889:1392,13893:1392,15924,13890,13888:1392,27422,27435,27437,27438,27439,27429,27425,24477,2674,27515,27516,33823,33824",
+	["Consumable.Food.Inedible.Meat"]="729,20424,769,1015,1081,2672,2673,2677,2924,3173,3404,3667,3712,3730,3731,4739,5051,5465,5467,5469,5470,5471,12037,12184,12202,12203,12204,12205,12208,12223,27669,27671,27677,27678,22644,27668,23676,31670,27674,31671,27682,27681,35562,1080,21024,2886,723",
+	["Consumable.Food.Inedible.Fungus"]="27676",
+	
 
 	-- Consumable.Food.Buff lists the *.Bonus foods from above by effect, not amount healed.  Multiple buffs are listed under each individual buff.
 	["Consumable.Food.Bonus"]="m,Consumable.Food.Edible.Bread.Bonus,Consumable.Food.Edible.Cheese.Bonus,Consumable.Food.Edible.Fish.Bonus,Consumable.Food.Edible.Fruit.Bonus,Consumable.Food.Edible.Fungus.Bonus,Consumable.Food.Edible.Meat.Bonus,Consumable.Food.Edible.Misc.Bonus",
