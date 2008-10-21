@@ -360,11 +360,18 @@ local Tradeskill_Tool_filters = {
 		"cr=91;crs=12;crv=0", -- Tool - Philosopher's Stone
 	},
 	Blacksmithing = {
-		"cr=91;crs=13;crv=0", -- Tool - Blacksmith Hammer
+		"cr=91;crs=162;crv=0",-- Tool - Blacksmith Hammer
+		"cr=91;crs=161;crv=0",-- Tool - Gnomish Army Knife
+		"cr=91;crs=167;crv=0",-- Tool - Hammer Pick
+	},
+	Cooking = {
+		"cr=91;crs=169;crv=0",-- Tool - Flint and Tinder
+		"cr=91;crs=161;crv=0",-- Tool - Gnomish Army Knife
 	},
 	Enchanting = {
 		"cr=91;crs=62;crv=0", -- Tool - Runed Adamantite Rod
 		"cr=91;crs=10;crv=0", -- Tool - Runed Arcanite Rod
+		"cr=91;crs=101;crv=0",-- Tool - Runed Azurite Rod
 		"cr=91;crs=6;crv=0",  -- Tool - Runed Copper Rod
 		"cr=91;crs=63;crv=0", -- Tool - Runed Eternium Rod
 		"cr=91;crs=41;crv=0", -- Tool - Runed Fel Iron Rod
@@ -374,14 +381,24 @@ local Tradeskill_Tool_filters = {
 	},
 	Engineering = {
 		"cr=91;crs=14;crv=0", -- Tool - Arclight Spanner
-		"cr=91;crs=13;crv=0", -- Tool - Blacksmith Hammer
+		"cr=91;crs=162;crv=0",-- Tool - Blacksmith Hammer
+		"cr=91;crs=161;crv=0",-- Tool - Gnomish Army Knife
 		"cr=91;crs=15;crv=0", -- Tool - Gyromatic Micro-Adjustor
 	},
+	Inscription = {
+		--"cr=91;crs=81;crv=0", -- Tool - Hollow Quill
+		"cr=91;crs=121;crv=0",-- Tool - Scribe Tools
+	},
 	Mining = {
-		"cr=91;crs=11;crv=0", -- Tool - Mining Pick
+		"cr=91;crs=168;crv=0",-- Tool - Bladed Pickaxe
+		--"cr=91;crs=11;crv=0", -- Tool - Digmaster 5000
+		"cr=91;crs=167;crv=0",-- Tool - Hammer Pick
+		"cr=91;crs=165;crv=0",-- Tool - Mining Pick
 	},
 	Skinning = {
-		"cr=91;crs=1;crv=0",  -- Tool - Skinning Knife
+		"cr=91;crs=168;crv=0",-- Tool - Bladed Pickaxe
+		"cr=91;crs=161;crv=0",-- Tool - Gnomish Army Knife
+		"cr=91;crs=166;crv=0",-- Tool - Skinning Knife
 	},
 }
 
@@ -397,6 +414,7 @@ local Containers_ItemsInType_items = {
 	Enchanting = 21858,
 	Engineering = 30745,
 	Gem = 30747,
+	Inscription = 39489,
 	Mining = 29540,
 }
 
@@ -406,6 +424,7 @@ local Bag_filters = {
 	Herb = "1.2",
 	Enchanting = "1.3",
 	Engineering = "1.4",
+	Inscription = "1.8",
 	Jewelcrafting = "1.5",
 	Mining = "1.6",
 	Ammo = "11.3",
@@ -423,6 +442,7 @@ local Tradeskill_Recipe_professions = {
 	Enchanting = 8,
 	Fishing = 9,
 	Jewelcrafting = 10,
+	-- None for inscription
 }
 
 local Tradeskill_Recipe_filters = {
@@ -465,6 +485,7 @@ local Tradeskill_Profession_filters = {
 	["Engineering.Gnomish"] = "11.202.20219",
 	["Engineering.Goblin"] = "11.202.20222",
 	["First Aid"] = "9.129",
+	Inscription = "11.773",
 	Jewelcrafting = "11.755",
 	["Leatherworking.Basic"] = "11.165&filter=cr=5;crs=2;crv=0",
 	["Leatherworking.Dragonscale"] = "11.165.10656",
@@ -995,7 +1016,7 @@ handlers["^Tradeskill%.Tool"] = function (set, data)
 
 	for _, filter in ipairs(filters) do
 		local nset = basic_listview_handler("http://www.wowhead.com/?items&filter="..filter)
-		if nset then
+		if nset and nset ~= "" then
 			if newset then
 				newset = newset..","..nset
 			else

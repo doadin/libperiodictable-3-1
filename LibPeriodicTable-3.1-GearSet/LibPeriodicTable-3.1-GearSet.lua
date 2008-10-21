@@ -16,7 +16,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("GearSet", "$Rev$", {
 	["GearSet.Regalia of Undead Cleansing"]="23091,23084,23085",
 	["GearSet.Shard of the Gods"]="17082,17064",
 	["GearSet.Spider's Kiss"]="13218,13183",
-	["GearSet.Spirit of Eskhandar"]="18203,18202,18204,18205",
+	["GearSet.Spirit of Eskhandar"]="18203,18202,18205",
 	["GearSet.The Gladiator"]="11729,11726,11728,11731,11730",
 	["GearSet.The Postmaster"]="13390,13388,13391,13392,13389",
 	["GearSet.The Twin Stars"]="31339,31338",
