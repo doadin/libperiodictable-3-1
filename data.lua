@@ -258,7 +258,7 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["Consumable.Weapon Buff.Poison.Instant"]		= "6947:22,6949:34,6950:50,8926:76,8927:105,8928:130,21927:170",
 	["Consumable.Weapon Buff.Poison.Mind Numbing"]		= "5237:40,6951:50,9186:60",
 	["Consumable.Weapon Buff.Poison.Wound"]			= "10918:17,10920:25,10921:38,10922:53,22055:65",
-	["Consumable.Weapon Buff.Spellstone"]			= "41191:10,41192;20,41193:30,41194:40",
+	["Consumable.Weapon Buff.Spellstone"]			= "41191:10,41192:20,41193:30,41194:40",
 	["Consumable.Weapon Buff.Stone.Sharpening Stone"]	= "23122,2862:2,2863:3,2871:4,7964:6,12404:8,18262,23528:12,23529:14",
 	["Consumable.Weapon Buff.Stone.Weight Stone"]		= "3239:2,3240:3,3241:4,7965:6,12643:8,28420:12,28421",
 
