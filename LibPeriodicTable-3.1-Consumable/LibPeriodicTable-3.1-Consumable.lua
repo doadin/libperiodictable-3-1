@@ -161,7 +161,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("Consumable", "$Rev$", {
 	["Consumable.Food.Inedible.Meat"]="729,20424,769,1015,1081,2672,2673,2677,2924,3173,3404,3667,3712,3730,3731,4739,5051,5465,5467,5469,5470,5471,12037,12184,12202,12203,12204,12205,12208,12223,27669,27671,27677,27678,22644,27668,23676,31670,27674,31671,27682,27681,35562,1080,21024,2886,723,43011,43010,43009,33120,35794,43012,43013,34736",
 	["Consumable.Food.Inedible.Fungus"]="27676",
 	["Consumable.Food.Feast"]="43015,43478,34753,43480",
-	
+
 
 	-- Consumable.Food.Buff lists the *.Bonus foods from above by effect, not amount healed.  Multiple buffs are listed under each individual buff.
 	["Consumable.Food.Bonus"]="m,Consumable.Food.Edible.Bread.Bonus,Consumable.Food.Edible.Cheese.Bonus,Consumable.Food.Edible.Fish.Bonus,Consumable.Food.Edible.Fruit.Bonus,Consumable.Food.Edible.Fungus.Bonus,Consumable.Food.Edible.Meat.Bonus,Consumable.Food.Edible.Misc.Bonus",
@@ -245,6 +245,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("Consumable", "$Rev$", {
 	["Consumable.Water.Percentage"]="19997:60,21241:60",
 
 	--!!Add to miner
+	["Consumable.Weapon Buff.Firestone"]="41170:7,41169:14,41172:28,40773;35",
 	["Consumable.Weapon Buff.Misc"]="3829,31535,23123,34538,34539",
 	["Consumable.Weapon Buff.Oil.Mana"]="20745:4,20747:8,20748:12,22521:14",
 	["Consumable.Weapon Buff.Oil.Wizard"]="20744:8,20746:16,20750:24,20749:36,22522:42",
@@ -254,6 +255,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("Consumable", "$Rev$", {
 	["Consumable.Weapon Buff.Poison.Instant"]="6947:22,6949:34,6950:50,8926:76,8927:105,8928:130,21927:170",
 	["Consumable.Weapon Buff.Poison.Mind Numbing"]="5237:40,6951:50,9186:60",
 	["Consumable.Weapon Buff.Poison.Wound"]="10918:17,10920:25,10921:38,10922:53,22055:65",
+	["Consumable.Weapon Buff.Spellstone"]="41191:10,41192;20,41193:30,41194:40",
 	["Consumable.Weapon Buff.Stone.Sharpening Stone"]="23122,2862:2,2863:3,2871:4,7964:6,12404:8,18262,23528:12,23529:14",
 	["Consumable.Weapon Buff.Stone.Weight Stone"]="3239:2,3240:3,3241:4,7965:6,12643:8,28420:12,28421",
 })
