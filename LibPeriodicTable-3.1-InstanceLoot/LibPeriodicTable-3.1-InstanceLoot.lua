@@ -1,7 +1,7 @@
 -- (c) 2007 Nymbia.  see LGPLv2.1.txt for full details.
 --DO NOT MAKE CHANGES TO THIS FILE BEFORE READING THE WIKI PAGE REGARDING CHANGING THESE FILES
 if not LibStub("LibPeriodicTable-3.1", true) then error("PT3 must be loaded before data") end
-LibStub("LibPeriodicTable-3.1"):AddData("InstanceLoot", "$Rev$", {
+LibStub("LibPeriodicTable-3.1"):AddData("InstanceLoot", gsub("$Rev$", "(%d+)", function(n) return n+90000 end), {
 	["InstanceLoot.Ahn'Qiraj.Battleguard Sartura"]="21675:95,21648:87,21676:81,21669:80,21678:80,21674:77,21671:77,21672:76,21670:64,21666:59,21668:52,21667:50,21673:41,21677:0",
 	["InstanceLoot.Ahn'Qiraj.C'Thun"]="21221:924,20933:863,20929:825,21596:227,21581:181,21586:174,21583:174,22732:174,21585:151,22730:151,21126:128,21839:121,21579:121,22731:98,21582:90,21134:68",
 	["InstanceLoot.Ahn'Qiraj.Emperor Vek'lor"]="20930:566,21602:154,21599:101,21598:100,21600:95,21601:95,20735:68,21597:61",
