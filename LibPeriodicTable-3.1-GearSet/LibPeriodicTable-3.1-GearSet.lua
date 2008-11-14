@@ -2,7 +2,7 @@
 --DO NOT MAKE CHANGES TO THIS FILE BEFORE READING THE WIKI PAGE REGARDING CHANGING THESE FILES
 if not LibStub("LibPeriodicTable-3.1", true) then error("PT3 must be loaded before data") end
 LibStub("LibPeriodicTable-3.1"):AddData("GearSet", gsub("$Rev$", "(%d+)", function(n) return n+90000 end), {
-	["GearSet.Battlegear of Undead Slaying"]="23090,23087,23078",
+	["GearSet.Battlegear of Undead Slaying"]="43070,43068,43071,43069",
 	["GearSet.Bloodmail Regalia"]="14614,14616,14615,14611,14612",
 	["GearSet.Cadaverous Garb"]="14637,14636,14640,14638,14641",
 	["GearSet.Chain of the Scarlet Crusade"]="10329,10332,10328,10331,10330,10333",
@@ -10,10 +10,10 @@ LibStub("LibPeriodicTable-3.1"):AddData("GearSet", gsub("$Rev$", "(%d+)", functi
 	["GearSet.Deathbone Guardian"]="14624,14622,14620,14623,14621",
 	["GearSet.Defias Leather"]="10399,10403,10402,10401,10400",
 	["GearSet.Embrace of the Viper"]="10412,10411,10413,10410,6473",
-	["GearSet.Garb of the Undead Slayer"]="23088,23082,23092",
+	["GearSet.Garb of the Undead Slayer"]="43082,43081,43083,43080",
 	["GearSet.Ironweave Battlesuit"]="22306,22311,22313,22302,22304,22305,22303,22301",
 	["GearSet.Necropile Raiment"]="14631,14629,14632,14633,14626",
-	["GearSet.Regalia of Undead Cleansing"]="23091,23084,23085",
+	["GearSet.Regalia of Undead Cleansing"]="43073,43074,43075,43072",
 	["GearSet.Shard of the Gods"]="17082,17064",
 	["GearSet.Spider's Kiss"]="13218,13183",
 	["GearSet.Spirit of Eskhandar"]="18203,18202,18205",
@@ -21,7 +21,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("GearSet", gsub("$Rev$", "(%d+)", functi
 	["GearSet.The Postmaster"]="13390,13388,13391,13392,13389",
 	["GearSet.The Twin Stars"]="31339,31338",
 	["GearSet.Twilight Trappings"]="20406,20408,20407",
-	["GearSet.Undead Slayer's Armor"]="23081,23089,23093",
+	["GearSet.Undead Slayer's Armor"]="43078,43077,43079,43076",
 
 	["GearSet.Crafted.Adamantite Battlegear"]="23507,23508,23506",
 	["GearSet.Crafted.Arcanoweave Vestments"]="21868,21866,21867",
@@ -360,5 +360,5 @@ LibStub("LibPeriodicTable-3.1"):AddData("GearSet", gsub("$Rev$", "(%d+)", functi
 	["GearSet.Zul'Gurub.Prayer of the Primal"]="19863,19920",
 	["GearSet.Zul'Gurub.Primal Blessing"]="19896,19910",
 	["GearSet.Zul'Gurub.The Twin Blades of Hakkari"]="19865,19866",
-	["GearSet.Zul'Gurub.Zanzil's Concentration"]="19905,19893",
+	["GearSet.Zul'Gurub.Zanzil's Concentration"]="19893,19905",
 })
