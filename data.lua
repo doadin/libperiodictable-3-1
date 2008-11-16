@@ -215,7 +215,7 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	--NOT AUTOGENNED (All potions.  I'd like to get this mined, but the filters for these items on allakhazam and wowhead are nonexistant.)
 	["Consumable.Potion.Other.Cure"]					= "3386,13462,9030,2633",
 	["Consumable.Potion.Recovery.Dreamless Sleep"]				= "12190:1200,20002:2100,22836:3600",
-	["Consumable.Potion.Recovery.Healing.Basic"]				= "118:80,858:160,4596:160,929:320,1710:520,11562:670,3928:800,18839:800,13446:1400,31838:1400,31839:1400,31852:1400,31853:1400,28100:1400,33092:2000,23822:2000,22829:2000,32947:2000,33934:2000",
+	["Consumable.Potion.Recovery.Healing.Basic"]				= "118:80,858:160,4596:160,929:320,1710:520,11562:670,3928:800,18839:800,13446:1400,31838:1400,31839:1400,31852:1400,31853:1400,28100:1400,33092:2000,23822:2000,22829:2000,32947:2000,33934:2000,33447:3600",
 	["Consumable.Potion.Recovery.Healing.Blades Edge"]			= "32784:1400,32910:1400",
 	["Consumable.Potion.Recovery.Healing.Coilfang"]				= "32904:2000",
 	["Consumable.Potion.Recovery.Healing.Tempest Keep"]			= "32905:2000",
@@ -230,10 +230,10 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["Consumable.Leatherworking.Drums"]		= "m,Consumable.Cooldown.Drums.Drums",--NOT AUTOGENNED
 	["Consumable.Tailor.Net"]			= "m,Consumable.Cooldown.Drums.Nets",--NOT AUTOGENNED
 
-	["Consumable.Warlock.Firestone"]			= "1254,13699,13700,13701,22128",--NOT AUTOGENNED
-	["Consumable.Warlock.Healthstone"]			= "5509:500,5510:800,5511:250,5512:100,9421:1200,19004:110,19005:120,19006:275,19007:300,19008:550,19009:600,19010:880,19011:960,19012:1320,19013:1440,22103:2080,22104:2288,22105:2496,36889:3500,36890:3850,36891:4200",--NOT AUTOGENNED
-	["Consumable.Warlock.Soulstone"]			= "5522:8,13602:11,13603:14,22646:20",--NOT AUTOGENNED
-	["Consumable.Warlock.Spellstone"]			= "5232,16892,16893,16895,16896,22116",--NOT AUTOGENNED
+	["Consumable.Warlock.Firestone"]			= "1254,13699,13700,13701,22128,41174",--NOT AUTOGENNED
+	["Consumable.Warlock.Healthstone"]			= "5509:500,5510:800,5511:250,5512:100,9421:1200,19004:110,19005:120,19006:275,19007:300,19008:550,19009:600,19010:880,19011:960,19012:1320,19013:1440,22103:2080,22104:2288,22105:2496,36889:3500,36890:3850,36891:4200,36892:4280,36893:4708,36894:5136",--NOT AUTOGENNED
+	["Consumable.Warlock.Soulstone"]			= "5522:8,13602:11,13603:14,22646:20,36895:30",--NOT AUTOGENNED
+	["Consumable.Warlock.Spellstone"]			= "5232,16892,16893,16895,16896,22116,41195,41196",--NOT AUTOGENNED
 
 	--NOT AUTOGENNED (All water.  I'd like to get this mined, but the filters for these items on allakhazam and wowhead are nonexistant.)
 	["Consumable.Water.Basic"]				= "1401:60,159:151,1179:436,17404:436,1205:835,9451:835,19299:835,1708:1344,4791:1344,10841:1344,17405:1344,1645:1992,19300:1992,8766:2934,23161:2934,23585:2934,24006:2934,38429:2934,32455:4200,18300:4200,24007:4200,28399:5100,29454:5100,38430:5100,27860:7200,29395:7200,30457:7200,29401:7200,33042:7200,32668:7200,32453:7200,35954:7200,37253:7200,38431:7200,44750:7200,38698:9180,42777:12960,43086:9180,40357:7200,33445:12960,33444:9180,43236:12960,41731:12960,39520:12960",
