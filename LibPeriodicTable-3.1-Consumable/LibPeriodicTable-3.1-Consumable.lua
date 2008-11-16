@@ -228,7 +228,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("Consumable", gsub("$Rev$", "(%d+)", fun
 
 	--NOT AUTOGENNED These are items you need to (right) click to use.  If it makes no sense in a button, it does not belong here.  Permanent: Vargoth's Staff, Pony Keg, etc. Quest: removed by Blizzard on quest completion. Replenished: dailies like booterang or others you can replenish like Halaa bombs.
 	["Consumable.Warlock.Firestone"]="1254,13699,13700,13701,22128",
-	["Consumable.Warlock.Healthstone"]="5509:500,5510:800,5511:250,5512:100,9421:1200,19004:110,19005:120,19006:275,19007:300,19008:550,19009:600,19010:880,19011:960,19012:1320,19013:1440,22103:2080,22104:2288,22105:2496",
+	["Consumable.Warlock.Healthstone"]="5509:500,5510:800,5511:250,5512:100,9421:1200,19004:110,19005:120,19006:275,19007:300,19008:550,19009:600,19010:880,19011:960,19012:1320,19013:1440,22103:2080,22104:2288,22105:2496,36889:3500,36890:3850,36891:4200",
 	["Consumable.Warlock.Soulstone"]="5522:8,13602:11,13603:14,22646:20",
 	["Consumable.Warlock.Spellstone"]="5232,16892,16893,16895,16896,22116",
 
@@ -245,7 +245,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("Consumable", gsub("$Rev$", "(%d+)", fun
 	["Consumable.Water.Percentage"]="19997:60,21241:60",
 
 	--!!Add to miner
-	["Consumable.Weapon Buff.Firestone"]="41170:7,41169:14,41172:28,40773:35",
+	["Consumable.Weapon Buff.Firestone"]="41170:7,41169:14,41172:28,40773:35,41173:42",
 	["Consumable.Weapon Buff.Misc"]="3829,31535,23123,34538,34539",
 	["Consumable.Weapon Buff.Oil.Mana"]="20745:4,20747:8,20748:12,22521:14",
 	["Consumable.Weapon Buff.Oil.Wizard"]="20744:8,20746:16,20750:24,20749:36,22522:42",
@@ -255,7 +255,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("Consumable", gsub("$Rev$", "(%d+)", fun
 	["Consumable.Weapon Buff.Poison.Instant"]="6947:22,6949:34,6950:50,8926:76,8927:105,8928:130,21927:170",
 	["Consumable.Weapon Buff.Poison.Mind Numbing"]="5237:40,6951:50,9186:60",
 	["Consumable.Weapon Buff.Poison.Wound"]="10918:17,10920:25,10921:38,10922:53,22055:65",
-	["Consumable.Weapon Buff.Spellstone"]="41191:10,41192:20,41193:30,41194:40",
+	["Consumable.Weapon Buff.Spellstone"]="41191:10,41192:20,41193:30,41194:40,36896:20",
 	["Consumable.Weapon Buff.Stone.Sharpening Stone"]="23122,2862:2,2863:3,2871:4,7964:6,12404:8,18262,23528:12,23529:14",
 	["Consumable.Weapon Buff.Stone.Weight Stone"]="3239:2,3240:3,3241:4,7965:6,12643:8,28420:12,28421",
 })
