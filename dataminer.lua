@@ -225,6 +225,37 @@ local function get_zone_id_from_name(name)
 	end
 end
 
+local function sortSet(a, b)
+	local aId, aValue = a:match("(-*%d+):(-*%d+)")
+	local bId, bValue = b:match("(-*%d+):(-*%d+)")
+	if (not aId) then
+		aId = a
+	else
+		aValue = tonumber(aValue)
+	end
+	if (not bId) then
+		bId = b
+	else
+		bValue = tonumber(bValue)
+	end
+	aId = tonumber(aId)
+	bId = tonumber(bId)
+
+	if (aValue and bValue) then
+		if (aValue == bValue) then
+			return aId < bId
+		else
+			return aValue < bValue
+		end
+	elseif (aValue) then
+		return false
+	elseif (bValue) then
+		return true
+	else
+		return aId < bId
+	end
+end
+
 local function basic_itemid_handler(itemstring)
 	return itemstring:match("{id:(%d+)")
 end
@@ -249,6 +280,7 @@ local function basic_listview_handler(url, handler, names)
 		end
 		if not names then break end
 	end
+	table.sort(newset, sortSet)
 	return table.concat(newset, ",")
 end
 
@@ -1210,7 +1242,7 @@ handlers["^Gear%.Vendor"] = function (set, data)
 		local itemid = itemstr:match("{id:(%d+)")
 		local class = tonumber(itemstr:match("classs:(%d+)"))
 		local count = itemstr:match("%[%["..currency_id..",(%d+)%]%]")
-		print(itemid, count)
+--		print(itemid, count)
 		if count and (class == 2 or class == 4) then
 			return itemid..":"..count
 		end
