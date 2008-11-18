@@ -37,7 +37,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("Consumable", gsub("$Rev$", "(%d+)", fun
 	["Consumable.Buff.Armor.Target"]="3013:65,1478:105,4421:150,10305:195,27500:240,33459:285,43467:340",
 	["Consumable.Buff.Attack Crit.Flask"]="32597:20",
 	["Consumable.Buff.Attack Damage"]="23501:10,22788:40",
-	["Consumable.Buff.Attack Power.Self"]="23989:10,22779:30,12820:35,29528:60,28102:60,31679:120,9224:265",
+	["Consumable.Buff.Attack Power.Self"]="23989:10,22779:30,12820:35,29528:60,28102:60,40068:90,31679:120,9224:265",
 	["Consumable.Buff.Attack Power.Flask"]="32599:20,22854:120,32901:120",
 	["Consumable.Buff.Attack Power.Target"]="12460:40",
 	["Consumable.Buff.Attack Speed.Self"]="29529:80,22838:400",
