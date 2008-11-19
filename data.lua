@@ -116,7 +116,7 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["Consumable.Cooldown.Stone.Health.Statue"]				= "25498:8,25880:16,25881:24,25882:36,25883:50",--NOT AUTOGENNED
 	["Consumable.Cooldown.Stone.Health.Warlock"]				= "m,Consumable.Warlock.Healthstone,",
 	["Consumable.Cooldown.Stone.Mana.Other"]				= "23354:60,23386:100,31451:300,20520:1200,12662:1200",
-	["Consumable.Cooldown.Stone.Mana.Mana Stone"]				= "5513:600,5514:400,8007:850,8008:1100,22044:1250",--NOT AUTOGENNED
+	["Consumable.Cooldown.Stone.Mana.Mana Stone"]				= "5513:600,5514:400,8007:850,8008:1100,22044:1250,33312:3415",--NOT AUTOGENNED
 	["Consumable.Cooldown.Drums.Bombs"]				= "m,Misc.Explosives",--NOT AUTOGENNED
 	["Consumable.Cooldown.Drums.Drums"]				= "29528:1,29530:2,29531:3,29529:4,29532:5",--NOT AUTOGENNED
 	["Consumable.Cooldown.Drums.Nets"]				= "24268:70,24269:80",--NOT AUTOGENNED
