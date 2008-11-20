@@ -330,6 +330,11 @@ end
 --[[ STATIC DATA ]]
 
 local Class_Skills = {
+	["Death Knight"] = {
+		Blood = "7.6.770",
+		Frost = "7.6.771",
+		Unholy = "7.6.772",
+	},
 	Druid = {
 		Balance = "7.11.574",
 		["Feral Combat"] = "7.11.134",
@@ -447,6 +452,7 @@ local Containers_ItemsInType_items = {
 	Engineering = 30745,
 	Gem = 30747,
 	Inscription = 39489,
+	Leatherworking = 34482,
 	Mining = 29540,
 }
 
@@ -458,6 +464,7 @@ local Bag_filters = {
 	Engineering = "1.4",
 	Inscription = "1.8",
 	Jewelcrafting = "1.5",
+	Leatherworking = "1.7",
 	Mining = "1.6",
 	Ammo = "11.3",
 	Quiver = "11.2",
