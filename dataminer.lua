@@ -942,7 +942,7 @@ handlers["^Tradeskill%.Crafted"] = function (set, data)
 		local skilllvl = itemstring:match("learnedat:(%d+)")
 		local reagentstring = itemstring:match("reagents:(%b[])")
 		if not reagentstring then return end
-		skilllvl = math.min(375, tonumber(skilllvl) or 375)
+		skilllvl = math.min(450, tonumber(skilllvl) or 450)
 		local itemid
 		dprint(3, profession, itemid, skilllvl, reagentstring)
 		if profession == "Enchanting" then
