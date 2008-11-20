@@ -155,7 +155,7 @@ local function read_data_file()
 
 	local sets = {}
 	local setcount = 0
-	for set, data in file:gmatch('\t%[%"('..subset..'[^"]+)%"%][^=]-= "([^"]-)"') do
+	for set, data in file:gmatch('\t%[%"('..subset..'%.[^"]+)%"%][^=]-= "([^"]-)"') do
 		sets[set] = data
 		setcount = setcount + 1
 	end
@@ -1225,7 +1225,7 @@ end
 handlers["^Gear%.Trinket$"] = function (set, data)
 	local tmp = {}
 	for q = 0, 6 do
-		local l = basic_listview_handler(string.format("http://www.wowhead.com/?items&filter=qu=%d;sl=12", q))
+		local l = basic_listview_handler(string.format("http://www.wowhead.com/?items=4.-4&filter=qu=%d", q))
 		if l and l ~= "" then
 			tmp[#tmp + 1] = l
 		end
