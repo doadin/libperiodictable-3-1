@@ -155,7 +155,7 @@ local function read_data_file()
 
 	local sets = {}
 	local setcount = 0
-	for set, data in file:gmatch('\t%[%"('..subset..'%.[^"]+)%"%][^=]-= "([^"]-)"') do
+	for set, data in file:gmatch('\t%[%"('..subset..'[^"]+)%"%][^=]-= "([^"]-)"') do
 		sets[set] = data
 		setcount = setcount + 1
 	end
@@ -225,6 +225,33 @@ local function get_zone_id_from_name(name)
 	end
 end
 
+-- Split string str using sep and merge into t if provided
+-- return t or a new table containing the split values
+local function StrSplitMerge(sep, str, t)
+	local r = t
+	if (not r) then
+		r = {}
+	end
+
+    local nb = # t
+    if (string.find(str, sep) == nil) then
+	    r[nb + 1] = str
+        return r
+    end
+    local pat = "(.-)" .. sep .. "()"
+    local lastPos
+    for part, pos in string.gfind(str, pat) do
+        nb = nb + 1
+        r[nb] = part
+        lastPos = pos
+    end
+    -- Handle the last field
+    r[nb + 1] = string.sub(str, lastPos)
+
+	return r
+end
+
+-- Used to sort tables with values [-id|id][:value]
 local function sortSet(a, b)
 	local aId, aValue = a:match("(-*%d+):(-*%d+)")
 	local bId, bValue = b:match("(-*%d+):(-*%d+)")
@@ -1195,30 +1222,29 @@ end
 
 handlers["^Misc%.Usable%.StartsQuest$"] = function (set, data)
 	local tmp = {}
-	for q = 0, 6 do
-		local l = basic_listview_handler(string.format("http://www.wowhead.com/?items&filter=qu=%d;cr=6;crs=1;crv=0", q))
-		if l and l ~= "" then
-			tmp[#tmp + 1] = l
+	local l
+	for q = 0, 5 do	-- do not do 6 heirloom, it just causes a timeout delay as there are none atm
+		if (q == 1) then
+			for level = 0, 90, 30 do
+				l = basic_listview_handler(string.format("http://www.wowhead.com/?items&filter=qu=1;minrl=%d;maxrl=%d;cr=6;crs=1;crv=0", level, level + 29))
+				if l and l ~= "" then
+					StrSplitMerge(",", l, tmp)
+				end
+			end
+		else
+			l = basic_listview_handler(string.format("http://www.wowhead.com/?items&filter=qu=%d;cr=6;crs=1;crv=0", q))
+			if l and l ~= "" then
+				StrSplitMerge(",", l, tmp)
+			end
 		end
 	end
+	table.sort(tmp, sortSet)
 	return table.concat(tmp, ",")
 end
 --[[
 -- For the love of god, there is no way in HELL for wowhead to return the right stuff.  Do not ever enable this rubbish.  I spent a LOT of time getting the list correct.
 handlers["^Misc%.Usable%.Quest$"] = function (set, data)
 	-- DO NOT EVER IMPLEMENT THIS
-end
-
-handlers["^Gear%.Idol$"] = function (set, data)
-	return basic_listview_handler("http://www.wowhead.com/?items=4.8")
-end
-
-handlers["^Gear%.Libram$"] = function (set, data)
-	return basic_listview_handler("http://www.wowhead.com/?items=4.7")
-end
-
-handlers["^Gear%.Totem$"] = function (set, data)
-	return basic_listview_handler("http://www.wowhead.com/?items=4.9")
 end
 ]]
 
