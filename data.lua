@@ -255,7 +255,7 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["Consumable.Weapon Buff.Oil.Wizard"]			= "20744:8,20746:16,20750:24,20749:36,22522:42",
 	["Consumable.Weapon Buff.Poison.Anesthetic"]		= "21835:153,43237:231",
 	["Consumable.Weapon Buff.Poison.Crippling"]		= "3775:50",
-	["Consumable.Weapon Buff.Poison.Deadly"]		= "2892:36,2893:52,8984:80,8985:108,20844:136,22053:144,22054:180,43232:244",
+	["Consumable.Weapon Buff.Poison.Deadly"]		= "2892:36,2893:52,8984:80,8985:108,20844:136,22053:144,22054:180,43232:244,43233:296",
 	["Consumable.Weapon Buff.Poison.Instant"]		= "6947:22,6949:34,6950:50,8926:76,8927:105,8928:130,21927:170,43230:245",
 	["Consumable.Weapon Buff.Poison.Mind Numbing"]		= "5237:60",
 	["Consumable.Weapon Buff.Poison.Wound"]			= "10918:17,10920:25,10921:38,10922:53,22055:112,43234:188,43235:231",
