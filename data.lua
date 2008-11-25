@@ -109,18 +109,18 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["Consumable.Cooldown.Potion.Mana.Coilfang"]				= "32903:2400",
 	["Consumable.Cooldown.Potion.Mana.Pvp"]					= "17351:1120,17352:640,43570:500",
 	["Consumable.Cooldown.Potion.Mana.Tempest Keep"]			= "32902:2400",
-	["Consumable.Cooldown.Potion.Rejuvenation.Regular"]				= "2456:120,11952:425,9144:750,29531:750,18253:1600,22850:2200,34440:2200",
+	["Consumable.Cooldown.Potion.Rejuvenation.Regular"]			= "2456:120,11952:425,9144:750,29531:750,18253:1600,22850:2200,34440:2200",
 	["Consumable.Cooldown.Potion.Rejuvenation.Dreamless Sleep"]		= "12190:1200,20002:2100,22836:3600",
-	["Consumable.Cooldown.Stone.Combat"]				= "22797,22795,22788",
+	["Consumable.Cooldown.Stone.Combat"]					= "22797,22795,22788",
 	["Consumable.Cooldown.Stone.Health.Other"]				= "11951:800,32578:2000,",
 	["Consumable.Cooldown.Stone.Health.Statue"]				= "25498:8,25880:16,25881:24,25882:36,25883:50",--NOT AUTOGENNED
 	["Consumable.Cooldown.Stone.Health.Warlock"]				= "m,Consumable.Warlock.Healthstone,",
 	["Consumable.Cooldown.Stone.Mana.Other"]				= "23354:60,23386:100,31451:300,20520:1200,12662:1200",
 	["Consumable.Cooldown.Stone.Mana.Mana Stone"]				= "5513:600,5514:400,8007:850,8008:1100,22044:1250,33312:3415",--NOT AUTOGENNED
-	["Consumable.Cooldown.Drums.Bombs"]				= "m,Misc.Explosives",--NOT AUTOGENNED
-	["Consumable.Cooldown.Drums.Drums"]				= "29528:1,29530:2,29531:3,29529:4,29532:5",--NOT AUTOGENNED
-	["Consumable.Cooldown.Drums.Nets"]				= "24268:70,24269:80",--NOT AUTOGENNED
-	["Consumable.Cooldown.Drums.Other"]				= "1127,1178,1191,1399,1434,2091,3456,4384,4388,4391,4395,4852,4941,5332,10646,10719,10830,11565,11566,13509,13514,15778,21325,23379,23841",--NOT AUTOGENNED
+	["Consumable.Cooldown.Drums.Bombs"]					= "m,Misc.Explosives",--NOT AUTOGENNED
+	["Consumable.Cooldown.Drums.Drums"]					= "29528:1,29530:2,29531:3,29529:4,29532:5",--NOT AUTOGENNED
+	["Consumable.Cooldown.Drums.Nets"]					= "24268:70,24269:80",--NOT AUTOGENNED
+	["Consumable.Cooldown.Drums.Other"]					= "1127,1178,1191,1399,1434,2091,3456,4384,4388,4391,4395,4852,4941,5332,10646,10719,10830,11565,11566,13509,13514,15778,21325,23379,23841",--NOT AUTOGENNED
 
 	--NOT AUTOGENNED (All food.  I'd like to get this mined, but the filters for these items on allakhazam and wowhead are nonexistant.)
 	-- Basic foods regenerate health only.
@@ -136,8 +136,8 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["Consumable.Food.Edible.Basic.Conjured"]			= "m,Consumable.Food.Edible.Bread.Conjured,Consumable.Food.Edible.Bread.Combo.Conjured",
 	["Consumable.Food.Edible.Basic.Non-Conjured"]			= "m,Consumable.Food.Edible.Bread.Basic,Consumable.Food.Edible.Cheese.Basic,Consumable.Food.Edible.Fish.Basic,Consumable.Food.Edible.Fruit.Basic,Consumable.Food.Edible.Fungus.Basic,Consumable.Food.Edible.Meat.Basic,Consumable.Food.Edible.Misc.Basic",
 	["Consumable.Food.Edible.Bonus"]				= "m,Consumable.Food.Edible.Bread.Bonus,Consumable.Food.Edible.Cheese.Bonus,Consumable.Food.Edible.Fish.Bonus,Consumable.Food.Edible.Fruit.Bonus,Consumable.Food.Edible.Fungus.Bonus,Consumable.Food.Edible.Meat.Bonus,Consumable.Food.Edible.Misc.Bonus",
-	["Consumable.Food.Edible.Combo.Conjured"]	= "m,Consumable.Food.Edible.Bread.Combo.Conjured",
-	["Consumable.Food.Edible.Combo.Non-Conjured"]	= "m,Consumable.Food.Edible.Misc.Combo,Consumable.Food.Edible.Fungus.Combo,Consumable.Food.Edible.Fruit.Combo,Consumable.Food.Edible.Fish.Combo,Consumable.Food.Edible.Bread.Combo.Non-Conjured",
+	["Consumable.Food.Edible.Combo.Conjured"]			= "m,Consumable.Food.Edible.Bread.Combo.Conjured",
+	["Consumable.Food.Edible.Combo.Non-Conjured"]			= "m,Consumable.Food.Edible.Misc.Combo,Consumable.Food.Edible.Fungus.Combo,Consumable.Food.Edible.Fruit.Combo,Consumable.Food.Edible.Fish.Combo,Consumable.Food.Edible.Bread.Combo.Non-Conjured",
 	["Consumable.Food.Edible.Battleground.Alterac Valley.Combo"]	= "19301:4410",
 	["Consumable.Food.Edible.Battleground.Arathi Basin.Basic"]	= "20063:1074,20064:1608,20062:2148,20223:1074,20224:1608,20222:2148,20226:1074,20227:1608,20225:2148",
 	["Consumable.Food.Edible.Battleground.Warsong Gulch.Basic"]	= "19062:1074,19061:1608,19060:2148",
@@ -165,14 +165,14 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["Consumable.Food.Inedible.Fish"]				= "2675,4603:874,4655,5468,5503,5504,6289:61,6291:30,6303:30,6308:243,6317:61,6361:61,6362:552,7974,8365:552,12206,13754:874,13755:874,13756:874,13758:874,13759:874,13760:874,13889:1392,13893:1392,15924,13890,13888:1392,27422,27435,27437,27438,27439,27429,27425,24477,2674,27515,27516,33823,33824,41812,41808,41805,41800,41807,41810,43646,41809,41814,41802,43572,41801,41806,41813,41803,43571,43647,43652,36782",
 	["Consumable.Food.Inedible.Meat"]				= "729,20424,769,1015,1081,2672,2673,2677,2924,3173,3404,3667,3712,3730,3731,4739,5051,5465,5467,5469,5470,5471,12037,12184,12202,12203,12204,12205,12208,12223,27669,27671,27677,27678,22644,27668,23676,31670,27674,31671,27682,27681,35562,1080,21024,2886,723,43011,43010,43009,33120,35794,43012,43013,34736",
 	["Consumable.Food.Inedible.Fungus"]				= "27676",
-	["Consumable.Food.Feast"]						= "43015,43478,34753,43480",
+	["Consumable.Food.Feast"]					= "43015,43478,34753,43480",
 
 	-- Consumable.Food.Buff lists the *.Bonus foods from above by effect, not amount healed.  Multiple buffs are listed under each individual buff.
 	["Consumable.Food.Bonus"]			= "m,Consumable.Food.Edible.Bread.Bonus,Consumable.Food.Edible.Cheese.Bonus,Consumable.Food.Edible.Fish.Bonus,Consumable.Food.Edible.Fruit.Bonus,Consumable.Food.Edible.Fungus.Bonus,Consumable.Food.Edible.Meat.Bonus,Consumable.Food.Edible.Misc.Bonus",
 
 	["Consumable.Food.Buff.Agility"]		= "13928:10,27664:20,30358:20,27659:20,42999:40",
 	["Consumable.Food.Buff.Attack Power"]		= "35563:24,27655:40,34748:60,34754:80,34766:80,34762:60,43268:60",
-	["Consumable.Food.Buff.Critical Rating"]		= "34756:40,34750:30,39691:30,34764:30,34768:40",
+	["Consumable.Food.Buff.Critical Rating"]	= "34756:40,34750:30,39691:30,34764:30,34768:40",
 	["Consumable.Food.Buff.Expertise"]		= "42994:40",
 	["Consumable.Food.Buff.Haste Rating"]		= "34751:30,34757:40,34125:30,42942:30",
 	["Consumable.Food.Buff.Healing"]  		= "35565:14,27666:44,30357:44",
@@ -249,7 +249,7 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["Consumable.Water.Percentage"]				= "19997:60,21241:60",
 
 	--!!Add to miner
-	["Consumable.Weapon Buff.Firestone"]		= "41170:7,41169:14,41172:28,40773:35,41173:42",
+	["Consumable.Weapon Buff.Firestone"]			= "41170:7,41169:14,41172:28,40773:35,41173:42",
 	["Consumable.Weapon Buff.Misc"]				= "3829,31535,23123,34538,34539",
 	["Consumable.Weapon Buff.Oil.Mana"]			= "20745:4,20747:8,20748:12,22521:14",
 	["Consumable.Weapon Buff.Oil.Wizard"]			= "20744:8,20746:16,20750:24,20749:36,22522:42",
@@ -640,6 +640,44 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["GearSet.Tier 6.Warrior.Onslaught Armor"]		= "30976,30974,30970,30978,30980,34568,34442,34547",
 	["GearSet.Tier 6.Warrior.Onslaught Battlegear"]		= "30972,30975,30969,30977,30979,34546,34441,34569",
 
+	["GearSet.Tier 7.10.Death Knight.Heroes' Scourgeborne Battlegear"]	= "39617,39618,39619,39620,39621",
+	["GearSet.Tier 7.10.Death Knight.Heroes' Scourgeborne Plate"]		= "39623,39624,39625,39626,39627",
+	["GearSet.Tier 7.10.Druid.Heroes' Dreamwalker Battlegear"]		= "39553,39554,39555,39556,39557",
+	["GearSet.Tier 7.10.Druid.Heroes' Dreamwalker Garb"]			= "39544,39545,39546,39547,39548",
+	["GearSet.Tier 7.10.Druid.Heroes' Dreamwalker Regalia"]			= "39531,39538,39539,39542,39543",
+	["GearSet.Tier 7.10.Hunter.Heroes' Cryptstalker Battlegear"]		= "39578,39579,39580,39581,39582",
+	["GearSet.Tier 7.10.Mage.Heroes' Frostfire Garb"]			= "39491,39492,39493,39494,39495",
+	["GearSet.Tier 7.10.Paladin.Heroes' Redemption Battlegear"]		= "39633,39634,39635,39636,39637",
+	["GearSet.Tier 7.10.Paladin.Heroes' Redemption Plate"]			= "39638,39639,39640,39641,39642",
+	["GearSet.Tier 7.10.Paladin.Heroes' Redemption Regalia"]		= "39628,39629,39630,39631,39632",
+	["GearSet.Tier 7.10.Priest.Heroes' Garb of Faith"]			= "39521,39523,39528,39529,39530",
+	["GearSet.Tier 7.10.Priest.Heroes' Regalia of Faith"]			= "39514,39515,39517,39518,39519",
+	["GearSet.Tier 7.10.Rogue.Heroes' Bonescythe Battlegear"]		= "39558,39560,39561,39564,39565",
+	["GearSet.Tier 7.10.Shaman.Heroes' Earthshatter Garb"]			= "39592,39593,39594,39595,39596",
+	["GearSet.Tier 7.10.Shaman.Heroes' Earthshatter Regalia"]		= "39583,39588,39589,39590,39591",
+	["GearSet.Tier 7.10.Warlock.Heroes' Plagueheart Garb"]			= "39496,39497,39498,39499,39500",
+	["GearSet.Tier 7.10.Warrior.Heroes' Dreadnaught Battlegear"]		= "39605,39606,39607,39608,39609",
+	["GearSet.Tier 7.10.Warrior.Heroes' Dreadnaught Plate"]			= "39610,39611,39612,39613,39622",
+
+	["GearSet.Tier 7.25.Death Knight.Valorous Scourgeborne Battlegear"]	= "40550,40552,40554,40556,40557",
+	["GearSet.Tier 7.25.Death Knight.Valorous Scourgeborne Plate"]		= "40559,40563,40565,40567,40568",
+	["GearSet.Tier 7.25.Druid.Valorous Dreamwalker Battlegear"]		= "40471,40472,40473,40493,40494",
+	["GearSet.Tier 7.25.Druid.Valorous Dreamwalker Garb"]			= "40466,40467,40468,40469,40470",
+	["GearSet.Tier 7.25.Druid.Valorous Dreamwalker Regalia"]		= "40460,40461,40462,40463,40465",
+	["GearSet.Tier 7.25.Hunter.Valorous Cryptstalker Battlegear"]		= "40503,40504,40505,40506,40507",
+	["GearSet.Tier 7.25.Mage.Valorous Frostfire Garb"]			= "40415,40416,40417,40418,40419",
+	["GearSet.Tier 7.25.Paladin.Valorous Redemption Battlegear"]		= "40574,40575,40576,40577,40578",
+	["GearSet.Tier 7.25.Paladin.Valorous Redemption Plate"]			= "40579,40580,40581,40583,40584",
+	["GearSet.Tier 7.25.Paladin.Valorous Redemption Regalia"]		= "40569,40570,40571,40572,40573",
+	["GearSet.Tier 7.25.Priest.Valorous Garb of Faith"]			= "40454,40456,40457,40458,40459",
+	["GearSet.Tier 7.25.Priest.Valorous Regalia of Faith"]			= "40445,40447,40448,40449,40450",
+	["GearSet.Tier 7.25.Rogue.Valorous Bonescythe Battlegear"]		= "40495,40496,40499,40500,40502",
+	["GearSet.Tier 7.25.Shaman.Valorous Earthshatter Garb"]			= "40514,40515,40516,40517,40518",
+	["GearSet.Tier 7.25.Shaman.Valorous Earthshatter Regalia"]		= "40508,40509,40510,40512,40513",
+	["GearSet.Tier 7.25.Warlock.Valorous Plagueheart Garb"]			= "40420,40421,40422,40423,40424",
+	["GearSet.Tier 7.25.Warrior.Valorous Dreadnaught Battlegear"]		= "40525,40527,40528,40529,40530",
+	["GearSet.Tier 7.25.Warrior.Valorous Dreadnaught Plate"]		= "40544,40545,40546,40547,40548",
+
 	["GearSet.Zul'Gurub.Druid.Haruspex's Garb"]		= "19613,19955,19840,19839,19838",
 	["GearSet.Zul'Gurub.Hunter.Predator's Armor"]		= "19621,19953,19833,19832,19831",
 	["GearSet.Zul'Gurub.Mage.Illusionist's Attire"]		= "19601,19959,19846,19845,20034",
@@ -670,7 +708,7 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["InstanceLoot.Ahn'Qiraj.The Twin Emperors"]			= "m,InstanceLoot.Ahn'Qiraj.Emperor Vek'lor,InstanceLoot.Ahn'Qiraj.Emperor Vek'nilash",
 	["InstanceLoot.Ahn'Qiraj.Vem"]					= "21691:154,21688:115,21690:112,21689:105,21693:100,21694:89,21697:83,21696:83,21692:80,21695:71",
 	["InstanceLoot.Ahn'Qiraj.Viscidus"]				= "20928:732,20932:727,21624:202,21677:148,21625:118,21622:113,21626:103,21623:99,22399:74,21648:29",
-	["InstanceLoot.Ahn'Qiraj.Trash Mobs"]			= "21837,21838,21888,21856,21836",
+	["InstanceLoot.Ahn'Qiraj.Trash Mobs"]				= "21837,21838,21888,21856,21836",
 
 	["InstanceLoot.Auchindoun"]					= "m,InstanceLoot.Auchenai Crypts,InstanceLoot.Mana-Tombs,InstanceLoot.Shadow Labyrinth,InstanceLoot.Sethekk Halls",
 	["InstanceLoot.Auchenai Crypts.Exarch Maladaar"]		= "27412:146,27415:144,27416:143,27413:130,27414:129,27411:118",
@@ -809,7 +847,7 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["InstanceLoot.Serpentshrine Cavern.Leotheras the Blind"]	= "30240:575,30239:559,30241:552,30091:166,30097:149,30095:145,30627:145,30096:135,30092:128",
 	["InstanceLoot.Serpentshrine Cavern.Morogrim Tidewalker"]	= "30098:207,30084:196,30083:192,30085:192,30082:191,30081:187,30720:186,30075:182,33058:172,30008:164,30068:163,30080:141,30079:139",
 	["InstanceLoot.Serpentshrine Cavern.The Lurker Below"]		= "30062:215,30060:208,30059:207,30066:204,30061:202,30065:198,30058:196,30057:190,30665:178,30064:176,30063:172,30067:170,33054:141",
-	["InstanceLoot.Serpentshrine Cavern.Trash Mobs"]			= "30027,30022,30620,30023",
+	["InstanceLoot.Serpentshrine Cavern.Trash Mobs"]		= "30027,30022,30620,30023",
 
 	["InstanceLoot.Dire Maul Arena.Mushgog"]			= "",
 	["InstanceLoot.Dire Maul Arena.Skarr the Unbreakable"]		= "",
@@ -887,11 +925,11 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["InstanceLoot.Karazhan.The Big Bad Wolf"]			= "28581:239,28583:223,28582:216,28584:212,28589:164,28590:161,28591:154,28592:139,28593:137,28594:131",
 	["InstanceLoot.Karazhan.The Crone"]				= "28585:246,28588:226,28586:216,28587:204,28589:165,28590:165,28591:153,28592:143,28594:139,28593:133",
 	["InstanceLoot.Karazhan.The Curator"]				= "29757:322,29758:293,29756:288,28612:161,28631:157,28649:155,28621:143,28633:140,28647:135",
-	["InstanceLoot.Karazhan.Trash Mobs"]			= "30643,30641,30642,30668,30644,30673,30667,30666,30674",
+	["InstanceLoot.Karazhan.Trash Mobs"]				= "30643,30641,30642,30668,30644,30673,30667,30666,30674",
 
-	["InstanceLoot.Magisters' Terrace.Selin Fireheart"]	= "34699:174,34702:170,34701:167,34698:164,34700:162,34697:161",
-	["InstanceLoot.Magisters' Terrace.Vexallus"]	= "34704:175,34708:170,34706:166,34703:165,34705:165,34707:154",
-	["InstanceLoot.Magisters' Terrace.Priestess Delrissa"]	= "34792:171,34783:171,34789:170,34788:166,34791:163,34790:153,35756:74",
+	["InstanceLoot.Magisters' Terrace.Selin Fireheart"]		= "34699:174,34702:170,34701:167,34698:164,34700:162,34697:161",
+	["InstanceLoot.Magisters' Terrace.Vexallus"]			= "34704:175,34708:170,34706:166,34703:165,34705:165,34707:154",
+	["InstanceLoot.Magisters' Terrace.Priestess Delrissa"]		= "34792:171,34783:171,34789:170,34788:166,34791:163,34790:153,35756:74",
 	["InstanceLoot.Magisters' Terrace.Kael'thas Sunstrider"]	= "34810:147,34794:147,34793:146,34796:145,34797:144,34809:142,34798:140,34799:138,34808:134,34625:126,34795:125,34807:124,35504:59,35299:5,35309:4,35295:3,35303:3,35297:3,35298:3,35310:3,35306:2,35301:2,35302:2,35300:2,35305:2,35311:2,35294:2,35296:2,35308:1,35307:1",
 
 	["InstanceLoot.Maraudon.Celebras the Cursed"]			= "17739:334,17740:310,17738:298",
@@ -920,7 +958,7 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["InstanceLoot.Molten Core.Ragnaros"]				= "19137:234,19138:207,18817:197,16922:197,16915:190,16946:163,16930:163,17107:159,16954:159,16962:156,18816:156,17106:149,16909:142,16938:142,18815:139,18814:136,17063:132,17102:119,16901:119,17076:51,17104:51,17082:30,17204:10",
 	["InstanceLoot.Molten Core.Shazzrah"]				= "16852:286,16801:250,16803:215,16831:204,16811:197,16824:156,18872:39,17077:24,18875:22,18879:21,19146:19,18878:16,18870:15,18861:14,19145:14,18292:14,19147:13,21371:11,18290:10,18257:7,18259:4,18260:3,18252:3,18265:3,18264:2,18291:2",
 	["InstanceLoot.Molten Core.Sulfuron Harbinger"]			= "16823:272,16816:254,16868:249,16848:239,17074:230,18872:36,18878:30,19145:29,18861:26,18879:24,19146:24,17077:22,18875:21,19147:16,18870:11",
-	["InstanceLoot.Molten Core.Trash Mobs"]			= "16802,16799,16864,16861,16828,16830,16838,16840,16806,16804,16851,16850,16817,16858,16857,16827,16825,16819",
+	["InstanceLoot.Molten Core.Trash Mobs"]				= "16802,16799,16864,16861,16828,16830,16838,16840,16806,16804,16851,16850,16817,16858,16857,16827,16825,16819",
 
 	["InstanceLoot.Naxxramas.Anub'Rekhan"]				= "22369:348,22355:316,22362:295,22939:217,22938:217,22935:194,22936:171,22937:166",
 	["InstanceLoot.Naxxramas.Four Horsemen Chest"]			= "22349:409,22350:397,22351:385,23025:204,23027:192,22809:132,22811:108,22691:96,23071:72",
@@ -941,7 +979,7 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["InstanceLoot.Naxxramas.Sir Zeliek"]				= "m,InstanceLoot.Naxxramas.Four Horsemen Chest",
 	["InstanceLoot.Naxxramas.Thaddius"]				= "22353:557,22360:537,22367:494,23001:234,22808:211,23000:148,23070:140,22801:131",
 	["InstanceLoot.Naxxramas.Thane Korth'azz"]			= "m,InstanceLoot.Naxxramas.Four Horsemen Chest",
-	["InstanceLoot.Naxxramas.Trash Mobs"]			= "23226,23044,23221,23237,23238,23666,23663,23665,23668,23069,23664,23667",
+	["InstanceLoot.Naxxramas.Trash Mobs"]				= "23226,23044,23221,23237,23238,23666,23663,23665,23668,23069,23664,23667",
 
 	["InstanceLoot.Onyxia's Lair.Onyxia"]				= "17966:705,18423:458,18705:419,18422:296,18205:191,17067:183,17078:181,16939:163,16914:162,16921:158,16929:152,16963:145,18813:144,16908:136,16955:135,16900:132,16947:118,17064:46,17075:43,17068:40,17964:21,17965:19,17962:16,17963:13,17969:12,12716:2,12728:2,14509:2,12717:1,22390:1,12720:1,14510:0,14511:0,22389:0",
 
@@ -1029,16 +1067,16 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["InstanceLoot.Stratholme.Timmy the Cruel"]			= "13402:193,13403:186,13401:186,13400:173,16724:150",
 
 	["InstanceLoot.Sunwell Plateau.Sathrovarr the Corruptor"]	= "34166:0,34848:0,34851:0,34852:0,34169:0,34164:0,34165:0,34167:0,34170:0,34168:0",
-	["InstanceLoot.Sunwell Plateau.Kalecgos"]	= "m,InstanceLoot.Sunwell Plateau.Sathrovarr the Corruptor",
-	["InstanceLoot.Sunwell Plateau.Brutallus"]	= "34853:671,34855:654,34854:643,34176:172,34181:162,34179:158,34177:157,34178:134,34180:134",
-	["InstanceLoot.Sunwell Plateau.Felmyst"]	= "34857:678,34858:670,34856:656,34182:174,34188:170,34186:167,34185:152,34184:135,34352:121",
-	["InstanceLoot.Sunwell Plateau.Lady Sacrolash"]	= "35292:378,35291:352,35290:243,34205:218,34197:210,34198:201,34209:193,34190:176,34196:176,34194:168,34208:159,34192:159,34189:151,34854:151,34203:151,34193:151,34204:142,34853:142,34206:134,34858:117,34851:117,34199:109,34848:109,34852:109,34195:109,34855:100,34210:92,34202:75,34856:67,34857:67",
-	["InstanceLoot.Sunwell Plateau.Grand Warlock Alythess"]	= "35291:340,35290:328,35292:288,34202:215,34193:205,34210:200,34206:200,34195:200,34209:200,34199:192,34198:192,34196:187,34204:185,34208:180,34205:177,34194:170,34189:165,34192:160,34203:155,34190:150,34197:140,34857:122,34848:120,34851:115,34852:112,34855:100,34858:100,34853:85,34854:85,34856:75",
-	["InstanceLoot.Sunwell Plateau.The Eredar Twins"]	= "m,InstanceLoot.Sunwell Plateau.Lady Sacrolash,InstanceLoot.Sunwell Plateau.Grand Warlock Alythess",
-	["InstanceLoot.Sunwell Plateau.Entropius"]	= "35283:375,35284:317,35282:269,34233:240,34228:240,34429:211,34212:192,34213:182,34232:163,34234:163,34215:163,34240:153,34211:153,34231:144,34430:144,34216:144,34428:134,34427:125,34229:125,34230:125,34214:115",
-	["InstanceLoot.Sunwell Plateau.M'uru"]	= "m,InstanceLoot.Sunwell Plateau.Entropius",
-	["InstanceLoot.Sunwell Plateau.Kil'jaeden"]	= "34241:342,34340:314,34344:285,34243:285,34247:257,34345:200,34341:171,34333:171,34335:171,34331:171,34242:171,34332:142,34339:142,34337:142,34342:142,34336:142,34343:142,34329:114,34334:57,34244:57",
-	["InstanceLoot.Sunwell Plateau.Trash Mobs"]	= "34349,34350,34346,35733,34183,34351,34348,34347",
+	["InstanceLoot.Sunwell Plateau.Kalecgos"]			= "m,InstanceLoot.Sunwell Plateau.Sathrovarr the Corruptor",
+	["InstanceLoot.Sunwell Plateau.Brutallus"]			= "34853:671,34855:654,34854:643,34176:172,34181:162,34179:158,34177:157,34178:134,34180:134",
+	["InstanceLoot.Sunwell Plateau.Felmyst"]			= "34857:678,34858:670,34856:656,34182:174,34188:170,34186:167,34185:152,34184:135,34352:121",
+	["InstanceLoot.Sunwell Plateau.Lady Sacrolash"]			= "35292:378,35291:352,35290:243,34205:218,34197:210,34198:201,34209:193,34190:176,34196:176,34194:168,34208:159,34192:159,34189:151,34854:151,34203:151,34193:151,34204:142,34853:142,34206:134,34858:117,34851:117,34199:109,34848:109,34852:109,34195:109,34855:100,34210:92,34202:75,34856:67,34857:67",
+	["InstanceLoot.Sunwell Plateau.Grand Warlock Alythess"]		= "35291:340,35290:328,35292:288,34202:215,34193:205,34210:200,34206:200,34195:200,34209:200,34199:192,34198:192,34196:187,34204:185,34208:180,34205:177,34194:170,34189:165,34192:160,34203:155,34190:150,34197:140,34857:122,34848:120,34851:115,34852:112,34855:100,34858:100,34853:85,34854:85,34856:75",
+	["InstanceLoot.Sunwell Plateau.The Eredar Twins"]		= "m,InstanceLoot.Sunwell Plateau.Lady Sacrolash,InstanceLoot.Sunwell Plateau.Grand Warlock Alythess",
+	["InstanceLoot.Sunwell Plateau.Entropius"]			= "35283:375,35284:317,35282:269,34233:240,34228:240,34429:211,34212:192,34213:182,34232:163,34234:163,34215:163,34240:153,34211:153,34231:144,34430:144,34216:144,34428:134,34427:125,34229:125,34230:125,34214:115",
+	["InstanceLoot.Sunwell Plateau.M'uru"]				= "m,InstanceLoot.Sunwell Plateau.Entropius",
+	["InstanceLoot.Sunwell Plateau.Kil'jaeden"]			= "34241:342,34340:314,34344:285,34243:285,34247:257,34345:200,34341:171,34333:171,34335:171,34331:171,34242:171,34332:142,34339:142,34337:142,34342:142,34336:142,34343:142,34329:114,34334:57,34244:57",
+	["InstanceLoot.Sunwell Plateau.Trash Mobs"]			= "34349,34350,34346,35733,34183,34351,34348,34347",
 
 	["InstanceLoot.The Temple of Atal'Hakkar.Atal'alarion"]		= "10800:354,10798:339,10799:190",
 	["InstanceLoot.The Temple of Atal'Hakkar.Avatar of Hakkar"]	= "10843:347,10842:335,10845:333,10846:331,10844:169,10838:164,12462:1",
@@ -1074,7 +1112,7 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["InstanceLoot.The Eye.High Astromancer Solarian"]		= "29951:232,29966:229,29962:221,30449:209,30446:200,29965:196,29981:194,29972:188,29977:185,29976:177,29950:172,29982:171,32267:155",
 	["InstanceLoot.The Eye.Kael'thas Sunstrider"]			= "32405:859,30236:465,30238:436,30237:426,29995:156,29996:152,29990:151,29992:139,29997:139,29987:135,29988:134,29994:130,29991:122,29993:110,29998:107,29989:97,32896:45,32458:16",
 	["InstanceLoot.The Eye.Void Reaver"]				= "30249:562,30248:547,30250:539,29985:138,30619:133,29986:133,29984:124,32515:121,29983:119,30450:110",
-	["InstanceLoot.The Eye.Trash Mobs"]			= "30026,30029,30020,30030,30024,30028",
+	["InstanceLoot.The Eye.Trash Mobs"]				= "30026,30029,30020,30030,30024,30028",
 	["InstanceLoot.The Mechanar.Mechano-Lord Capacitus"]		= "28253:218,28254:213,28255:199,28256:156,28257:149,35582:44",
 	["InstanceLoot.The Mechanar.Nethermancer Sepethrea"]		= "28259:199,28258:185,28262:182,28260:182,28263:164,22920:20",
 	["InstanceLoot.The Mechanar.Pathaleon the Calculator"]		= "28266:170,28278:162,28275:158,28202:151,28204:150,28286:149,28269:143,28267:128,27899:127,28285:123,28288:115,28265:104,21907:40",
@@ -1227,10 +1265,10 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["InstanceLootHeroic.The Shattered Halls.Warchief Kargath Bladefist"]	= "29255:172,29263:148,27528:137,27536:136,27534:132,27540:130,27527:129,27537:128,29254:123,27533:116,27529:114,27538:110,27535:109,27474:107,27531:107,29348:74,30548:69,30546:59,30547:59",
 	["InstanceLootHeroic.The Shattered Halls.Blood Guard Porung"]		= "30709:196,30707:186,30705:171,30708:160,30710:84,30546:68,30548:66,30547:51",
 
-	["InstanceLootHeroic.Magisters' Terrace.Selin Fireheart"]	= "34601:208,34603:204,34604:201,34602:197,35275:15",
-	["InstanceLootHeroic.Magisters' Terrace.Vexallus"]	= "34607:194,34606:191,34608:181,34605:176,35275:14",
-	["InstanceLootHeroic.Magisters' Terrace.Priestess Delrissa"]	= "35756:193,34471:190,34470:183,34472:180,34473:175,35275:12",
-	["InstanceLootHeroic.Magisters' Terrace.Kael'thas Sunstrider"]	= "34609:198,34614:189,34611:189,34613:188,34612:186,34616:186,34615:183,34610:183,35504:61,35275:25,35513:24,35297:9,35309:8,35298:7,35299:7,35294:7,35308:7,35301:5,35302:5,35296:5,35295:5,35303:4,35300:4,35306:3,35310:3,35307:3,35311:2,35305:2,35304:1",
+	["InstanceLootHeroic.Magisters' Terrace.Selin Fireheart"]		= "34601:208,34603:204,34604:201,34602:197,35275:15",
+	["InstanceLootHeroic.Magisters' Terrace.Vexallus"]			= "34607:194,34606:191,34608:181,34605:176,35275:14",
+	["InstanceLootHeroic.Magisters' Terrace.Priestess Delrissa"]		= "35756:193,34471:190,34470:183,34472:180,34473:175,35275:12",
+	["InstanceLootHeroic.Magisters' Terrace.Kael'thas Sunstrider"]		= "34609:198,34614:189,34611:189,34613:188,34612:186,34616:186,34615:183,34610:183,35504:61,35275:25,35513:24,35297:9,35309:8,35298:7,35299:7,35294:7,35308:7,35301:5,35302:5,35296:5,35295:5,35303:4,35300:4,35306:3,35310:3,35307:3,35311:2,35305:2,35304:1",
 
 	["InstanceLootHeroic.Tempest Keep"]					= "m,InstanceLootHeroic.The Arcatraz,InstanceLootHeroic.The Mechanar,InstanceLootHeroic.The Botanica",
 	["InstanceLootHeroic.The Arcatraz.Dalliah the Doomsayer"]		= "28392:177,28386:169,28387:159,28391:159,28390:157,30575:81,30582:70,30581:69,24308:51",
@@ -1295,11 +1333,11 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["Misc.Mount.Ahn'Qiraj"]				= "21218:100,21321:100,21323:100,21324:100,21176:100",--NOT AUTOGENNED
 	["Misc.Mount.Flying"]					= "25471:60,25470:60,25472:60,25475:60,25476:60,25474:60,33176:60,34060:60,35225:60,25473:280,25528:280,25529:280,25527:280,25531:280,25533:280,25477:280,25532:280,32857:280,32858:280,32859:280,32860:280,32861:280,32862:280,32314:280,32316:280,32317:280,32318:280,32319:280,33182:280,33999:280,34061:280,35226:280,32458:310,30609:310,37676:310", --NOT AUTOGENNED
 	["Misc.Mount.Normal"]					= "33189:10,1132:60,2411:60,2414:60,5655:60,5656:60,5665:60,5668:60,5864:60,5872:60,5873:60,8588:60,8563:60,8591:60,8592:60,8595:60,8629:60,8631:60,8632:60,8653:60,13321:60,13322:60,13331:60,13332:60,13333:60,15277:60,15290:60,15292:60,28481:60,29743:60,29744:60,29220:60,29221:60,29222:60,28927:60,33183:60,33976:60,19902:100,8586:100,12302:100,12303:100,12330:100,12351:100,12353:100,12354:100,13086:100,13317:100,13326:100,13327:100,13328:100,13329:100,13334:100,13335:100,15293:100,18241:100,18242:100,18243:100,18244:100,18245:100,18246:100,18247:100,18248:100,18766:100,18767:100,18772:100,18773:100,18774:100,18776:100,18777:100,18778:100,18785:100,18786:100,18787:100,18788:100,18789:100,18790:100,18791:100,18793:100,18794:100,18795:100,18796:100,18797:100,18798:100,18902:100,19029:100,19030:100,19872:100,21176:100,29465:100,29466:100,29467:100,29468:100,29469:100,29470:100,29471:100,29472:100,29745:100,29746:100,29747:100,29223:100,29224:100,28936:100,29102:100,29103:100,29104:100,29105:100,29227:100,29228:100,29229:100,29230:100,28915:100,29231:100,30480:100,31830:100,31832:100,31834:100,31836:100,31829:100,31831:100,31833:100,31835:100,32768:100,33184:100,33225:100,33977:100,33809:100,34129:100,35513:100,35906:100,37719:100,37828:100",--NOT AUTOGENNED
-	["Misc.Spell.Mount.Ahn'Qiraj"]			= "-25953:100,-26056:100,-26054:100,-26055:100",--NOT AUTOGENNED
-	["Misc.Spell.Mount.Flying.Fast"]		= "-41514", --NOT AUTOGENNED
-	["Misc.Spell.Mount.Flying.Slow"]		= "-32239", --NOT AUTOGENNED
-	["Misc.Spell.Mount.Ground.Fast"]		= "-16081,-22718,-22721,-23509,-43688,-51412",--NOT AUTOGENNED
-	["Misc.Spell.Mount.Ground.Slow"]		= "-32420",--NOT AUTOGENNED
+	["Misc.Spell.Mount.Ahn'Qiraj"]				= "-25953:100,-26056:100,-26054:100,-26055:100",--NOT AUTOGENNED
+	["Misc.Spell.Mount.Flying.Fast"]			= "-41514", --NOT AUTOGENNED
+	["Misc.Spell.Mount.Flying.Slow"]			= "-32239", --NOT AUTOGENNED
+	["Misc.Spell.Mount.Ground.Fast"]			= "-16081,-22718,-22721,-23509,-43688,-51412",--NOT AUTOGENNED
+	["Misc.Spell.Mount.Ground.Slow"]			= "-32420",--NOT AUTOGENNED
 
 	--NOT AUTOGENNED (all QuestMats)
 	["Misc.QuestMats.Ahn'Qiraj.Idol.20"]				= "20866,20867,20868,20869,20870,20871,20872,20873",
@@ -1542,7 +1580,7 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["Tradeskill.Mat.ByType.Bolt"]				= "4305,2997,14048,4339,2996,21840,21842,21844,41510,41511",
 	["Tradeskill.Mat.ByType.Cloth"]				= "21845,24271,24272,21877,4306,14047,4338,14342,2592,14256,2589,33470,56001,56002,56003",
 	["Tradeskill.Mat.ByType.Crystal"]			= "30183,23572,22450,20725,34057,43102",
-	["Tradeskill.Mat.ByType.Crystallized"]		= "37700,37701,37702,37703,37704,37705",
+	["Tradeskill.Mat.ByType.Crystallized"]			= "37700,37701,37702,37703,37704,37705",
 	["Tradeskill.Mat.ByType.Dust"]				= "22445,11083,16204,11137,11176,10940,34054",
 	["Tradeskill.Mat.ByType.Dye"]				= "2325,2604,6260,6261,4342,10290,4340,2605,2324,4341,9210",
 	["Tradeskill.Mat.ByType.Elemental"]			= "7070,12808,7078,7082,7067,7075,7079,12803,7068,7076,7080,10286,7069,7972,7077,7081",
@@ -1550,7 +1588,7 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["Tradeskill.Mat.ByType.Eternal"]			= "35622,35623,35624,35625,35627,35860",
 	["Tradeskill.Mat.ByType.Flux"]				= "2880,3466,18567",
 	["Tradeskill.Mat.ByType.Gem"]				= "12799,818,12800,11382,1206,774,1705,1210,12361,9262,1529,12363,11754,12364,7910,3864,19774,7909,32227,32228,32229,32230,32231,32249,36784,36917,36918,36920,36921,36923,36924,36926,36927,36929,36930,36932,36933,41266,41334,42225",
-	["Tradeskill.Mat.ByType.Grinding Stone"]	= "3470,3478,7966,12644,3486",
+	["Tradeskill.Mat.ByType.Grinding Stone"]		= "3470,3478,7966,12644,3486",
 	["Tradeskill.Mat.ByType.Herb"]				= "3819,8153,3355,22789,2452,8838,3820,765,22787,8831,13466,2447,22792,22791,13465,22793,785,3357,3356,3358,13467,8846,3369,13464,3821,8845,22788,4625,22785,22794,3818,2449,22786,13463,2453,2450,8839,8836,22790,19726,13468,36901,36902,36903,36904,36905,36906,36907,36908,37921",
 	["Tradeskill.Mat.ByType.Hide"]				= "783,4231,4232,4233,4235,4236,4461,7428,8169,8171,8172,8368,15407,25707",
 	["Tradeskill.Mat.ByType.Ink"]				= "52738,52843,53462,57703,57704,57706,57707,57708,57709,57710,57711,57712,57713,57714,57715,57716,57717",
@@ -1569,14 +1607,14 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["Tradeskill.Mat.ByType.Scale"]				= "5784,5785,6470,6471,7286,7287,7392,8154,8165,8167,12607,15408,15410,15412,15414,15415,15416,20381,20498,25700,29539,29547,29548,38557,38558,38561",
 	["Tradeskill.Mat.ByType.Shard"]				= "22449,22448,11084,14343,11139,10978,11177,14344,11138,11178,34052,34053",
 	["Tradeskill.Mat.ByType.Spice"]				= "2678,2665,17194,3713,2692",
-	["Tradeskill.Mat.ByType.Spider Silk"]		= "4337,3182,10285,7267,21881,14227,42253",
+	["Tradeskill.Mat.ByType.Spider Silk"]			= "4337,3182,10285,7267,21881,14227,42253",
 	["Tradeskill.Mat.ByType.Stone"]				= "2835,7912,2836,2838,12365",
 	["Tradeskill.Mat.ByType.Thread"]			= "2321,14341,4291,2320,8343",
 	["Tradeskill.Mat.ByType.Vial"]				= "3371,18256,8925,3372,40411",
 
-	["Tradeskill.Tool.Alchemy"]					= "9149,13503,31080,35748,35749,35750,35751,44322,44323,44324",
+	["Tradeskill.Tool.Alchemy"]				= "9149,13503,31080,35748,35749,35750,35751,44322,44323,44324",
 	["Tradeskill.Tool.Blacksmithing"]			= "5956,40772,40892,56459",
-	["Tradeskill.Tool.Cooking"]					= "4471,40772",
+	["Tradeskill.Tool.Cooking"]				= "4471,40772",
 	["Tradeskill.Tool.Enchanting"]				= "22462,16207,6218,22463,22461,11130,6339,11145,44451,44452",
 	["Tradeskill.Tool.Engineering"]				= "6219,5956,40772,10498,40772",
 	["Tradeskill.Tool.Fishing.Gear"]			= "19969:5,7996:5,19972:5,33820:5",--NOT AUTOGENNED
@@ -1585,14 +1623,14 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["Tradeskill.Tool.Fishing.Tool"]			= "6256:0,12225:3,6367:20,6365:5,25978:20,19022:25,19970:35",--NOT AUTOGENNED
 	["Tradeskill.Tool.Inscription"]				= "39505",
 	["Tradeskill.Tool.Jewelcrafting"]			= "20815,13503,31080,9149",--NOT AUTOGENNED
-	["Tradeskill.Tool.Mining"]					= "40893,40892,756,778,1819,1893,1959,2901,9465,20723,30855,56459,56461",
+	["Tradeskill.Tool.Mining"]				= "40893,40892,756,778,1819,1893,1959,2901,9465,20723,30855,56459,56461",
 	["Tradeskill.Tool.Skinning"]				= "40893,40772,7005,12709,19901,56461",
 
-	["Tradeskill.Recipe.Crafted"]			= "m,Tradeskill.Recipe.Alchemy.Crafted,Tradeskill.Recipe.Blacksmithing.Crafted,Tradeskill.Recipe.Cooking.Crafted,Tradeskill.Recipe.Enchanting.Crafted,Tradeskill.Recipe.Engineering.Crafted,Tradeskill.Recipe.First Aid.Crafted,Tradeskill.Recipe.Fishing.Crafted,Tradeskill.Recipe.Jewelcrafting.Crafted,Tradeskill.Recipe.Leatherworking.Crafted,Tradeskill.Recipe.Tailoring.Crafted",
-	["Tradeskill.Recipe.Drop"]			= "m,Tradeskill.Recipe.Alchemy.Drop,Tradeskill.Recipe.Blacksmithing.Drop,Tradeskill.Recipe.Cooking.Drop,Tradeskill.Recipe.Enchanting.Drop,Tradeskill.Recipe.Engineering.Drop,Tradeskill.Recipe.First Aid.Drop,Tradeskill.Recipe.Fishing.Drop,Tradeskill.Recipe.Jewelcrafting.Drop,Tradeskill.Recipe.Leatherworking.Drop,Tradeskill.Recipe.Tailoring.Drop",
-	["Tradeskill.Recipe.Other"]			= "m,Tradeskill.Recipe.Alchemy.Other,Tradeskill.Recipe.Blacksmithing.Other,Tradeskill.Recipe.Cooking.Other,Tradeskill.Recipe.Enchanting.Other,Tradeskill.Recipe.Engineering.Other,Tradeskill.Recipe.First Aid.Other,Tradeskill.Recipe.Fishing.Other,Tradeskill.Recipe.Jewelcrafting.Other,Tradeskill.Recipe.Leatherworking.Other,Tradeskill.Recipe.Tailoring.Other",
-	["Tradeskill.Recipe.Quest"]			= "m,Tradeskill.Recipe.Alchemy.Quest,Tradeskill.Recipe.Blacksmithing.Quest,Tradeskill.Recipe.Cooking.Quest,Tradeskill.Recipe.Enchanting.Quest,Tradeskill.Recipe.Engineering.Quest,Tradeskill.Recipe.First Aid.Quest,Tradeskill.Recipe.Fishing.Quest,Tradeskill.Recipe.Jewelcrafting.Quest,Tradeskill.Recipe.Leatherworking.Quest,Tradeskill.Recipe.Tailoring.Quest",
-	["Tradeskill.Recipe.Vendor"]			= "m,Tradeskill.Recipe.Alchemy.Vendor,Tradeskill.Recipe.Blacksmithing.Vendor,Tradeskill.Recipe.Cooking.Vendor,Tradeskill.Recipe.Enchanting.Vendor,Tradeskill.Recipe.Engineering.Vendor,Tradeskill.Recipe.First Aid.Vendor,Tradeskill.Recipe.Fishing.Vendor,Tradeskill.Recipe.Jewelcrafting.Vendor,Tradeskill.Recipe.Leatherworking.Vendor,Tradeskill.Recipe.Tailoring.Vendor",
+	["Tradeskill.Recipe.Crafted"]				= "m,Tradeskill.Recipe.Alchemy.Crafted,Tradeskill.Recipe.Blacksmithing.Crafted,Tradeskill.Recipe.Cooking.Crafted,Tradeskill.Recipe.Enchanting.Crafted,Tradeskill.Recipe.Engineering.Crafted,Tradeskill.Recipe.First Aid.Crafted,Tradeskill.Recipe.Fishing.Crafted,Tradeskill.Recipe.Jewelcrafting.Crafted,Tradeskill.Recipe.Leatherworking.Crafted,Tradeskill.Recipe.Tailoring.Crafted",
+	["Tradeskill.Recipe.Drop"]				= "m,Tradeskill.Recipe.Alchemy.Drop,Tradeskill.Recipe.Blacksmithing.Drop,Tradeskill.Recipe.Cooking.Drop,Tradeskill.Recipe.Enchanting.Drop,Tradeskill.Recipe.Engineering.Drop,Tradeskill.Recipe.First Aid.Drop,Tradeskill.Recipe.Fishing.Drop,Tradeskill.Recipe.Jewelcrafting.Drop,Tradeskill.Recipe.Leatherworking.Drop,Tradeskill.Recipe.Tailoring.Drop",
+	["Tradeskill.Recipe.Other"]				= "m,Tradeskill.Recipe.Alchemy.Other,Tradeskill.Recipe.Blacksmithing.Other,Tradeskill.Recipe.Cooking.Other,Tradeskill.Recipe.Enchanting.Other,Tradeskill.Recipe.Engineering.Other,Tradeskill.Recipe.First Aid.Other,Tradeskill.Recipe.Fishing.Other,Tradeskill.Recipe.Jewelcrafting.Other,Tradeskill.Recipe.Leatherworking.Other,Tradeskill.Recipe.Tailoring.Other",
+	["Tradeskill.Recipe.Quest"]				= "m,Tradeskill.Recipe.Alchemy.Quest,Tradeskill.Recipe.Blacksmithing.Quest,Tradeskill.Recipe.Cooking.Quest,Tradeskill.Recipe.Enchanting.Quest,Tradeskill.Recipe.Engineering.Quest,Tradeskill.Recipe.First Aid.Quest,Tradeskill.Recipe.Fishing.Quest,Tradeskill.Recipe.Jewelcrafting.Quest,Tradeskill.Recipe.Leatherworking.Quest,Tradeskill.Recipe.Tailoring.Quest",
+	["Tradeskill.Recipe.Vendor"]				= "m,Tradeskill.Recipe.Alchemy.Vendor,Tradeskill.Recipe.Blacksmithing.Vendor,Tradeskill.Recipe.Cooking.Vendor,Tradeskill.Recipe.Enchanting.Vendor,Tradeskill.Recipe.Engineering.Vendor,Tradeskill.Recipe.First Aid.Vendor,Tradeskill.Recipe.Fishing.Vendor,Tradeskill.Recipe.Jewelcrafting.Vendor,Tradeskill.Recipe.Leatherworking.Vendor,Tradeskill.Recipe.Tailoring.Vendor",
 
 	["Tradeskill.Recipe.Alchemy.Crafted"]			= "10644:210",
 	["Tradeskill.Recipe.Alchemy.Drop"]			= "2553:50,2555:60,6663:90,3393:110,3394:120,3396:140,6211:150,3830:175,3831:180,3832:195,9293:210,9294:225,9295:235,9296:240,9297:240,9298:245,3395:250,21547:250,13476:255,13479:270,13486:275,13487:275,13488:275,13489:275,13490:280,13491:280,13492:285,13493:285,13494:290,13495:290,13496:290,13497:290,13499:290,13501:295,13518:300,13519:300,13520:300,13521:300,13522:300,18257:300,22903:320,22904:325,31680:335,31681:345,22912:350,22913:350,22914:350,35295:350,22919:355,22920:360,22921:360,22923:360,22924:360,22925:360,31682:360,22926:365,22927:365,35294:365,44567:400",

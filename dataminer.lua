@@ -318,7 +318,7 @@ local function basic_listview_get_first_id(url)
 	if not page then return end
 	page = page:match("data: (%b[])")
 	if not page then return end
-	page = page:match("{id:(%d+)")
+	page = page:match("{id:(%-?%d+)")
 	if not page then return end
 	return tonumber(page)
 end
@@ -837,6 +837,7 @@ handlers["^GearSet"] = function (set, data)
 	local newset
 	local setname = set:match("%.([^%.]+)$")
 	local id = basic_listview_get_first_id("http://www.wowhead.com/?itemsets&filter=na="..url.escape(setname))
+	print(id)
 	if id then
 		local count = 0
 		page = getpage("http://www.wowhead.com/?itemset="..id)
