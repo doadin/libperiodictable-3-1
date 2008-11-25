@@ -837,7 +837,6 @@ handlers["^GearSet"] = function (set, data)
 	local newset
 	local setname = set:match("%.([^%.]+)$")
 	local id = basic_listview_get_first_id("http://www.wowhead.com/?itemsets&filter=na="..url.escape(setname))
-	print(id)
 	if id then
 		local count = 0
 		page = getpage("http://www.wowhead.com/?itemset="..id)
