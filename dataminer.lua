@@ -253,8 +253,8 @@ end
 
 -- Used to sort tables with values [-id|id][:value]
 local function sortSet(a, b)
-	local aId, aValue = a:match("(-*%d+):(-*%d+)")
-	local bId, bValue = b:match("(-*%d+):(-*%d+)")
+	local aId, aValue = a:match("(%-?%d+):(%-?%d+)")
+	local bId, bValue = b:match("(%-?%d+):(%-?%d+)")
 	if (not aId) then
 		aId = a
 	else
@@ -284,7 +284,7 @@ local function sortSet(a, b)
 end
 
 local function basic_itemid_handler(itemstring)
-	return itemstring:match("{id:(%d+)")
+	return itemstring:match("{id:(%-?%d+)")
 end
 
 local function basic_listview_handler(url, handler, names)
@@ -413,6 +413,7 @@ local Tradeskill_Gather_filters = {
 	Disenchant = 68,
 	Fishing = 69,
 	Herbalism = 70,
+--	Milling = 0, -- TODO: missing on wowhead 08/11/27
 	Mining = 73,
 	Pickpocketing = 75,
 	Skinning = 76,
@@ -453,9 +454,11 @@ local Tradeskill_Tool_filters = {
 		--"cr=91;crs=81;crv=0", -- Tool - Hollow Quill
 		"cr=91;crs=121;crv=0",-- Tool - Scribe Tools
 	},
+--	Jewelcrafting = { -- TODO: missing on wowhead 08/11/27
+--	},
 	Mining = {
 		"cr=91;crs=168;crv=0",-- Tool - Bladed Pickaxe
-		--"cr=91;crs=11;crv=0", -- Tool - Digmaster 5000
+		"cr=91;crs=161;crv=0",-- Tool - Gnomish Army Knife
 		"cr=91;crs=167;crv=0",-- Tool - Hammer Pick
 		"cr=91;crs=165;crv=0",-- Tool - Mining Pick
 	},
@@ -508,7 +511,7 @@ local Tradeskill_Recipe_professions = {
 	Enchanting = 8,
 	Fishing = 9,
 	Jewelcrafting = 10,
-	-- None for inscription
+	-- None for Inscription, yet
 }
 
 local Tradeskill_Recipe_filters = {
@@ -535,6 +538,7 @@ local Tradeskill_Gather_GemsInNodes_nodes = {
 	["Adamantite Deposit"] = 181556,
 	["Rich Adamantite Deposit"] = 181569,
 	["Khorium Vein"] = 181557,
+	-- TODO: Northerend Nodes
 }
 
 local Tradeskill_Profession_filters = {
@@ -565,7 +569,7 @@ local Tradeskill_Profession_filters = {
 	Poisons = "7.4.40",
 }
 
-local Gear_Socketed_filters = {
+local Gear_Socketed_filters = { -- TODO: check against 200 items/query limit
 	Back	= {
 		"sl=16;cr=80;crs=5;crv=0",
 	},
@@ -628,6 +632,10 @@ local Gear_Vendor = {
 		["G'eras"] = 18525,
 		["Smith Hauthaa"] = 25046,
 	},
+}
+
+local Currency_Items = {
+	["Badge of Justice"] = 29434,
 }
 
 local Tradeskill_Gem_Color_filters = {
@@ -954,14 +962,12 @@ end
 
 
 handlers["^Tradeskill%.Crafted"] = function (set, data)
-	local newset
 	local profession = set:match("^Tradeskill%.Crafted%.(.+)$")
 	dprint(9, "profession", profession)
 	local filter = Tradeskill_Profession_filters[profession]
 	if not filter then return end
 
-	local fp_set, rp_set, lp_set
-
+	local newset, fp_set, rp_set, lp_set = {}, {}, {}, {}
 
 	local reagenttable = {}
 	basic_listview_handler("http://www.wowhead.com/?spells="..filter, function (itemstring)
@@ -972,80 +978,34 @@ handlers["^Tradeskill%.Crafted"] = function (set, data)
 		skilllvl = math.min(450, tonumber(skilllvl) or 450)
 		local itemid
 		dprint(3, profession, itemid, skilllvl, reagentstring)
-		if profession == "Enchanting" then
-			itemid = -1 * spellid
-			if itemid and skilllvl > 0 then
-				if newset then
-					newset = newset..","..itemid..":"..skilllvl
+		itemid = itemstring:match("creates:%[(%d+),(%d+),(%d+)%]") or (-1 * spellid) -- count ?
+		if itemid and skilllvl > 0 then
+			newset[#newset + 1] = itemid..":"..skilllvl
+			local newrecipemats = itemid..":"
+			for reagentid,reagentnum in reagentstring:sub(2,-2):gmatch("%[(%d+),(%d+)%]") do
+				if reagenttable[reagentid] then
+					reagenttable[reagentid] = reagenttable[reagentid]..";"..itemid.."x"..reagentnum
 				else
-					newset = itemid..":"..skilllvl
+					reagenttable[reagentid] = itemid.."x"..reagentnum
 				end
-				local newrecipemats = itemid..":"
-				for reagentid, reagentnum in reagentstring:sub(2,-2):gmatch("%[(%d+),(%d+)%]") do
-					if reagenttable[reagentid] then
-						reagenttable[reagentid] = reagenttable[reagentid]..";"..itemid.."x"..reagentnum
-					else
-						reagenttable[reagentid] = itemid.."x"..reagentnum
-					end
-					newrecipemats = newrecipemats..reagentid.."x"..reagentnum..";"
-				end
-				newrecipemats = newrecipemats:sub(1,-2)
-				if fp_set then
-					fp_set = fp_set..","..newrecipemats
-				else
-					fp_set = newrecipemats
-				end
-				if lp_set then
-					lp_set = lp_set..",-"..spellid..":"..skilllvl
-				else
-					lp_set = "-"..spellid..":"..skilllvl
-				end
+				newrecipemats = newrecipemats..reagentid.."x"..reagentnum..";"
 			end
-		else
-			itemid = itemstring:match("creates:%[(%d+),(%d+),(%d+)%]") -- count ?
-			if itemid and skilllvl > 0 then
-				if newset then
-					newset = newset..","..itemid..":"..skilllvl
-				else
-					newset = itemid..":"..skilllvl
-				end
-				local newrecipemats = itemid..":"
-				for reagentid,reagentnum in reagentstring:sub(2,-2):gmatch("%[(%d+),(%d+)%]") do
-					if reagenttable[reagentid] then
-						reagenttable[reagentid] = reagenttable[reagentid]..";"..itemid.."x"..reagentnum
-					else
-						reagenttable[reagentid] = itemid.."x"..reagentnum
-					end
-					newrecipemats = newrecipemats..reagentid.."x"..reagentnum..";"
-				end
-				newrecipemats = newrecipemats:sub(1,-2)
-
-				if fp_set then
-					fp_set = fp_set..","..newrecipemats
-				else
-					fp_set = newrecipemats
-				end
-				if lp_set then
-					lp_set = lp_set..",-"..spellid..":"..itemid
-				else
-					lp_set = "-"..spellid..":"..itemid
-				end
-			end
+			newrecipemats = newrecipemats:sub(1,-2)
+			fp_set[#fp_set + 1] = newrecipemats
+			lp_set[#lp_set + 1] = "-"..spellid..":"..itemid
 		end
 	end)
 	for k,v in pairs(reagenttable) do
-		if rp_set then
-			rp_set = rp_set..","..k..":"..v
-		else
-			rp_set = k..":"..v
-		end
+		rp_set[#rp_set + 1] = k..":"..v
 	end
 
-	sets["TradeskillResultMats.Forward."..profession] = fp_set
-	sets["TradeskillResultMats.Reverse."..profession] = rp_set
-	sets["Tradeskill.RecipeLinks."..profession] = lp_set
+	sets["TradeskillResultMats.Forward."..profession] = table.concat(fp_set, ",")
+	sets["TradeskillResultMats.Reverse."..profession] = table.concat(rp_set, ",")
+	table.sort(lp_set, sortSet)
+	sets["Tradeskill.RecipeLinks."..profession] = table.concat(lp_set, ",")
 
-	return newset
+	table.sort(newset, sortSet)
+	return table.concat(newset, ",")
 end
 
 handlers["^Tradeskill%.Gather"] = function (set, data)
@@ -1282,6 +1242,16 @@ handlers["^Gear%.Vendor"] = function (set, data)
 	end, "sells")
 end
 
+handlers["^CurrencyItems"] = function (set, data)
+	local currency = set:match("^CurrencyItems%.([^%.]+)")
+	local currency_id = assert(Currency_Items[currency])
+	return basic_listview_handler("http://www.wowhead.com/?item="..currency_id, function (itemstr)
+		local itemid = itemstr:match("{id:(%d+)")
+		local count = itemstr:match("%[%["..currency_id..",(%d+)%]%]")
+		return itemid..":"..count
+	end, "currency-for")
+end
+
 
 local function update_all_sets(sets, setcount)
 	local setid = 0
@@ -1334,10 +1304,7 @@ local function main()
 
 	local file, setcount
 	file, sets, setcount = read_data_file()
-	local old_enchant = sets["Tradeskill.Crafted.Enchanting"]
-	if old_enchant then sets["Tradeskill.Crafted.Enchanting"] = "" end
 	local notmined = update_all_sets(sets, setcount)
-	if old_enchant then sets["Tradeskill.Crafted.Enchanting"] = old_enchant end
 	local elapsed = os.time()- starttime
 	local cputime = os.clock()
 	print(("Elapsed Time: %dm %ds"):format(elapsed/60, elapsed%60))
