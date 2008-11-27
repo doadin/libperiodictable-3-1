@@ -635,7 +635,24 @@ local Gear_Vendor = {
 }
 
 local Currency_Items = {
+-- WoWHead-Database -> Items -> Currency
+--	["Arena Points"] = 43307,
 	["Badge of Justice"] = 29434,
+	["Emblem of Heroism"] = 40752,
+	["Emblem of Valor"] = 40753,
+--	["Honor Points"] = 43308,
+	["Stone Keeper's Shard"] = 43228,
+	["Alterac Valley Mark of Honor"] = 20560,
+	["Arathi Basin Mark of Honor"] = 20559,
+	["Dalaran Cooking Award"] = 43016,
+	["Dalaran Jewelcrafter's Token"] = 41596,
+	["Strand of the Ancients Mark of Honor"] = 42425,
+	["Warsong Gulch Mark of Honor"] = 20558,
+	["Wintergrasp Mark of Honor"] = 43589,
+	["Venture Coin"] = 37836,
+-- other
+	["Arctic Fur"] = 44128,
+	["Heavy Borean Leather"] = 38425,
 }
 
 local Tradeskill_Gem_Color_filters = {
@@ -1244,10 +1261,13 @@ end
 
 handlers["^CurrencyItems"] = function (set, data)
 	local currency = set:match("^CurrencyItems%.([^%.]+)")
+	if not Currency_Items[currency] then return end
 	local currency_id = assert(Currency_Items[currency])
 	return basic_listview_handler("http://www.wowhead.com/?item="..currency_id, function (itemstr)
 		local itemid = itemstr:match("{id:(%d+)")
-		local count = itemstr:match("%[%["..currency_id..",(%d+)%]%]")
+		local cost = itemstr:match("cost:(%b[])")
+		local count = cost:match("%["..currency_id..",(%d+)%]")
+		if not count then print(itemstr) end
 		return itemid..":"..count
 	end, "currency-for")
 end
