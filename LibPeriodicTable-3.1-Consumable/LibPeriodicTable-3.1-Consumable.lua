@@ -53,6 +53,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("Consumable", gsub("$Rev$", "(%d+)", fun
 	["Consumable.Buff.Fire Power"]="6373:10,21546:40,22833:65",
 	["Consumable.Buff.Free Action"]="20008,5634",
 	["Consumable.Buff.Frost Power"]="17708:15,22827:55",
+	["Consumable.Buff.Haste"]="40211:500",
 	["Consumable.Buff.Healing.Flask"]="32601:23,32600:44",
 	["Consumable.Buff.Healing.Self"]="23501:10,28103:24,22825:50,23211:44,22239:44",
 	["Consumable.Buff.Health.Flask"]="13510:400,22851:500,32898:500",
@@ -82,7 +83,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("Consumable", gsub("$Rev$", "(%d+)", fun
 	["Consumable.Buff Type.Both"]="m,Consumable.Buff Type.Flask",
 
 	-- NOT AUTOGENNED. These are used by AutoBar.  Please check with the AutoBar author before making major changes
-	["Consumable.Buff Group.General.Self"]="m,Consumable.Buff.Absorb.Self.Damage,Consumable.Buff.Health.Self,Consumable.Buff.Regen Health.Self,Consumable.Buff.Resilience.Self,Consumable.Buff.Spirit.Self,Consumable.Buff.Stamina.Self,Consumable.Buff.Dodge.Self,Consumable.Buff.Resistance.Self,Consumable.Buff.Speed.Self,Consumable.Buff.Absorb.Self,Consumable.Buff.Spell Reflect.Self,Consumable.Buff.Free Action,Consumable.Buff.Water Breathing",
+	["Consumable.Buff Group.General.Self"]="m,Consumable.Buff.Absorb.Self.Damage,Consumable.Buff.Haste,Consumable.Buff.Health.Self,Consumable.Buff.Regen Health.Self,Consumable.Buff.Resilience.Self,Consumable.Buff.Spirit.Self,Consumable.Buff.Stamina.Self,Consumable.Buff.Dodge.Self,Consumable.Buff.Resistance.Self,Consumable.Buff.Speed.Self,Consumable.Buff.Absorb.Self,Consumable.Buff.Spell Reflect.Self,Consumable.Buff.Free Action,Consumable.Buff.Water Breathing",
 	["Consumable.Buff Group.General.Target"]="m,Consumable.Buff.Health.Target,Consumable.Buff.Regen Health.Target,Consumable.Buff.Spirit.Target,Consumable.Buff.Stamina.Target,Consumable.Buff.Dodge.Target,Consumable.Buff.Resistance.Target,Consumable.Buff.Absorb.Target",
 	["Consumable.Buff Group.Caster.Self"]="m,Consumable.Buff.Casting Speed.Self,Consumable.Buff.Healing.Self,Consumable.Buff.Intellect.Self,Consumable.Buff.Regen Mana.Self,Consumable.Buff.Shadow Power,Consumable.Buff.Spell Crit.Self,Consumable.Buff.Spell Damage.Self",
 	["Consumable.Buff Group.Caster.Target"]="m,Consumable.Buff.Intellect.Target",
@@ -94,12 +95,12 @@ LibStub("LibPeriodicTable-3.1"):AddData("Consumable", gsub("$Rev$", "(%d+)", fun
 	-- Items on Health Stone vs Potion cooldown, each with Health, Mana & Rejuvenation subsets.
 	["Consumable.Cooldown.Potion.Combat.Offensive"]="13442,22828,22837,22838,22839",
 	["Consumable.Cooldown.Potion.Combat.Defensive"]="4623,13455,22849",
-	["Consumable.Cooldown.Potion.Health.Basic"]="118:80,858:160,4596:160,929:320,1710:520,11562:670,3928:800,18839:800,13446:1400,31838:1400,31839:1400,31852:1400,31853:1400,28100:1400,43569:1920,33092:2000,23822:2000,22829:2000,32947:2000,33934:2000,33447:3600,41166:3600",
+	["Consumable.Cooldown.Potion.Health.Basic"]="118:80,858:160,4596:160,929:320,1710:520,11562:670,3928:800,18839:800,13446:1400,31838:1400,31839:1400,31852:1400,31853:1400,28100:1400,43569:1920,33092:2000,23822:2000,22829:2000,32947:2000,33934:2000,39671:2000,33447:3600,41166:3600",
 	["Consumable.Cooldown.Potion.Health.Blades Edge"]="32784:1400,32910:1400",
 	["Consumable.Cooldown.Potion.Health.Coilfang"]="32904:2000",
 	["Consumable.Cooldown.Potion.Health.Tempest Keep"]="32905:2000",
 	["Consumable.Cooldown.Potion.Health.PvP"]="17349:640,17348:1120,43569:1920",
-	["Consumable.Cooldown.Potion.Mana.Basic"]="2455:160,3385:320,35287:470,3827:520,6149:800,13443:1200,18841:1200,13444:1800,31840:1800,31841:1800,31854:1800,31855:1800,28101:1800,33093:2400,23823:2400,22832:2400,32948:2400,33935:2400,31677:3200,42545:4300,33448:4300",
+	["Consumable.Cooldown.Potion.Mana.Basic"]="2455:160,3385:320,35287:470,3827:520,6149:800,13443:1200,18841:1200,13444:1800,31840:1800,31841:1800,31854:1800,31855:1800,28101:1800,40067:1800,33093:2400,23823:2400,22832:2400,32948:2400,33935:2400,31677:3200,42545:4300,33448:4300",
 	["Consumable.Cooldown.Potion.Mana.Blades Edge"]="32909:2400,32783:2400",
 	["Consumable.Cooldown.Potion.Mana.Coilfang"]="32903:2400",
 	["Consumable.Cooldown.Potion.Mana.Pvp"]="17351:1120,17352:640,43570:500",
