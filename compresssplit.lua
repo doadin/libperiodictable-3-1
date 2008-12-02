@@ -30,6 +30,7 @@ end
 update("./LibPeriodicTable-3.1-AutoBar/LibPeriodicTable-3.1-AutoBar.lua")
 update("./LibPeriodicTable-3.1-ClassSpell/LibPeriodicTable-3.1-ClassSpell.lua")
 update("./LibPeriodicTable-3.1-Consumable/LibPeriodicTable-3.1-Consumable.lua")
+update("./LibPeriodicTable-3.1-CurrencyItems/LibPeriodicTable-3.1-CurrencyItems.lua")
 update("./LibPeriodicTable-3.1-InstanceLoot/LibPeriodicTable-3.1-InstanceLoot.lua")
 update("./LibPeriodicTable-3.1-InstanceLootHeroic/LibPeriodicTable-3.1-InstanceLootHeroic.lua")
 update("./LibPeriodicTable-3.1-Gear/LibPeriodicTable-3.1-Gear.lua")

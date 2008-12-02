@@ -6,7 +6,7 @@
 --if available, sqlite3 will be used for the cache database
 
 local SOURCE = SOURCE or "data.lua"
-local DEBUG = DEBUG or 1
+local DEBUG = DEBUG or 3
 local INSTANCELOOT_CHKSRC = INSTANCELOOT_CHKSRC
 local INSTANCELOOT_MIN = INSTANCELOOT_MIN or 50
 local INSTANCELOOT_MAXSRC = INSTANCELOOT_MAXSRC or 10
@@ -307,6 +307,8 @@ local function basic_listview_handler(url, handler, names)
 		end
 		if not names then break end
 	end
+	local itemcount = #newset
+	dprint(3, itemcount, url)
 	table.sort(newset, sortSet)
 	return table.concat(newset, ",")
 end
@@ -624,6 +626,13 @@ local Gear_Socketed_filters = { -- TODO: check against 200 items/query limit
 	Wrist	= {
 		"sl=9;cr=80;crs=5;crv=0",
 	},
+}
+
+local Gear_Socketed_levelgroups = {
+	";maxrl=69",
+	";minrl=70;maxrl=70",
+	";minrl=71;maxrl=79",
+	";minrl=80;maxrl=80",
 }
 
 local Gear_Vendor = {
@@ -1051,7 +1060,7 @@ handlers["^Tradeskill%.Recipe%."] = function (set, data)
 end
 
 handlers["^Tradeskill%.Tool"] = function (set, data)
-	local newset
+	local newset = {}
 	local count = 0
 	local profession = set:match("^Tradeskill%.Tool%.(.+)$")
 	local filters = Tradeskill_Tool_filters[profession]
@@ -1060,14 +1069,12 @@ handlers["^Tradeskill%.Tool"] = function (set, data)
 	for _, filter in ipairs(filters) do
 		local nset = basic_listview_handler("http://www.wowhead.com/?items&filter="..filter)
 		if nset and nset ~= "" then
-			if newset then
-				newset = newset..","..nset
-			else
-				newset = nset
-			end
+			StrSplitMerge(",", nset, newset)
 		end
 	end
-	return newset
+
+	table.sort(newset, sortSet)
+	return table.concat(newset, ",")
 end
 
 handlers["^Tradeskill%.Mat%.ByProfession"] = function (set, data)
@@ -1160,19 +1167,19 @@ handlers["^Misc%.Lockboxes"] = function (set, data)
 end
 
 handlers["^Gear%.Socketed"] = function (set, data)
-	local newset
+	local newset = {}
 	local slot = set:match("%.([^%.]+)$")
 	for _,filter in ipairs(Gear_Socketed_filters[slot]) do
-		local nset = basic_listview_handler("http://www.wowhead.com/?items&filter="..filter)
-		if nset and nset ~= "" then
-			if newset then
-				newset = newset..","..nset
-			else
-				newset = nset
+		for _, levelfilter in ipairs(Gear_Socketed_levelgroups) do
+			local nset = basic_listview_handler("http://www.wowhead.com/?items&filter="..filter..levelfilter)
+			if nset and nset ~= "" then
+				StrSplitMerge(",", nset, newset)
 			end
 		end
 	end
-	return newset
+
+	table.sort(newset, sortSet)
+	return table.concat(newset, ",")
 end
 
 handlers["Misc%.Container%.ItemsInType"] = function (set, data)
@@ -1285,7 +1292,6 @@ local function update_all_sets(sets, setcount)
 				if set:match(pattern) then
 					local status, result = pcall(handler, set, data)
 					if status then
-						newset = result
 						if result then
 							newset = result
 							break

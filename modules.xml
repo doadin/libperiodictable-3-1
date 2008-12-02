@@ -3,6 +3,7 @@
 
 <Script file="LibPeriodicTable-3.1-ClassSpell\LibPeriodicTable-3.1-ClassSpell.lua"/>
 <Script file="LibPeriodicTable-3.1-Consumable\LibPeriodicTable-3.1-Consumable.lua"/>
+<Script file="LibPeriodicTable-3.1-CurrencyItems\LibPeriodicTable-3.1-CurrencyItems.lua"/>
 <Script file="LibPeriodicTable-3.1-Gear\LibPeriodicTable-3.1-Gear.lua"/>
 <Script file="LibPeriodicTable-3.1-GearSet\LibPeriodicTable-3.1-GearSet.lua"/>
 <Script file="LibPeriodicTable-3.1-InstanceLoot\LibPeriodicTable-3.1-InstanceLoot.lua"/>
