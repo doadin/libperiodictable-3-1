@@ -798,6 +798,7 @@ handlers["^InstanceLoot%."] = function (set, data)
 	local zone, boss = set:match("([^%.]+)%.([^%.]+)$")
 	if boss == " Smite" then
 		boss = "Mr. Smite"
+		zone = "The Deadmines"
 	end
 	if boss == "Trash Mobs" then
 		return handle_trash_mobs(set)

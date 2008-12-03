@@ -268,27 +268,6 @@ LibStub("LibPeriodicTable-3.1"):AddData("InstanceLoot", gsub("$Rev$", "(%d+)", f
 	["InstanceLoot.Molten Core.Sulfuron Harbinger"]="16823:272,16816:254,16868:249,16848:239,17074:230,18872:36,18878:30,19145:29,18861:26,18879:24,19146:24,17077:22,18875:21,19147:16,18870:11",
 	["InstanceLoot.Molten Core.Trash Mobs"]="16802,16799,16864,16861,16828,16830,16838,16840,16806,16804,16851,16850,16817,16858,16857,16827,16825,16819",
 
-	["InstanceLoot.Naxxramas.Anub'Rekhan"]="22369:348,22355:316,22362:295,22939:217,22938:217,22935:194,22936:171,22937:166",
-	["InstanceLoot.Naxxramas.Four Horsemen Chest"]="22349:409,22350:397,22351:385,23025:204,23027:192,22809:132,22811:108,22691:96,23071:72",
-	["InstanceLoot.Naxxramas.Gluth"]="22981:235,22983:207,22813:189,22994:186,23075:129,22356:113,22363:101,22358:93,22365:90,22354:90,22370:82,22355:77,22361:75,22362:67,22368:64,22372:46,22369:44",
-	["InstanceLoot.Naxxramas.Gothik the Harvester"]="22365:346,22372:304,22358:301,23073:238,23021:208,23020:193,23023:190,23032:153",
-	["InstanceLoot.Naxxramas.Grand Widow Faerlina"]="22369:341,22362:317,22355:265,22941:206,22942:200,22943:196,22940:177,22806:175",
-	["InstanceLoot.Naxxramas.Grobbulus"]="22368:336,22354:317,22361:283,22968:202,22967:195,22803:193,22988:186,22810:172",
-	["InstanceLoot.Naxxramas.Heigan the Unclean"]="22356:345,22370:336,22363:255,23033:201,23068:195,23035:182,23036:157,23019:149",
-	["InstanceLoot.Naxxramas.Highlord Mograine"]="m,InstanceLoot.Naxxramas.Four Horsemen Chest",
-	["InstanceLoot.Naxxramas.Instructor Razuvious"]="22365:324,22358:317,22372:306,23014:178,23009:169,23018:151,23017:151,23004:145,23219:123",
-	["InstanceLoot.Naxxramas.Kel'Thuzad"]="22520:937,23062:251,23056:251,22799:217,23064:211,22812:194,23063:194,23061:194,23065:194,22802:171,23060:165,22821:160,23066:154,23067:154,23577:154,22819:142,23053:137,22798:125,23059:120,23057:74,23054:74",
-	["InstanceLoot.Naxxramas.Lady Blaumeux"]="m,InstanceLoot.Naxxramas.Four Horsemen Chest",
-	["InstanceLoot.Naxxramas.Loatheb"]="22359:528,22352:521,22366:488,23038:224,23037:188,23042:179,22800:169,23039:169",
-	["InstanceLoot.Naxxramas.Maexxna"]="22357:509,22364:502,22371:500,22954:231,23220:183,22947:173,22807:166,22804:164",
-	["InstanceLoot.Naxxramas.Noth the Plaguebringer"]="22356:362,22370:319,22363:271,23030:166,22816:158,23028:155,23006:146,23029:120,23031:116,23005:92",
-	["InstanceLoot.Naxxramas.Patchwerk"]="22368:341,22354:316,22361:304,22961:221,22815:221,22820:221,22960:166,22818:161",
-	["InstanceLoot.Naxxramas.Sapphiron"]="23545:502,23549:461,23547:461,23548:419,23048:233,23049:221,23242:203,23045:203,23041:197,23050:191,23047:173,23043:155,23046:101,23040:77,23072:71",
-	["InstanceLoot.Naxxramas.Sir Zeliek"]="m,InstanceLoot.Naxxramas.Four Horsemen Chest",
-	["InstanceLoot.Naxxramas.Thaddius"]="22353:557,22360:537,22367:494,23001:234,22808:211,23000:148,23070:140,22801:131",
-	["InstanceLoot.Naxxramas.Thane Korth'azz"]="m,InstanceLoot.Naxxramas.Four Horsemen Chest",
-	["InstanceLoot.Naxxramas.Trash Mobs"]="23226,23044,23221,23237,23238,23666,23663,23665,23668,23069,23664,23667",
-
 	["InstanceLoot.Onyxia's Lair.Onyxia"]="17966:705,18423:458,18705:419,18422:296,18205:191,17067:183,17078:181,16939:163,16914:162,16921:158,16929:152,16963:145,18813:144,16908:136,16955:135,16900:132,16947:118,17064:46,17075:43,17068:40,17964:21,17965:19,17962:16,17963:13,17969:12,12716:2,12728:2,14509:2,12717:1,22390:1,12720:1,14510:0,14511:0,22389:0",
 
 	["InstanceLoot.Ragefire Chasm.Bazzalan"]="",
@@ -530,4 +509,106 @@ LibStub("LibPeriodicTable-3.1"):AddData("InstanceLoot", gsub("$Rev$", "(%d+)", f
 	["InstanceLoot.Zul'Gurub.Jin'do the Hexxer"]="22637:746,19892:177,19722:173,19724:159,19886:146,19723:142,19929:140,19875:133,19890:132,19889:128,19887:116,19888:105,19884:100,19885:98,19721:90,19894:90,19891:79,19719:62,19720:51,19716:33,19718:30,19717:28",
 	["InstanceLoot.Zul'Gurub.Renataki"]="19940:774,19964:535,19963:352",
 	["InstanceLoot.Zul'Gurub.Wushoolay"]="19941:825,19993:462,19965:262",
+
+-- -----
+-- WotLK Instances
+-- -----
+
+	["InstanceLoot.Azjol-Nerub Hub"]="m,InstanceLoot.Ahn'kahet: The Old Kingdom,InstanceLoot.Azjol-Nerub",
+-- Ahn'kahet: The Old Kingdom
+	["InstanceLoot.Ahn'kahet: The Old Kingdom.Elder Nadox"]="35606:315,35608:305,35607:304",
+	["InstanceLoot.Ahn'kahet: The Old Kingdom.Herald Volazj"]="35613:333,35614:307,35612:296",
+	["InstanceLoot.Ahn'kahet: The Old Kingdom.Jedoga Shadowseeker"]="43278:322,43279:308,43277:290",
+	["InstanceLoot.Ahn'kahet: The Old Kingdom.Prince Taldaram"]="35611:314,35610:310,35609:304",
+-- Azjol-Nerub
+	["InstanceLoot.Azjol-Nerub.Anub'arak"]="35662:294,35663:294,35661:294",
+	["InstanceLoot.Azjol-Nerub.Hadronox"]="35659:324,35660:318,35658:315",
+	["InstanceLoot.Azjol-Nerub.Krik'thir the Gatewatcher"]="35656:359,35657:316,35655:297",
+
+	["InstanceLoot.The Culling of Stratholme.Chrono-Lord Epoch"]="37106:231,37099:230,37096:227,37105:227",
+	["InstanceLoot.The Culling of Stratholme.Dark Runed Chest"]="37114:200,37109:190,37107:174,37108:164,37112:161,37113:155,37110:148,37111:145",
+	["InstanceLoot.The Culling of Stratholme.Mal'Ganis"]="m,InstanceLoot.The Culling of Stratholme.Dark Runed Chest",
+	["InstanceLoot.The Culling of Stratholme.Meathook"]="37079:245,37083:234,37081:223,37082:205",
+	["InstanceLoot.The Culling of Stratholme.Salramm the Fleshcrafter"]="37095:245,37088:234,37086:227,37084:203",
+
+	["InstanceLoot.Drak'Tharon Keep.King Dred"]="35633:298,35635:292,35634:287",
+	["InstanceLoot.Drak'Tharon Keep.Novos the Summoner"]="35632:323,35630:307,35631:291",
+	["InstanceLoot.Drak'Tharon Keep.The Prophet Tharon'ja"]="35638:339,35636:311,35637:281",
+	["InstanceLoot.Drak'Tharon Keep.Trollgore"]="35620:349,35618:314,35619:275",
+
+	["InstanceLoot.Gundrak.Drakkari Colossus"]="m,InstanceLoot.Gundrak.Drakkari Elemental",
+	["InstanceLoot.Gundrak.Drakkari Elemental"]="35592:281,35591:258,35590:248",
+	["InstanceLoot.Gundrak.Gal'darah"]="43305:378,43306:297,43309:216",
+	["InstanceLoot.Gundrak.Moorabi"]="35587:314,35589:300,35588:290",
+	["InstanceLoot.Gundrak.Slad'ran"]="35585:299,35584:286,35583:271",
+
+	["InstanceLoot.Naxxramas.Anub'Rekhan"]="39192:220,39146:203,39189:196,39139:196,39140:188,39191:185,39193:175,39190:172,39188:169,39141:169",
+	["InstanceLoot.Naxxramas.Baron Rivendare"]="m,InstanceLoot.Naxxramas.Four Horsemen Chest",
+	["InstanceLoot.Naxxramas.Four Horsemen Chest"]="40612:208,40611:178,40610:162,39397:140,39393:111,39396:108,39394:97,39395:89",
+	["InstanceLoot.Naxxramas.Gluth"]="40612:134,40611:126,40610:111,40621:111,40619:100,40622:100,40624:100,40623:85,40620:55,39217:26,39146:26,39247:26,39379:22,39189:18,39272:18,39197:18,39140:18,39261:18,39294:14,39193:14,39188:14,39285:14,39281:14,39284:14,39292:14,39388:14,39191:14,39267:11,39235:11,39282:11,39225:11,39275:11,39141:11,39198:11,39308:11,39345:11,39200:11,39280:11,39309:11,39226:11,39397:11,39232:11,39306:11,39274:11,39230:11,39248:11,39298:11",
+	["InstanceLoot.Naxxramas.Gothik the Harvester"]="39391:214,39369:209,39389:203,39344:189,39345:187,39386:187,39390:171,39388:171,39392:171,39379:158",
+	["InstanceLoot.Naxxramas.Grand Widow Faerlina"]="39196:193,39199:191,39217:188,39215:188,39197:188,39200:188,39198:181,39194:175,39195:166,39216:165",
+	["InstanceLoot.Naxxramas.Grobbulus"]="39285:198,39278:188,39284:180,39280:175,39277:173,39281:170,39276:165,39279:152,39282:152",
+	["InstanceLoot.Naxxramas.Heigan the Unclean"]="39254:199,39250:197,39248:193,39246:187,39251:180,39255:170,39245:162,39247:160,39249:155,39252:139",
+	["InstanceLoot.Naxxramas.Instructor Razuvious"]="39311:189,39306:183,39298:172,39307:170,39308:168,39297:166,39309:159,39299:159,39296:145",
+	["InstanceLoot.Naxxramas.Kel'Thuzad"]="40618:353,40616:279,40617:265,39422:209,39417:200,39423:195,39416:195,39420:190,39424:186,39425:162,39419:158,39421:139,39426:134",
+	["InstanceLoot.Naxxramas.Lady Blaumeux"]="m,InstanceLoot.Naxxramas.Four Horsemen Chest",
+	["InstanceLoot.Naxxramas.Loatheb"]="40624:330,40623:306,40622:275,39257:222,39256:202,39260:178,39258:176,39259:136",
+	["InstanceLoot.Naxxramas.Maexxna"]="39225:214,39224:206,39230:206,39232:193,39233:187,39229:176,39228:171,39221:171,39226:166,39231:163",
+	["InstanceLoot.Naxxramas.Noth the Plaguebringer"]="39240:202,39234:197,39242:192,39236:192,39244:186,39235:182,39239:172,39241:172,39243:166,39237:166",
+	["InstanceLoot.Naxxramas.Patchwerk"]="39270:246,39262:240,39267:223,39261:210,39273:202,39275:185,39272:185,39271:180,39274:170",
+	["InstanceLoot.Naxxramas.Sapphiron"]="44569:720,39405:279,39401:197,39404:174,39409:174,39399:174,39398:174,39407:151,39408:151,39403:127,39415:116",
+	["InstanceLoot.Naxxramas.Sir Zeliek"]="m,InstanceLoot.Naxxramas.Four Horsemen Chest",
+	["InstanceLoot.Naxxramas.Thaddius"]="40621:338,40620:246,40619:232,39292:204,39295:190,39294:144,39293:144,39291:119",
+	["InstanceLoot.Naxxramas.Thane Korth'azz"]="m,InstanceLoot.Naxxramas.Four Horsemen Chest",
+
+	["InstanceLoot.The Nexus Hub"]="m,InstanceLoot.The Eye of Eternity,InstanceLoot.The Nexus,InstanceLoot.The Oculus",
+-- The Eye of Eternity
+	["InstanceLoot.The Eye of Eternity.Alexstrasza's Gift"]="40511:290,40491:193,40486:193,40489:161,40488:129,40475:96,40526:96,40497:32,40519:32,43953:32",
+	["InstanceLoot.The Eye of Eternity.Malygos"]="m,InstanceLoot.The Eye of Eternity.Alexstrasza's Gift",
+-- The Nexus
+	["InstanceLoot.The Nexus.Anomalus"]="35599:325,35600:314,35598:298",
+	["InstanceLoot.The Nexus.Grand Magus Telestra"]="35604:312,35617:310,35605:299",
+	["InstanceLoot.The Nexus.Keristrasza"]="35597:317,35595:316,35596:306",
+	["InstanceLoot.The Nexus.Ormorok the Tree-Shaper"]="35601:339,35603:330,35602:309",
+-- The Oculus
+	["InstanceLoot.The Oculus.Cache of Eregos"]="36973:220,36971:185,41798:170,36962:166,36972:164,36961:159,36975:157,36969:155,36974:146",
+	["InstanceLoot.The Oculus.Drakos the Interrogator"]="36944:267,36946:233,36943:217,36945:205",
+	["InstanceLoot.The Oculus.Ley-Guardian Eregos"]="m,InstanceLoot.The Oculus.Cache of Eregos",
+	["InstanceLoot.The Oculus.Mage-Lord Urom"]="36951:213,36953:213,36954:203,36952:189",
+	["InstanceLoot.The Oculus.Varos Cloudstrider"]="36948:227,36947:224,36949:219,36950:219",
+
+	["InstanceLoot.The Violet Hold.Cyanigosa"]="35649:316,35651:311,35650:307",
+	["InstanceLoot.The Violet Hold.Erekem"]="43375:455,43363:441",
+	["InstanceLoot.The Violet Hold.Ichoron"]="35647:454,35643:395",
+	["InstanceLoot.The Violet Hold.Lavanthor"]="35646:463,35645:446",
+	["InstanceLoot.The Violet Hold.Moragg"]="43382:437,43387:425",
+	["InstanceLoot.The Violet Hold.Xevozz"]="35642:427,35644:403",
+	["InstanceLoot.The Violet Hold.Zuramat the Obliterator"]="43353:468,43358:394",
+
+	["InstanceLoot.The Obsidian Sanctum.Sartharion"]="43345:867,43347:818,40615:358,40613:275,40614:243,40429:195,40428:184,40426:181,40430:163,40427:160,43991:27,43992:24,43990:20,43989:20,43988:13,43986:10",
+
+	["InstanceLoot.Ulduar Hub"]="m,InstanceLoot.Halls of Lightning,InstanceLoot.Halls of Stone",
+-- Halls of Lightning
+	["InstanceLoot.Halls of Lightning.General Bjarngrim"]="36981:236,36980:231,36979:230,36982:206",
+	["InstanceLoot.Halls of Lightning.Ionar"]="39657:230,39536:221,39534:215,39535:203",
+	["InstanceLoot.Halls of Lightning.Loken"]="36992:248,36996:225,36993:225,36991:223,41799:216,36988:211,36995:205,36994:205,36989:199",
+	["InstanceLoot.Halls of Lightning.Volkhan"]="36983:232,36985:225,36984:223,36986:218",
+-- Halls of Stone
+	["InstanceLoot.Halls of Stone.Krystallus"]="35672:359,35673:270,35670:255",
+	["InstanceLoot.Halls of Stone.Maiden of Grief"]="38614:298,38611:292,38613:290",
+	["InstanceLoot.Halls of Stone.Sjonnir The Ironshaper"]="35679:318,35680:288,35678:257",
+	["InstanceLoot.Halls of Stone.Tribunal Chest"]="35676:286,35677:248,35675:235",
+
+	["InstanceLoot.Utgarde Keep Hub"]="m,InstanceLoot.Utgarde Keep,InstanceLoot.Utgarde Pinnacle",
+-- Utgarde Keep
+	["InstanceLoot.Utgarde Keep.Dalronn the Controller"]="35575:158,35574:155,35573:72",
+	["InstanceLoot.Utgarde Keep.Ingvar the Plunderer"]="35577:282,35576:274,35578:262",
+	["InstanceLoot.Utgarde Keep.Prince Keleseth"]="35571:342,35572:297,35570:284",
+	["InstanceLoot.Utgarde Keep.Skarvald the Constructor"]="35575:325,35573:324,35574:284",
+-- Utgarde Pinnacle
+	["InstanceLoot.Utgarde Pinnacle.Gortok Palehoof"]="37050:269,37048:235,37052:207,37051:199",
+	["InstanceLoot.Utgarde Pinnacle.King Ymiron"]="37066:243,37064:231,37058:229,41797:220,37061:220,37062:209,37060:205,37065:199,37067:187",
+	["InstanceLoot.Utgarde Pinnacle.Skadi the Ruthless"]="37057:238,37055:237,37056:221,37053:203",
+	["InstanceLoot.Utgarde Pinnacle.Svala Sorrowgrave"]="37040:252,37043:239,37037:224,37038:193",
 })
