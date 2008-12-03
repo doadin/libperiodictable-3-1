@@ -6,7 +6,7 @@
 --if available, sqlite3 will be used for the cache database
 
 local SOURCE = SOURCE or "data.lua"
-local DEBUG = DEBUG or 3
+local DEBUG = DEBUG or 1
 local INSTANCELOOT_CHKSRC = INSTANCELOOT_CHKSRC
 local INSTANCELOOT_MIN = INSTANCELOOT_MIN or 50
 local INSTANCELOOT_MAXSRC = INSTANCELOOT_MAXSRC or 10
@@ -644,24 +644,40 @@ local Gear_Vendor = {
 }
 
 local Currency_Items = {
--- WoWHead-Database -> Items -> Currency
+	["Alterac Valley Mark of Honor"] = 20560,
+	["Apexis Crystal"] = 32572,
+	["Apexis Shard"] = 32569,
+	["Arathi Basin Mark of Honor"] = 20559,
+	["Arcane Rune"] = 29736,
+	["Arctic Fur"] = 44128,
 --	["Arena Points"] = 43307,
 	["Badge of Justice"] = 29434,
-	["Emblem of Heroism"] = 40752,
-	["Emblem of Valor"] = 40753,
---	["Honor Points"] = 43308,
-	["Stone Keeper's Shard"] = 43228,
-	["Alterac Valley Mark of Honor"] = 20560,
-	["Arathi Basin Mark of Honor"] = 20559,
+	["Brewfest Prize Token"] = 37829,
+	["Burning Blossom"] = 23247,
+	["Coilfang Armaments"] = 24368,
 	["Dalaran Cooking Award"] = 43016,
 	["Dalaran Jewelcrafter's Token"] = 41596,
-	["Strand of the Ancients Mark of Honor"] = 42425,
-	["Warsong Gulch Mark of Honor"] = 20558,
-	["Wintergrasp Mark of Honor"] = 43589,
-	["Venture Coin"] = 37836,
--- other
-	["Arctic Fur"] = 44128,
+	["Dream Shard"] = 34052,
+	["Emblem of Heroism"] = 40752,
+	["Emblem of Valor"] = 40753,
+	["Glowcap"] = 24245,
+	["Halaa Battle Token"] = 26045,
+	["Halaa Research Token"] = 26044,
 	["Heavy Borean Leather"] = 38425,
+	["Holy Dust"] = 29735,
+--	["Honor Points"] = 43308,
+	["Mark of Honor Hold"] = 24579,
+	["Mark of the Illidari"] = 32897,
+	["Mark of Thrallmar"] = 24581,
+	["Necrotic Rune"] = 22484,
+	["Spirit Shard"] = 28558,
+	["Stone Keeper's Shard"] = 43228,
+	["Strand of the Ancients Mark of Honor"] = 42425,
+	["Sunmote"] = 34664,
+	["Venture Coin"] = 37836,
+	["Warsong Gulch Mark of Honor"] = 20558,
+	["Winterfin Clam"] = 34597,
+	["Wintergrasp Mark of Honor"] = 43589,
 }
 
 local Tradeskill_Gem_Color_filters = {
