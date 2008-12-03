@@ -77,6 +77,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("InstanceLootHeroic", gsub("$Rev$", "(%d
 
 	["InstanceLootHeroic.Azjol-Nerub Hub"]="m,InstanceLootHeroic.Ahn'kahet: The Old Kingdom,InstanceLootHeroic.Azjol-Nerub",
 -- Ahn'kahet: The Old Kingdom
+	["InstanceLootHeroic.Ahn'kahet: The Old Kingdom.Amanitar"]="43284:247,43287:228,43285:216,43286:214",
 	["InstanceLootHeroic.Ahn'kahet: The Old Kingdom.Elder Nadox"]="37591:247,37593:240,37592:198,37594:181",
 	["InstanceLootHeroic.Ahn'kahet: The Old Kingdom.Herald Volazj"]="43102:651,37617:208,37619:207,41790:201,37622:194,37623:186,37616:184,37618:180,37615:180,37620:155",
 	["InstanceLootHeroic.Ahn'kahet: The Old Kingdom.Jedoga Shadowseeker"]="43280:239,43282:223,43281:208,43283:181",
@@ -130,6 +131,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("InstanceLootHeroic", gsub("$Rev$", "(%d
 	["InstanceLootHeroic.The Eye of Eternity.Malygos"]="m,InstanceLootHeroic.The Eye of Eternity.Alexstrasza's Gift",
 -- The Nexus
 	["InstanceLootHeroic.The Nexus.Anomalus"]="37150:231,37144:222,37141:210,37149:209",
+	["InstanceLootHeroic.The Nexus.Commander Stoutbeard"]="37730:208,37728:192,37729:191,37731:191",
 	["InstanceLootHeroic.The Nexus.Grand Magus Telestra"]="37138:227,37139:224,37135:201,37134:193",
 	["InstanceLootHeroic.The Nexus.Keristrasza"]="43102:557,37170:210,37165:205,37167:194,37166:189,37162:181,37171:179,37172:176,37169:164,41794:158",
 	["InstanceLootHeroic.The Nexus.Ormorok the Tree-Shaper"]="37152:229,37151:220,37155:216,37153:211",
