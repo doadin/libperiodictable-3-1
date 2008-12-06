@@ -59,7 +59,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("Consumable", gsub("$Rev$", "(%d+)", fun
 	["Consumable.Buff.Health.Flask"]="13510:400,22851:500,32898:500",
 	["Consumable.Buff.Health.Self"]="2458:27,23444:70,3825:120,32062:250,22837:700,22797:2000",
 	["Consumable.Buff.Other.Flask"]="13506",
-	["Consumable.Buff.Other.Self"]="3387,3823,3828,5996,5634,6372,8529,8956,9233,9154,9172,9197,10592,13506",
+	["Consumable.Buff.Other.Self"]="3387,3823,3828,5996,5634,6372,8529,8956,9233,9154,9172,9197,10592,13506,43090,43094,43134,43141",
 	["Consumable.Buff.Rage.Self"]="31451:10,5631:30,5633:45,13442:45",
 	["Consumable.Buff.Regen Health.Self"]="3382:2,3388:6,32062:10,3826:12,20004:20",
 	["Consumable.Buff.Regen Mana.Flask"]="32596:8,22853:25,32899:25",
@@ -70,7 +70,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("Consumable", gsub("$Rev$", "(%d+)", fun
 	["Consumable.Buff.Resistance.Target"]="12455:15,12457:15",
 	["Consumable.Buff.Shadow Power"]="9264:40,22835:65",
 	["Consumable.Buff.Shield"]="23575:1000,23576:4000",
-	["Consumable.Buff.Speed.Self"]="29530:15,20081:20,2459:50,33226:14",
+	["Consumable.Buff.Speed.Self"]="29530:15,20081:20,2459:50,33226:14,43135:15",
 	["Consumable.Buff.Spell Crit.Self"]="22839:2,28103:24",
 	["Consumable.Buff.Spell Damage.Flask"]="32601:23,13512:70,32900:70,22861:80,22866:80",
 	["Consumable.Buff.Spell Damage.Self"]="6373:10,22710:10,17708:15,22778:15,22238:23,23326:23,28103:24,29528:30,13454:35,9155:20,9264:40,22833:55,22835:65,22788:80,22839:120",
@@ -228,10 +228,10 @@ LibStub("LibPeriodicTable-3.1"):AddData("Consumable", gsub("$Rev$", "(%d+)", fun
 	["Consumable.Tailor.Net"]="m,Consumable.Cooldown.Drums.Nets",
 
 	--NOT AUTOGENNED These are items you need to (right) click to use.  If it makes no sense in a button, it does not belong here.  Permanent: Vargoth's Staff, Pony Keg, etc. Quest: removed by Blizzard on quest completion. Replenished: dailies like booterang or others you can replenish like Halaa bombs.
-	["Consumable.Warlock.Firestone"]="1254,13699,13700,13701,22128,41174",
+	["Consumable.Warlock.Firestone"]="13700:75,22128:141",
 	["Consumable.Warlock.Healthstone"]="5509:500,5510:800,5511:250,5512:100,9421:1200,19004:110,19005:120,19006:275,19007:300,19008:550,19009:600,19010:880,19011:960,19012:1320,19013:1440,22103:2080,22104:2288,22105:2496,36889:3500,36890:3850,36891:4200,36892:4280,36893:4708,36894:5136",
-	["Consumable.Warlock.Soulstone"]="5522:8,13602:11,13603:14,22646:20,36895:30",
-	["Consumable.Warlock.Spellstone"]="5232,16892,16893,16895,16896,22116,41195,41196",
+	["Consumable.Warlock.Soulstone"]="5232:18,16892:30,16893:40,16895:50,16896:60,22116:70,36895:76",
+	["Consumable.Warlock.Spellstone"]="13602:11,36896:20,36897:20",
 
 	--NOT AUTOGENNED (All water.  I'd like to get this mined, but the filters for these items on allakhazam and wowhead are nonexistant.)
 	["Consumable.Water.Basic"]="1401:60,159:151,1179:436,17404:436,1205:835,9451:835,19299:835,1708:1344,4791:1344,10841:1344,17405:1344,1645:1992,19300:1992,8766:2934,23161:2934,23585:2934,24006:2934,38429:2934,32455:4200,18300:4200,24007:4200,28399:5100,29454:5100,38430:5100,27860:7200,29395:7200,30457:7200,29401:7200,33042:7200,32668:7200,32453:7200,35954:7200,37253:7200,38431:7200,44750:7200,38698:9180,42777:12960,43086:9180,40357:7200,33445:12960,33444:9180,43236:12960,41731:12960,39520:12960",
@@ -246,8 +246,8 @@ LibStub("LibPeriodicTable-3.1"):AddData("Consumable", gsub("$Rev$", "(%d+)", fun
 	["Consumable.Water.Percentage"]="19997:60,21241:60",
 
 	--!!Add to miner
-	["Consumable.Weapon Buff.Firestone"]="41170:7,41169:14,41172:28,40773:35,41173:42,41174:49",
-	["Consumable.Weapon Buff.Misc"]="3829,31535,23123,34538,34539",
+	["Consumable.Weapon Buff.Firestone"]="41170:7,41169:14,41171:21,41172:28,40773:35,41173:42,41174:49",
+	["Consumable.Weapon Buff.Misc"]="3824,3829,31535,23123,34538,34539",
 	["Consumable.Weapon Buff.Oil.Mana"]="20745:4,20747:8,20748:12,22521:14",
 	["Consumable.Weapon Buff.Oil.Wizard"]="20744:8,20746:16,20750:24,20749:36,22522:42",
 	["Consumable.Weapon Buff.Poison.Anesthetic"]="21835:153,43237:231",
