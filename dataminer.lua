@@ -628,7 +628,7 @@ local Gear_Socketed_filters = { -- TODO: check against 200 items/query limit
 	},
 }
 
-local Gear_Socketed_levelgroups = {
+local Gear_levelgroups = {
 	";maxrl=69",
 	";minrl=70;maxrl=70",
 	";minrl=71;maxrl=79",
@@ -1183,22 +1183,6 @@ handlers["^Misc%.Lockboxes"] = function (set, data)
 	end)
 end
 
-handlers["^Gear%.Socketed"] = function (set, data)
-	local newset = {}
-	local slot = set:match("%.([^%.]+)$")
-	for _,filter in ipairs(Gear_Socketed_filters[slot]) do
-		for _, levelfilter in ipairs(Gear_Socketed_levelgroups) do
-			local nset = basic_listview_handler("http://www.wowhead.com/?items&filter="..filter..levelfilter)
-			if nset and nset ~= "" then
-				StrSplitMerge(",", nset, newset)
-			end
-		end
-	end
-
-	table.sort(newset, sortSet)
-	return table.concat(newset, ",")
-end
-
 handlers["Misc%.Container%.ItemsInType"] = function (set, data)
 	local newset
 	local container = set:match("%.([^%.]+)$")
@@ -1249,15 +1233,24 @@ handlers["^Misc%.Usable%.Quest$"] = function (set, data)
 end
 ]]
 
-handlers["^Gear%.Trinket$"] = function (set, data)
-	local tmp = {}
-	for q = 0, 6 do
-		local l = basic_listview_handler(string.format("http://www.wowhead.com/?items=4.-4&filter=qu=%d", q))
-		if l and l ~= "" then
-			tmp[#tmp + 1] = l
+handlers["^Gear%.Socketed"] = function (set, data)
+	local newset = {}
+	local slot = set:match("%.([^%.]+)$")
+	for _,filter in ipairs(Gear_Socketed_filters[slot]) do
+		for _, levelfilter in ipairs(Gear_levelgroups) do
+			local nset = basic_listview_handler("http://www.wowhead.com/?items&filter="..filter..levelfilter)
+			if nset and nset ~= "" then
+				StrSplitMerge(",", nset, newset)
+			end
 		end
 	end
-	return table.concat(tmp, ",")
+
+	table.sort(newset, sortSet)
+	return table.concat(newset, ",")
+end
+
+handlers["^Gear%.Trinket$"] = function (set, data)
+	return basic_listview_handler("http://www.wowhead.com/?items=4.-4")
 end
 
 handlers["^ClassSpell"] = function (set, data)
