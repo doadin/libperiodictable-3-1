@@ -885,9 +885,13 @@ handlers["^InstanceLoot%."] = function (set, data)
 end
 
 handlers["^GearSet"] = function (set, data)
-	local newset
+	local newset, id
 	local setname = set:match("%.([^%.]+)$")
-	local id = basic_listview_get_first_id("http://www.wowhead.com/?itemsets&filter=na="..url.escape(setname))
+	if set:find(".PvP.Arena.") then
+		id = basic_listview_get_first_id("http://www.wowhead.com/?itemsets&filter=qu=4;maxle=130;na="..url.escape(setname))
+	else
+		id = basic_listview_get_first_id("http://www.wowhead.com/?itemsets&filter=na="..url.escape(setname))
+	end
 	if id then
 		local count = 0
 		page = getpage("http://www.wowhead.com/?itemset="..id)
