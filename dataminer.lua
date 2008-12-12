@@ -531,16 +531,20 @@ local Tradeskill_Gather_GemsInNodes_nodes = {
 	["Iron Deposit"] = 1735,
 	["Gold Vein"] = 1734,
 	["Mithril Deposit"] = 2040,
+	["Dark Iron Deposit"] = 165658,
 	["Truesilver Deposit"] = 2047,
 	["Small Thorium Vein"] = 324,
 	["Hakkari Thorium Vein"] = 180215,
 	["Rich Thorium Vein"] = 175404,
-	["Dark Iron Deposit"] = 165658,
 	["Fel Iron Deposit"] = 181555,
 	["Adamantite Deposit"] = 181556,
 	["Rich Adamantite Deposit"] = 181569,
 	["Khorium Vein"] = 181557,
-	-- TODO: Northerend Nodes
+	["Cobalt Node"] = 189978,
+	["Rich Cobalt Node"] = 189979,
+	["Saronite Node"] = 189980,
+	["Rich Saronite Node"] = 189981,
+	["Titanium Node"] = 191133,
 }
 
 local Tradeskill_Profession_filters = {
@@ -641,6 +645,17 @@ local Gear_Vendor = {
 		["G'eras"] = 18525,
 		["Smith Hauthaa"] = 25046,
 	},
+}
+
+local GearSets_fixedids = {
+	["Battlegear of Undead Slaying"] = 533,
+	["Blessed Battlegear of Undead Slaying"] = 784,
+	["Garb of the Undead Slayer"] = 535,
+	["Blessed Garb of the Undead Slayer"] = 783,
+	["Regalia of Undead Cleansing"] = 536,
+	["Blessed Regalia of Undead Cleansing"] = 781,
+	["Undead Slayer's Armor"] = 534,
+	["Undead Slayer's Blessed Armor"] = 782,
 }
 
 local Currency_Items = {
@@ -887,7 +902,9 @@ end
 handlers["^GearSet"] = function (set, data)
 	local newset, id
 	local setname = set:match("%.([^%.]+)$")
-	if set:find(".PvP.Arena.") then
+	if GearSets_fixedids[setname] then
+		id = GearSets_fixedids[setname]
+	elseif set:find(".PvP.Arena.") then
 		id = basic_listview_get_first_id("http://www.wowhead.com/?itemsets&filter=qu=4;maxle=130;na="..url.escape(setname))
 	else
 		id = basic_listview_get_first_id("http://www.wowhead.com/?itemsets&filter=na="..url.escape(setname))
