@@ -818,8 +818,7 @@ handlers["^InstanceLoot%."] = function (set, data)
 	if boss == "Trash Mobs" then
 		return handle_trash_mobs(set)
 	end
-	local id, type =
-		basic_listview_get_npc_id(boss, zone), "npc"
+	local id, type = basic_listview_get_npc_id(boss, zone), "npc"
 	if not id then
 		id, type = basic_listview_get_first_id("http://www.wowhead.com/?objects&filter=na="..url.escape(boss)), "object"
 	end

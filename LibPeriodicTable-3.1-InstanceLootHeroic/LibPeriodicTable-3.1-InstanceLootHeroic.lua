@@ -89,6 +89,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("InstanceLootHeroic", gsub("$Rev$", "(%d
 
 	["InstanceLootHeroic.The Culling of Stratholme.Chrono-Lord Epoch"]="37687:215,37685:210,37686:199,37688:199,37106:20,37105:17,37096:16,37099:15",
 	["InstanceLootHeroic.The Culling of Stratholme.Dark Runed Chest"]="43102:344,37691:130,37692:129,37689:115,37693:101,37696:101,37690:99,37695:89,43085:81,37694:80,37112:14,37109:13,37108:9,37107:9,37113:8,37110:7,37111:7",
+	["InstanceLootHeroic.The Culling of Stratholme.Infinite Corruptor"]="43951:881",
 	["InstanceLootHeroic.The Culling of Stratholme.Mal'Ganis"]="m,InstanceLootHeroic.The Culling of Stratholme.Dark Runed Chest",
 	["InstanceLootHeroic.The Culling of Stratholme.Meathook"]="37680:212,37679:204,37675:189,37678:186,37079:23,37081:21,37082:16",
 	["InstanceLootHeroic.The Culling of Stratholme.Salramm the Fleshcrafter"]="37682:213,37681:206,37683:205,37684:194,37095:19,37088:15,37084:14",
