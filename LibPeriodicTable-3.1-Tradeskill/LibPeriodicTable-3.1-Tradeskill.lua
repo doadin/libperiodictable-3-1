@@ -149,7 +149,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("Tradeskill", gsub("$Rev$", "(%d+)", fun
 	["Tradeskill.Tool.Fishing.Other"]="34832:10",
 	["Tradeskill.Tool.Fishing.Tool"]="6256:0,12225:3,6367:20,6365:5,25978:20,19022:25,44050:30,19970:35",
 	["Tradeskill.Tool.Inscription"]="39505",
-	["Tradeskill.Tool.Jewelcrafting"]="20815,13503,31080,9149",
+	["Tradeskill.Tool.Jewelcrafting"]="20815,31080",
 	["Tradeskill.Tool.Mining"]="756,778,1819,1893,1959,2901,9465,20723,30855,40772,40892,40893",
 	["Tradeskill.Tool.Skinning"]="7005,12709,19901,40772,40893",
 
