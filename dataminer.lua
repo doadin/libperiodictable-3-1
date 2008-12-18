@@ -9,7 +9,7 @@ local SOURCE = SOURCE or "data.lua"
 local DEBUG = DEBUG or 1
 local INSTANCELOOT_CHKSRC = INSTANCELOOT_CHKSRC
 local INSTANCELOOT_MIN = INSTANCELOOT_MIN or 50
-local INSTANCELOOT_MAXSRC = INSTANCELOOT_MAXSRC or 10
+local INSTANCELOOT_MAXSRC = INSTANCELOOT_MAXSRC or 5
 local INSTANCELOOT_TRASHMINSRC = INSTANCELOOT_TRASHMINSRC or 3
 
 if arg[1] == "-chksrc" and arg[2] then
@@ -68,7 +68,7 @@ do
 		end
 		local c = curl.new()
 		function getpage(url)
-			dprint(2, "curl", url)
+			dprint(3, "curl", url)
 			local temp = {}
 			c:setopt(curl.OPT_URL, url)
 			c:setopt(curl.OPT_WRITEFUNCTION, write)
@@ -90,7 +90,7 @@ do
 		local http = require("socket.http")
 
 		function getpage(url)
-			dprint(2, "socket.http", url)
+			dprint(3, "socket.http", url)
 			local stime = os.time()
 			local r = http.request(url)
 			httptime = httptime + (os.time() - stime)
@@ -251,7 +251,7 @@ local function StrSplitMerge(sep, str, t)
 	return r
 end
 
--- Used to sort tables with values [-id|id][:value]
+-- Used to sort tables with values [-id|id][:value] using value as primary sort data
 local function sortSet(a, b)
 	local aId, aValue = a:match("(%-?%d+):(%-?%d+)")
 	local bId, bValue = b:match("(%-?%d+):(%-?%d+)")
@@ -281,6 +281,26 @@ local function sortSet(a, b)
 	else
 		return aId < bId
 	end
+end
+
+-- Used to sort tables with values [-id|id][:value] using id as primary sort data
+local function sortSet_id(a, b)
+	local aId, aValue = a:match("(%-?%d+):(%-?%d+)")
+	local bId, bValue = b:match("(%-?%d+):(%-?%d+)")
+	if (not aId) then
+		aId = a
+	else
+		aValue = tonumber(aValue)
+	end
+	if (not bId) then
+		bId = b
+	else
+		bValue = tonumber(bValue)
+	end
+	aId = tonumber(aId)
+	bId = tonumber(bId)
+
+	return aId < bId
 end
 
 local function basic_itemid_handler(itemstring)
@@ -788,28 +808,28 @@ do
 			dprint(3, name, "Added to Junk (too many source)")
 			junkdrops[itemid] = true
 			return true
-		elseif count == 1 then
+		else--if count == 1 then
 			junkdrops[itemid] = false
 			return false
 		end
 
-		for n, binding in page:gmatch("<b[^>]+>([^<]+)</b><br />Binds when ([a-z ]+)") do
-			dprint(5, "Junk check", name, n, binding)
-			if n == name and binding == "equipped" then
-				dprint(3, name, "Added to Junk (equipped)")
-				junkdrops[itemid] = true
-				return true
-			end
-		end
+--~ 		for n, binding in page:gmatch("<b[^>]+>([^<]+)</b><br />Binds when ([a-z ]+)") do
+--~ 			dprint(5, "Junk check", name, n, binding)
+--~ 			if n == name and binding == "equipped" then
+--~ 				dprint(3, name, "Added to Junk (equipped)")
+--~ 				junkdrops[itemid] = true
+--~ 				return true
+--~ 			end
+--~ 		end
 
-		junkdrops[itemid] = false
-		return false
+--~ 		junkdrops[itemid] = false
+--~ 		return false
 	end
 end
 
 handlers["^InstanceLoot%."] = function (set, data)
 	if not INSTANCELOOT_CHKSRC then return end
-	local newset
+	local newset = {}
 	local zone, boss = set:match("([^%.]+)%.([^%.]+)$")
 	if boss == " Smite" then
 		boss = "Mr. Smite"
@@ -824,7 +844,7 @@ handlers["^InstanceLoot%."] = function (set, data)
 	end
 	if id then
 		page = getpage("http://www.wowhead.com/?"..type.."="..id)
-		local count = 0
+		local count_normal, count_heroic = 0, 0
 		local drops = {}
 		local normaldropslist, heroicdropslist, dropslist
 		for list in page:gmatch("new Listview(%b())") do
@@ -862,12 +882,8 @@ handlers["^InstanceLoot%."] = function (set, data)
 			for itemstring in itemlist:gmatch("%b{}") do
 				local v = handler(itemstring)
 				if v then
-					if newset then
-						newset = newset..","..v
-					else
-						newset = v
-					end
-					count = count + 1
+					newset[#newset + 1] = v
+					count_normal = count_normal + 1
 				end
 			end
 		else
@@ -876,30 +892,30 @@ handlers["^InstanceLoot%."] = function (set, data)
 		if drops.heroic then
 			local normalsub = set:match("^InstanceLoot%.(.+)$")
 			local heroicname = "InstanceLootHeroic."..normalsub
-			local heroicstr, itemlist
+			local heroicset, itemlist = {}
 			itemlist, totaldrops = unpack(drops.heroic)
 			for itemstring in itemlist:gmatch("%b{}") do
 				local v = handler(itemstring)
 				if v then
-					if heroicstr then
-						heroicstr = heroicstr..","..v
-					else
-						heroicstr = v
-					end
+					heroicset[#heroicset + 1] = v
+					count_heroic = count_heroic + 1
 				end
 			end
-			sets[heroicname] = heroicstr
+			table.sort(heroicset, sortSet_id)
+			heroicset = table.concat(heroicset, ",")
+			printdiff(heroicname, sets[heroicname], heroicset)
+			sets[heroicname] = heroicset
 		end
-		dprint(2, "InstanceLoot: "..boss.." has "..count)
-		if count == 0 then newset = "" end
+		dprint(2, "InstanceLoot: "..boss.." has "..count_normal.." normal and "..count_heroic.." heroic drops.")
+		table.sort(newset, sortSet_id)
+		return table.concat(newset, ",")
 	else
 		print("*ERROR* "..boss.. " NOT FOUND !")
 	end
-	return newset
 end
 
 handlers["^GearSet"] = function (set, data)
-	local newset, id
+	local newset, id = {}, nil
 	local setname = set:match("%.([^%.]+)$")
 	if GearSets_fixedids[setname] then
 		id = GearSets_fixedids[setname]
@@ -914,19 +930,16 @@ handlers["^GearSet"] = function (set, data)
 		for itemstring in page:gmatch("ge%('iconlist%-icon%d+'%)[^\n]+") do
 			local itemid = itemstring:match("%.createIcon%((%d+)")
 			if itemid then
-				if newset then
-					newset = newset..","..itemid
-				else
-					newset = itemid
-				end
+				newset[#newset] = itemid
 				count = count + 1
 			else
 				error("no itemid")
 			end
 		end
 		dprint(2, "GearSet: "..setname.." has "..count)
+		table.sort(newset, sortSet)
+		return table.concat(newset, ",")
 	end
-	return newset
 end
 
 handlers["^Misc%.Reagent%.Ammo"] = function (set, data)
@@ -1334,7 +1347,12 @@ local function update_all_sets(sets, setcount)
 		end
 		if newset then
 			printdiff(set, sets[set], newset)
-			sets[set] = newset
+			-- check if we mined an empty set that would overwrite existing data
+			if newset == "" and sets[set] ~= newset then
+				dprint(1, "WARNING: mined empty data for non-empty set. skipping set", set)
+			else
+				sets[set] = newset
+			end
 		else
 			table.insert(notmined, set)
 		end
