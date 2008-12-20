@@ -148,17 +148,18 @@ CREATE TABLE IF NOT EXISTS cache (
 end
 
 local function read_data_file()
-	local subset = arg[1] or ''
+	local subset = string.gsub(arg[1] or '','%.','%.')
 	local f = assert(io.open(SOURCE, "r"))
 	local file = f:read("*all")
 	f:close()
 
 	local sets = {}
 	local setcount = 0
-	for set, data in file:gmatch('\t%[%"('..subset..'[^"]+)%"%][^=]-= "([^"]-)"') do
+	for set, data in file:gmatch('\t%[%"('..subset..'[^"]'..(subset and '?' or '+')..')%"%][^=]-= "([^"]-)"') do
 		sets[set] = data
 		setcount = setcount + 1
 	end
+
 	return file, sets, setcount
 end
 
@@ -986,6 +987,20 @@ handlers["^Consumable%.Bandage"] = function (set, data)
 			end
 		end
 	end
+	return newset
+end
+
+handlers["^Consumable%.Scroll"] = function (set, data)
+	local newset
+	local page = getpage("http://www.wowhead.com/?items=0.4")
+	for itemid in page:gmatch("_%[(%d+)%]") do
+		if newset then
+			newset = newset..","..itemid
+		else
+			newset = itemid
+		end
+	end
+	print(newset)
 	return newset
 end
 
