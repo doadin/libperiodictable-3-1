@@ -96,7 +96,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("Consumable", gsub("$Rev$", "(%d+)", fun
 	["Consumable.Cooldown.Potion.Combat.Offensive"]="13442,22828,22837,22838,22839",
 	["Consumable.Cooldown.Potion.Combat.Defensive"]="4623,13455,22849",
 	["Consumable.Cooldown.Potion.Health.Anywhere"]="43569:1920",
-	["Consumable.Cooldown.Potion.Health.Basic"]="118:80,858:160,4596:160,929:320,1710:520,11562:670,3928:800,18839:800,13446:1400,31838:1400,31839:1400,31852:1400,31853:1400,28100:1400,33092:2000,23822:2000,22829:2000,32947:2000,33934:2000,39671:2000,33447:3600,41166:3600",
+	["Consumable.Cooldown.Potion.Health.Basic"]="118:80,858:160,4596:160,929:320,1710:520,11562:670,3928:800,18839:800,13446:1400,31838:1400,31839:1400,31852:1400,31853:1400,28100:1400,33092:2000,23822:2000,22829:2000,32947:2000,33934:2000,39327:2000,39671:2000,33447:3600,41166:3600",
 	["Consumable.Cooldown.Potion.Health.Blades Edge"]="32784:1400,32910:1400",
 	["Consumable.Cooldown.Potion.Health.Coilfang"]="32904:2000",
 	["Consumable.Cooldown.Potion.Health.Tempest Keep"]="32905:2000",
@@ -109,6 +109,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("Consumable", gsub("$Rev$", "(%d+)", fun
 	["Consumable.Cooldown.Potion.Mana.Tempest Keep"]="32902:2400",
 	["Consumable.Cooldown.Potion.Rejuvenation.Regular"]="2456:120,11952:425,9144:750,29531:750,18253:1600,22850:2200,34440:2200",
 	["Consumable.Cooldown.Potion.Rejuvenation.Dreamless Sleep"]="12190:1200,20002:2100,22836:3600",
+	["Consumable.Cooldown.Potion.Rune"]="39327:50",
 	["Consumable.Cooldown.Stone.Combat"]="22797,22795,22788",
 	["Consumable.Cooldown.Stone.Health.Other"]="11951:800,32578:2000,",
 	["Consumable.Cooldown.Stone.Health.Statue"]="25498:8,25880:16,25881:24,25882:36,25883:50",
@@ -215,7 +216,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("Consumable", gsub("$Rev$", "(%d+)", fun
 	["Consumable.Potion.Other.Cure"]="3386,13462,9030,2633",
 	["Consumable.Potion.Recovery.Dreamless Sleep"]="12190:1200,20002:2100,22836:3600",
 	["Consumable.Potion.Recovery.Health.Anywhere"]="43569:1920",
-	["Consumable.Potion.Recovery.Healing.Basic"]="118:80,858:160,4596:160,929:320,1710:520,11562:670,3928:800,18839:800,13446:1400,31838:1400,31839:1400,31852:1400,31853:1400,28100:1400,33092:2000,23822:2000,22829:2000,32947:2000,33934:2000,39327:2000,33447:3600,41166:3600",
+	["Consumable.Potion.Recovery.Healing.Basic"]="118:80,858:160,4596:160,929:320,1710:520,11562:670,3928:800,18839:800,13446:1400,31838:1400,31839:1400,31852:1400,31853:1400,28100:1400,33092:2000,23822:2000,22829:2000,32947:2000,33934:2000,33447:3600,41166:3600",
 	["Consumable.Potion.Recovery.Healing.Blades Edge"]="32784:1400,32910:1400",
 	["Consumable.Potion.Recovery.Healing.Coilfang"]="32904:2000",
 	["Consumable.Potion.Recovery.Healing.Tempest Keep"]="32905:2000",
@@ -229,7 +230,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("Consumable", gsub("$Rev$", "(%d+)", fun
 	["Consumable.Potion.Recovery.Rejuvenation"]="2456:120,11952:425,9144:750,29531:750,18253:1600,22850:2200,34440:2200",
 
 	["Consumable.Scroll"]="3012,1477,4425,10309,27498,33457,43463,43464,955,2290,4419,10308,27499,33458,37091,37092,3013,1478,4421,10305,27500,33459,43467,37118,44314,44315,1181,1712,4424,10306,27501,33460,37097,37098,1180,1711,4422,10307,27502,33461,37093,37094,954,2289,4426,10310,27503,33462,43465,43466",
-	
+
 	["Consumable.Leatherworking.Drums"]="m,Consumable.Cooldown.Drums.Drums",
 	["Consumable.Tailor.Net"]="m,Consumable.Cooldown.Drums.Nets",
 
