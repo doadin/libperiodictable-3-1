@@ -155,7 +155,7 @@ local function read_data_file()
 
 	local sets = {}
 	local setcount = 0
-	for set, data in file:gmatch('\t%[%"('..subset..'[^"]'..(subset and '?' or '+')..')%"%][^=]-= "([^"]-)"') do
+	for set, data in file:gmatch('\t%[%"('..subset..'[^"]*)%"%][^=]-= "([^"]-)"') do
 		sets[set] = data
 		setcount = setcount + 1
 	end
@@ -1393,6 +1393,7 @@ local function main()
 
 	local file, setcount
 	file, sets, setcount = read_data_file()
+	print(("%d sets in datafile"):format(setcount))
 	local notmined = update_all_sets(sets, setcount)
 	local elapsed = os.time()- starttime
 	local cputime = os.clock()
