@@ -286,17 +286,13 @@ end
 
 -- Used to sort tables with values [-id|id][:value] using id as primary sort data
 local function sortSet_id(a, b)
-	local aId, aValue = a:match("(%-?%d+):(%-?%d+)")
-	local bId, bValue = b:match("(%-?%d+):(%-?%d+)")
+	local aId, aValue = a:match("(%-?%d+):")
+	local bId, bValue = b:match("(%-?%d+):")
 	if (not aId) then
 		aId = a
-	else
-		aValue = tonumber(aValue)
 	end
 	if (not bId) then
 		bId = b
-	else
-		bValue = tonumber(bValue)
 	end
 	aId = tonumber(aId)
 	bId = tonumber(bId)
@@ -1139,8 +1135,6 @@ handlers["^Misc%.Minipet%.Normal"] = function (set, data)
 	return newset
 end
 
-
-
 handlers["^Misc%.Reagent%.Ammo"] = function (set, data)
 	local newset
 	local setname = set:match("%.([^%.]+)$")
@@ -1191,7 +1185,7 @@ handlers["^Tradeskill%.Crafted"] = function (set, data)
 	local filter = Tradeskill_Profession_filters[profession]
 	if not filter then return end
 
-	local newset, fp_set, rp_set, lp_set = {}, {}, {}, {}
+	local newset, fp_set, rp_set, lp_set, level_set = {}, {}, {}, {}, {}
 
 	local reagenttable = {}
 	basic_listview_handler("http://www.wowhead.com/?spells="..filter, function (itemstring)
@@ -1199,6 +1193,7 @@ handlers["^Tradeskill%.Crafted"] = function (set, data)
 		local skilllvl = itemstring:match("learnedat:(%d+)")
 		local reagentstring = itemstring:match("reagents:(%b[])")
 		if not reagentstring then return end
+		local colorstring = itemstring:match("colors:(%b[])")
 		skilllvl = math.min(450, tonumber(skilllvl) or 450)
 		local itemid
 		dprint(3, profession, itemid, skilllvl, reagentstring)
@@ -1215,18 +1210,38 @@ handlers["^Tradeskill%.Crafted"] = function (set, data)
 				newrecipemats = newrecipemats..reagentid.."x"..reagentnum..";"
 			end
 			newrecipemats = newrecipemats:sub(1,-2)
+			local levels = {}
+			for l in colorstring:gmatch("%d+") do
+				table.insert(levels, l)
+			end
+			for k,v in ipairs(levels) do
+				if v == "0" then levels[k] = "-" end
+			end
 			fp_set[#fp_set + 1] = newrecipemats
 			lp_set[#lp_set + 1] = "-"..spellid..":"..itemid
+			level_set[#level_set + 1] = itemid..":"..table.concat(levels, "/")
 		end
 	end)
 	for k,v in pairs(reagenttable) do
 		rp_set[#rp_set + 1] = k..":"..v
 	end
 
-	sets["TradeskillResultMats.Forward."..profession] = table.concat(fp_set, ",")
-	sets["TradeskillResultMats.Reverse."..profession] = table.concat(rp_set, ",")
+	table.sort(fp_set, sortSet_id)
+	fp_set = table.concat(fp_set, ",")
+	printdiff("TradeskillResultMats.Forward."..profession, sets["TradeskillResultMats.Forward."..profession], fp_set)
+	sets["TradeskillResultMats.Forward."..profession] = fp_set
+	table.sort(rp_set, sortSet_id)
+	rp_set = table.concat(rp_set, ",")
+	printdiff("TradeskillResultMats.Reverse."..profession, sets["TradeskillResultMats.Reverse."..profession], rp_set)
+	sets["TradeskillResultMats.Reverse."..profession] = rp_set
 	table.sort(lp_set, sortSet)
-	sets["Tradeskill.RecipeLinks."..profession] = table.concat(lp_set, ",")
+	lp_set = table.concat(lp_set, ",")
+	printdiff("Tradeskill.RecipeLinks."..profession, sets["Tradeskill.RecipeLinks."..profession], lp_set)
+	sets["Tradeskill.RecipeLinks."..profession] = lp_set
+	table.sort(level_set, sortSet_id)
+	level_set = table.concat(level_set, ",")
+	printdiff("TradeskillLevels."..profession, sets["TradeskillLevels."..profession], level_set)
+	sets["TradeskillLevels."..profession] = level_set
 
 	table.sort(newset, sortSet)
 	return table.concat(newset, ",")
@@ -1280,7 +1295,7 @@ handlers["^Tradeskill%.Gem"] = function (set, data)
 			table.sort(v)
 			newset[#newset + 1] = k..":"..table.concat(v, ";")
 		end
-		table.sort(newset, sortSet_ID)
+		table.sort(newset, sortSet_id)
 		return table.concat(newset, ",")
 	else
 		local filter = Tradeskill_Gem_Color_filters[color]
@@ -1342,40 +1357,6 @@ handlers["^Tradeskill%.Tool"] = function (set, data)
 	table.sort(newset, sortSet)
 	return table.concat(newset, ",")
 end
-
-
-handlers["^TradeskillLevels%."] = function (set, data)
-	local profession = set:match("^TradeskillLevels%.(.+)$")
-	local filter = Tradeskill_Profession_filters[profession]
-	if not filter then return end
-
-	local newset
-
-	basic_listview_handler("http://www.wowhead.com/?spells="..filter, function (itemstring)
-		local levels = {}
-		local recipe = itemstring:match("{id:(%d+)")
-
-		local colors = itemstring:match("colors:%b[]")
-		if not colors then return end
-
-		for l in colors:gmatch("%d+") do
-			table.insert(levels,tonumber(l))
-		end
-
-		if #levels == 3 then
-			table.insert(levels,1,tonumber(levels[1]))
-		end
-
-		if newset then
-			newset = newset..","..recipe..":"..table.concat(levels,"/")
-		else
-			newset = recipe..":"..table.concat(levels,"/")
-		end
-	end)
-	return newset
-end
-
-
 
 local function update_all_sets(sets, setcount)
 	local setid = 0
