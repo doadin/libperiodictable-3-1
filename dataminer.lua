@@ -1139,6 +1139,8 @@ handlers["^Misc%.Minipet%.Normal"] = function (set, data)
 	return newset
 end
 
+
+
 handlers["^Misc%.Reagent%.Ammo"] = function (set, data)
 	local newset
 	local setname = set:match("%.([^%.]+)$")
@@ -1340,6 +1342,40 @@ handlers["^Tradeskill%.Tool"] = function (set, data)
 	table.sort(newset, sortSet)
 	return table.concat(newset, ",")
 end
+
+
+handlers["^TradeskillLevels%."] = function (set, data)
+	local profession = set:match("^TradeskillLevels%.(.+)$")
+	local filter = Tradeskill_Profession_filters[profession]
+	if not filter then return end
+
+	local newset
+
+	basic_listview_handler("http://www.wowhead.com/?spells="..filter, function (itemstring)
+		local levels = {}
+		local recipe = itemstring:match("{id:(%d+)")
+
+		local colors = itemstring:match("colors:%b[]")
+		if not colors then return end
+
+		for l in colors:gmatch("%d+") do
+			table.insert(levels,tonumber(l))
+		end
+
+		if #levels == 3 then
+			table.insert(levels,1,tonumber(levels[1]))
+		end
+
+		if newset then
+			newset = newset..","..recipe..":"..table.concat(levels,"/")
+		else
+			newset = recipe..":"..table.concat(levels,"/")
+		end
+	end)
+	return newset
+end
+
+
 
 local function update_all_sets(sets, setcount)
 	local setid = 0

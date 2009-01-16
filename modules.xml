@@ -12,5 +12,6 @@
 <Script file="LibPeriodicTable-3.1-Reputation\LibPeriodicTable-3.1-Reputation.lua"/>
 <Script file="LibPeriodicTable-3.1-Tradeskill\LibPeriodicTable-3.1-Tradeskill.lua"/>
 <Script file="LibPeriodicTable-3.1-TradeskillResultMats\LibPeriodicTable-3.1-TradeskillResultMats.lua"/>
+<Script file="LibPeriodicTable-3.1-TradeskillLevels\LibPeriodicTable-3.1-TradeskillLevels.lua"/>
 
 </Ui>
