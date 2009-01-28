@@ -93,8 +93,8 @@ LibStub("LibPeriodicTable-3.1"):AddData("Consumable", gsub("$Rev$", "(%d+)", fun
 	["Consumable.Buff Pet"]="27656,33874,43005",
 
 	-- Items on Health Stone vs Potion cooldown, each with Health, Mana & Rejuvenation subsets.
-	["Consumable.Cooldown.Potion.Combat.Offensive"]="13442,22828,22837,22838,22839,40211,40212",
-	["Consumable.Cooldown.Potion.Combat.Defensive"]="4623,13455,22849,40093",
+	["Consumable.Cooldown.Potion.Combat.Battle"]="13442,22828,22837,22838,22839,40211,40212",
+	["Consumable.Cooldown.Potion.Combat.Guardian"]="4623,13455,22849,40093",
 	["Consumable.Cooldown.Potion.Health.Anywhere"]="43569:1920",
 	["Consumable.Cooldown.Potion.Health.Basic"]="118:80,858:160,4596:160,929:320,1710:520,11562:670,3928:800,18839:800,13446:1400,31838:1400,31839:1400,31852:1400,31853:1400,28100:1400,33092:2000,23822:2000,22829:2000,32947:2000,33934:2000,39327:2000,39671:2000,40077:3300,33447:3600,41166:3600",
 	["Consumable.Cooldown.Potion.Health.Blades Edge"]="32784:1400,32910:1400",
@@ -110,7 +110,8 @@ LibStub("LibPeriodicTable-3.1"):AddData("Consumable", gsub("$Rev$", "(%d+)", fun
 	["Consumable.Cooldown.Potion.Rejuvenation.Regular"]="2456:120,11952:425,9144:750,29531:750,18253:1600,22850:2200,34440:2200",
 	["Consumable.Cooldown.Potion.Rejuvenation.Dreamless Sleep"]="12190:1200,20002:2100,22836:3600",
 	["Consumable.Cooldown.Potion.Rune"]="39327:50",
-	["Consumable.Cooldown.Stone.Combat"]="22797,22795,22788",
+	["Consumable.Cooldown.Stone.Combat.Battle"]="22788",
+	["Consumable.Cooldown.Stone.Combat.Guardian"]="22795,22797",
 	["Consumable.Cooldown.Stone.Health.Other"]="11951:800,32578:2000,",
 	["Consumable.Cooldown.Stone.Health.Statue"]="25498:8,25880:16,25881:24,25882:36,25883:50",
 	["Consumable.Cooldown.Stone.Health.Warlock"]="m,Consumable.Warlock.Healthstone,",
