@@ -307,6 +307,7 @@ end
 local function basic_listview_handler(url, handler, names)
 	if not handler then handler = basic_itemid_handler end
 	local page = getpage(url)
+	if not page then return end
 	local newset = {}
 	if type(names) == "string" then
 		names = {[names] = true}
@@ -1119,20 +1120,15 @@ handlers["^Misc%.Lockboxes"] = function (set, data)
 end
 
 handlers["^Misc%.Minipet%.Normal"] = function (set, data)
-	local newset
-	local count = 0
+	local newset = {}
 	local page = getpage("http://www.wowhead.com/?items=15.2")
 	local itemlist = page:match("new Listview(%b())"):match("data%: (%b[])")
 	for itemstring in itemlist:gmatch("%b{}") do
 		local itemid = itemstring:match("{id:(%d+)")
-		if newset then
-			newset = newset..","..itemid
-		else
-			newset = itemid
-		end
-		count = count + 1
+		newset[#newset + 1] = itemid
 	end
-	return newset
+	table.sort(newset, sortSet)
+	return table.concat(newset, ",")
 end
 
 handlers["^Misc%.Reagent%.Ammo"] = function (set, data)
