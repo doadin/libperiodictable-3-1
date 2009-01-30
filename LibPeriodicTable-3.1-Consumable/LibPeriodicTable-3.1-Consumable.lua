@@ -256,7 +256,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("Consumable", gsub("$Rev$", "(%d+)", fun
 
 	--!!Add to miner
 	["Consumable.Weapon Buff.Firestone"]="41170:7,41169:14,41171:21,41172:28,40773:35,41173:42,41174:49",
-	["Consumable.Weapon Buff.Misc"]="3824,3829,31535,23123,34538,34539",
+	["Consumable.Weapon Buff.Misc"]="3824,3829,31535,23123,34538,34539,44065",
 	["Consumable.Weapon Buff.Oil.Mana"]="20745:4,20747:8,20748:12,22521:14",
 	["Consumable.Weapon Buff.Oil.Wizard"]="20744:8,20746:16,20750:24,20749:36,22522:42",
 	["Consumable.Weapon Buff.Poison.Anesthetic"]="21835:153,43237:231",
