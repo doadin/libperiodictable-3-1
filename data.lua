@@ -132,7 +132,7 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["Consumable.Buff Pet"]					= "27656,33874,43005",
 
 	-- Items on Health Stone vs Potion cooldown, each with Health, Mana & Rejuvenation subsets.
-	["Consumable.Cooldown.Potion.Combat.Battle"]				= "13442,22828,22837,22838,22839,40211,40212",
+	["Consumable.Cooldown.Potion.Combat.Battle"]				= "13442,22828,22837,22838,22839,40211,40212,54221,54222",
 	["Consumable.Cooldown.Potion.Combat.Guardian"]				= "4623,13455,22849,40093",
 	["Consumable.Cooldown.Potion.Health.Anywhere"]				= "43569:1920",
 	["Consumable.Cooldown.Potion.Health.Basic"]				= "118:80,858:160,4596:160,929:320,1710:520,11562:670,3928:800,18839:800,13446:1400,31838:1400,31839:1400,31852:1400,31853:1400,28100:1400,33092:2000,23822:2000,22829:2000,32947:2000,33934:2000,39327:2000,39671:2000,40077:3300,33447:3600,41166:3600",
