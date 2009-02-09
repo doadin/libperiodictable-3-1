@@ -40,7 +40,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("Misc", gsub("$Rev$", "(%d+)", function(
 	["Misc.Explosives.Other"]="4598,11566,23841",
 	["Misc.Engineering.Fireworks"]="9315,9317,9314,9318,19026,9313,9312,21569,5740,21570,21557,21558,21559,21561,21595,21593,21589,21562,21592,21590,21571,21574,21576,21744,21716,21714,21718,34258",
 	["Misc.Hallowed Wands"]="20397,20398,20399,20409,20410,20411,20413,20414",
-	["Misc.Hearth"]="37118,44314,44315,35230,32757,22589,22630,22631,22632,28585,40585,40586,44934,44935,6948",
+	["Misc.Hearth"]="37118,44314,44315,35230,32757,22589,22630,22631,22632,28585,40585,40586,44934,44935,6948:100",
 	["Misc.Key"]="31704,7146,12382,27808,6893,30634,31655,13704,24490,30633,18249,30622,30635,5396,31084,11140,30623,27991,11000,28395",
 	--["Misc.Key.Instance.Normal"]="o,5ii:Scarlet Monastery,9iw:UBRS,iwa:Karazhan,llj:Shadow Labyrinth,lwr:Shattered Halls,nzg:Arcatraz",
 	--["Misc.Key.Instance.Heroic"]="o,nmm:Hellfire Citadel (Alliance),nmn:Coilfang Reservoir,nmy:Tempest Keep,nn1:Hellfire Citadel (Horde),nmz:Caverns of Time,nmx:Auchindoun",
