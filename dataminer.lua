@@ -693,6 +693,7 @@ local Currency_Items = {
 	["Brewfest Prize Token"] = 37829,
 	["Burning Blossom"] = 23247,
 	["Coilfang Armaments"] = 24368,
+	["Coin of Ancestry"] = 21100,
 	["Dalaran Cooking Award"] = 43016,
 	["Dalaran Jewelcrafter's Token"] = 41596,
 	["Dream Shard"] = 34052,
