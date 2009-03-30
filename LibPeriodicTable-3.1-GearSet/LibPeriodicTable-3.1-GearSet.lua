@@ -445,7 +445,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("GearSet", gsub("$Rev$", "(%d+)", functi
 	["GearSet.PvP.Arena5.Tier 1.Druid.Savage Gladiator's Sanctuary"]="41770,41675,41664,41658,41712",
 	["GearSet.PvP.Arena5.Tier 1.Druid.Savage Gladiator's Wildhide"]="41290,41324,41301,41313,41278",
 	["GearSet.PvP.Arena5.Tier 1.Hunter.Savage Gladiator's Pursuit"]="41084,41140,41154,41202,41214",
-	["GearSet.PvP.Arena5.Tier 1.Mage.Savage Gladiator's Regalia"]="41962,41943,41968,41949.41956",
+	["GearSet.PvP.Arena5.Tier 1.Mage.Savage Gladiator's Regalia"]="41962,41943,41968,41949,41956",
 	["GearSet.PvP.Arena5.Tier 1.Paladin.Savage Gladiator's Redemption"]="40898,40918,40930,40936,40960",
 	["GearSet.PvP.Arena5.Tier 1.Paladin.Savage Gladiator's Vindication"]="40780,40798,40818,40838,40858",
 	["GearSet.PvP.Arena5.Tier 1.Priest.Savage Gladiator's Investiture"]="41847,41848,41849,41850,41851",

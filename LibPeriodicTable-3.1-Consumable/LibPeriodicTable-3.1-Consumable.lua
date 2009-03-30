@@ -73,7 +73,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("Consumable", gsub("$Rev$", "(%d+)", fun
 	["Consumable.Buff.Speed.Self"]="29530:15,20081:20,2459:50,33226:14,43135:15",
 	["Consumable.Buff.Spell Crit.Self"]="22839:2,28103:24",
 	["Consumable.Buff.Spell Damage.Flask"]="32601:23,13512:70,32900:70,22861:80,22866:80",
-	["Consumable.Buff.Spell Damage.Self"]="6373:10,22710:10,17708:15,22778:15,22238:23,23326:23,28103:24,29528:30,13454:35,9155:20,9264:40,22833:55,53842:58,22835:65,22788:80,22839:120",
+	["Consumable.Buff.Spell Damage.Self"]="6373:10,22710:10,17708:15,22778:15,22238:23,23326:23,28103:24,29528:30,13454:35,9155:20,9264:40,22833:55,40070:58,22835:65,22788:80,22839:120",
 	["Consumable.Buff.Spell Reflect.Self"]="20080:3",
 	["Consumable.Buff.Water Breathing"]="34076:3,37265:10,23871:30,24421:30,25539:60",
 
