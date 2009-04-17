@@ -147,7 +147,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("GearSet", gsub("$Rev$", "(%d+)", functi
 	["GearSet.Ahn'Qiraj.40.Rogue.Deathdealer's Embrace"]="21359,21360,21361,21362,21364",
 	["GearSet.Ahn'Qiraj.40.Shaman.Stormcaller's Garb"]="21372,21373,21374,21375,21376",
 	["GearSet.Ahn'Qiraj.40.Warlock.Doomcaller's Attire"]="21334,21335,21336,21337,21338",
-	["GearSet.Ahn'Qiraj.40.Warrior.Conqueror's Battlegear"]="21329,21330,21331,21332,21333",
+	["GearSet.Ahn'Qiraj.40.Warrior.Conqueror's Battlegear"]="46152,46153,46154,46155,46156",
 
 	["GearSet.Zul'Gurub.Druid.Haruspex's Garb"]="19613,19838,19839,19840,19955",
 	["GearSet.Zul'Gurub.Hunter.Predator's Armor"]="19621,19831,19832,19833,19953",
