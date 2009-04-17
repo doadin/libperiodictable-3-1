@@ -1383,6 +1383,8 @@ handlers["^Tradeskill%.Tool"] = function (set, data)
 	return table.concat(newset, ",")
 end
 
+-- Adds items not mineable / easily mineable to the end of a set
+-- For instance rank 1 talents to ClassSpell
 local additionalSetItems = {
 	["ClassSpell.Druid.Balance"] = ",-5570:30,-33831:50,-50516:50,-48505:60",
 	["ClassSpell.Druid.Feral Combat"] = ",-49377:30,-33878:50,-33876:50,-50334:60",
