@@ -1383,6 +1383,13 @@ handlers["^Tradeskill%.Tool"] = function (set, data)
 	return table.concat(newset, ",")
 end
 
+local additionalSetItems = {
+	["ClassSpell.Druid.Balance"] = ",-5570:30,-33831:50,-50516:50,-48505:60",
+	["ClassSpell.Druid.Feral Combat"] = ",-49377:30,-33878:50,-33876:50,-50334:60",
+	["ClassSpell.Druid.Restoration"] = ",-17116:30,-18562:40,-48438:60",
+	["ClassSpell.Mage.Frost"] = ",-12472:20,-11958:30,-11426:40,-31687:50,-44572:60",
+}
+
 local function update_all_sets(sets, setcount)
 	local setid = 0
 	local notmined = {}
@@ -1425,7 +1432,7 @@ local function write_output(file, sets)
 	for line in file:gmatch('([^\n]-\n)') do
 		local setname, spaces, comment = line:match('\t%[%"([^"]+)%"%]([^=]-)= "[^"]-",([^\n]-)\n')
 		if setname and sets[setname] then
-			f:write('\t["'..setname..'"]'..spaces..'= "'..sets[setname]..'",'..comment..'\n')
+			f:write('\t["'..setname..'"]'..spaces..'= "'..sets[setname]..(additionalSetItems[setname] or '')..'",'..comment..'\n')
 		else
 			f:write(line)
 		end
