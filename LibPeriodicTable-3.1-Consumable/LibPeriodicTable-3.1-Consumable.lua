@@ -80,7 +80,6 @@ LibStub("LibPeriodicTable-3.1"):AddData("Consumable", gsub("$Rev$", "(%d+)", fun
 	["Consumable.Buff Type.Battle"]="2454,2457,3390,3391,6373,6662,8410,8412,8949,9155,9187,9206,9224,9264,12450,12451,12460,12820,13452,13453,13454,17708,21546,22824,22825,22827,22831,22833,22835,28102,28103,28104,31679,34537,37878,39666,40068,40070,40073,40076,44325,44327,44329,44330,44331,45621",
 	["Consumable.Buff Type.Guardian"]="1177,2458,3382,3383,3388,3389,3825,3826,5997,8411,8423,8424,8827,8951,9088,9179,11563,11564,12455,12457,12458,12459,13445,13447,20004,20007,20079,20080,20081,22834,22840,22848,32062,32063,32067,32068,40072,40078,40097,40109,44328,44332",
 	["Consumable.Buff Type.Flask"]="13510,35716,13512,32766,32601,32599,13506,32900,33208,32598,22854,32600,32765,32597,32767,32898,35717,32899,22861,22851,32596,32764,13511,22853,22866,13513,32901,40079,40082,40083,40084,40404,46376,46377,46378,46379",
-	["Consumable.Buff Type.Both"]="m,Consumable.Buff Type.Flask",
 
 	-- NOT AUTOGENNED. These are used by AutoBar.  Please check with the AutoBar author before making major changes
 	["Consumable.Buff Group.General.Self"]="m,Consumable.Buff.Absorb.Self.Damage,Consumable.Buff.Haste,Consumable.Buff.Health.Self,Consumable.Buff.Regen Health.Self,Consumable.Buff.Resilience.Self,Consumable.Buff.Spirit.Self,Consumable.Buff.Stamina.Self,Consumable.Buff.Dodge.Self,Consumable.Buff.Resistance.Self,Consumable.Buff.Speed.Self,Consumable.Buff.Absorb.Self,Consumable.Buff.Spell Reflect.Self,Consumable.Buff.Free Action,Consumable.Buff.Water Breathing",
