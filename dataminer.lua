@@ -673,6 +673,7 @@ local Gear_Vendor = {
 local GearSets_fixedids = {
 	["Battlegear of Undead Slaying"] = 533,
 	["Blessed Battlegear of Undead Slaying"] = 784,
+	["Conqueror's Battlegear"] = 496,
 	["Garb of the Undead Slayer"] = 535,
 	["Blessed Garb of the Undead Slayer"] = 783,
 	["Regalia of Undead Cleansing"] = 536,
