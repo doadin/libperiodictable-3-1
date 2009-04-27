@@ -192,7 +192,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("Consumable", gsub("$Rev$", "(%d+)", fun
 	["Consumable.Food.Combo Mana"]="21071:315,21153:882,2682:294,3448:294,13724:4410,20031:4410,19301:4410,28112:4410,32722:4410,33053:7200,34062:7200,34780:7200,43518:9180,43523:12960,34760:12960,34761:12960,34759:12960",
 	["Consumable.Food.Combo Percent"]="21537:100,20388:75,20389:75,20390:75,21215:100",
 	["Consumable.Food.Percent.Basic"]="19696:50,19994:50,19995:50,21235:50,19996:50",
-	["Consumable.Food.Percent.Bonus"]="20516:48,21254:48",
+	["Consumable.Food.Percent.Bonus"]="20516:48,21254:48,44791:50",
 
 	-- Deprecated: Consumable.Potion.Buff.Armor - Consumable.Potion.Other.Rage
 	-- See Consumable.Buff.*
