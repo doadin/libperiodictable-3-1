@@ -763,24 +763,27 @@ local InstanceLoot_TrashMobs = {
 	-- ["Zul'Gurub"] = { id = , levels = , }, -- Zul'Gurub has none
 	-- ["Ruins of Ahn'Qiraj"] = { id = , levels = , }, -- Ruins of Ahn'Qiraj has none
 	["Ahn'Qiraj"] = { id = 3428, levels = 71, }, -- Temple of Ahn'Qiraj really
-	["Naxxramas"] = { id = 3456, levels = {83, 85}, },
 	["Karazhan"] = { id = 2562, levels = 115, },
 	["Serpentshrine Cavern"] = { id = 3607, levels = 128, },
 	["The Eye"] = { id = 3842, levels = 128, },
 	["Hyjal Summit"] = { id = 3606, levels = 141, },
 	["Black Temple"] = { id = 3959, levels = 141, },
-	["Sunwell Plateau"] = { id = 4075, levels = 154 },
+	["Sunwell Plateau"] = { id = 4075, levels = 154, },
+	["Naxxramas"] = { id = 3456, levels = {200, 213}, hasheroic = true },
+	["Ulduar"] = { id = 4273, levels = {219, 226, 232}, hasheroic = true },
 }
 
 --[[ SET HANDLERS ]]
 
 local function handle_trash_mobs(set)
-	local instance = set:match("^InstanceLoot%.([^%.]+)")
+	local instance = set:match("^InstanceLoot.-%.([^%.]+)")
 	local info = assert(InstanceLoot_TrashMobs[instance], "Instance "..instance.." not found !")
+	-- 16 = "Drops in...", 105 = "Drops in... (Normal mode), 106 = "Drops in... (Heroic mode)
+	local dropsin = set:match("^InstanceLootHeroic%.") and "106" or info.hasheroic and "105" or "16"
 	local levels = type(info.levels) == "number" and { info.levels } or info.levels
 	local sets = {}
 	for _, level in ipairs(levels) do
-		local url = "http://www.wowhead.com/?items&filter=minle="..level..";maxle="..level..";cr=16:"..(info.boe and "3" or "2")..";crs="..info.id..":1;crv=0:0#0+2+1"
+		local url = "http://www.wowhead.com/?items&filter=minle="..level..";maxle="..level..";cr="..dropsin..":"..(info.boe and "3" or "2")..";crs="..info.id..":1;crv=0:0#0+2+1"
 		local set = basic_listview_handler(url, function (itemstring)
 			local itemid = itemstring:match("{id:(%d+)")
 			local count = 0
@@ -1050,7 +1053,7 @@ handlers["^InstanceLoot%."] = function (set, data)
 					count_normal = count_normal + 1
 				end
 			end
-		else
+		elseif not drops.heroic
 			print("*ERROR* NO DROPS FOR "..boss)
 		end
 		if drops.heroic then
@@ -1076,6 +1079,10 @@ handlers["^InstanceLoot%."] = function (set, data)
 	else
 		print("*ERROR* "..boss.. " NOT FOUND !")
 	end
+end
+
+handlers["^InstanceLootHeroic%..+%.Trash Mobs"] = function (set, data)
+	return handle_trash_mobs(set)
 end
 
 handlers["^Misc%.Bag%."] = function (set, data)
