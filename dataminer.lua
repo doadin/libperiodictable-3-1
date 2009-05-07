@@ -1053,7 +1053,7 @@ handlers["^InstanceLoot%."] = function (set, data)
 					count_normal = count_normal + 1
 				end
 			end
-		elseif not drops.heroic
+		elseif not drops.heroic then
 			print("*ERROR* NO DROPS FOR "..boss)
 		end
 		if drops.heroic then
