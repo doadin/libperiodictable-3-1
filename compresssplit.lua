@@ -27,7 +27,6 @@ for line in string.gmatch(file, '([^\n]-\n)') do
 	end
 end
 
-update("./LibPeriodicTable-3.1-AutoBar/LibPeriodicTable-3.1-AutoBar.lua")
 update("./LibPeriodicTable-3.1-ClassSpell/LibPeriodicTable-3.1-ClassSpell.lua")
 update("./LibPeriodicTable-3.1-Consumable/LibPeriodicTable-3.1-Consumable.lua")
 update("./LibPeriodicTable-3.1-CurrencyItems/LibPeriodicTable-3.1-CurrencyItems.lua")
