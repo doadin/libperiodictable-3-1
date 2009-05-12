@@ -1143,6 +1143,21 @@ handlers["^Misc%.Openable"] = function (set, data)
 	return table.concat(tmp, ",")
 end
 
+handlers["^Misc%.Key"] = function (set, data)
+	local tmp = {}
+	local setname = set:match("%.([^%.]+)$")
+	local l = basic_listview_handler("http://www.wowhead.com/?items=13", function (itemstring)
+		local itemid = itemstring:match("{id:(%d+)")
+		return itemid
+	end)
+	if l and l ~= "" then
+		StrSplitMerge(",", l, tmp)
+		print("Misc.Keys #", # tmp)
+	end
+	table.sort(tmp, sortSet)
+	return table.concat(tmp, ",")
+end
+
 handlers["^Misc%.Lockboxes"] = function (set, data)
 	return basic_listview_handler("http://www.wowhead.com/?items&filter=cr=10;crs=1;crv=0", function (itemstring)
 		local itemid = itemstring:match("{id:(%d+)")
