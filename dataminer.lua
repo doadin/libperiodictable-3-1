@@ -433,7 +433,7 @@ local Tradeskill_Gather_filters = {
 	Disenchant = 68,
 	Fishing = 69,
 	Herbalism = 70,
---	Milling = 0, -- TODO: missing on wowhead 08/11/27
+	Milling = 143,
 	Mining = 73,
 	Pickpocketing = 75,
 	Skinning = 76,
@@ -693,11 +693,13 @@ local Currency_Items = {
 	["Badge of Justice"] = 29434,
 	["Brewfest Prize Token"] = 37829,
 	["Burning Blossom"] = 23247,
+	["Champion's Seal"] = 44990,
 	["Coilfang Armaments"] = 24368,
 	["Coin of Ancestry"] = 21100,
 	["Dalaran Cooking Award"] = 43016,
 	["Dalaran Jewelcrafter's Token"] = 41596,
 	["Dream Shard"] = 34052,
+	["Emblem of Conquest"] = 45624,
 	["Emblem of Heroism"] = 40752,
 	["Emblem of Valor"] = 40753,
 	["Glowcap"] = 24245,
@@ -710,6 +712,7 @@ local Currency_Items = {
 	["Mark of the Illidari"] = 32897,
 	["Mark of Thrallmar"] = 24581,
 	["Necrotic Rune"] = 22484,
+	["Noblegarden Chocolate"] = 44791,
 	["Spirit Shard"] = 28558,
 	["Stone Keeper's Shard"] = 43228,
 	["Strand of the Ancients Mark of Honor"] = 42425,
@@ -1420,9 +1423,9 @@ local function update_all_sets(sets, setcount)
 	local notmined = {}
 	for set, data in pairs(sets) do
 		setid = setid + 1
-		dprint(1, ("current set: %4d/%4d"):format(setid, setcount), set)
 		local newset
 		if data:sub(1,2) ~= "m," then
+			dprint(1, ("current set: %4d/%4d"):format(setid, setcount), set)
 			for pattern, handler in pairs(handlers) do
 				if set:match(pattern) then
 					local status, result = pcall(handler, set, data)
@@ -1436,6 +1439,8 @@ local function update_all_sets(sets, setcount)
 					end
 				end
 			end
+		else
+			dprint(1, ("current set: %4d/%4d"):format(setid, setcount), set, "   - skipped: multiset")
 		end
 		if newset then
 			printdiff(set, sets[set], newset)
