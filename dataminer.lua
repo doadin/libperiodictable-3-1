@@ -1142,6 +1142,11 @@ handlers["^Misc%.Openable"] = function (set, data)
 			end
 		end
 	end
+	-- Add the clams that are not in the query
+	l = basic_listview_handler("http://www.wowhead.com/?items&filter=na=clam;cr=107;crs=0;crv=Open")
+	if l and l ~= "" then
+		StrSplitMerge(",", l, tmp)
+	end
 	table.sort(tmp, sortSet)
 	return table.concat(tmp, ",")
 end
