@@ -589,7 +589,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("InstanceLoot", gsub("$Rev$", "(%d+)", f
 
 	["InstanceLoot.The Obsidian Sanctum.Sartharion"]="40426:185,40427:179,40428:179,40429:180,40430:183,40613:264,40614:285,40615:366,43345:912,43347:934,43988:13,43989:14,43990:14,43991:13,43992:14",
 
-	["InstanceLoot.Ulduar.Algalon the Observer"]="",
+	["InstanceLoot.Ulduar.Algalon the Observer"]="m,InstanceLoot.Ulduar.Gift of the Observer",
 	["InstanceLoot.Ulduar.Assembly of Iron"]="m,InstanceLoot.Ulduar.Steelbreaker,InstanceLoot.Ulduar.Runemaster Molgeim,InstanceLoot.Ulduar.Stormcaller Brundir,",
 	["InstanceLoot.Ulduar.Auriaya"]="45707:188,45708:197,45709:191,45711:192,45712:199,45713:213,45832:187,45864:198,45865:200,45866:186",
 	["InstanceLoot.Ulduar.Cache of Innovation"]="45647:293,45648:261,45649:362,45972:166,45973:163,45974:165,45975:103,45976:201,45989:1,45990:1,45993:8",
@@ -600,7 +600,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("InstanceLoot", gsub("$Rev$", "(%d+)", f
 	["InstanceLoot.Ulduar.Freya"]="m,InstanceLoot.Ulduar.Freya's Gift",
 	["InstanceLoot.Ulduar.Freya's Gift"]="45294:10,45644:254,45645:232,45646:305,45934:181,45935:178,45936:149,45940:145,45941:148,45943:19,45945:13,45946:13,45947:18,46110:633",
 	["InstanceLoot.Ulduar.General Vezax"]="45996:232,45997:170,46008:170,46009:175,46010:212,46011:189,46012:207,46013:193,46014:212,46015:183,46033:33,46034:30,46035:24,46036:20",
-	["InstanceLoot.Ulduar.Gift of the Observer"]="",
+	["InstanceLoot.Ulduar.Gift of the Observer"]="45594:200,45611:400,45665:400,46040:400,46045:400,46051:400,46052:600,46053:400",
 	["InstanceLoot.Ulduar.Hodir"]="m,InstanceLoot.Ulduar.Cache of Winter",
 	["InstanceLoot.Ulduar.Ignis the Furnace Master"]="45309:182,45310:200,45311:199,45312:192,45313:188,45314:200,45316:187,45317:193,45318:191,45321:209",
 	["InstanceLoot.Ulduar.Kologarn"]="m,InstanceLoot.Ulduar.Cache of Living Stone",

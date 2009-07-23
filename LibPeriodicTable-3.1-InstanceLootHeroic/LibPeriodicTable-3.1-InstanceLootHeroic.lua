@@ -154,7 +154,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("InstanceLootHeroic", gsub("$Rev$", "(%d
 
 	["InstanceLootHeroic.The Obsidian Sanctum.Sartharion"]="40431:160,40432:205,40437:159,40438:202,40439:195,40446:158,40451:154,40453:160,40455:204,40628:498,40629:505,40630:653,43345:871,43346:909,43954:74,44000:62,44002:67,44003:76,44004:69,44005:36,44006:33,44007:34,44008:37,44011:31",
 
-	["InstanceLootHeroic.Ulduar.Algalon the Observer"]="",
+	["InstanceLootHeroic.Ulduar.Algalon the Observer"]="m,InstanceLootHeroic.Ulduar.Gift of the Observer",
 	["InstanceLootHeroic.Ulduar.Assembly of Iron"]="m,InstanceLootHeroic.Ulduar.Steelbreaker,InstanceLootHeroic.Ulduar.Runemaster Molgeim,InstanceLootHeroic.Ulduar.Stormcaller Brundir,",
 	["InstanceLootHeroic.Ulduar.Auriaya"]="45315:192,45319:192,45320:198,45325:192,45326:187,45327:201,45334:170,45434:197,45435:190,45436:204,45437:198,45438:194,45439:195,45440:199,45441:192",
 	["InstanceLootHeroic.Ulduar.Cache of Innovation"]="45489:149,45490:166,45491:158,45492:163,45493:111,45496:2,45641:446,45642:538,45643:686",

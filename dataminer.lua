@@ -1122,12 +1122,6 @@ handlers["^Misc%.Openable"] = function (set, data)
 	local tmp = {}
 	local l
 	for q = 0, 5 do	-- do not do 6 heirloom, it just causes a timeout delay as there are none atm
-		l = basic_listview_handler(string.format("http://www.wowhead.com/?items&filter=qu=%d;cr=11;crs=1;crv=0", q))
-		if l and l ~= "" then
-			StrSplitMerge(",", l, tmp)
-		end
-
-
 		if (q == 1) then
 			for level = 0, 60, 30 do
 				l = basic_listview_handler(string.format("http://www.wowhead.com/?items&filter=qu=1;minle=%d;maxle=%d;cr=11;crs=1;crv=0", level, level + 29))
