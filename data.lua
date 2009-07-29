@@ -1895,7 +1895,7 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["Misc.Currency.Instances"]				= "28558,29434,32897,24368",--NOT AUTOGENNED
 	["Misc.Currency.World"]					= "26045,26044,24579,29736,29735,24245,32569,32572",--NOT AUTOGENNED
 	["Misc.Currency.Battlegrounds"]				= "20560,20559,29024,20558",--NOT AUTOGENNED
-	["Misc.Darkmoon Faire.Card"]				= "19287,19288,19289,19290,31856,31859,31858,31857",--NOT AUTOGENNED
+	["Misc.Darkmoon Faire.Card"]				= "19287,19288,19289,19290,31856,31857,31858,31859,42987,42988,42989,42990,44253,44254,44255,",--NOT AUTOGENNED
 	["Misc.Explosives.Engineering"]				= "4358,4360,4365,4370,6714,4374,4378,4380,10507,4390,4403,4394,18588,10514,10586,10562,18641,15993,16005,16040,23736,23737,23826,23827,32413,40536,40771,41119",--NOT AUTOGENNED
 	["Misc.Explosives.Other"]				= "4598,11566,23841",--NOT AUTOGENNED
 	["Misc.Engineering.Fireworks"]				= "9315,9317,9314,9318,19026,9313,9312,21569,5740,21570,21557,21558,21559,21561,21595,21593,21589,21562,21592,21590,21571,21574,21576,21744,21716,21714,21718,34258",--NOT AUTOGENNED
@@ -1931,7 +1931,12 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["Misc.QuestMats.Arcanum.Tenacity"]				= "11754,11734,11564,11753",
 	["Misc.QuestMats.Arcanum.Voracity"]				= "11754,11737,11951,11563",
 
-	["Misc.QuestMats.Darkmoon Faire.Deck.All"]			= "19228,19257,19267,19277,31890,31907,31914,31891",
+	["Misc.QuestMats.Darkmoon Faire.Deck.All"]			=" 19228,19257,19267,19277,31890,31907,31914,31891,37163,37164,44148,44158,44259,44276,44294,44326",
+
+	["Misc.QuestMats.Darkmoon Faire.Deck.Rogues"]			= "37140,37143,37156",
+	["Misc.QuestMats.Darkmoon Faire.Deck.Swords"]			= "37145,37147,37159,37160,37161",
+	["Misc.QuestMats.Darkmoon Faire.Deck.Mages"]			= "44165,44144,44145,44146,44147",
+	["Misc.QuestMats.Darkmoon Faire.Deck.Demons"]			= "44143,44154,44155,44156,44157",
 
 	["Misc.QuestMats.Darkmoon Faire.Deck.Beasts"]			= "19227,19230,19231,19232,19233,19234,19235,19236",
 	["Misc.QuestMats.Darkmoon Faire.Deck.Elementals"]		= "19268,19269,19270,19271,19272,19273,19274,19275",
@@ -1942,6 +1947,11 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["Misc.QuestMats.Darkmoon Faire.Deck.Furies"]			= "31901,31909,31908,31904,31903,31906,31905,31902",
 	["Misc.QuestMats.Darkmoon Faire.Deck.Lunacy"]			= "31910,31918,31917,31913,31912,31916,31915,31911",
 	["Misc.QuestMats.Darkmoon Faire.Deck.Storms"]			= "31892,31900,31899,31895,31894,31898,31896,31893",
+
+	["Misc.QuestMats.Darkmoon Faire.Deck.Chaos"]			= "44277,44278,44279,44280,44281,44282,44284,44285",
+	["Misc.QuestMats.Darkmoon Faire.Deck.Nobles"]			= "44268,44269,44270,44271,44272,44273,44274,44275",
+	["Misc.QuestMats.Darkmoon Faire.Deck.Prisms"]			= "44260,44261,44262,44263,44264,44265,44266,44267",
+	["Misc.QuestMats.Darkmoon Faire.Deck.Undeath"]			= "44286,44287,44288,44289,44290,44291,44292,44293",
 
 	["Misc.QuestMats.Darkmoon Faire.Turnin.Blacksmithing"]		= "3240:1,3486:4,3835:8,7945:12,12644:20",
 	["Misc.QuestMats.Darkmoon Faire.Turnin.Engineering"]		= "4363:1,4375:4,9313:8,11590:12,15994:20",
