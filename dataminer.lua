@@ -680,6 +680,25 @@ local GearSets_fixedids = {
 	["Blessed Regalia of Undead Cleansing"] = 781,
 	["Undead Slayer's Armor"] = 534,
 	["Undead Slayer's Blessed Armor"] = 782,
+
+-- Arena Season 1
+	["Gladiator's Aegis"] = 582,
+	["Gladiator's Battlegear"] = 567,
+	["Gladiator's Dreadgear"] = 568,
+	["Gladiator's Earthshaker"] = 578,
+	["Gladiator's Felshroud"] = 615,
+	["Gladiator's Investiture"] = 687,
+	["Gladiator's Pursuit"] = 586,
+	["Gladiator's Raiment"] = 581,
+	["Gladiator's Redemption"] = 690,
+	["Gladiator's Refuge"] = 685,
+	["Gladiator's Regalia"] = 579,
+	["Gladiator's Sanctuary"] = 584,
+	["Gladiator's Thunderfist"] = 580,
+	["Gladiator's Vestments"] = 577,
+	["Gladiator's Vindication"] = 583,
+	["Gladiator's Wartide"] = 686,
+	["Gladiator's Wildhide"] = 585,
 }
 
 local Currency_Items = {
@@ -701,6 +720,7 @@ local Currency_Items = {
 	["Dream Shard"] = 34052,
 	["Emblem of Conquest"] = 45624,
 	["Emblem of Heroism"] = 40752,
+	["Emblem of Triumph"] = 47241,
 	["Emblem of Valor"] = 40753,
 	["Glowcap"] = 24245,
 	["Halaa Battle Token"] = 26045,
@@ -708,6 +728,7 @@ local Currency_Items = {
 	["Heavy Borean Leather"] = 38425,
 	["Holy Dust"] = 29735,
 --	["Honor Points"] = 43308,
+	["Isle of Conquest Mark of Honor"] = 47395,
 	["Mark of Honor Hold"] = 24579,
 	["Mark of the Illidari"] = 32897,
 	["Mark of Thrallmar"] = 24581,
