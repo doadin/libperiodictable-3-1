@@ -421,7 +421,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("GearSet", gsub("$Rev$", "(%d+)", functi
 	["GearSet.PvP.Arena.Rogue.Gladiator's Vestments"]="25830,25831,25832,25833,25834",
 	["GearSet.PvP.Arena.Shaman.Gladiator's Earthshaker"]="25997,25998,25999,26000,26001",
 	["GearSet.PvP.Arena.Shaman.Gladiator's Thunderfist"]="27469,27470,27471,27472,27473",
-	["GearSet.PvP.Arena.Shaman.Gladiator's Wartide"]="31396,31397,31400,31406,31407",
+	["GearSet.PvP.Arena.Shaman.Gladiator's Wartide"]="40127,40992,41001,41013,41038",
 	["GearSet.PvP.Arena.Warlock.Gladiator's Dreadgear"]="24552,24553,24554,24555,24556",
 	["GearSet.PvP.Arena.Warlock.Gladiator's Felshroud"]="30186,30187,30188,30200,30201",
 	["GearSet.PvP.Arena.Warrior.Gladiator's Battlegear"]="24544,24545,24546,24547,24549",
