@@ -1437,6 +1437,7 @@ local additionalSetItems = {
 	["ClassSpell.Druid.Restoration"] = ",-17116:30,-18562:40,-48438:60",
 	["ClassSpell.Mage.Frost"] = ",-12472:20,-11958:30,-11426:40,-31687:50,-44572:60",
 	["ClassSpell.Paladin.Protection"] = ",-64205:20",
+	["ClassSpell.Rogue.Combat"] = ",-51690:60",
 }
 
 local function update_all_sets(sets, setcount)
