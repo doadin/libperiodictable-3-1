@@ -4,7 +4,7 @@
 ## Author: Nymbia
 ## X-eMail: nymbia@gmail.com
 ## Interface: 30200
-## Version: 3.1
+## Version: v3.2.0.@project-revision@
 
 ## X-Website: http://www.wowace.com/projects/libperiodictable-3-1/
 ## X-Category: Library
