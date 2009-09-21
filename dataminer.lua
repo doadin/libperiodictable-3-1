@@ -1432,9 +1432,9 @@ end
 -- Adds items not mineable / easily mineable to the end of a set
 -- For instance rank 1 talents to ClassSpell
 local additionalSetItems = {
-	["ClassSpell.Death Knight.Blood"] = "-48982:20,-49005:30,-49016:40,-55233:45,-55050:50,-49028:60",
-	["ClassSpell.Death Knight.Frost"] = "-49039:20,-49796:30,-49203:40,-51271:45,-49143:50,-49184:60",
-	["ClassSpell.Death Knight.Unholy"] = "-49158:20,-51052:40,-63560:40,-49222:45,-55090:50,-49206:60",
+	["ClassSpell.Death Knight.Blood"] = ",-48982:20,-49005:30,-49016:40,-55233:45,-55050:50,-49028:60",
+	["ClassSpell.Death Knight.Frost"] = ",-49039:20,-49796:30,-49203:40,-51271:45,-49143:50,-49184:60",
+	["ClassSpell.Death Knight.Unholy"] = ",-49158:20,-51052:40,-63560:40,-49222:45,-55090:50,-49206:60",
 	["ClassSpell.Druid.Balance"] = ",-5570:30,-33831:50,-50516:50,-48505:60",
 	["ClassSpell.Druid.Feral Combat"] = ",-49377:30,-33878:50,-33876:50,-50334:60",
 	["ClassSpell.Druid.Restoration"] = ",-17116:30,-18562:40,-48438:60",
