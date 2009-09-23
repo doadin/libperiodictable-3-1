@@ -611,7 +611,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("GearSet", gsub("$Rev$", "(%d+)", functi
 	["GearSet.Misc.Latro's Flurry"]="28189,34703",
 	["GearSet.Misc.Midsummer Reveler"]="23324,34683,34685",
 	["GearSet.Misc.Raine's Revenge"]="37758,37821",
-	["GearSet.Misc.Shard of the Gods"]="17064,17082",
+	["GearSet.Misc.Shard of the Gods"]="49310,49463",
 	["GearSet.Misc.Spirit of Eskhandar"]="18202,18203,18205",
 	["GearSet.Misc.The Twin Stars"]="31338,31339",
 	["GearSet.Misc.Twilight Trappings"]="20406,20407,20408",
