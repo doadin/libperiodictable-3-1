@@ -797,6 +797,17 @@ local InstanceLoot_TrashMobs = {
 	["Ulduar"] = { id = 4273, levels = {219, 226, 232}, hasheroic = true },
 }
 
+local Quality_filters = {
+	"qu=1",
+	"qu=2",
+	"qu=3",
+	"qu=4",
+	"qu=5",
+	"qu=6",
+	"qu=7",
+}
+
+
 --[[ SET HANDLERS ]]
 
 local function handle_trash_mobs(set)
@@ -959,7 +970,7 @@ end
 handlers["^Gear%.Socketed"] = function (set, data)
 	local newset = {}
 	local slot = set:match("%.([^%.]+)$")
-	for _,filter in ipairs(Gear_Socketed_filters[slot]) do
+	for _, filter in ipairs(Gear_Socketed_filters[slot]) do
 		for _, levelfilter in ipairs(Gear_levelgroups) do
 			local nset = basic_listview_handler("http://www.wowhead.com/?items&filter="..filter..levelfilter)
 			if nset and nset ~= "" then
@@ -973,7 +984,17 @@ handlers["^Gear%.Socketed"] = function (set, data)
 end
 
 handlers["^Gear%.Trinket$"] = function (set, data)
-	return basic_listview_handler("http://www.wowhead.com/?items=4.-4")
+	local newset = {}
+	for _, filter in ipairs(Quality_filters) do
+		local nset = basic_listview_handler("http://www.wowhead.com/?items=4.-4&filter="..filter)
+		if nset and nset ~= "" then
+			StrSplitMerge(",", nset, newset)
+		end
+	end
+
+	table.sort(newset, sortSet)
+	print("Trinkets:", # newset)
+	return table.concat(newset, ",")
 end
 
 handlers["^Gear%.Vendor"] = function (set, data)
