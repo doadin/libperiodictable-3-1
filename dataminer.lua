@@ -989,11 +989,12 @@ handlers["^Gear%.Trinket$"] = function (set, data)
 		local nset = basic_listview_handler("http://www.wowhead.com/?items=4.-4&filter="..filter)
 		if nset and nset ~= "" then
 			StrSplitMerge(",", nset, newset)
+			print("Trinkets Quality(" .. filter .. "):", # newset)
 		end
 	end
 
 	table.sort(newset, sortSet)
-	print("Trinkets:", # newset)
+	print("Trinkets Total:", # newset)
 	return table.concat(newset, ",")
 end
 
