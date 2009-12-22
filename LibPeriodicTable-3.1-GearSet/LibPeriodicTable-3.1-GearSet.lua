@@ -51,7 +51,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("GearSet", gsub("$Rev$", "(%d+)", functi
 	["GearSet.Gray.Plate.Deteriorating Plate"]="25389,25390,25391,25392,25393,25394,25395,25396",
 	["GearSet.Gray.Plate.Frost-Worn Plate"]="33412,33413,33414,33415,33416,33435,33417,33419",
 	["GearSet.Gray.Plate.Ice-Bound Plate"]="33404,33405,33406,33407,33408,33440,33409,33410",
-	["GearSet.Gray.Plate.Light Plate"]="8081,8082,8083,8080,8084,8755,8085,8086",
+	["GearSet.Gray.Plate.Light Plate"]="50860,50861,50862,50863,50864",
 	["GearSet.Gray.Plate.Tarnished Plate"]="25381,25382,25383,25384,25385,25386,25387,25388",
 
 -- Crafted Sets
@@ -612,7 +612,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("GearSet", gsub("$Rev$", "(%d+)", functi
 	["GearSet.Misc.Midsummer Reveler"]="23324,34683,34685",
 	["GearSet.Misc.Raine's Revenge"]="37758,37821",
 	["GearSet.Misc.Shard of the Gods"]="49310,49463",
-	["GearSet.Misc.Spirit of Eskhandar"]="18202,18203,18205",
+	["GearSet.Misc.Spirit of Eskhandar"]="18202,18203",
 	["GearSet.Misc.The Twin Stars"]="31338,31339",
 	["GearSet.Misc.Twilight Trappings"]="20406,20407,20408",
 	["GearSet.Misc.Winter Garb"]="21524,21525,34085,34086,34087",
