@@ -22,7 +22,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("Consumable", gsub("$Rev$", "(%d+)", fun
 	["Consumable.Buff.Stamina.Flask"]="33208:18,32596:30,32597:30,32598:30,32599:30,32600:30,32601:30",
 	["Consumable.Buff.Stamina.Self"]="20709:5,17048:10,21114:10,21151:15,28104:15,13453:18,30615:20",
 	["Consumable.Buff.Stamina.Target"]="1180:4,1711:8,4422:12,10307:16,27502:20,33461:42,37093:63,37094:132",
-	["Consumable.Buff.Strength.Flask"]="33208:18,32597:20,32598:20",
+	["Consumable.Buff.Strength.Flask"]="33208:18,32597:20,32598:20,47499:40",
 	["Consumable.Buff.Strength.Self"]="2454:4,6662:8,3391:8,28104:15,13453:18,8410:25,9206:25,22824:35,22837:75,22828:120",
 	["Consumable.Buff.Strength.Target"]="954:3,2289:5,4426:8,10310:10,27503:15,33462:20,43465:25,12451:30,43466:30",
 
@@ -38,7 +38,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("Consumable", gsub("$Rev$", "(%d+)", fun
 	["Consumable.Buff.Attack Crit.Flask"]="32597:20",
 	["Consumable.Buff.Attack Damage"]="23501:10,22788:40",
 	["Consumable.Buff.Attack Power.Self"]="23989:10,22779:30,12820:35,29528:60,28102:60,40068:90,31679:120,9224:265",
-	["Consumable.Buff.Attack Power.Flask"]="32599:20,22854:120,32901:120,46377:120",
+	["Consumable.Buff.Attack Power.Flask"]="32599:20,47499:80,22854:120,32901:120,46377:120",
 	["Consumable.Buff.Attack Power.Target"]="12460:40",
 	["Consumable.Buff.Attack Speed.Self"]="29529:80,22838:400",
 	["Consumable.Buff.Attack Speed.Target"]="12450:3",
@@ -72,14 +72,14 @@ LibStub("LibPeriodicTable-3.1"):AddData("Consumable", gsub("$Rev$", "(%d+)", fun
 	["Consumable.Buff.Shield"]="23575:1000,23576:4000",
 	["Consumable.Buff.Speed.Self"]="29530:15,20081:20,2459:50,33226:14,43135:15",
 	["Consumable.Buff.Spell Crit.Self"]="22839:2,28103:24",
-	["Consumable.Buff.Spell Damage.Flask"]="32601:23,13512:70,32900:70,22861:80,22866:80,46376:125",
+	["Consumable.Buff.Spell Damage.Flask"]="32601:23,47499:47,13512:70,32900:70,22861:80,22866:80,46376:125",
 	["Consumable.Buff.Spell Damage.Self"]="6373:10,22710:10,17708:15,22778:15,22238:23,23326:23,28103:24,29528:30,13454:35,9155:20,9264:40,22833:55,40070:58,22835:65,22788:80,22839:120",
 	["Consumable.Buff.Spell Reflect.Self"]="20080:3",
 	["Consumable.Buff.Water Breathing"]="34076:3,37265:10,23871:30,24421:30,25539:60",
 
 	["Consumable.Buff Type.Battle"]="2454,2457,3390,3391,6373,6662,8410,8412,8949,9155,9187,9206,9224,9264,12450,12451,12460,12820,13452,13453,13454,17708,21546,22824,22825,22827,22831,22833,22835,28102,28103,28104,31679,34537,37878,39666,40068,40070,40073,40076,44325,44327,44329,44330,44331,45621",
 	["Consumable.Buff Type.Guardian"]="1177,2458,3382,3383,3388,3389,3825,3826,5997,8411,8423,8424,8827,8951,9088,9179,11563,11564,12455,12457,12458,12459,13445,13447,20004,20007,20079,20080,20081,22834,22840,22848,32062,32063,32067,32068,40072,40078,40097,40109,44328,44332",
-	["Consumable.Buff Type.Flask"]="13510,35716,13512,32766,32601,32599,13506,32900,33208,32598,22854,32600,32765,32597,32767,32898,35717,32899,22861,22851,32596,32764,13511,22853,22866,13513,32901,40079,40082,40083,40084,40404,46376,46377,46378,46379",
+	["Consumable.Buff Type.Flask"]="13510,35716,13512,32766,32601,32599,13506,32900,33208,32598,22854,32600,32765,32597,32767,32898,35717,32899,22861,22851,32596,32764,13511,22853,22866,13513,32901,40079,40082,40083,40084,40404,46376,46377,46378,46379,47499",
 
 	-- NOT AUTOGENNED. These are used by AutoBar.  Please check with the AutoBar author before making major changes
 	["Consumable.Buff Group.General.Self"]="m,Consumable.Buff.Absorb.Self.Damage,Consumable.Buff.Haste,Consumable.Buff.Health.Self,Consumable.Buff.Regen Health.Self,Consumable.Buff.Resilience.Self,Consumable.Buff.Spirit.Self,Consumable.Buff.Stamina.Self,Consumable.Buff.Dodge.Self,Consumable.Buff.Resistance.Self,Consumable.Buff.Speed.Self,Consumable.Buff.Absorb.Self,Consumable.Buff.Spell Reflect.Self,Consumable.Buff.Free Action,Consumable.Buff.Water Breathing",
