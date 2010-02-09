@@ -1,4 +1,4 @@
--- (c) 2007 Nymbia.  see LGPLv2.1.txt for full details.
+﻿-- (c) 2007 Nymbia.  see LGPLv2.1.txt for full details.
 --DO NOT MAKE CHANGES TO THIS FILE BEFORE READING THE WIKI PAGE REGARDING CHANGING THESE FILES
 if not LibStub("LibPeriodicTable-3.1", true) then error("PT3 must be loaded before data") end
 LibStub("LibPeriodicTable-3.1"):AddData("GearSet", gsub("$Rev$", "(%d+)", function(n) return n+90000 end), {
@@ -359,6 +359,45 @@ LibStub("LibPeriodicTable-3.1"):AddData("GearSet", gsub("$Rev$", "(%d+)", functi
 	["GearSet.Tier 8.25.Warlock.Conqueror's Deathbringer Garb"]="46135,46136,46137,46139,46140",
 	["GearSet.Tier 8.25.Warrior.Conqueror's Siegebreaker Battlegear"]="46146,46148,46149,46150,46151",
 	["GearSet.Tier 8.25.Warrior.Conqueror's Siegebreaker Plate"]="46162,46164,46166,46167,46169",
+
+	["GearSet.Tier 9.10.Death Knight.Conqueror's Thassarian's Battlegear"]="48472,48474,48476,48478,48480",
+	["GearSet.Tier 9.10.Death Knight.Conqueror's Thassarian's Plate"]="48529,48531,48533,48535,48537",
+	["GearSet.Tier 9.10.Death Knight.Conqueror's Koltira's Battlegear"]="48501,48502,48503,48504,48505",
+	["GearSet.Tier 9.10.Death Knight.Conqueror's Koltira's Plate"]="48558,48559,48560,48561,48562",
+	["GearSet.Tier 9.10.Druid.Conqueror's Malfurion's Battlegear"]="48213,48214,48215,48216,48217",
+	["GearSet.Tier 9.10.Druid.Conqueror's Malfurion's Garb"]="48102,48129,48130,48131,48132",
+	["GearSet.Tier 9.10.Druid.Conqueror's Malfurion's Regalia"]="48158,48159,48160,48161,48162",
+	["GearSet.Tier 9.10.Druid.Conqueror's Runetotem's Battlegear"]="48188,48189,48190,48191,48192",
+	["GearSet.Tier 9.10.Druid.Conqueror's Runetotem's Garb"]="48153,48154,48155,48156,48157",
+	["GearSet.Tier 9.10.Druid.Conqueror's Runetotem's Regalia"]="48183,48184,48185,48186,48187",
+	["GearSet.Tier 9.10.Hunter.Conqueror's Windrunner's Battlegear"]="48250,48251,48252,48253,48254",
+	["GearSet.Tier 9.10.Hunter.Conqueror's Windrunner's Pursuit"]="48275,48276,48277,48278,48279",
+	["GearSet.Tier 9.10.Mage.Conqueror's Khadgar's Regalia"]="47748,47749,47750,47751,47752",
+	["GearSet.Tier 9.10.Mage.Conqueror's Sunstrider's Regalia"]="47773,47774,47775,47776,47777",
+	["GearSet.Tier 9.10.Paladin.Conqueror's Turalyon's Battlegear"]="48602,48603,48604,48605,48606",
+	["GearSet.Tier 9.10.Paladin.Conqueror's Turalyon's Plate"]="48632,48633,48634,48605,48636",
+	["GearSet.Tier 9.10.Paladin.Conqueror's Turalyon's Garb"]="48564,48566,48568,48572,48574",
+	["GearSet.Tier 9.10.Paladin.Conqueror's Liadrin's Battlegear"]="48627,48628,48629,48630,48631",
+	["GearSet.Tier 9.10.Paladin.Conqueror's Liadrin's Plate"]="48652,48653,48654,48655,48656",
+	["GearSet.Tier 9.10.Paladin.Conqueror's Liadrin's Garb"]="48595,48596,48597,48598,48599",
+	["GearSet.Tier 9.10.Priest.Conqueror's Velen's Raiment"]="47914,47936,47980,47981,47982",
+	["GearSet.Tier 9.10.Priest.Conqueror's Velen's  Regalia"]="48072,48073,48074,48075,48076",
+	["GearSet.Tier 9.10.Priest.Conqueror's Zabra's Raiment"]="48067,48068,48069,48070,48071",
+	["GearSet.Tier 9.10.Priest.Conqueror's Zabra's Regalia"]="48097,48098,48099,48100,48101",
+	["GearSet.Tier 9.10.Rogue.Conqueror's VanCleef's Battlegear"]="48218,48219,48220,48221,48222",
+	["GearSet.Tier 9.10.Rogue.Conqueror's Garona's Battlegear"]="48243,48244,48245,48246,48247",
+	["GearSet.Tier 9.10.Shaman.Conqueror's Nobundo's Battlegear"]="48341,48342,48343,48344,48345",
+	["GearSet.Tier 9.10.Shaman.Conqueror's Nobundo's Garb"]="48280,48281,48282,48283,48284",
+	["GearSet.Tier 9.10.Shaman.Conqueror's Nobundo's Regalia"]="48310,48312,48313,48314,48315",
+	["GearSet.Tier 9.10.Shaman.Conqueror's Thrall's Battlegear"]="48366,48367,48368,48369,48370",
+	["GearSet.Tier 9.10.Shaman.Conqueror's Thrall's Garb"]="48295,48296,48297,48298,48299",
+	["GearSet.Tier 9.10.Shaman.Conqueror's Thrall's Regalia"]="48336,48337,48338,48339,48340",
+	["GearSet.Tier 9.10.Warlock.Conqueror's Kel'Thuzad's Regalia"]="47783,47784,47785,47786,47787",
+	["GearSet.Tier 9.10.Warlock.Conqueror's Gul'dan's Regalia"]="47798,47799,47800,47801,47802",
+	["GearSet.Tier 9.10.Warrior.Conqueror's Wrynn's Battlegear"]="48371,48372,48373,48374,48375",
+	["GearSet.Tier 9.10.Warrior.Conqueror's Wrynn's Plate"]="48429,48436,48445,48448,48449",
+	["GearSet.Tier 9.10.Warrior.Conqueror's Hellscream's Battlegear"]="48386,48387,48388,48389,48390",
+	["GearSet.Tier 9.10.Warrior.Conqueror's Hellscream's Plate"]="48456,48457,48458,48459,48460",
 
 -- PvP Sets
 	["GearSet.PvP.Arathi Basin.Alliance.The Highlander's Determination"]="20043,20050,20055",
