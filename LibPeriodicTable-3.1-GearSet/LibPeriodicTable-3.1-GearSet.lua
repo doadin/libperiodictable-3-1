@@ -656,11 +656,11 @@ LibStub("LibPeriodicTable-3.1"):AddData("GearSet", gsub("$Rev$", "(%d+)", functi
 	["GearSet.PvP.Arena7.Paladin.Relentless Gladiator's Vindication"]="40792,40812,40831,40852,40872",
 	["GearSet.PvP.Arena7.Priest.Relentless Gladiator's Investiture"]="41855,41860,41865,41870,41875",
 	["GearSet.PvP.Arena7.Priest.Relentless Gladiator's Raiment"]="41916,41922,41928,41935,41941",
-	["GearSet.PvP.Arena7.Rogue.Relentless Gladiator's Vestments"]="41651,41656,41673,42012,42018",
+	["GearSet.PvP.Arena7.Rogue.Relentless Gladiator's Vestments"]="41651,41656,41673,41684,41768",
 	["GearSet.PvP.Arena7.Shaman.Relentless Gladiator's Earthshaker"]="41082,41138,41152,41200,41212",
 	["GearSet.PvP.Arena7.Shaman.Relentless Gladiator's Thunderfist"]="40995,41008,41020,41034,41045",
 	["GearSet.PvP.Arena7.Shaman.Relentless Gladiator's Wartide"]="40994,41002,41014,41028,41039",
-	["GearSet.PvP.Arena7.Warlock.Relentless Gladiator's Felshroud"]="41994,41999,42006,41935,41941",
+	["GearSet.PvP.Arena7.Warlock.Relentless Gladiator's Felshroud"]="41994,41999,42006,42012,42018",
 	["GearSet.PvP.Arena7.Warrior.Relentless Gladiator's Battlegear"]="40790,40810,40829,40850,40870",
 
 	["GearSet.PvP.Arena8.Death Knight.Wrathful Gladiator's Desecration"]="51413,51414,51415,51416,51418",
