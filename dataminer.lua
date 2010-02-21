@@ -718,6 +718,7 @@ local Currency_Items = {
 	["Dalaran Cooking Award"] = 43016,
 	["Dalaran Jewelcrafter's Token"] = 41596,
 	["Dream Shard"] = 34052,
+	["Emblem of Frost"] = 49426,
 	["Emblem of Conquest"] = 45624,
 	["Emblem of Heroism"] = 40752,
 	["Emblem of Triumph"] = 47241,
