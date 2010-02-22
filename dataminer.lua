@@ -208,7 +208,7 @@ local function fetch_locale_data()
 		locale_data = {}
 		local page = getpage("http://static.wowhead.com/js/locale_enus.js")
 		local zones = page:match("g_zones={(.-)}")
-		for id, zone in zones:gmatch("(%d+):\"(.-)\"") do
+		for id, zone in zones:gmatch("\"(%d+)\":\"(.-)\"") do
 			locale_data[tonumber(id)] = zone
 		end
 	end
@@ -1054,7 +1054,8 @@ handlers["^InstanceLoot%."] = function (set, data)
 	end
 	local id, type = basic_listview_get_npc_id(boss, zone), "npc"
 	if not id then
-		id, type = basic_listview_get_first_id("http://www.wowhead.com/?objects&filter=na="..url.escape(boss)), "object"
+		local zoneid = get_zone_id_from_name(zone)
+		id, type = basic_listview_get_first_id("http://www.wowhead.com/?objects&filter=na="..url.escape(boss).. (zoneid and (";cr=1;crs="..zoneid..";crv=0") or "")), "object"
 	end
 	if id then
 		page = getpage("http://www.wowhead.com/?"..type.."="..id)
@@ -1070,10 +1071,17 @@ handlers["^InstanceLoot%."] = function (set, data)
 				id == "contains" or
 				id == "normal-drops" or
 				id == "drops" or
-				id == "normal-contents"
+				id == "normal-contents" or
+				id == "normal-10-drops" or
+				id == "normal-25-drops"
 			then
 				drops.normal = { data, count }
-			elseif id == "heroic-drops" or id == "heroic-contents"	then
+			elseif
+				id == "heroic-drops" or
+				id == "heroic-contents" or 
+				id == "heroic-10-drops" or
+				id == "heroic-25-drops"
+			then
 				drops.heroic = { data, count }
 			end
 		end
@@ -1117,7 +1125,7 @@ handlers["^InstanceLoot%."] = function (set, data)
 			end
 			table.sort(heroicset, sortSet_id)
 			heroicset = table.concat(heroicset, ",")
-			printdiff(heroicname, sets[heroicname], heroicset)
+			printdiff(heroicname, sets[heroicname] or "", heroicset)
 			sets[heroicname] = heroicset
 		end
 		dprint(2, "InstanceLoot: "..boss.." has "..count_normal.." normal and "..count_heroic.." heroic drops.")
@@ -1491,7 +1499,7 @@ local function update_all_sets(sets, setcount)
 			dprint(1, ("current set: %4d/%4d"):format(setid, setcount), set, "   - skipped: multiset")
 		end
 		if newset then
-			printdiff(set, sets[set], newset)
+			printdiff(set, sets[set] or "", newset)
 			-- check if we mined an empty set that would overwrite existing data
 			if newset == "" and sets[set] ~= newset then
 				dprint(1, "WARNING: mined empty data for non-empty set. skipping set", set)
