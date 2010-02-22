@@ -181,15 +181,15 @@ LibStub("LibPeriodicTable-3.1"):AddData("InstanceLootHeroic", gsub("$Rev$", "(%d
 
 	["InstanceLootHeroic.Ulduar Hub"]="m,InstanceLootHeroic.Halls of Lightning,InstanceLootHeroic.Halls of Stone",
 -- Halls of Lightning
-	["InstanceLootHeroic.Halls of Lightning.General Bjarngrim"]="37814:206,37818:207,37825:209,37826:220",
-	["InstanceLootHeroic.Halls of Lightning.Ionar"]="37844:207,37845:211,37846:202,37847:202",
-	["InstanceLootHeroic.Halls of Lightning.Loken"]="37848:182,37849:184,37850:182,37851:186,37852:168,37853:179,37854:170,37855:190,41799:77",
-	["InstanceLootHeroic.Halls of Lightning.Volkhan"]="37840:204,37841:207,37842:203,37843:211",
+	["InstanceLootHeroic.Halls of Lightning.General Bjarngrim"]="37814:223,37818:223,37825:218,37826:227",
+	["InstanceLootHeroic.Halls of Lightning.Ionar"]="37844:214,37845:212,37846:213,37847:211",
+	["InstanceLootHeroic.Halls of Lightning.Loken"]="37848:202,37849:207,37850:202,37851:208,37852:199,37853:199,37854:198,37855:198,41799:89",
+	["InstanceLootHeroic.Halls of Lightning.Volkhan"]="37840:227,37841:224,37842:220,37843:221",
 -- Halls of Stone
-	["InstanceLootHeroic.Halls of Stone.Krystallus"]="37650:267,37651:267,37652:268",
+	["InstanceLootHeroic.Halls of Stone.Krystallus"]="37650:272,37651:270,37652:278",
 	["InstanceLootHeroic.Halls of Stone.Maiden of Grief"]="38615:203,38616:204,38617:217,38618:216,44731:17",
-	["InstanceLootHeroic.Halls of Stone.Sjonnir The Ironshaper"]="37657:193,37658:193,37660:184,37666:186,37667:180,37668:178,37669:179,37670:186,41792:139",
-	["InstanceLootHeroic.Halls of Stone.Tribunal Chest"]="37653:148,37654:131,37655:142,37656:140",
+	["InstanceLootHeroic.Halls of Stone.Sjonnir The Ironshaper"]="37657:197,37658:193,37660:190,37666:192,37667:182,37668:186,37669:179,37670:183,41792:125",
+	["InstanceLootHeroic.Halls of Stone.Tribunal Chest"]="37653:206,37654:204,37655:213,37656:207",
 
 	["InstanceLootHeroic.Utgarde Keep Hub"]="m,InstanceLootHeroic.Utgarde Keep,InstanceLootHeroic.Utgarde Pinnacle",
 -- Utgarde Keep

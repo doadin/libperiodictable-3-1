@@ -1617,15 +1617,15 @@ This file does not have valid lua syntax, because it should never be loaded dire
 
 	["InstanceLoot.Ulduar Hub"]						= "m,InstanceLoot.Halls of Lightning,InstanceLoot.Halls of Stone",
 -- Halls of Lightning
-	["InstanceLoot.Halls of Lightning.General Bjarngrim"]			= "36979:212,36980:222,36981:221,36982:214",
-	["InstanceLoot.Halls of Lightning.Ionar"]				= "39534:211,39535:208,39536:213,39657:211",
-	["InstanceLoot.Halls of Lightning.Loken"]				= "36988:220,36989:206,36991:206,36992:219,36993:184,36994:202,36995:210,36996:217,41799:148",
-	["InstanceLoot.Halls of Lightning.Volkhan"]				= "36983:217,36984:215,36985:228,36986:218",
+	["InstanceLoot.Halls of Lightning.General Bjarngrim"]			= "36979:219,36980:222,36981:228,36982:218",
+	["InstanceLoot.Halls of Lightning.Ionar"]				= "39534:211,39535:210,39536:216,39657:212",
+	["InstanceLoot.Halls of Lightning.Loken"]				= "36988:220,36989:211,36991:217,36992:218,36993:194,36994:206,36995:215,36996:220,41799:165",
+	["InstanceLoot.Halls of Lightning.Volkhan"]				= "36983:219,36984:231,36985:225,36986:225",
 -- Halls of Stone
-	["InstanceLoot.Halls of Stone.Krystallus"]				= "35670:261,35672:296,35673:289",
+	["InstanceLoot.Halls of Stone.Krystallus"]				= "35670:279,35672:279,35673:291",
 	["InstanceLoot.Halls of Stone.Maiden of Grief"]				= "38611:288,38613:289,38614:283,44731:28",
-	["InstanceLoot.Halls of Stone.Sjonnir The Ironshaper"]			= "35678:272,35679:284,35680:287",
-	["InstanceLoot.Halls of Stone.Tribunal Chest"]				= "35675:226,35676:239,35677:247",
+	["InstanceLoot.Halls of Stone.Sjonnir The Ironshaper"]			= "35678:286,35679:280,35680:281",
+	["InstanceLoot.Halls of Stone.Tribunal Chest"]				= "35675:268,35676:292,35677:286",
 
 	["InstanceLoot.Utgarde Keep Hub"]					= "m,InstanceLoot.Utgarde Keep,InstanceLoot.Utgarde Pinnacle",
 -- Utgarde Keep
@@ -1641,6 +1641,51 @@ This file does not have valid lua syntax, because it should never be loaded dire
 
 	["InstanceLoot.Vault of Archavon.Archavon the Stone Watcher"]		= "39492:30,39493:34,39495:36,39497:31,39498:33,39500:34,39515:15,39517:17,39519:15,39523:16,39528:17,39530:15,39539:12,39543:11,39546:11,39554:12,39555:12,39557:10,39558:31,39560:33,39564:30,39579:32,39580:31,39582:35,39589:12,39593:12,39595:10,39606:15,39607:16,39609:18,39611:16,39612:14,39617:16,39620:17,39622:15,39623:14,39626:14,39630:10,39634:10,39638:10,39639:10,40781:35,40782:17,40783:33,40801:33,40802:15,40803:31,40840:31,40841:33,40842:14,40904:16,40925:16,40937:15,41005:12,41031:10,41079:12,41085:31,41135:11,41141:30,41162:11,41203:32,41291:12,41296:11,41302:10,41308:10,41314:12,41648:33,41653:34,41665:11,41765:31,41771:11,41857:15,41862:15,41872:14,41919:16,41925:16,41938:13,41950:38,41957:31,41969:33,42001:30,42003:30,42015:36",
 	["InstanceLoot.Vault of Archavon.Emalon the Storm Watcher"]		= "40879:14,40880:18,40888:10,40974:14,40982:15,41074:11,41224:14,41234:14,41616:14,41620:12,41835:21,41880:17,41884:14,41892:16,41897:11,41908:12,42027:15,42028:15,42067:12,42068:18,42114:17,42115:15,45337:23,45338:32,45341:23,45343:26,45345:15,45347:15,45351:20,45353:24,45355:14,45357:14,45360:51,45362:44,45367:46,45370:11,45371:17,45376:19,45379:11,45383:14,45384:12,45387:21,45388:26,45392:26,45394:31,45397:55,45399:53,45401:11,45403:17,45406:11,45409:16,45414:11,45416:21,45419:50,45420:67,45426:28,45427:20,45430:31,45432:24,46131:50",
+
+-- Trial of the Champion
+	["InstanceLoot.Trial of the Champion.Grand Champions"] = "m,InstanceLoot.Trial of the Champion.Champion's Cache",
+	["InstanceLoot.Trial of the Champion.Champion's Cache"] = "47170:168,47171:157,47172:171,47173:163,47174:165,47175:163",
+	["InstanceLoot.Trial of the Champion.Argent Confessor Paletress"] = "m,InstanceLoot.Trial of the Champion.Confessor's Cache",
+	["InstanceLoot.Trial of the Champion.Confessor's Cache"] = "",
+	["InstanceLoot.Trial of the Champion.Eadric the Pure"] = "m,InstanceLoot.Trial of the Champion.Eadric's Cache",
+	["InstanceLoot.Trial of the Champion.Eadric's Cache"] = "",
+	["InstanceLoot.Trial of the Champion.The Black Knight"] = "47215:164,47216:160,47220:157,47221:164,47222:162,47226:159,47227:163,47228:155,47229:156,47230:162,47231:160,47232:157",
+
+-- Frozen Halls
+	["InstanceLoot.Frozen Halls Hub"]					= "m,InstanceLoot.The Forge of Souls,InstanceLoot.Pit of Saron,InstanceLoot.Halls of Reflection",
+-- The Forge of Souls
+	["InstanceLoot.The Forge of Souls.Bronjahm"] = "49783:289,49784:138,49785:147,49786:133,49787:145,49788:136,50316:42,50317:237",
+	["InstanceLoot.The Forge of Souls.Devourer of Souls"] = "49789:232,49790:226,49791:101,49792:98,49793:240,49794:91,49795:156,49796:159,49797:160,49798:166,49799:171,49800:165",
+-- Pit of Saron
+	["InstanceLoot.Pit of Saron.Forgemaster Garfrost"] = "49801:245,49802:253,49803:111,49804:119,49805:128,49806:133",
+	["InstanceLoot.Pit of Saron.Ick"] = "49807:272,49808:155,49809:129,49810:151,49811:149,49812:142",
+	["InstanceLoot.Pit of Saron.Scourgelord Tyrannus"] = "49813:261,49816:138,49817:142,49818:152,49819:141,49820:150,49821:154,49822:158,49823:169,49824:168,49825:170,49826:160",
+-- Halls of Reflection
+	["InstanceLoot.Halls of Reflection.Falric"] = "49827:282,49828:147,49829:146,49830:145,49831:131,49832:146",
+	["InstanceLoot.Halls of Reflection.Marwyn"] = "49832:0,49833:292,49834:130,49835:153,49836:138,49837:130,49838:154",
+	["InstanceLoot.Halls of Reflection.The Captain's Chest"] = "49839:202,49840:203,49841:110,49842:99,49843:107,49844:191,49845:220,49846:230,49847:112,49848:105,49849:114,49851:114",
+
+-- Icecrown Citadel
+-- The Lower Spire
+	["InstanceLoot.Icecrown Citadel.Lord Marrowgar"] = "49949:201,49950:155,49951:153,49952:157,49960:146,49964:137,49967:155,49968:333,49975:213,49976:208,49977:291,49978:211,49979:140,49980:143,50415:298",
+	["InstanceLoot.Icecrown Citadel.Lady Deathwhisper"] = "49982:196,49983:197,49985:134,49986:134,49987:196,49988:191,49989:194,49990:200,49991:201,49992:323,49993:142,49994:216,49995:145,49996:163,50034:279",
+	["InstanceLoot.Icecrown Citadel.Gunship Armory"] = "49998:247,49999:161,50000:173,50001:175,50002:187,50003:155,50005:240,50006:152,50008:288,50009:122,50010:160,50011:208,50352:201,50359:190,50411:158",
+	["InstanceLoot.Icecrown Citadel.Deathbringer's Cache"] = "50014:174,50015:136,50333:181,50362:224,50412:168,52025:585,52026:469,52027:487",
+	["InstanceLoot.Icecrown Citadel.Deathbringer Saurfang"] = "m,InstanceLoot.Icecrown Citadel.Deathbringer's Cache",
+	-- The Plagueworks
+	["InstanceLoot.Icecrown Citadel.Festergut"] = "50035:163,50036:114,50037:164,50038:156,50040:287,50041:129,50042:215,50056:199,50059:139,50060:184,50061:183,50062:265,50063:183,50064:164,50226:907,50413:182,50414:173",
+	["InstanceLoot.Icecrown Citadel.Rotface"] = "50016:183,50019:200,50020:174,50021:190,50022:190,50023:215,50024:145,50025:304,50026:159,50027:147,50028:288,50030:131,50032:126,50033:184,50231:843,50353:252",
+	["InstanceLoot.Icecrown Citadel.Professor Putricide"] = "50067:183,50068:178,50069:134,50179:179,50351:261,52025:650,52026:522,52027:455",
+	-- The Crimson Hall
+	["InstanceLoot.Icecrown Citadel.Prince Valanar"] = "49919:299,50071:179,50072:155,50073:150,50074:149,50075:150,50170:341,50171:160,50172:172,50173:360,50174:168,50175:132,50176:170,50177:153,50184:157",
+	["InstanceLoot.Icecrown Citadel.Blood-Queen Lana'thel"] = "50065:162,50178:207,50180:125,50181:135,50182:158,50354:119,52025:635,52026:532,52027:530",
+	-- The Frostwing Halls
+	["InstanceLoot.Icecrown Citadel.Cache of the Dreamwalker"] = "50183:234,50185:171,50186:171,50187:187,50188:171,50190:171,50192:234,50195:281,50199:125,50202:125,50205:328,50416:140,50417:140,50418:125,50472:250",
+	["InstanceLoot.Icecrown Citadel.Valithria Dreamwalker"] = "m,InstanceLoot.Icecrown Citadel.Cache of the Dreamwalker",
+	["InstanceLoot.Icecrown Citadel.Sindragosa"] = "50360:357,50361:142,50421:95,50423:214,50424:214,52025:619,52026:595,52027:523",
+	-- The Frozen Throne
+	["InstanceLoot.Icecrown Citadel.The Lich King"] = "49426:41,49981:333,49997:166,50012:208,50070:291,50425:83,50426:208,50427:166,50428:208,50429:291,52025:458,52026:541,52027:666",
+
 ]==]
 ]=]
 --[=[ heroic
@@ -1818,15 +1863,15 @@ This file does not have valid lua syntax, because it should never be loaded dire
 
 	["InstanceLootHeroic.Ulduar Hub"]						= "m,InstanceLootHeroic.Halls of Lightning,InstanceLootHeroic.Halls of Stone",
 -- Halls of Lightning
-	["InstanceLootHeroic.Halls of Lightning.General Bjarngrim"]			= "37814:206,37818:207,37825:209,37826:220",
-	["InstanceLootHeroic.Halls of Lightning.Ionar"]					= "37844:207,37845:211,37846:202,37847:202",
-	["InstanceLootHeroic.Halls of Lightning.Loken"]					= "37848:182,37849:184,37850:182,37851:186,37852:168,37853:179,37854:170,37855:190,41799:77",
-	["InstanceLootHeroic.Halls of Lightning.Volkhan"]				= "37840:204,37841:207,37842:203,37843:211",
+	["InstanceLootHeroic.Halls of Lightning.General Bjarngrim"]			= "37814:223,37818:223,37825:218,37826:227",
+	["InstanceLootHeroic.Halls of Lightning.Ionar"]					= "37844:214,37845:212,37846:213,37847:211",
+	["InstanceLootHeroic.Halls of Lightning.Loken"]					= "37848:202,37849:207,37850:202,37851:208,37852:199,37853:199,37854:198,37855:198,41799:89",
+	["InstanceLootHeroic.Halls of Lightning.Volkhan"]				= "37840:227,37841:224,37842:220,37843:221",
 -- Halls of Stone
-	["InstanceLootHeroic.Halls of Stone.Krystallus"]				= "37650:267,37651:267,37652:268",
+	["InstanceLootHeroic.Halls of Stone.Krystallus"]				= "37650:272,37651:270,37652:278",
 	["InstanceLootHeroic.Halls of Stone.Maiden of Grief"]				= "38615:203,38616:204,38617:217,38618:216,44731:17",
-	["InstanceLootHeroic.Halls of Stone.Sjonnir The Ironshaper"]			= "37657:193,37658:193,37660:184,37666:186,37667:180,37668:178,37669:179,37670:186,41792:139",
-	["InstanceLootHeroic.Halls of Stone.Tribunal Chest"]				= "37653:148,37654:131,37655:142,37656:140",
+	["InstanceLootHeroic.Halls of Stone.Sjonnir The Ironshaper"]			= "37657:197,37658:193,37660:190,37666:192,37667:182,37668:186,37669:179,37670:183,41792:125",
+	["InstanceLootHeroic.Halls of Stone.Tribunal Chest"]				= "37653:206,37654:204,37655:213,37656:207",
 
 	["InstanceLootHeroic.Utgarde Keep Hub"]						= "m,InstanceLootHeroic.Utgarde Keep,InstanceLootHeroic.Utgarde Pinnacle",
 -- Utgarde Keep
@@ -1842,6 +1887,50 @@ This file does not have valid lua syntax, because it should never be loaded dire
 
 	["InstanceLootHeroic.Vault of Archavon.Archavon the Stone Watcher"]		= "40415:71,40417:66,40418:63,40422:72,40423:60,40445:34,40448:33,40449:30,40454:35,40457:34,40458:29,40460:22,40462:21,40463:22,40466:21,40468:24,40469:21,40471:22,40472:23,40493:20,40495:60,40496:68,40500:63,40503:61,40504:72,40506:63,40508:21,40509:24,40512:19,40514:20,40515:23,40517:20,40520:25,40522:20,40523:22,40525:32,40527:38,40529:35,40544:31,40545:36,40547:32,40550:34,40552:34,40556:32,40559:32,40563:37,40567:32,40569:21,40570:22,40572:22,40574:20,40575:22,40577:21,40579:20,40580:24,40583:20,40784:67,40785:35,40786:64,40804:69,40805:32,40806:63,40844:66,40845:64,40846:30,40905:34,40926:35,40938:31,40990:20,40991:21,41000:20,41006:23,41026:23,41032:21,41080:23,41086:65,41136:21,41142:60,41198:20,41204:64,41286:25,41292:22,41297:21,41303:17,41309:21,41315:23,41649:63,41654:62,41660:20,41666:20,41766:66,41772:20,41858:33,41863:32,41873:32,41920:30,41926:32,41939:31,41951:62,41958:61,41970:64,41997:71,42004:64,42016:63",
 	["InstanceLootHeroic.Vault of Archavon.Emalon the Storm Watcher"]		= "40807:58,40809:48,40847:37,40848:41,40849:25,40881:32,40882:23,40889:14,40927:55,40939:25,40976:23,40977:23,40983:35,41001:19,41051:17,41055:17,41060:12,41065:19,41137:14,41143:66,41199:17,41205:55,41225:21,41230:44,41235:25,41293:17,41298:17,41621:14,41630:16,41640:21,41655:37,41667:25,41767:57,41773:10,41832:28,41836:25,41840:37,41864:33,41874:30,41881:32,41885:25,41893:23,41898:26,41903:32,41909:19,41927:26,41940:25,41959:51,41971:46,42005:55,42017:33,42034:30,42035:30,42036:16,42039:17,42040:16,42069:12,42071:12,42074:16,42075:25,42116:23,42117:28,46113:42,46116:39,46119:67,46121:46,46124:100,46126:114,46132:101,46133:107,46135:94,46139:108,46142:96,46144:119,46148:41,46150:37,46153:35,46155:26,46158:33,46160:30,46163:44,46164:41,46169:51,46170:39,46174:23,46176:35,46179:25,46181:30,46183:41,46185:23,46188:44,46189:32,46192:37,46195:42,46199:30,46200:30,46202:37,46207:28,46208:35,46210:33",
+
+-- Trial of the Champion
+	["InstanceLootHeroic.Trial of the Champion.Grand Champions"] = "m,InstanceLootHeroic.Trial of the Champion.Champion's Cache",
+	["InstanceLootHeroic.Trial of the Champion.Champion's Cache"] = "47243:142,47244:145,47248:143,47249:143,47250:150,47493:135",
+	["InstanceLootHeroic.Trial of the Champion.Argent Confessor Paletress"] = "m,InstanceLootHeroic.Trial of the Champion.Confessor's Cache",
+	["InstanceLootHeroic.Trial of the Champion.Confessor's Cache"] = "",
+	["InstanceLootHeroic.Trial of the Champion.Eadric the Pure"] = "m,InstanceLootHeroic.Trial of the Champion.Eadric's Cache",
+	["InstanceLootHeroic.Trial of the Champion.Eadric's Cache"] = "",
+	["InstanceLootHeroic.Trial of the Champion.The Black Knight"] = "47527:141,47529:140,47560:136,47561:138,47562:142,47563:140,47564:126,47565:125,47566:129,47567:127,47568:125,47569:123,49682:131",
+
+-- Frozen Halls
+	["InstanceLootHeroic.Frozen Halls Hub"]					= "m,InstanceLootHeroic.The Forge of Souls,InstanceLootHeroic.Pit of Saron,InstanceLootHeroic.Halls of Reflection",
+-- The Forge of Souls
+	["InstanceLootHeroic.The Forge of Souls.Bronjahm"] = "50169:271,50191:281,50193:113,50194:109,50196:110,50197:103,50316:45,50317:243",
+	["InstanceLootHeroic.The Forge of Souls.Devourer of Souls"] = "50198:128,50203:309,50206:140,50207:136,50208:131,50209:133,50210:291,50211:135,50212:137,50213:144,50214:136,50215:129",
+-- Pit of Saron
+	["InstanceLootHeroic.Pit of Saron.Forgemaster Garfrost"] = "50227:303,50228:140,50229:141,50230:138,50233:138,50234:131",
+	["InstanceLootHeroic.Pit of Saron.Ick"] = "50235:137,50262:302,50263:139,50264:137,50265:140,50266:142",
+	["InstanceLootHeroic.Pit of Saron.Scourgelord Tyrannus"] = "50259:133,50267:270,50268:278,50269:107,50270:104,50271:107,50272:108,50273:295,50283:140,50284:134,50285:134,50286:132",
+-- Halls of Reflection
+	["InstanceLootHeroic.Halls of Reflection.Falric"] = "50290:284,50291:252,50292:126,50293:108,50294:119,50295:106",
+	["InstanceLootHeroic.Halls of Reflection.Marwyn"] = "50260:137,50296:301,50297:139,50298:143,50299:140,50300:136",
+	["InstanceLootHeroic.Halls of Reflection.The Captain's Chest"] = "50302:230,50303:243,50304:95,50305:90,50306:96,50308:97,50309:139,50310:145,50311:146,50312:135,50313:141,50314:141",
+
+-- Icecrown Citadel
+-- The Lower Spire
+	["InstanceLootHeroic.Icecrown Citadel.Lord Marrowgar"] = "50604:0,50605:0,50606:0,50607:0,50608:0,50609:0,50610:0,50611:0,50612:0,50613:0,50614:0,50615:0,50616:0,50617:0,50709:0",
+	["InstanceLootHeroic.Icecrown Citadel.Lady Deathwhisper"] = "50638:0,50639:0,50640:0,50641:0,50642:0,50643:0,50644:0,50645:0,50646:0,50647:0,50648:0,50649:0,50650:0,50651:0,50652:0",
+	["InstanceLootHeroic.Icecrown Citadel.Gunship Armory"] = "50349:0,50366:0,50653:0,50654:0,50655:0,50656:0,50657:0,50658:0,50659:0,50660:0,50661:0,50663:0,50664:0,50665:0,50667:0",
+	["InstanceLootHeroic.Icecrown Citadel.Deathbringer's Cache"] = "50363:0,50668:0,50670:0,50671:0,50672:0,52025:0,52026:0,52027:0,52028:0,52029:0,52030:0",
+	["InstanceLootHeroic.Icecrown Citadel.Deathbringer Saurfang"] = "m,InstanceLootHeroic.Icecrown Citadel.Deathbringer's Cache",
+-- The Plagueworks
+	["InstanceLootHeroic.Icecrown Citadel.Festergut"] = "50226:0,50688:0,50689:0,50690:0,50691:0,50692:0,50693:0,50694:0,50695:0,50696:0,50697:0,50698:0,50699:0,50700:0,50701:0,50702:0,50703:0",
+	["InstanceLootHeroic.Icecrown Citadel.Rotface"] = "50231:0,50348:0,50673:0,50674:0,50675:0,50676:0,50677:0,50678:0,50679:0,50680:0,50681:0,50682:0,50684:0,50685:0,50686:0,50687:0",
+	["InstanceLootHeroic.Icecrown Citadel.Professor Putricide"] = "50704:0,50705:0,50706:0,50707:0,50708:0,52025:0,52026:0,52027:0,52028:0,52029:0,52030:0",
+-- The Crimson Hall
+	["InstanceLootHeroic.Icecrown Citadel.Prince Valanar"] = "50172:0,50175:0,50176:0,50603:0,50710:0,50711:0,50713:0,50714:0,50717:0,50718:0,50719:0,50720:0,50721:0,50722:0,50723:0",
+	["InstanceLootHeroic.Icecrown Citadel.Blood-Queen Lana'thel"] = "50724:0,50725:0,50726:0,50727:0,50728:0,50729:0,52025:0,52026:0,52027:0,52028:0,52029:0,52030:0",
+-- The Frostwing Halls
+	["InstanceLootHeroic.Icecrown Citadel.Cache of the Dreamwalker"] = "50183:0,50185:0,50186:0,50187:0,50188:0,50190:0,50192:0,50195:0,50199:0,50202:0,50205:0,50416:0,50417:0,50418:0,50472:0",
+	["InstanceLootHeroic.Icecrown Citadel.Valithria Dreamwalker"] = "m,InstanceLootHeroic.Icecrown Citadel.Cache of the Dreamwalker",
+	["InstanceLootHeroic.Icecrown Citadel.Sindragosa"] = "50364:0,50365:0,50633:0,50635:0,50636:0,52025:0,52026:0,52027:0,52028:0,52029:0,52030:0",
+-- The Frozen Throne
+	["InstanceLootHeroic.Icecrown Citadel.The Lich King"] = "49426:0,50730:0,50731:0,50732:0,50733:0,50734:0,50735:0,50736:0,50737:0,50738:0,50818:0,52025:0,52026:0,52027:0,52028:0,52029:0,52030:0",
 ]==]
 ]=]
 ]]
@@ -2182,7 +2271,7 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	--!!Add to miner
 	["Tradeskill.Mat.BySource.Drop"]			= "15420,1475,17011,3730,3667,3731,5465,1080,5466,5784,5467,5785,5468,5469,1081,5470,13926,5471,3164,1288,12662,4589,12037,8146,4337,4655,12804,4402,12809,8151,7072,18512,2251,3172,3712,12184,729,3173,17010,1015,3174,6889,4096,1468,14227,7971,19441,5051,5373,730,7974,5498,12204,12205,12206,4611,12208,8168,769,9260,12203,5503,2672,5504,723,731,2673,2675,19943,17203,3182,5635,8152,18240,12607,5637,12202,3685,12223,19726,2924,2886,2677,15410,5116,10285,12753,2674,3404,5500,6470,12207,814,12811,42253,14277",
 	["Tradeskill.Mat.BySource.Gather"]			= "m,Tradeskill.Gather",
-	["Tradeskill.Mat.BySource.Vendor"]			= "8923,4289,8924,8925,4291,8150,11291,1179,6261,4340,2320,4341,2596,2604,4342,159,2880,2321,3857,18567,4470,2692,18256,8343,5173,2894,2665,2928,2605,4536,6530,10647,2930,10648,3713,17020,17194,2324,3466,6260,2678,14341,3372,15409,17196,2325,4400,10290,3371,40411,38426,39502,39501,30817,17034,17035",
+	["Tradeskill.Mat.BySource.Vendor"]			= "8923,4289,8924,8925,4291,8150,11291,1179,6261,4340,2320,4341,2596,2604,4342,159,2880,2321,3857,18567,4470,2692,18256,8343,5173,2894,2665,2928,2605,4536,6530,10647,2930,10648,3713,17020,17194,2324,3466,6260,2678,14341,3372,15409,17196,2325,4400,10290,3371,40411,38426,39502,39501,30817,17034,17035,39354",
 
 	--!!Add to miner
 	["Tradeskill.Mat.ByType.Bar"]				= "2840,2841,2842,3575,3576,3577,3859,3860,6037,11371,12359,12360,12655,17771,23445,23446,23447,23448,23449,23573,36913,36916,37663,41163",
