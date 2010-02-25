@@ -1659,10 +1659,12 @@ This file does not have valid lua syntax, because it should never be loaded dire
 -- Pit of Saron
 	["InstanceLoot.Pit of Saron.Forgemaster Garfrost"] = "49801:245,49802:253,49803:111,49804:119,49805:128,49806:133",
 	["InstanceLoot.Pit of Saron.Ick"] = "49807:272,49808:155,49809:129,49810:151,49811:149,49812:142",
+	["InstanceLoot.Pit of Saron.Krick"] = "m,InstanceLoot.Pit of Saron.Ick",
 	["InstanceLoot.Pit of Saron.Scourgelord Tyrannus"] = "49813:261,49816:138,49817:142,49818:152,49819:141,49820:150,49821:154,49822:158,49823:169,49824:168,49825:170,49826:160",
 -- Halls of Reflection
 	["InstanceLoot.Halls of Reflection.Falric"] = "49827:282,49828:147,49829:146,49830:145,49831:131,49832:146",
 	["InstanceLoot.Halls of Reflection.Marwyn"] = "49832:0,49833:292,49834:130,49835:153,49836:138,49837:130,49838:154",
+	["InstanceLoot.Halls of Reflection.The Lich King"] = "m,InstanceLoot.Halls of Reflection.The Captain's Chest",
 	["InstanceLoot.Halls of Reflection.The Captain's Chest"] = "49839:202,49840:203,49841:110,49842:99,49843:107,49844:191,49845:220,49846:230,49847:112,49848:105,49849:114,49851:114",
 
 -- Icecrown Citadel
@@ -1905,10 +1907,12 @@ This file does not have valid lua syntax, because it should never be loaded dire
 -- Pit of Saron
 	["InstanceLootHeroic.Pit of Saron.Forgemaster Garfrost"] = "50227:303,50228:140,50229:141,50230:138,50233:138,50234:131",
 	["InstanceLootHeroic.Pit of Saron.Ick"] = "50235:137,50262:302,50263:139,50264:137,50265:140,50266:142",
+	["InstanceLootHeroic.Pit of Saron.Krick"] = "m,InstanceLootHeroic.Pit of Saron.Ick",
 	["InstanceLootHeroic.Pit of Saron.Scourgelord Tyrannus"] = "50259:133,50267:270,50268:278,50269:107,50270:104,50271:107,50272:108,50273:295,50283:140,50284:134,50285:134,50286:132",
 -- Halls of Reflection
 	["InstanceLootHeroic.Halls of Reflection.Falric"] = "50290:284,50291:252,50292:126,50293:108,50294:119,50295:106",
 	["InstanceLootHeroic.Halls of Reflection.Marwyn"] = "50260:137,50296:301,50297:139,50298:143,50299:140,50300:136",
+	["InstanceLootHeroic.Halls of Reflection.The Lich King"] = "m,InstanceLootHeroic.Halls of Reflection.The Captain's Chest",
 	["InstanceLootHeroic.Halls of Reflection.The Captain's Chest"] = "50302:230,50303:243,50304:95,50305:90,50306:96,50308:97,50309:139,50310:145,50311:146,50312:135,50313:141,50314:141",
 
 -- Icecrown Citadel

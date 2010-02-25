@@ -658,10 +658,12 @@ LibStub("LibPeriodicTable-3.1"):AddData("InstanceLoot", gsub("$Rev$", "(%d+)", f
 -- Pit of Saron
 	["InstanceLoot.Pit of Saron.Forgemaster Garfrost"]="49801:245,49802:253,49803:111,49804:119,49805:128,49806:133",
 	["InstanceLoot.Pit of Saron.Ick"]="49807:272,49808:155,49809:129,49810:151,49811:149,49812:142",
+	["InstanceLoot.Pit of Saron.Krick"]="m,InstanceLoot.Pit of Saron.Ick",
 	["InstanceLoot.Pit of Saron.Scourgelord Tyrannus"]="49813:261,49816:138,49817:142,49818:152,49819:141,49820:150,49821:154,49822:158,49823:169,49824:168,49825:170,49826:160",
 -- Halls of Reflection
 	["InstanceLoot.Halls of Reflection.Falric"]="49827:282,49828:147,49829:146,49830:145,49831:131,49832:146",
 	["InstanceLoot.Halls of Reflection.Marwyn"]="49832:0,49833:292,49834:130,49835:153,49836:138,49837:130,49838:154",
+	["InstanceLoot.Halls of Reflection.The Lich King"]="m,InstanceLoot.Halls of Reflection.The Captain's Chest",
 	["InstanceLoot.Halls of Reflection.The Captain's Chest"]="49839:202,49840:203,49841:110,49842:99,49843:107,49844:191,49845:220,49846:230,49847:112,49848:105,49849:114,49851:114",
 
 -- Icecrown Citadel

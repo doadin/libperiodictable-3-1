@@ -223,10 +223,12 @@ LibStub("LibPeriodicTable-3.1"):AddData("InstanceLootHeroic", gsub("$Rev$", "(%d
 -- Pit of Saron
 	["InstanceLootHeroic.Pit of Saron.Forgemaster Garfrost"]="50227:303,50228:140,50229:141,50230:138,50233:138,50234:131",
 	["InstanceLootHeroic.Pit of Saron.Ick"]="50235:137,50262:302,50263:139,50264:137,50265:140,50266:142",
+	["InstanceLootHeroic.Pit of Saron.Krick"]="m,InstanceLootHeroic.Pit of Saron.Ick",
 	["InstanceLootHeroic.Pit of Saron.Scourgelord Tyrannus"]="50259:133,50267:270,50268:278,50269:107,50270:104,50271:107,50272:108,50273:295,50283:140,50284:134,50285:134,50286:132",
 -- Halls of Reflection
 	["InstanceLootHeroic.Halls of Reflection.Falric"]="50290:284,50291:252,50292:126,50293:108,50294:119,50295:106",
 	["InstanceLootHeroic.Halls of Reflection.Marwyn"]="50260:137,50296:301,50297:139,50298:143,50299:140,50300:136",
+	["InstanceLootHeroic.Halls of Reflection.The Lich King"]="m,InstanceLootHeroic.Halls of Reflection.The Captain's Chest",
 	["InstanceLootHeroic.Halls of Reflection.The Captain's Chest"]="50302:230,50303:243,50304:95,50305:90,50306:96,50308:97,50309:139,50310:145,50311:146,50312:135,50313:141,50314:141",
 
 -- Icecrown Citadel
