@@ -233,7 +233,8 @@ LibStub("LibPeriodicTable-3.1"):AddData("InstanceLootHeroic", gsub("$Rev$", "(%d
 
 -- Icecrown Citadel
 -- The Lower Spire
-	["InstanceLootHeroic.Icecrown Citadel.Lord Marrowgar"]="50604:0,50605:0,50606:0,50607:0,50608:0,50609:0,50610:0,50611:0,50612:0,50613:0,50614:0,50615:0,50616:0,50617:0,50709:0",
+	["InstanceLootHeroic.Icecrown Citadel.Lord Marrowgar.10 Man"]="50346,51928,51929,51930,51931,51932,51933,51934,51935,51936,51937,51938",
+	["InstanceLootHeroic.Icecrown Citadel.Lord Marrowgar.25 Man"]="50604:0,50605:0,50606:0,50607:0,50608:0,50609:0,50610:0,50611:0,50612:0,50613:0,50614:0,50615:0,50616:0,50617:0,50709:0",
 	["InstanceLootHeroic.Icecrown Citadel.Lady Deathwhisper"]="50638:0,50639:0,50640:0,50641:0,50642:0,50643:0,50644:0,50645:0,50646:0,50647:0,50648:0,50649:0,50650:0,50651:0,50652:0",
 	["InstanceLootHeroic.Icecrown Citadel.Gunship Armory"]="50349:0,50366:0,50653:0,50654:0,50655:0,50656:0,50657:0,50658:0,50659:0,50660:0,50661:0,50663:0,50664:0,50665:0,50667:0",
 	["InstanceLootHeroic.Icecrown Citadel.Deathbringer's Cache"]="50363:0,50668:0,50670:0,50671:0,50672:0,52025:0,52026:0,52027:0,52028:0,52029:0,52030:0",

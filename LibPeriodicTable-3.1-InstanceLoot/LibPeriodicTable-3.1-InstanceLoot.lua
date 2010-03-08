@@ -1,4 +1,4 @@
--- (c) 2007 Nymbia.  see LGPLv2.1.txt for full details.
+﻿-- (c) 2007 Nymbia.  see LGPLv2.1.txt for full details.
 --DO NOT MAKE CHANGES TO THIS FILE BEFORE READING THE WIKI PAGE REGARDING CHANGING THESE FILES
 if not LibStub("LibPeriodicTable-3.1", true) then error("PT3 must be loaded before data") end
 LibStub("LibPeriodicTable-3.1"):AddData("InstanceLoot", gsub("$Rev$", "(%d+)", function(n) return n+90000 end), {
@@ -668,7 +668,8 @@ LibStub("LibPeriodicTable-3.1"):AddData("InstanceLoot", gsub("$Rev$", "(%d+)", f
 
 -- Icecrown Citadel
 -- The Lower Spire
-	["InstanceLoot.Icecrown Citadel.Lord Marrowgar"]="49949:201,49950:155,49951:153,49952:157,49960:146,49964:137,49967:155,49968:333,49975:213,49976:208,49977:291,49978:211,49979:140,49980:143,50415:298",
+	["InstanceLoot.Icecrown Citadel.Lord Marrowgar.10 Man"]="50339,50759,50760,50761,50762,50763,50764,50771,50772,50773,50774,50775",
+	["InstanceLoot.Icecrown Citadel.Lord Marrowgar.25 Man"]="49949:201,49950:155,49951:153,49952:157,49960:146,49964:137,49967:155,49968:333,49975:213,49976:208,49977:291,49978:211,49979:140,49980:143,50415:298",
 	["InstanceLoot.Icecrown Citadel.Lady Deathwhisper"]="49982:196,49983:197,49985:134,49986:134,49987:196,49988:191,49989:194,49990:200,49991:201,49992:323,49993:142,49994:216,49995:145,49996:163,50034:279",
 	["InstanceLoot.Icecrown Citadel.Gunship Armory"]="49998:247,49999:161,50000:173,50001:175,50002:187,50003:155,50005:240,50006:152,50008:288,50009:122,50010:160,50011:208,50352:201,50359:190,50411:158",
 	["InstanceLoot.Icecrown Citadel.Deathbringer's Cache"]="50014:174,50015:136,50333:181,50362:224,50412:168,52025:585,52026:469,52027:487",
