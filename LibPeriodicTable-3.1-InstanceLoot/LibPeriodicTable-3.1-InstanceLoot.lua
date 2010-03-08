@@ -645,9 +645,9 @@ LibStub("LibPeriodicTable-3.1"):AddData("InstanceLoot", gsub("$Rev$", "(%d+)", f
 	["InstanceLoot.Trial of the Champion.Grand Champions"]="m,InstanceLoot.Trial of the Champion.Champion's Cache",
 	["InstanceLoot.Trial of the Champion.Champion's Cache"]="47170:168,47171:157,47172:171,47173:163,47174:165,47175:163",
 	["InstanceLoot.Trial of the Champion.Argent Confessor Paletress"]="m,InstanceLoot.Trial of the Champion.Confessor's Cache",
-	["InstanceLoot.Trial of the Champion.Confessor's Cache"]="",
+	["InstanceLoot.Trial of the Champion.Confessor's Cache"]="47181,47218,47185,47217,47177,47178,47211,47176,47212,47219,47213,47214",
 	["InstanceLoot.Trial of the Champion.Eadric the Pure"]="m,InstanceLoot.Trial of the Champion.Eadric's Cache",
-	["InstanceLoot.Trial of the Champion.Eadric's Cache"]="",
+	["InstanceLoot.Trial of the Champion.Eadric's Cache"]="47181,47185,47210,47177,47202,47178,47176,47197,47201,47199,47200,47213",
 	["InstanceLoot.Trial of the Champion.The Black Knight"]="47215:164,47216:160,47220:157,47221:164,47222:162,47226:159,47227:163,47228:155,47229:156,47230:162,47231:160,47232:157",
 
 -- Frozen Halls
@@ -670,10 +670,14 @@ LibStub("LibPeriodicTable-3.1"):AddData("InstanceLoot", gsub("$Rev$", "(%d+)", f
 -- The Lower Spire
 	["InstanceLoot.Icecrown Citadel.Lord Marrowgar.10 Man"]="50339,50759,50760,50761,50762,50763,50764,50771,50772,50773,50774,50775",
 	["InstanceLoot.Icecrown Citadel.Lord Marrowgar.25 Man"]="49949:201,49950:155,49951:153,49952:157,49960:146,49964:137,49967:155,49968:333,49975:213,49976:208,49977:291,49978:211,49979:140,49980:143,50415:298",
-	["InstanceLoot.Icecrown Citadel.Lady Deathwhisper"]="49982:196,49983:197,49985:134,49986:134,49987:196,49988:191,49989:194,49990:200,49991:201,49992:323,49993:142,49994:216,49995:145,49996:163,50034:279",
-	["InstanceLoot.Icecrown Citadel.Gunship Armory"]="49998:247,49999:161,50000:173,50001:175,50002:187,50003:155,50005:240,50006:152,50008:288,50009:122,50010:160,50011:208,50352:201,50359:190,50411:158",
-	["InstanceLoot.Icecrown Citadel.Deathbringer's Cache"]="50014:174,50015:136,50333:181,50362:224,50412:168,52025:585,52026:469,52027:487",
-	["InstanceLoot.Icecrown Citadel.Deathbringer Saurfang"]="m,InstanceLoot.Icecrown Citadel.Deathbringer's Cache",
+	["InstanceLoot.Icecrown Citadel.Lady Deathwhisper.10 Man"]="50785,50782,50780,50778,50783,50777,50784,50779,50786,50342,50781,50776",
+	["InstanceLoot.Icecrown Citadel.Lady Deathwhisper.25 Man"]="49982:196,49983:197,49985:134,49986:134,49987:196,49988:191,49989:194,49990:200,49991:201,49992:323,49993:142,49994:216,49995:145,49996:163,50034:279",
+	["InstanceLoot.Icecrown Citadel.Gunship Armory.10 Man"]="50791,50795,50797,50792,50789,50796,50788,50790,50340,50793,50787,50794",
+	["InstanceLoot.Icecrown Citadel.Gunship Armory.25 Man"]="49998:247,49999:161,50000:173,50001:175,50002:187,50003:155,50005:240,50006:152,50008:288,50009:122,50010:160,50011:208,50352:201,50359:190,50411:158",
+	["InstanceLoot.Icecrown Citadel.Deathbringer's Cache.10 Man"]="50807,50804,50799,50806,50800,50801,50802,50808,50809,50803,50798,50805",
+	["InstanceLoot.Icecrown Citadel.Deathbringer's Cache.25 Man"]="50014:174,50015:136,50333:181,50362:224,50412:168,52025:585,52026:469,52027:487",
+	["InstanceLoot.Icecrown Citadel.Deathbringer Saurfang.10 Man"]="m,InstanceLoot.Icecrown Citadel.Deathbringer's Cache.10 Man",
+	["InstanceLoot.Icecrown Citadel.Deathbringer Saurfang.25 Man"]="m,InstanceLoot.Icecrown Citadel.Deathbringer's Cache.25 Man",
 	-- The Plagueworks
 	["InstanceLoot.Icecrown Citadel.Festergut"]="50035:163,50036:114,50037:164,50038:156,50040:287,50041:129,50042:215,50056:199,50059:139,50060:184,50061:183,50062:265,50063:183,50064:164,50226:907,50413:182,50414:173",
 	["InstanceLoot.Icecrown Citadel.Rotface"]="50016:183,50019:200,50020:174,50021:190,50022:190,50023:215,50024:145,50025:304,50026:159,50027:147,50028:288,50030:131,50032:126,50033:184,50231:843,50353:252",
