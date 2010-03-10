@@ -231,19 +231,19 @@ LibStub("LibPeriodicTable-3.1"):AddData("InstanceLootHeroic", gsub("$Rev$", "(%d
 	["InstanceLootHeroic.Halls of Reflection.The Lich King"]="m,InstanceLootHeroic.Halls of Reflection.The Captain's Chest",
 	["InstanceLootHeroic.Halls of Reflection.The Captain's Chest"]="50302:230,50303:243,50304:95,50305:90,50306:96,50308:97,50309:139,50310:145,50311:146,50312:135,50313:141,50314:141",
 
--- Trial of the Grand Crusader
-	["InstanceLootHeroic.Trial of the Grand Crusader.The Beasts of Northrend.10 Man"]="",
-	["InstanceLootHeroic.Trial of the Grand Crusader.The Beasts of Northrend.25 Man"]="",
-	["InstanceLootHeroic.Trial of the Grand Crusader.Lord Jaraxxus.10 Man"]="",
-	["InstanceLootHeroic.Trial of the Grand Crusader.Lord Jaraxxus.25 Man"]="",
-	["InstanceLootHeroic.Trial of the Grand Crusader.Champions' Cache.10 Man"]="",
-	["InstanceLootHeroic.Trial of the Grand Crusader.Champions' Cache.25 Man"]="",
-	["InstanceLootHeroic.Trial of the Grand Crusader.Faction Champions.10 Man"]="m,InstanceLootHeroic.Trial of the Grand Crusader.Champions' Cache.10 Man",
-	["InstanceLootHeroic.Trial of the Grand Crusader.Faction Champions.25 Man"]="m,InstanceLootHeroic.Trial of the Grand Crusader.Champions' Cache.25 Man",
-	["InstanceLootHeroic.Trial of the Grand Crusader.The Twin Val'kyr.10 Man"]="",
-	["InstanceLootHeroic.Trial of the Grand Crusader.The Twin Val'kyr.25 Man"]="",
-	["InstanceLootHeroic.Trial of the Grand Crusader.Anub'arak.10 Man"]="",
-	["InstanceLootHeroic.Trial of the Grand Crusader.Anub'arak.25 Man"]="",
+-- Trial of the Crusader
+	["InstanceLootHeroic.Trial of the Crusader.The Beasts of Northrend.10 Man"]="",
+	["InstanceLootHeroic.Trial of the Crusader.The Beasts of Northrend.25 Man"]="",
+	["InstanceLootHeroic.Trial of the Crusader.Lord Jaraxxus.10 Man"]="",
+	["InstanceLootHeroic.Trial of the Crusader.Lord Jaraxxus.25 Man"]="",
+	["InstanceLootHeroic.Trial of the Crusader.Champions' Cache.10 Man"]="",
+	["InstanceLootHeroic.Trial of the Crusader.Champions' Cache.25 Man"]="",
+	["InstanceLootHeroic.Trial of the Crusader.Faction Champions.10 Man"]="m,InstanceLootHeroic.Trial of the Grand Crusader.Champions' Cache.10 Man",
+	["InstanceLootHeroic.Trial of the Crusader.Faction Champions.25 Man"]="m,InstanceLootHeroic.Trial of the Grand Crusader.Champions' Cache.25 Man",
+	["InstanceLootHeroic.Trial of the Crusader.The Twin Val'kyr.10 Man"]="",
+	["InstanceLootHeroic.Trial of the Crusader.The Twin Val'kyr.25 Man"]="",
+	["InstanceLootHeroic.Trial of the Crusader.Anub'arak.10 Man"]="",
+	["InstanceLootHeroic.Trial of the Crusader.Anub'arak.25 Man"]="",
 
 -- Onyxia's Lair (Level 80)
 	["InstanceLootHeroic.Onyxia's Lair.Onyxia.80"]="49491,49482,49483,49484,49481,49477,49472,49473,49471,49469,49468,49470,49480,49479,49478,49467,49466,49476,49475,49474,49492,49489,49464,49488,49490,49494,49465,49499,49495,49501,49498,49500,49496,49497,49493,49644,49485,49486,49487,49295,49294,49636",
