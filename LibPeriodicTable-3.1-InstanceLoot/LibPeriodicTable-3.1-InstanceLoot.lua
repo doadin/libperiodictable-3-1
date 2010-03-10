@@ -217,7 +217,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("InstanceLoot", gsub("$Rev$", "(%d+)", f
 	["InstanceLoot.Hyjal Summit.Rage Winterchill"]="30861:146,30862:153,30863:154,30864:147,30865:148,30866:148,30868:163,30869:124,30870:162,30871:171,30872:154,30873:134,32285:22,32289:22,32295:24,32296:21,32297:23,32298:21,32303:22,32307:17",
 	["InstanceLoot.Hyjal Summit.Trash Mobs"]="32589,32590,32591,32592,32609,32945,32946,34009,34010",
 
-	["InstanceLoot.Karazhan.Attumen the Huntsman"]="23809:34,28453:160,28454:160,28477:149,28502:127,28503:137,28504:144,28505:162,28506:152,28507:135,28508:163,28509:152,28510:139,30480:7",
+	["InstanceLoot.Karazhan.Attumen the Huntsman"]="23809:34,28453:160,28454:160,28477:149,28502:127,28503:137,28504:144,28505:162,28506:152,28507:135,28508:163,28509:152,28510:139,30480:72",
 	["InstanceLoot.Karazhan.Chess Event"]="m,InstanceLoot.Karazhan.Dust Covered Chest",
 	["InstanceLoot.Karazhan.Dust Covered Chest"]="28745:111,28746:107,28747:109,28748:112,28749:107,28750:110,28751:111,28752:111,28753:106,28754:107,28755:108,28756:116",
 	["InstanceLoot.Karazhan.Hyakiss the Lurker"]="30675:289,30676:236,30677:204,30678:214",
@@ -650,6 +650,23 @@ LibStub("LibPeriodicTable-3.1"):AddData("InstanceLoot", gsub("$Rev$", "(%d+)", f
 	["InstanceLoot.Trial of the Champion.Eadric's Cache"]="47181,47185,47210,47177,47202,47178,47176,47197,47201,47199,47200,47213",
 	["InstanceLoot.Trial of the Champion.The Black Knight"]="47215:164,47216:160,47220:157,47221:164,47222:162,47226:159,47227:163,47228:155,47229:156,47230:162,47231:160,47232:157",
 
+-- Trial of the Crusader
+	["InstanceLoot.Trial of the Crusader.The Beasts of Northrend.10 Man"]="47617:878,47613:771,47608:776,47616:801,47610:695,47611:769,47609:823,47615:790,47614:819,47607:819,47578:795,47612:739,47855:900,47857:817,47853:817,47860:893,47850:824,47852:824,47851:827,47859:824,47858:813,47849:823,47854:862,47856:816",
+	["InstanceLoot.Trial of the Crusader.The Beasts of Northrend.25 Man"]="46970,46976,46992,46972,46974,46988,46960,46990,46962,46961,46985,47242,46959,46979,46958,46963,47257,47256,47264,47258,47259,47262,47251,47265,47254,47253,47263,47242,47252,47261,47255,47260",
+	["InstanceLoot.Trial of the Crusader.Lord Jaraxxus.10 Man"]="",
+	["InstanceLoot.Trial of the Crusader.Lord Jaraxxus.25 Man"]="",
+	["InstanceLoot.Trial of the Crusader.Champions' Cache.10 Man"]="",
+	["InstanceLoot.Trial of the Crusader.Champions' Cache.25 Man"]="",
+	["InstanceLoot.Trial of the Crusader.Faction Champions.10 Man"]="m,InstanceLoot.Trial of the Grand Crusader.Champions' Cache.10 Man",
+	["InstanceLoot.Trial of the Crusader.Faction Champions.25 Man"]="m,InstanceLoot.Trial of the Grand Crusader.Champions' Cache.25 Man",
+	["InstanceLoot.Trial of the Crusader.The Twin Val'kyr.10 Man"]="",
+	["InstanceLoot.Trial of the Crusader.The Twin Val'kyr.25 Man"]="",
+	["InstanceLoot.Trial of the Crusader.Anub'arak.10 Man"]="",
+	["InstanceLoot.Trial of the Crusader.Anub'arak.25 Man"]="",
+
+-- Onyxia's Lair (Level 80)
+	["InstanceLoot.Onyxia's Lair.Onyxia.80"]="49307,49316,49317,49315,49318,49322,49327,49328,49326,49331,49330,49329,49319,49320,49321,49333,49332,49323,49325,49324,49306,49309,49463,49310,49308,49304,49437,49298,49303,49296,49299,49297,49302,49301,49305,49644,49485,49486,49487,49295,49294,49636",
+
 -- Frozen Halls
 	["InstanceLoot.Frozen Halls Hub"]="m,InstanceLoot.The Forge of Souls,InstanceLoot.Pit of Saron,InstanceLoot.Halls of Reflection",
 -- The Forge of Souls
@@ -665,23 +682,6 @@ LibStub("LibPeriodicTable-3.1"):AddData("InstanceLoot", gsub("$Rev$", "(%d+)", f
 	["InstanceLoot.Halls of Reflection.Marwyn"]="49832:0,49833:292,49834:130,49835:153,49836:138,49837:130,49838:154",
 	["InstanceLoot.Halls of Reflection.The Lich King"]="m,InstanceLoot.Halls of Reflection.The Captain's Chest",
 	["InstanceLoot.Halls of Reflection.The Captain's Chest"]="49839:202,49840:203,49841:110,49842:99,49843:107,49844:191,49845:220,49846:230,49847:112,49848:105,49849:114,49851:114",
-
--- Trial of the Crusader
-	["InstanceLoot.Trial of the Crusader.The Beasts of Northrend.10 Man"]="47617,47613,47608,47616,47610,47611,47609,47615,47614,47607,47578,47612,47855,47857,47853,47860,47850,47852,47851,47859,47858,47849,47854,47856",
-	["InstanceLoot.Trial of the Crusader.The Beasts of Northrend.25 Man"]="46970,46976,46992,46972,46974,46988,46960,46990,46962,46961,46985,47242,46959,46979,46958,46963,47257,47256,47264,47258,47259,47262,47251,47265,47254,47253,47263,47242,47252,47261,47255,47260",
-	["InstanceLoot.Trial of the Crusader.Lord Jaraxxus.10 Man"]="",
-	["InstanceLoot.Trial of the Crusader.Lord Jaraxxus.25 Man"]="",
-	["InstanceLoot.Trial of the Crusader.Champions' Cache.10 Man"]="",
-	["InstanceLoot.Trial of the Crusader.Champions' Cache.25 Man"]="",
-	["InstanceLoot.Trial of the Crusader.Faction Champions.10 Man"]="m,InstanceLoot.Trial of the Grand Crusader.Champions' Cache.10 Man",
-	["InstanceLoot.Trial of the Crusader.Faction Champions.25 Man"]="m,InstanceLoot.Trial of the Grand Crusader.Champions' Cache.25 Man",
-	["InstanceLoot.Trial of the Crusader.The Twin Val'kyr.10 Man"]="",
-	["InstanceLoot.Trial of the Crusader.The Twin Val'kyr.25 Man"]="",
-	["InstanceLoot.Trial of the Crusader.Anub'arak.10 Man"]="",
-	["InstanceLoot.Trial of the Crusader.Anub'arak.25 Man"]="",
-
--- Onyxia's Lair (Level 80)
-	["InstanceLoot.Onyxia's Lair.Onyxia.80"]="49307,49316,49317,49315,49318,49322,49327,49328,49326,49331,49330,49329,49319,49320,49321,49333,49332,49323,49325,49324,49306,49309,49463,49310,49308,49304,49437,49298,49303,49296,49299,49297,49302,49301,49305,49644,49485,49486,49487,49295,49294,49636",
 
 -- Icecrown Citadel
 -- The Lower Spire

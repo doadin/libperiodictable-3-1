@@ -215,22 +215,6 @@ LibStub("LibPeriodicTable-3.1"):AddData("InstanceLootHeroic", gsub("$Rev$", "(%d
 	["InstanceLootHeroic.Trial of the Champion.Eadric's Cache"]="47501,47496,47498,47504,47497,47502,47495,47503,47494,47500,47509,47508",
 	["InstanceLootHeroic.Trial of the Champion.The Black Knight"]="47527:141,47529:140,47560:136,47561:138,47562:142,47563:140,47564:126,47565:125,47566:129,47567:127,47568:125,47569:123,49682:131",
 
--- Frozen Halls
-	["InstanceLootHeroic.Frozen Halls Hub"]="m,InstanceLootHeroic.The Forge of Souls,InstanceLootHeroic.Pit of Saron,InstanceLootHeroic.Halls of Reflection",
--- The Forge of Souls
-	["InstanceLootHeroic.The Forge of Souls.Bronjahm"]="50169:271,50191:281,50193:113,50194:109,50196:110,50197:103,50316:45,50317:243",
-	["InstanceLootHeroic.The Forge of Souls.Devourer of Souls"]="50198:128,50203:309,50206:140,50207:136,50208:131,50209:133,50210:291,50211:135,50212:137,50213:144,50214:136,50215:129",
--- Pit of Saron
-	["InstanceLootHeroic.Pit of Saron.Forgemaster Garfrost"]="50227:303,50228:140,50229:141,50230:138,50233:138,50234:131",
-	["InstanceLootHeroic.Pit of Saron.Ick"]="50235:137,50262:302,50263:139,50264:137,50265:140,50266:142",
-	["InstanceLootHeroic.Pit of Saron.Krick"]="m,InstanceLootHeroic.Pit of Saron.Ick",
-	["InstanceLootHeroic.Pit of Saron.Scourgelord Tyrannus"]="50259:133,50267:270,50268:278,50269:107,50270:104,50271:107,50272:108,50273:295,50283:140,50284:134,50285:134,50286:132",
--- Halls of Reflection
-	["InstanceLootHeroic.Halls of Reflection.Falric"]="50290:284,50291:252,50292:126,50293:108,50294:119,50295:106",
-	["InstanceLootHeroic.Halls of Reflection.Marwyn"]="50260:137,50296:301,50297:139,50298:143,50299:140,50300:136",
-	["InstanceLootHeroic.Halls of Reflection.The Lich King"]="m,InstanceLootHeroic.Halls of Reflection.The Captain's Chest",
-	["InstanceLootHeroic.Halls of Reflection.The Captain's Chest"]="50302:230,50303:243,50304:95,50305:90,50306:96,50308:97,50309:139,50310:145,50311:146,50312:135,50313:141,50314:141",
-
 -- Trial of the Crusader
 	["InstanceLootHeroic.Trial of the Crusader.The Beasts of Northrend.10 Man"]="",
 	["InstanceLootHeroic.Trial of the Crusader.The Beasts of Northrend.25 Man"]="",
@@ -247,6 +231,22 @@ LibStub("LibPeriodicTable-3.1"):AddData("InstanceLootHeroic", gsub("$Rev$", "(%d
 
 -- Onyxia's Lair (Level 80)
 	["InstanceLootHeroic.Onyxia's Lair.Onyxia.80"]="49491,49482,49483,49484,49481,49477,49472,49473,49471,49469,49468,49470,49480,49479,49478,49467,49466,49476,49475,49474,49492,49489,49464,49488,49490,49494,49465,49499,49495,49501,49498,49500,49496,49497,49493,49644,49485,49486,49487,49295,49294,49636",
+
+-- Frozen Halls
+	["InstanceLootHeroic.Frozen Halls Hub"]="m,InstanceLootHeroic.The Forge of Souls,InstanceLootHeroic.Pit of Saron,InstanceLootHeroic.Halls of Reflection",
+-- The Forge of Souls
+	["InstanceLootHeroic.The Forge of Souls.Bronjahm"]="50169:271,50191:281,50193:113,50194:109,50196:110,50197:103,50316:45,50317:243",
+	["InstanceLootHeroic.The Forge of Souls.Devourer of Souls"]="50198:128,50203:309,50206:140,50207:136,50208:131,50209:133,50210:291,50211:135,50212:137,50213:144,50214:136,50215:129",
+-- Pit of Saron
+	["InstanceLootHeroic.Pit of Saron.Forgemaster Garfrost"]="50227:303,50228:140,50229:141,50230:138,50233:138,50234:131",
+	["InstanceLootHeroic.Pit of Saron.Ick"]="50235:137,50262:302,50263:139,50264:137,50265:140,50266:142",
+	["InstanceLootHeroic.Pit of Saron.Krick"]="m,InstanceLootHeroic.Pit of Saron.Ick",
+	["InstanceLootHeroic.Pit of Saron.Scourgelord Tyrannus"]="50259:133,50267:270,50268:278,50269:107,50270:104,50271:107,50272:108,50273:295,50283:140,50284:134,50285:134,50286:132",
+-- Halls of Reflection
+	["InstanceLootHeroic.Halls of Reflection.Falric"]="50290:284,50291:252,50292:126,50293:108,50294:119,50295:106",
+	["InstanceLootHeroic.Halls of Reflection.Marwyn"]="50260:137,50296:301,50297:139,50298:143,50299:140,50300:136",
+	["InstanceLootHeroic.Halls of Reflection.The Lich King"]="m,InstanceLootHeroic.Halls of Reflection.The Captain's Chest",
+	["InstanceLootHeroic.Halls of Reflection.The Captain's Chest"]="50302:230,50303:243,50304:95,50305:90,50306:96,50308:97,50309:139,50310:145,50311:146,50312:135,50313:141,50314:141",
 
 -- Icecrown Citadel
 -- The Lower Spire
