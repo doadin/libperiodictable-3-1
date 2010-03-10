@@ -666,6 +666,23 @@ LibStub("LibPeriodicTable-3.1"):AddData("InstanceLoot", gsub("$Rev$", "(%d+)", f
 	["InstanceLoot.Halls of Reflection.The Lich King"]="m,InstanceLoot.Halls of Reflection.The Captain's Chest",
 	["InstanceLoot.Halls of Reflection.The Captain's Chest"]="49839:202,49840:203,49841:110,49842:99,49843:107,49844:191,49845:220,49846:230,49847:112,49848:105,49849:114,49851:114",
 
+-- Trial of the Grand Crusader
+	["InstanceLoot.Trial of the Grand Crusader.The Beasts of Northrend.10 Man"]="",
+	["InstanceLoot.Trial of the Grand Crusader.The Beasts of Northrend.25 Man"]="",
+	["InstanceLoot.Trial of the Grand Crusader.Lord Jaraxxus.10 Man"]="",
+	["InstanceLoot.Trial of the Grand Crusader.Lord Jaraxxus.25 Man"]="",
+	["InstanceLoot.Trial of the Grand Crusader.Champions' Cache.10 Man"]="",
+	["InstanceLoot.Trial of the Grand Crusader.Champions' Cache.25 Man"]="",
+	["InstanceLoot.Trial of the Grand Crusader.Faction Champions.10 Man"]="m,InstanceLoot.Trial of the Grand Crusader.Champions' Cache.10 Man",
+	["InstanceLoot.Trial of the Grand Crusader.Faction Champions.25 Man"]="m,InstanceLoot.Trial of the Grand Crusader.Champions' Cache.25 Man",
+	["InstanceLoot.Trial of the Grand Crusader.The Twin Val'kyr.10 Man"]="",
+	["InstanceLoot.Trial of the Grand Crusader.The Twin Val'kyr.25 Man"]="",
+	["InstanceLoot.Trial of the Grand Crusader.Anub'arak.10 Man"]="",
+	["InstanceLoot.Trial of the Grand Crusader.Anub'arak.25 Man"]="",
+
+-- Onyxia's Lair (Level 80)
+	["InstanceLoot.Onyxia's Lair.Onyxia.80"]="49307,49316,49317,49315,49318,49322,49327,49328,49326,49331,49330,49329,49319,49320,49321,49333,49332,49323,49325,49324,49306,49309,49463,49310,49308,49304,49437,49298,49303,49296,49299,49297,49302,49301,49305,49644,49485,49486,49487,49295,49294,49636",
+
 -- Icecrown Citadel
 -- The Lower Spire
 	["InstanceLoot.Icecrown Citadel.Lord Marrowgar.10 Man"]="50339,50759,50760,50761,50762,50763,50764,50771,50772,50773,50774,50775",
@@ -691,4 +708,5 @@ LibStub("LibPeriodicTable-3.1"):AddData("InstanceLoot", gsub("$Rev$", "(%d+)", f
 	["InstanceLoot.Icecrown Citadel.Sindragosa"]="50360:357,50361:142,50421:95,50423:214,50424:214,52025:619,52026:595,52027:523",
 	-- The Frozen Throne
 	["InstanceLoot.Icecrown Citadel.The Lich King"]="49426:41,49981:333,49997:166,50012:208,50070:291,50425:83,50426:208,50427:166,50428:208,50429:291,52025:458,52026:541,52027:666",
+	["InstanceLoot.Icecrown Citadel.Trash Mobs"]="50449,50450,50451,50452,50447,50453,50444",
 })
