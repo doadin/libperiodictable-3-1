@@ -707,6 +707,6 @@ LibStub("LibPeriodicTable-3.1"):AddData("InstanceLoot", gsub("$Rev$", "(%d+)", f
 	["InstanceLoot.Icecrown Citadel.Valithria Dreamwalker"]="m,InstanceLoot.Icecrown Citadel.Cache of the Dreamwalker",
 	["InstanceLoot.Icecrown Citadel.Sindragosa"]="50360:357,50361:142,50421:95,50423:214,50424:214,52025:619,52026:595,52027:523",
 	-- The Frozen Throne
-	["InstanceLoot.Icecrown Citadel.The Lich King"]="49426:41,49981:333,49997:166,50012:208,50070:291,50425:83,50426:208,50427:166,50428:208,50429:291,52025:458,52026:541,52027:666",
+	["InstanceLoot.Icecrown Citadel.The Lich King"]="49981:333,49997:166,50012:208,50070:291,50425:83,50426:208,50427:166,50428:208,50429:291,52025:458,52026:541,52027:666",
 	["InstanceLoot.Icecrown Citadel.Trash Mobs"]="50449,50450,50451,50452,50447,50453,50444",
 })
