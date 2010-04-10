@@ -210,27 +210,10 @@ LibStub("LibPeriodicTable-3.1"):AddData("InstanceLootHeroic", gsub("$Rev$", "(%d
 	["InstanceLootHeroic.Trial of the Champion.Grand Champions"]="m,InstanceLootHeroic.Trial of the Champion.Champion's Cache",
 	["InstanceLootHeroic.Trial of the Champion.Champion's Cache"]="47243:142,47244:145,47248:143,47249:143,47250:150,47493:135",
 	["InstanceLootHeroic.Trial of the Champion.Argent Confessor Paletress"]="m,InstanceLootHeroic.Trial of the Champion.Confessor's Cache",
-	["InstanceLootHeroic.Trial of the Champion.Confessor's Cache"]="47498,47496,47245,47497,47514,47510,47495,47511,47494,47512,47500,47522",
+	["InstanceLootHeroic.Trial of the Champion.Confessor's Cache"]="",
 	["InstanceLootHeroic.Trial of the Champion.Eadric the Pure"]="m,InstanceLootHeroic.Trial of the Champion.Eadric's Cache",
-	["InstanceLootHeroic.Trial of the Champion.Eadric's Cache"]="47501,47496,47498,47504,47497,47502,47495,47503,47494,47500,47509,47508",
+	["InstanceLootHeroic.Trial of the Champion.Eadric's Cache"]="",
 	["InstanceLootHeroic.Trial of the Champion.The Black Knight"]="47527:141,47529:140,47560:136,47561:138,47562:142,47563:140,47564:126,47565:125,47566:129,47567:127,47568:125,47569:123,49682:131",
-
--- Trial of the Crusader
-	["InstanceLootHeroic.Trial of the Crusader.The Beasts of Northrend.10 Man"]="",
-	["InstanceLootHeroic.Trial of the Crusader.The Beasts of Northrend.25 Man"]="",
-	["InstanceLootHeroic.Trial of the Crusader.Lord Jaraxxus.10 Man"]="",
-	["InstanceLootHeroic.Trial of the Crusader.Lord Jaraxxus.25 Man"]="",
-	["InstanceLootHeroic.Trial of the Crusader.Champions' Cache.10 Man"]="",
-	["InstanceLootHeroic.Trial of the Crusader.Champions' Cache.25 Man"]="",
-	["InstanceLootHeroic.Trial of the Crusader.Faction Champions.10 Man"]="m,InstanceLootHeroic.Trial of the Grand Crusader.Champions' Cache.10 Man",
-	["InstanceLootHeroic.Trial of the Crusader.Faction Champions.25 Man"]="m,InstanceLootHeroic.Trial of the Grand Crusader.Champions' Cache.25 Man",
-	["InstanceLootHeroic.Trial of the Crusader.The Twin Val'kyr.10 Man"]="",
-	["InstanceLootHeroic.Trial of the Crusader.The Twin Val'kyr.25 Man"]="",
-	["InstanceLootHeroic.Trial of the Crusader.Anub'arak.10 Man"]="",
-	["InstanceLootHeroic.Trial of the Crusader.Anub'arak.25 Man"]="",
-
--- Onyxia's Lair (Level 80)
-	["InstanceLootHeroic.Onyxia's Lair.Onyxia.80"]="49491,49482,49483,49484,49481,49477,49472,49473,49471,49469,49468,49470,49480,49479,49478,49467,49466,49476,49475,49474,49492,49489,49464,49488,49490,49494,49465,49499,49495,49501,49498,49500,49496,49497,49493,49644,49485,49486,49487,49295,49294,49636",
 
 -- Frozen Halls
 	["InstanceLootHeroic.Frozen Halls Hub"]="m,InstanceLootHeroic.The Forge of Souls,InstanceLootHeroic.Pit of Saron,InstanceLootHeroic.Halls of Reflection",
@@ -250,16 +233,11 @@ LibStub("LibPeriodicTable-3.1"):AddData("InstanceLootHeroic", gsub("$Rev$", "(%d
 
 -- Icecrown Citadel
 -- The Lower Spire
-	["InstanceLootHeroic.Icecrown Citadel.Lord Marrowgar.10 Man"]="50346,51928,51929,51930,51931,51932,51933,51934,51935,51936,51937,51938",
-	["InstanceLootHeroic.Icecrown Citadel.Lord Marrowgar.25 Man"]="50604,50605:0,50606:0,50607:0,50608:0,50609:0,50610:0,50611:0,50612:0,50613:0,50614:0,50615:0,50616:0,50617:0,50709:0",
-	["InstanceLootHeroic.Icecrown Citadel.Lady Deathwhisper.10 Man"]="51918,51921,51923,51925,51920,51926,51919,51924,51917,50343,51922,51927",
-	["InstanceLootHeroic.Icecrown Citadel.Lady Deathwhisper.25 Man"]="50638:0,50639:0,50640:0,50641:0,50642:0,50643:0,50644:0,50645:0,50646:0,50647:0,50648:0,50649:0,50650:0,50651:0,50652:0",
-	["InstanceLootHeroic.Icecrown Citadel.Gunship Armory.10 Man"]="51912,51908,51906,51911,51914,51907,51915,51913,50345,51910,51916,51909",
-	["InstanceLootHeroic.Icecrown Citadel.Gunship Armory.25 Man"]="50349:0,50366:0,50653:0,50654:0,50655:0,50656:0,50657:0,50658:0,50659:0,50660:0,50661:0,50663:0,50664:0,50665:0,50667:0",
-	["InstanceLootHeroic.Icecrown Citadel.Deathbringer's Cache.10 Man"]="51896,51899,51904,51897,51903,51902,51901,51895,51894,51900,52027,52026,52025,51905,51898",
-	["InstanceLootHeroic.Icecrown Citadel.Deathbringer's Cache.25 Man"]="50363:0,50668:0,50670:0,50671:0,50672:0,52025:0,52026:0,52027:0,52028:0,52029:0,52030:0",
-	["InstanceLootHeroic.Icecrown Citadel.Deathbringer Saurfang.10 Man"]="m,InstanceLootHeroic.Icecrown Citadel.Deathbringer's Cache.10 Man",
-	["InstanceLootHeroic.Icecrown Citadel.Deathbringer Saurfang.25 Man"]="m,InstanceLootHeroic.Icecrown Citadel.Deathbringer's Cache.25 Man",
+	["InstanceLootHeroic.Icecrown Citadel.Lord Marrowgar"]="50604:0,50605:0,50606:0,50607:0,50608:0,50609:0,50610:0,50611:0,50612:0,50613:0,50614:0,50615:0,50616:0,50617:0,50709:0",
+	["InstanceLootHeroic.Icecrown Citadel.Lady Deathwhisper"]="50638:0,50639:0,50640:0,50641:0,50642:0,50643:0,50644:0,50645:0,50646:0,50647:0,50648:0,50649:0,50650:0,50651:0,50652:0",
+	["InstanceLootHeroic.Icecrown Citadel.Gunship Armory"]="50349:0,50366:0,50653:0,50654:0,50655:0,50656:0,50657:0,50658:0,50659:0,50660:0,50661:0,50663:0,50664:0,50665:0,50667:0",
+	["InstanceLootHeroic.Icecrown Citadel.Deathbringer's Cache"]="50363:0,50668:0,50670:0,50671:0,50672:0,52025:0,52026:0,52027:0,52028:0,52029:0,52030:0",
+	["InstanceLootHeroic.Icecrown Citadel.Deathbringer Saurfang"]="m,InstanceLootHeroic.Icecrown Citadel.Deathbringer's Cache",
 -- The Plagueworks
 	["InstanceLootHeroic.Icecrown Citadel.Festergut"]="50226:0,50688:0,50689:0,50690:0,50691:0,50692:0,50693:0,50694:0,50695:0,50696:0,50697:0,50698:0,50699:0,50700:0,50701:0,50702:0,50703:0",
 	["InstanceLootHeroic.Icecrown Citadel.Rotface"]="50231:0,50348:0,50673:0,50674:0,50675:0,50676:0,50677:0,50678:0,50679:0,50680:0,50681:0,50682:0,50684:0,50685:0,50686:0,50687:0",
