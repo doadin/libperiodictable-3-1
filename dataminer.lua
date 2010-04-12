@@ -27,11 +27,17 @@ end
 
 local function printdiff(set, old, new)
 	if DEBUG < 2 then return end
+	-- we remove the drop rate for these sets in the diff,
+	-- because they are irrelevant to the comparison
+	local has_drop_rate = set:find("InstanceLoot", nil, true)
+			and not set:find("Trash Mobs", nil, true)
 	local temp = {}
 	for entry in old:gmatch("[^,]+") do
+		if has_drop_rate then entry = entry:match("(%d+):%d+") end
 		temp[entry] = -1
 	end
 	for entry in new:gmatch("[^,]+") do
+		if has_drop_rate then entry = entry:match("(%d+):%d+") end
 		temp[entry] = (temp[entry] or 0) + 1
 	end
 	local added, removed = {}, {}
@@ -56,6 +62,8 @@ end
 
 local sets
 
+local json = require"json"
+json.register_constant("undefined", json.null)
 local url = require("socket.url")
 local httptime, httpcount = 0, 0
 local getpage
@@ -118,7 +126,7 @@ CREATE TABLE IF NOT EXISTS cache (
 		getpage = function (url)
 			select_stmt:bind_values(url)
 			local result = select_stmt:step()
-			dprint(2, "cache", url, result == sqlite3.ROW and "hit" or "miss")
+			dprint(4, "cache", url, result == sqlite3.ROW and "hit" or "miss")
 			if result == sqlite3.ROW then
 				result = select_stmt:get_value(0)
 				select_stmt:reset()
@@ -202,15 +210,31 @@ this function return the first "id" of the first entry in the first listview of 
 Used when searching for mobs or containers by name.
 ]=]
 
+local REJECTED_TEMPLATES = {
+	comment = true,
+	screenshot = true,
+}
+local function get_page_listviews(url)
+	local page = assert(getpage(url))
+	local views = {}
+	for view in page:gmatch("new Listview(%b())") do
+		local template = view:match("template: ?'(.-)'[,}]")
+		local id = view:match("id: ?'(.-)'[,}]")
+		local data = view:match("data: ?(%b[])[,}]")
+		if data and not REJECTED_TEMPLATES[template] then
+			-- for droprate support
+			local count = view:match("_totalCount: ?(%d+)[,}]")
+			views[id] = {id = id, data = json(data, true), count = count and tonumber(count)}
+		end
+	end
+	return views
+end
+
 local locale_data
 local function fetch_locale_data()
 	if not locale_data then
-		locale_data = {}
-		local page = getpage("http://static.wowhead.com/js/locale_enus.js")
-		local zones = page:match("g_zones={(.-)}")
-		for id, zone in zones:gmatch("\"(%d+)\":\"(.-)\"") do
-			locale_data[tonumber(id)] = zone
-		end
+		local page = assert(getpage("http://static.wowhead.com/js/locale_enus.js"))
+		locale_data = json(page:match("g_zones=(%b{})"), true)
 	end
 end
 local function get_zone_name_from_id(id)
@@ -226,31 +250,6 @@ local function get_zone_id_from_name(name)
 	end
 end
 
--- Split string str using sep and merge into t if provided
--- return t or a new table containing the split values
-local function StrSplitMerge(sep, str, t)
-	local r = t
-	if (not r) then
-		r = {}
-	end
-
-    local nb = # t
-    if (string.find(str, sep) == nil) then
-	    r[nb + 1] = str
-        return r
-    end
-    local pat = "(.-)" .. sep .. "()"
-    local lastPos
-    for part, pos in string.gfind(str, pat) do
-        nb = nb + 1
-        r[nb] = part
-        lastPos = pos
-    end
-    -- Handle the last field
-    r[nb + 1] = string.sub(str, lastPos)
-
-	return r
-end
 
 -- Used to sort tables with values [-id|id][:value] using value as primary sort data
 local function sortSet(a, b)
@@ -300,26 +299,23 @@ local function sortSet_id(a, b)
 	return aId < bId
 end
 
-local function basic_itemid_handler(itemstring)
-	return itemstring:match("{id:(%-?%d+)")
+local function basic_itemid_handler(item)
+	return item.id
 end
 
-local function basic_listview_handler(url, handler, names)
+local function basic_listview_handler(url, handler, names, inplace_set)
 	if not handler then handler = basic_itemid_handler end
-	local page = getpage(url)
-	if not page then return end
-	local newset = {}
+	local newset = inplace_set or {}
 	if type(names) == "string" then
 		names = {[names] = true}
 	end
-	for view in page:gmatch("new Listview(%b())") do
-		local name = view:match("id: '([^']+)'")
+	local views = get_page_listviews(url)
+	for name, view in pairs(views) do
 		if not names or names[name] then
-			local itemlist = view:match("data%: (%b[])")
-			for itemstring in itemlist:gmatch("%b{}") do
-				local s = handler(itemstring)
+			for _, item in ipairs(view.data) do
+				local s = handler(item)
 				if s then
-					newset[#newset + 1] = s
+					newset[#newset + 1] = tostring(s)
 				end
 			end
 		end
@@ -327,51 +323,44 @@ local function basic_listview_handler(url, handler, names)
 	end
 	local itemcount = #newset
 	dprint(3, itemcount, url)
-	table.sort(newset, sortSet)
-	return table.concat(newset, ",")
+	if not inplace_set then
+		table.sort(newset, sortSet)
+		return table.concat(newset, ",")
+	end
 end
 
 local function basic_listview_get_first_id(url)
-	local page = getpage(url)
-	if not page then return end
-	page = page:match("new Listview(%b())")
-	if not page then return end
-	page = page:match("data: (%b[])")
-	if not page then return end
-	page = page:match("{id:(%-?%d+)")
-	if not page then return end
-	return tonumber(page)
+	local views = get_page_listviews(url)
+	if not views then return end
+	local _, view = next(views)
+	if not view then return end
+	local _, item = next(view.data)
+	if not item then return end
+	return item.id
+end
+
+local function is_in(table, value)
+	for _, v in pairs(table) do
+		if v == value then return true end
+	end
 end
 
 local function basic_listview_get_npc_id(npc, zone)
 	-- override because of a bug in wowhead where the mob is not reported as lootable.
 	if npc == "Sathrovarr the Corruptor" then return 24892 end
-	local url = "http://www.wowhead.com/?npcs&filter=na="..url.escape(npc)..";cr=9;crs=1;crv=0"
-	local page = getpage(url)
-	if not page then return end
-	page = page:match("new Listview(%b())")
-	if not page then return end
-	page = page:match("data: (%b[])")
-	if not page then return end
+	local url = "http://www.wowhead.com/npcs&filter=na="..url.escape(npc)..";cr=9;crs=1;crv=0"
+	local views = get_page_listviews(url)
+	if not views.npcs then return end
+	local data = views.npcs.data
 	if zone then zone = get_zone_id_from_name(zone) end
 	local first_id
-	for entry in page:gmatch("%b{}") do
-		entry = entry:gsub("'", "\""):gsub("\\\"", "'")
-		local id = entry:match("{id:(%d+)")
-		local name = entry:match("name:\"([^\"]+)\"")
-		local location = entry:match("location:(%[[^%]]+%])")
-		if name == npc then
-			if zone then
-				if location:match("[%[,]"..zone.."[%],]") then
-					return tonumber(id)
-				end
-			else
-				return tonumber(id)
-			end
+	for _, entry in ipairs(data) do
+		if entry.name == npc and (not zone or not entry.location or is_in(entry.location, zone)) then
+			return entry.id
 		end
-		if not first_id then first_id = id end
+		if not first_id then first_id = entry.id end
 	end
-	return first_id and tonumber(first_id)
+	return first_id
 end
 
 --[[ STATIC DATA ]]
@@ -819,13 +808,13 @@ local function handle_trash_mobs(set)
 	local levels = type(info.levels) == "number" and { info.levels } or info.levels
 	local sets = {}
 	for _, level in ipairs(levels) do
-		local url = "http://www.wowhead.com/?items&filter=minle="..level..";maxle="..level..";cr="..dropsin..":"..(info.boe and "3" or "2")..";crs="..info.id..":1;crv=0:0#0+2+1"
-		local set = basic_listview_handler(url, function (itemstring)
-			local itemid = itemstring:match("{id:(%d+)")
+		local url = "http://www.wowhead.com/items&filter=minle="..level..";maxle="..level..";cr="..dropsin..":"..(info.boe and "3" or "2")..";crs="..info.id..":1;crv=0:0#0+2+1"
+		local set = basic_listview_handler(url, function (item)
+			local itemid = item.id
 			local count = 0
-			local url = "http://www.wowhead.com/?item="..itemid
-			basic_listview_handler(url, function (itemstring)
-				if instance == "Blackwing Lair" and itemstring:find("Death Talon") then -- Hack for BWL
+			local url = "http://www.wowhead.com/item="..itemid
+			basic_listview_handler(url, function (item)
+				if instance == "Blackwing Lair" and item.name:find("Death Talon") then -- Hack for BWL
 					count = count + INSTANCELOOT_TRASHMINSRC
 				end
 				count = count + 1
@@ -850,7 +839,7 @@ do
 		if value ~= nil then return value end
 
 		local count = 0
-		local url = "http://www.wowhead.com/?item="..itemid
+		local url = "http://www.wowhead.com/item="..itemid
 		local page = getpage(url)
 
 		local name = page:match("<h1>([^<%-]+)</h1>")
@@ -884,10 +873,8 @@ end
 
 handlers["^ClassSpell"] = function (set, data)
 	local class, tree = set:match('^ClassSpell%.(.+)%.(.+)$')
-	return basic_listview_handler("http://www.wowhead.com/?spells="..Class_Skills[class][tree], function(itemstr)
-		local itemid = (-1 * itemstr:match("{id:(%d+)"))
-		local level = itemstr:match('level:(%d+)')
-		return itemid..":"..level
+	return basic_listview_handler("http://www.wowhead.com/spells="..Class_Skills[class][tree], function(item)
+		return "-"..item.id..":"..item.level
 	end)
 end
 
@@ -896,7 +883,7 @@ handlers["^Consumable%.Bandage"] = function (set, data)
 	local setname = set:match("%.([^%.]+)$")
 	local filter = Consumable_Bandage_filters[setname]
 	if not filter then return end
-	local page = getpage("http://www.wowhead.com/?items&filter="..filter)
+	local page = getpage("http://www.wowhead.com/items&filter="..filter)
 	for itemid, content in page:gmatch("_%[(%d+)%]=(%b[])") do
 		local heal = content:match("Heals (%d+) damage")
 		if heal then
@@ -918,12 +905,11 @@ handlers["^Consumable%.Buff Type"] = function (set, data)
 	if setname ~= "Both"and not filter then return end
 
 	local list = {}
-	local handler = function (itemstring)
-		local id = itemstring:match("{id:(%d+)")
-		list[id] = true
+	local handler = function (item)
+		list[item.id] = true
 	end
-	basic_listview_handler("http://www.wowhead.com/?items&filter="..Consumable_Buff_Type_filters.Both1, handler)
-	basic_listview_handler("http://www.wowhead.com/?items&filter="..Consumable_Buff_Type_filters.Both2, handler)
+	basic_listview_handler("http://www.wowhead.com/items&filter="..Consumable_Buff_Type_filters.Both1, handler)
+	basic_listview_handler("http://www.wowhead.com/items&filter="..Consumable_Buff_Type_filters.Both2, handler)
 	local both = {}
 	for entry in pairs(list) do
 		both[#both+1] = entry
@@ -934,10 +920,10 @@ handlers["^Consumable%.Buff Type"] = function (set, data)
 		return both
 	end
 
-	local page = getpage("http://www.wowhead.com/?items&filter="..filter)
+	local page = getpage("http://www.wowhead.com/items&filter="..filter)
 
-	return basic_listview_handler("http://www.wowhead.com/?items&filter="..filter, function (itemstring)
-		local itemid = itemstring:match("{id:(%d+)")
+	return basic_listview_handler("http://www.wowhead.com/items&filter="..filter, function (item)
+		local itemid = item.id
 		if not both:match(itemid) then
 			return itemid
 		end
@@ -946,7 +932,7 @@ end
 
 handlers["^Consumable%.Scroll"] = function (set, data)
 	local newset = {}
-	local page = getpage("http://www.wowhead.com/?items=0.4")
+	local page = getpage("http://www.wowhead.com/items=0.4")
 	for itemid in page:gmatch("_%[(%d+)%]") do
 		newset[#newset + 1] = itemid
 	end
@@ -958,12 +944,17 @@ handlers["^CurrencyItems"] = function (set, data)
 	local currency = set:match("^CurrencyItems%.([^%.]+)")
 	if not Currency_Items[currency] then return end
 	local currency_id = assert(Currency_Items[currency])
-	return basic_listview_handler("http://www.wowhead.com/?item="..currency_id, function (itemstr)
-		local itemid = itemstr:match("{id:(%d+)")
-		local cost = itemstr:match("cost:(%b[])")
-		local count = cost:match("%["..currency_id..",(%d+)%]")
+	return basic_listview_handler("http://www.wowhead.com/item="..currency_id, function (item)
+
+		local count
+		for _, v in ipairs(item.cost[4]) do
+			if v[1] == currency_id then
+				count = v[2]
+				break
+			end
+		end
 		if not count then print(itemstr) end
-		return itemid..":"..count
+		return item.id..":"..count
 	end, "currency-for")
 end
 
@@ -973,10 +964,7 @@ handlers["^Gear%.Socketed"] = function (set, data)
 	local slot = set:match("%.([^%.]+)$")
 	for _, filter in ipairs(Gear_Socketed_filters[slot]) do
 		for _, levelfilter in ipairs(Gear_levelgroups) do
-			local nset = basic_listview_handler("http://www.wowhead.com/?items&filter="..filter..levelfilter)
-			if nset and nset ~= "" then
-				StrSplitMerge(",", nset, newset)
-			end
+			basic_listview_handler("http://www.wowhead.com/items&filter="..filter..levelfilter, nil, nil, newset)
 		end
 	end
 
@@ -987,11 +975,7 @@ end
 handlers["^Gear%.Trinket$"] = function (set, data)
 	local newset = {}
 	for _, filter in ipairs(Quality_filters) do
-		local nset = basic_listview_handler("http://www.wowhead.com/?items=4.-4&filter="..filter)
-		if nset and nset ~= "" then
-			StrSplitMerge(",", nset, newset)
-			print("Trinkets Quality(" .. filter .. "):", # newset)
-		end
+		basic_listview_handler("http://www.wowhead.com/items=4.-4&filter="..filter, nil, nil, newset)
 	end
 
 	table.sort(newset, sortSet)
@@ -1002,13 +986,17 @@ end
 handlers["^Gear%.Vendor"] = function (set, data)
 	local currency, vendor = set:match("^Gear%.Vendor%.(.+)%.(.+)$")
 	local currency_id, vendor_id = assert(Gear_Vendor[currency].id), assert(Gear_Vendor[currency][vendor])
-	return basic_listview_handler("http://www.wowhead.com/?npc="..vendor_id, function (itemstr)
-		local itemid = itemstr:match("{id:(%d+)")
-		local class = tonumber(itemstr:match("classs:(%d+)"))
-		local count = itemstr:match("%[%["..currency_id..",(%d+)%]%]")
---		print(itemid, count)
+	return basic_listview_handler("http://www.wowhead.com/npc="..vendor_id, function (item)
+		local class = item.classs
+		local count
+		for i, v in ipairs(item.cost) do
+			if v == currency_id then
+				count = item.cost[i + 1]
+				break
+			end
+		end
 		if count and (class == 2 or class == 4) then
-			return itemid..":"..count
+			return item.id..":"..count
 		end
 	end, "sells")
 end
@@ -1018,18 +1006,20 @@ handlers["^GearSet"] = function (set, data)
 	local setname = set:match("%.([^%.]+)$")
 	if GearSets_fixedids[setname] then
 		id = GearSets_fixedids[setname]
-	elseif set:find(".PvP.Arena.") then	-- wowhead can't do exact match on name as it seems so other arena sets including the name would show up to (and be picked unfortunatly)
-		id = basic_listview_get_first_id("http://www.wowhead.com/?itemsets&filter=qu=4;maxle=130;na="..url.escape(setname))
+	elseif set:find(".PvP.Arena.") then
+	-- wowhead can't do exact match on name as it seems so other arena sets including the name would show up to (and be picked unfortunatly)
+		id = basic_listview_get_first_id("http://www.wowhead.com/itemsets&filter=qu=4;na="..url.escape(setname))
 	else
-		id = basic_listview_get_first_id("http://www.wowhead.com/?itemsets&filter=na="..url.escape(setname))
+		id = basic_listview_get_first_id("http://www.wowhead.com/itemsets&filter=na="..url.escape(setname))
 	end
 	if id then
 		local count = 0
-		page = getpage("http://www.wowhead.com/?itemset="..id)
-		for itemstring in page:gmatch("ge%('iconlist%-icon%d+'%)[^\n]+") do
-			local itemid = itemstring:match("%.createIcon%((%d+)")
+		page = getpage("http://www.wowhead.com/itemset="..id)
+		local summary = json(page:match("new Summary%((%b{})%)"), true)
+		for _, g in ipairs(summary.groups) do
+			local itemid = g[1][1]
 			if itemid then
-				newset[#newset + 1] = itemid
+				newset[#newset + 1] = tostring(itemid)
 				count = count + 1
 			else
 				error("no itemid")
@@ -1055,79 +1045,88 @@ handlers["^InstanceLoot%."] = function (set, data)
 	local id, type = basic_listview_get_npc_id(boss, zone), "npc"
 	if not id then
 		local zoneid = get_zone_id_from_name(zone)
-		id, type = basic_listview_get_first_id("http://www.wowhead.com/?objects&filter=na="..url.escape(boss).. (zoneid and (";cr=1;crs="..zoneid..";crv=0") or "")), "object"
+		id, type = basic_listview_get_first_id("http://www.wowhead.com/objects&filter=na="..url.escape(boss).. (zoneid and (";cr=1;crs="..zoneid..";crv=0") or "")), "object"
 	end
 	if id then
-		page = getpage("http://www.wowhead.com/?"..type.."="..id)
-		local count_normal, count_heroic = 0, 0
-		local drops = {}
-		local normaldropslist, heroicdropslist, dropslist
-		for list in page:gmatch("new Listview(%b())") do
-			local id = list:match("id: '([^']+)'")
-			local data = list:match("data%: (%b[])")
-			local count = tonumber(list:match("note:[^,]+, (%d+)"))
-			dprint(4, id, count)
+		local views = get_page_listviews("http://www.wowhead.com/"..type.."="..id)
+		local heroicname, heroicset
+
+		local handler = function (item)
+			dprint(8, "checking item", item.id)
+			if is_junk_drop(item.id) then return end
+			local droprate = item.count and (totaldrops > 0) and math.floor(item.count / totaldrops * 1000) or 0
+			local quality = 6 - tonumber(item.name:match("^(%d)"))
+			if quality < 1 then return end
+			return item.id..":"..droprate
+		end
+
+		local handle_normal_list = function (itemlist, count)
+			totaldrops = count
+			for _, item in ipairs(itemlist) do
+				local v = handler(item)
+				if v and not is_in(newset, v) then
+					newset[#newset + 1] = v
+				end
+			end
+		end
+
+		local handle_heroic_list = function (itemlist, count)
+			if heroicname == nil then
+				local normalsub = set:match("^InstanceLoot%.(.+)$")
+				heroicname = "InstanceLootHeroic."..normalsub
+				if not sets[heroicname] then
+					dprint(2, "ERR MISSING Heroic set for " .. normalsub)
+					heroicname = false
+				else
+					heroicset = {}
+				end
+			end
+			if not heroicname then return end
+			totaldrops = count
+			for _, item in ipairs(itemlist) do
+				local v = handler(item)
+				if v and not is_in(heroicset, v) then
+					heroicset[#heroicset + 1] = v
+				end
+			end
+		end
+
+		-- two pass to handle the changing meaning of "heroic"
+		for id, view in pairs(views) do
+			if
+				id == "heroic-drops" or
+				id == "heroic-contents" or
+				id == "heroic-10-drops" or
+				id == "heroic-25-drops"
+			then
+				handle_heroic_list(view.data, view.count)
+			end
+		end
+		for id, view in pairs(views) do
 			if
 				id == "contains" or
 				id == "normal-drops" or
 				id == "drops" or
 				id == "normal-contents" or
-				id == "normal-10-drops" or
-				id == "normal-25-drops"
+				id == "normal-10-drops"
 			then
-				drops.normal = { data, count }
-			elseif
-				id == "heroic-drops" or
-				id == "heroic-contents" or 
-				id == "heroic-10-drops" or
-				id == "heroic-25-drops"
-			then
-				drops.heroic = { data, count }
-			end
-		end
-		local totaldrops
-
-		local handler = function (itemstring)
-			local itemid = itemstring:match("{id:(%d+)")
-			dprint(8, "checking item", itemid)
-			if is_junk_drop(itemid) then return end
-			local dropcount = tonumber(itemstring:match("count:(%d+)"))
-			local droprate = dropcount and math.floor(dropcount / totaldrops * 1000) or 0
-			local quality = 6 - tonumber(itemstring:match("name:'(%d)"))
-			if quality < 1 then return end
-			return itemid..":"..droprate
-		end
-
-		if drops.normal then
-			local itemlist
-			itemlist, totaldrops = unpack(drops.normal)
-			for itemstring in itemlist:gmatch("%b{}") do
-				local v = handler(itemstring)
-				if v then
-					newset[#newset + 1] = v
-					count_normal = count_normal + 1
+				handle_normal_list(view.data, view.count)
+			elseif id == "normal-25-drops" then
+				if heroicset then
+					handle_normal_list(view.data, view.count)
+				else
+					handle_heroic_list(view.data, view.count)
 				end
 			end
-		elseif not drops.heroic then
-			print("*ERROR* NO DROPS FOR "..boss)
 		end
-		if drops.heroic then
-			local normalsub = set:match("^InstanceLoot%.(.+)$")
-			local heroicname = "InstanceLootHeroic."..normalsub
-			local heroicset, itemlist = {}
-			itemlist, totaldrops = unpack(drops.heroic)
-			for itemstring in itemlist:gmatch("%b{}") do
-				local v = handler(itemstring)
-				if v then
-					heroicset[#heroicset + 1] = v
-					count_heroic = count_heroic + 1
-				end
-			end
+		if heroicset then
 			table.sort(heroicset, sortSet_id)
-			heroicset = table.concat(heroicset, ",")
-			printdiff(heroicname, sets[heroicname] or "", heroicset)
-			sets[heroicname] = heroicset
+			local set = table.concat(heroicset, ",")
+			printdiff(heroicname, sets[heroicname] or "", set)
+			sets[heroicname] = set
 		end
+		local count_normal = newset and #newset or 0
+		local count_heroic = heroicset and #heroicset or 0
 		dprint(2, "InstanceLoot: "..boss.." has "..count_normal.." normal and "..count_heroic.." heroic drops.")
 		table.sort(newset, sortSet_id)
 		return table.concat(newset, ",")
@@ -1144,10 +1143,8 @@ handlers["^Misc%.Bag%."] = function (set, data)
 	local setname = set:match("%.([^%.]+)$")
 	local searchstring = Bag_filters[setname]
 	if not searchstring then return end
-	return basic_listview_handler("http://www.wowhead.com/?items="..searchstring, function (itemstring)
-		local itemid = itemstring:match("{id:(%d+)")
-		local nslots = itemstring:match("nslots:(%d+)")
-		return itemid..":"..nslots
+	return basic_listview_handler("http://www.wowhead.com/items="..searchstring, function (item)
+		return item.id..":"..item.nslots
 	end)
 end
 
@@ -1156,85 +1153,45 @@ handlers["^Misc%.Container%.ItemsInType"] = function (set, data)
 	local container = set:match("%.([^%.]+)$")
 	local container_id = Containers_ItemsInType_items[container]
 	if not container_id then return end
-	local page = getpage("http://www.wowhead.com/?item="..container_id)
-	for list in page:gmatch("new Listview(%b())") do
-		if list:match("id: 'can%-contain'") then
-			local itemlist = list:match("data: %b[]")
-			for itemstring in itemlist:gmatch("%b{}") do
-				local itemid = itemstring:match("{id:(%d+)")
-				newset[#newset + 1] = itemid
+	return basic_listview_handler("http://www.wowhead.com/item="..container_id, nil, "can-contain")
+end
+
+handlers["^Misc%.Openable"] = function (set, data)
+	local newset = {}
+	for q = 0, 5 do	-- do not do 6 heirloom, it just causes a timeout delay as there are none atm
+		if (q == 1) then
+			for level = 0, 60, 30 do
+				basic_listview_handler(string.format("http://www.wowhead.com/items&filter=qu=1;minle=%d;maxle=%d;cr=11;crs=1;crv=0", level, level + 29), nil, nil, newset)
 			end
+		else
+			basic_listview_handler(string.format("http://www.wowhead.com/items&filter=qu=%d;cr=11;crs=1;crv=0", q), nil, nil, newset)
 		end
 	end
+	-- Add the clams that are not in the query
+	basic_listview_handler("http://www.wowhead.com/items&filter=na=clam;cr=107;crs=0;crv=Open", nil, nil, newset)
 	table.sort(newset, sortSet)
 	return table.concat(newset, ",")
 end
 
-handlers["^Misc%.Openable"] = function (set, data)
-	local tmp = {}
-	local l
-	for q = 0, 5 do	-- do not do 6 heirloom, it just causes a timeout delay as there are none atm
-		if (q == 1) then
-			for level = 0, 60, 30 do
-				l = basic_listview_handler(string.format("http://www.wowhead.com/?items&filter=qu=1;minle=%d;maxle=%d;cr=11;crs=1;crv=0", level, level + 29))
-				if l and l ~= "" then
-					StrSplitMerge(",", l, tmp)
-				end
-			end
-		else
-			l = basic_listview_handler(string.format("http://www.wowhead.com/?items&filter=qu=%d;cr=11;crs=1;crv=0", q))
-			if l and l ~= "" then
-				StrSplitMerge(",", l, tmp)
-			end
-		end
-	end
-	-- Add the clams that are not in the query
-	l = basic_listview_handler("http://www.wowhead.com/?items&filter=na=clam;cr=107;crs=0;crv=Open")
-	if l and l ~= "" then
-		StrSplitMerge(",", l, tmp)
-	end
-	table.sort(tmp, sortSet)
-	return table.concat(tmp, ",")
-end
-
 handlers["^Misc%.Key"] = function (set, data)
-	local tmp = {}
 	local setname = set:match("%.([^%.]+)$")
-	local l = basic_listview_handler("http://www.wowhead.com/?items=13", function (itemstring)
-		local itemid = itemstring:match("{id:(%d+)")
-		return itemid
-	end)
-	if l and l ~= "" then
-		StrSplitMerge(",", l, tmp)
-		print("Misc.Keys #", # tmp)
-	end
-	table.sort(tmp, sortSet)
-	return table.concat(tmp, ",")
+	return basic_listview_handler("http://www.wowhead.com/items=13", nil, nil, newset)
 end
 
 handlers["^Misc%.Lockboxes"] = function (set, data)
-	return basic_listview_handler("http://www.wowhead.com/?items&filter=cr=10;crs=1;crv=0", function (itemstring)
-		local itemid = itemstring:match("{id:(%d+)")
-		page = getpage("http://www.wowhead.com/?item="..itemid.."&xml")
+	return basic_listview_handler("http://www.wowhead.com/items&filter=cr=10;crs=1;crv=0", function (item)
+		page = getpage("http://www.wowhead.com/item="..item.id.."&xml")
 		local skill = page:match("Requires Lockpicking %((%d+)%)")
 		if skill then
-			return itemid..":"..skill
+			return item.id..":"..skill
 		else
-			print("Misc Lockboxes error for item "..itemid)
+			print("Misc Lockboxes error for item "..item.id)
 		end
 	end)
 end
 
 handlers["^Misc%.Minipet%.Normal"] = function (set, data)
-	local newset = {}
-	local page = getpage("http://www.wowhead.com/?items=15.2")
-	local itemlist = page:match("new Listview(%b())"):match("data%: (%b[])")
-	for itemstring in itemlist:gmatch("%b{}") do
-		local itemid = itemstring:match("{id:(%d+)")
-		newset[#newset + 1] = itemid
-	end
-	table.sort(newset, sortSet)
-	return table.concat(newset, ",")
+	return basic_listview_handler("http://www.wowhead.com/items=15.2")
 end
 
 handlers["^Misc%.Reagent%.Ammo"] = function (set, data)
@@ -1243,44 +1200,29 @@ handlers["^Misc%.Reagent%.Ammo"] = function (set, data)
 	local count = 0
 	local filter = Reagent_Ammo_filters[setname]
 	if not filter then return end
-	newset = basic_listview_handler("http://www.wowhead.com/?items="..filter, function (itemstring)
+	newset = basic_listview_handler("http://www.wowhead.com/items="..filter, function (item)
 		count = count + 1
-		local itemid = itemstring:match("{id:(%d+)")
-		local dps = itemstring:match("dps:(%d+%.%d+)")
-		dps = math.floor(tonumber(dps)*10)
-		return itemid..":"..dps
+		return item.id..":"..math.floor(item.dps * 10)
 	end)
 	dprint(2, "Reagent.Ammo."..setname..":"..count)
 	return newset
 end
 
---[[ handlers["^Misc%.Usable%.Quest$"] = function (set, data)
--- For the love of god, there is no way in HELL for wowhead to return the right stuff.  Do not ever enable this rubbish.  I spent a LOT of time getting the list correct.
-	-- DO NOT EVER IMPLEMENT THIS
-end
-]]
-
 handlers["^Misc%.Usable%.StartsQuest$"] = function (set, data)
-	local tmp = {}
-	local l
+	local newset = {}
 	for q = 0, 5 do	-- do not do 6 heirloom, it just causes a timeout delay as there are none atm
 		if (q == 1) then
 			for level = 0, 90, 30 do
-				l = basic_listview_handler(string.format("http://www.wowhead.com/?items&filter=qu=1;minrl=%d;maxrl=%d;cr=6;crs=1;crv=0", level, level + 29))
-				if l and l ~= "" then
-					StrSplitMerge(",", l, tmp)
-				end
+				basic_listview_handler(string.format("http://www.wowhead.com/items&filter=qu=1;minrl=%d;maxrl=%d;cr=6;crs=1;crv=0", level, level + 29), nil, nil, newset)
 			end
 		else
-			l = basic_listview_handler(string.format("http://www.wowhead.com/?items&filter=qu=%d;cr=6;crs=1;crv=0", q))
-			if l and l ~= "" then
-				StrSplitMerge(",", l, tmp)
-			end
+			basic_listview_handler(string.format("http://www.wowhead.com/items&filter=qu=%d;cr=6;crs=1;crv=0", q), nil, nil, newset)
 		end
 	end
-	table.sort(tmp, sortSet)
-	return table.concat(tmp, ",")
+	table.sort(newset, sortSet)
+	return table.concat(newset, ",")
 end
+
 handlers["^Tradeskill%.Crafted"] = function (set, data)
 	local profession = set:match("^Tradeskill%.Crafted%.(.+)$")
 	dprint(9, "profession", profession)
@@ -1290,20 +1232,19 @@ handlers["^Tradeskill%.Crafted"] = function (set, data)
 	local newset, fp_set, rp_set, lp_set, level_set = {}, {}, {}, {}, {}
 
 	local reagenttable = {}
-	basic_listview_handler("http://www.wowhead.com/?spells="..filter, function (itemstring)
-		local spellid = itemstring:match("%{id:(%d+)")
-		local skilllvl = itemstring:match("learnedat:(%d+)")
-		local reagentstring = itemstring:match("reagents:(%b[])")
-		if not reagentstring then return end
-		local colorstring = itemstring:match("colors:(%b[])")
-		skilllvl = math.min(450, tonumber(skilllvl) or 450)
+	basic_listview_handler("http://www.wowhead.com/spells="..filter, function (item)
+		local spellid = item.id
+		if not item.reagents then return end
+		-- local colorstring = itemstring:match("colors:(%b[])")
+		local skilllvl = math.min(450, tonumber(item.learnedat) or 450)
 		local itemid
-		dprint(3, profession, itemid, skilllvl, reagentstring)
-		itemid = itemstring:match("creates:%[(%d+),(%d+),(%d+)%]") or (-1 * spellid) -- count ?
+		dprint(3, profession, itemid, skilllvl)
+		itemid = item.creates and item.creates[1] or (-1 * spellid) -- count ?
 		if itemid and skilllvl > 0 then
-			newset[#newset + 1] = itemid..":"..skilllvl
-			local newrecipemats = itemid..":"
-			for reagentid,reagentnum in reagentstring:sub(2,-2):gmatch("%[(%d+),(%d+)%]") do
+			newset[#newset + 1] = item.id..":"..item.learnedat
+			local newrecipemats = item.id..":"
+			for _, reagent in ipairs(item.reagents) do
+				local reagentid, reagentnum = unpack(reagent)
 				if reagenttable[reagentid] then
 					reagenttable[reagentid] = reagenttable[reagentid]..";"..itemid.."x"..reagentnum
 				else
@@ -1313,11 +1254,8 @@ handlers["^Tradeskill%.Crafted"] = function (set, data)
 			end
 			newrecipemats = newrecipemats:sub(1,-2)
 			local levels = {}
-			for l in colorstring:gmatch("%d+") do
-				table.insert(levels, l)
-			end
-			for k,v in ipairs(levels) do
-				if v == "0" then levels[k] = "-" end
+			for k,v in ipairs(item.colors) do
+				levels[k] = v == 0 and "-" or tostring(v)
 			end
 			fp_set[#fp_set + 1] = newrecipemats
 			lp_set[#lp_set + 1] = "-"..spellid..":"..itemid
@@ -1355,15 +1293,13 @@ handlers["^Tradeskill%.Gather"] = function (set, data)
 		local nodetype = set:match("%.([^%.]+)$")
 		local id = Tradeskill_Gather_GemsInNodes_nodes[nodetype]
 		if not id then return end
-		return basic_listview_handler("http://www.wowhead.com/?object="..id, function(itemstring)
-			local itemid = itemstring:match("{id:(%d+)")
-			local class = itemstring:match("classs?:(%d+)")
-			if class == "3" then return itemid end
+		return basic_listview_handler("http://www.wowhead.com/object="..id, function(item)
+			if item.classs == "3" then return item.id end
 		end)
 	else
 		local gathertype = set:match("%.([^%.]+)$")
 		local filter = Tradeskill_Gather_filters[gathertype]
-		return filter and basic_listview_handler("http://www.wowhead.com/?items&filter=cr="..filter..";crs=1;crv=0")
+		return filter and basic_listview_handler("http://www.wowhead.com/items&filter=cr="..filter..";crs=1;crv=0")
 	end
 end
 
@@ -1372,26 +1308,20 @@ handlers["^Tradeskill%.Gem"] = function (set, data)
 	if color == "Cut" then
 		local newset = {}
 		local gems = {}
-		local gem_cut_func = function (itemstring)
-			local itemid = itemstring:match("{id:(%d+)")
-			local page = getpage("http://www.wowhead.com/?item="..itemid)
-			for list in page:gmatch("new Listview(%b())") do
-				if list:match("id: 'created%-by'") then
-					local itemlist = list:match("data: %b[]")
-					for itemstring in itemlist:gmatch("%b{}") do
-						local reagents = itemstring:match("reagents:%b[]")
-						for src_id, count in reagents:gmatch("%[(%d+),(%d+)%]") do
-							if src_id ~= "27860" then -- Purified Draenic Water
-								if not gems[src_id] then gems[src_id] = {} end
-								gems[src_id][#(gems[src_id]) + 1] = itemid
-							end
-						end
+		local gem_cut_func = function (item)
+			local itemid = item.id
+			basic_listview_handler("http://www.wowhead.com/item="..itemid, function (item)
+				for _, reagent in ipairs(item.reagents) do
+					local src_id, count = unpack(reagent)
+					if src_id ~= 27860 then -- Purified Draenic Water
+						if not gems[src_id] then gems[src_id] = {} end
+						gems[src_id][#(gems[src_id]) + 1] = itemid
 					end
 				end
-			end
+			end, 'created-by')
 		end
 		for _, filter in ipairs(Tradeskill_Gem_Cut_filters) do
-			basic_listview_handler("http://www.wowhead.com/?items&filter=cr=81;crs=5;crv=0"..filter, gem_cut_func)
+			basic_listview_handler("http://www.wowhead.com/items&filter=cr=81;crs=5;crv=0"..filter, gem_cut_func)
 		end
 		for k, v in pairs(gems) do
 			table.sort(v)
@@ -1401,7 +1331,7 @@ handlers["^Tradeskill%.Gem"] = function (set, data)
 		return table.concat(newset, ",")
 	else
 		local filter = Tradeskill_Gem_Color_filters[color]
-		return filter and basic_listview_handler("http://www.wowhead.com/?items=3."..filter)
+		return filter and basic_listview_handler("http://www.wowhead.com/items=3."..filter)
 	end
 end
 
@@ -1411,11 +1341,10 @@ handlers["^Tradeskill%.Mat%.ByProfession"] = function (set, data)
 	if not filter then return end
 	local reagentlist = {}
 
-	basic_listview_handler("http://www.wowhead.com/?spells="..filter, function (itemstring)
-		local reagents = itemstring:match("reagents:%b[]")
-		if not reagents then return end
-		for r in reagents:gmatch("%[(%d+),%d+%]") do
-			reagentlist[tonumber(r)] = true
+	basic_listview_handler("http://www.wowhead.com/spells="..filter, function (item)
+		if not item.reagents then return end
+		for _, r in ipairs(item.reagents) do
+			reagentlist[r[1]] = true
 		end
 	end)
 	local newset = {}
@@ -1433,12 +1362,10 @@ handlers["^Tradeskill%.Recipe%."] = function (set, data)
 	filter = Tradeskill_Recipe_filters[filter]
 	if not profession or not filter then return end
 
-	local url = "http://www.wowhead.com/?items=9."..profession.."&filter=cr="..filter
+	local url = "http://www.wowhead.com/items=9."..profession.."&filter=cr="..filter
 
-	return basic_listview_handler(url, function (itemstring)
-		local itemid = itemstring:match("{id:(%d+)")
-		local skilllvl = itemstring:match("skill:(%d+)")
-		return itemid..":"..skilllvl
+	return basic_listview_handler(url, function (item)
+		return item.id..":"..item.skill
 	end)
 end
 
@@ -1450,10 +1377,7 @@ handlers["^Tradeskill%.Tool"] = function (set, data)
 	if not filters then return end
 
 	for _, filter in ipairs(filters) do
-		local nset = basic_listview_handler("http://www.wowhead.com/?items&filter="..filter)
-		if nset and nset ~= "" then
-			StrSplitMerge(",", nset, newset)
-		end
+		basic_listview_handler("http://www.wowhead.com/items&filter="..filter, nil, nil, newset)
 	end
 
 	table.sort(newset, sortSet)
