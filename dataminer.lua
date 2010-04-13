@@ -66,6 +66,48 @@ local json = require"json"
 json.register_constant("undefined", json.null)
 local url = require("socket.url")
 local httptime, httpcount = 0, 0
+
+local WOWHEAD_FILTER_PARAMS = { "na", "minle", "maxle", "minrl", "maxrl", "qu", "sl", "cr", "crs", "crv" }
+
+local function WH(page, value, filter)
+	local escape = url.escape
+	local url = {"http://www.wowhead.com/", page}
+	if value then
+		url[#url + 1] = "="
+		url[#url + 1] = escape(value)
+	end
+	if filter then
+		url[#url + 1] = "&filter="
+		if type(filter) == "table" then
+			local first = true
+			for _, k in ipairs(WOWHEAD_FILTER_PARAMS) do
+				local v = filter[k]
+				if v then
+					if not first then
+						url[#url + 1] = ";"
+					else
+						first = false
+					end
+					url[#url + 1] = escape(k)
+					url[#url + 1] = "="
+					if type(v) == "table" then
+						for i, s in ipairs(v) do
+							if i > 1 then url[#url + 1] = ":" end
+							url[#url + 1] = escape(s)
+						end
+					else
+						url[#url + 1] = escape(v)
+					end
+				end
+			end
+		else
+			-- we don't escape if filter is a string
+			url[#url + 1] = filter
+		end
+	end
+	return table.concat(url)
+end
+
 local getpage
 do
 	local status, curl = pcall(require, "luacurl")
@@ -180,9 +222,19 @@ Doing "for itemid, content in page:gmatch("_%[(%d+)%]=(%b[])") do ... end" is de
 any item that has a tooltip in the current page. It could be currency, or reagents, or anything else, not just what
 you're looking for. Right now, the only exception is the "Bandage" Data, because the tooltip content is analysed.
 
+Use WH() to create url to wowhead. This will allow a single place to modify in case wowhead changes it's url format again.
 
+url = WH(type[, value[, filter]])
 
-list = basic_listview_handler(url[, handler[, names]])
+Parameters:
+_ type is the basic query type ("items", "item", "spell", ...)
+_ value is the optional base value of the request (for instance WH("spell", 12345) will return the URL for the spell 12345
+_ filter is the optional filtering data. It can either be a table or a string. The string is added as-is in the url, the table
+  is analysed and transformed into a string using the format required by wowhead. USE the table format if possible.
+
+The function returns the url for the query.
+
+list = basic_listview_handler(url[, handler[, names[, inplace_list]]])
 
 basic_listview_handler is a function that should be used as much as possible.
 
@@ -191,23 +243,29 @@ _ url is the url to to fetch data from.
 _ handler is the (optional) entry handler. See below.
 _ names is the optional name of the listview, in case the url returns several lists. Can be a string or a table.
   if not given, the first table will be used.
+_ inplace_list is an optional array that will be filled with the result of handlers, instead of a new one.
+  If inplace_list is given, then basic_listview_handler() return value should be discarded.
+  No sorting and string concat is performed if inplace_list is not nil.
 
 _ list is the resulting periodic table.
 
 the handler should be of the form :
 result = handler(data)
 
-_ data is the listview data, as a string. Usually has the form : "{id:12345,name:'5foo',...}"
+_ data is on entry in the listview, as a lua array.
 _ result should be the entry in the periodic table, or nil if the entry is not correct.
+  result will be converted to string after handler.
 
-The default handler will return the "id" of the data.
-
-
+The default handler will return the id of the data.
 
 id = basic_listview_get_first_id(url)
 
 this function return the first "id" of the first entry in the first listview of the given url.
 Used when searching for mobs or containers by name.
+
+multiple_qualities_listview_handler is used to split a search between several qualities and level restrictions
+when the amount of elements returned by a simple search is too important.
+
 ]=]
 
 local REJECTED_TEMPLATES = {
@@ -348,7 +406,7 @@ end
 local function basic_listview_get_npc_id(npc, zone)
 	-- override because of a bug in wowhead where the mob is not reported as lootable.
 	if npc == "Sathrovarr the Corruptor" then return 24892 end
-	local url = "http://www.wowhead.com/npcs&filter=na="..url.escape(npc)..";cr=9;crs=1;crv=0"
+	local url = WH("npcs", nil, {na = npc, cr=9, crs=1, crv=0})
 	local views = get_page_listviews(url)
 	if not views.npcs then return end
 	local data = views.npcs.data
@@ -363,9 +421,28 @@ local function basic_listview_get_npc_id(npc, zone)
 	return first_id
 end
 
+local function multiple_qualities_listview_handler(type, value, filter, set, typelevel)
+	local min, max = "min"..typelevel, "max"..typelevel
+	for q = 0, 7 do
+		filter.qu = q
+		if q == 1 then
+			-- we split here because there's a lot of them
+			for level = 0, 90, 30 do
+				filter[min] = level
+				filter[max] = level + 29
+				basic_listview_handler(WH(type, value, filter), nil, nil, set)
+			end
+			filter[min] = nil
+			filter[max] = nil
+		else
+			basic_listview_handler(WH(type, value, filter), nil, nil, set)
+		end
+	end
+end
+
 --[[ STATIC DATA ]]
 
-local Class_Skills = {
+local Class_Skills_categories = {
 	["Death Knight"] = {
 		Blood = "7.6.770",
 		Frost = "7.6.771",
@@ -418,7 +495,7 @@ local Class_Skills = {
 	},
 }
 
-local Tradeskill_Gather_filters = {
+local Tradeskill_Gather_filter_values = {
 	Disenchant = 68,
 	Fishing = 69,
 	Herbalism = 70,
@@ -431,54 +508,54 @@ local Tradeskill_Gather_filters = {
 
 local Tradeskill_Tool_filters = {
 	Alchemy = {
-		"cr=91;crs=12;crv=0", -- Tool - Philosopher's Stone
+		{cr=91,crs=12,crv=0}, -- Tool - Philosopher's Stone
 	},
 	Blacksmithing = {
-		"cr=91;crs=162;crv=0",-- Tool - Blacksmith Hammer
-		"cr=91;crs=161;crv=0",-- Tool - Gnomish Army Knife
-		"cr=91;crs=167;crv=0",-- Tool - Hammer Pick
+		{cr=91,crs=162,crv=0},-- Tool - Blacksmith Hammer
+		{cr=91,crs=161,crv=0},-- Tool - Gnomish Army Knife
+		{cr=91,crs=167,crv=0},-- Tool - Hammer Pick
 	},
 	Cooking = {
-		"cr=91;crs=169;crv=0",-- Tool - Flint and Tinder
-		"cr=91;crs=161;crv=0",-- Tool - Gnomish Army Knife
+		{cr=91,crs=169,crv=0},-- Tool - Flint and Tinder
+		{cr=91,crs=161,crv=0},-- Tool - Gnomish Army Knife
 	},
 	Enchanting = {
-		"cr=91;crs=62;crv=0", -- Tool - Runed Adamantite Rod
-		"cr=91;crs=10;crv=0", -- Tool - Runed Arcanite Rod
-		"cr=91;crs=101;crv=0",-- Tool - Runed Azurite Rod
-		"cr=91;crs=6;crv=0",  -- Tool - Runed Copper Rod
-		"cr=91;crs=63;crv=0", -- Tool - Runed Eternium Rod
-		"cr=91;crs=41;crv=0", -- Tool - Runed Fel Iron Rod
-		"cr=91;crs=8;crv=0",  -- Tool - Runed Golden Rod
-		"cr=91;crs=7;crv=0",  -- Tool - Runed Silver Rod
-		"cr=91;crs=9;crv=0",  -- Tool - Runed Truesilver Rod
+		{cr=91,crs=62,crv=0}, -- Tool - Runed Adamantite Rod
+		{cr=91,crs=10,crv=0}, -- Tool - Runed Arcanite Rod
+		{cr=91,crs=101,crv=0},-- Tool - Runed Azurite Rod
+		{cr=91,crs=6,crv=0},  -- Tool - Runed Copper Rod
+		{cr=91,crs=63,crv=0}, -- Tool - Runed Eternium Rod
+		{cr=91,crs=41,crv=0}, -- Tool - Runed Fel Iron Rod
+		{cr=91,crs=8,crv=0},  -- Tool - Runed Golden Rod
+		{cr=91,crs=7,crv=0},  -- Tool - Runed Silver Rod
+		{cr=91,crs=9,crv=0},  -- Tool - Runed Truesilver Rod
 	},
 	Engineering = {
-		"cr=91;crs=14;crv=0", -- Tool - Arclight Spanner
-		"cr=91;crs=162;crv=0",-- Tool - Blacksmith Hammer
-		"cr=91;crs=161;crv=0",-- Tool - Gnomish Army Knife
-		"cr=91;crs=15;crv=0", -- Tool - Gyromatic Micro-Adjustor
+		{cr=91,crs=14,crv=0}, -- Tool - Arclight Spanner
+		{cr=91,crs=162,crv=0},-- Tool - Blacksmith Hammer
+		{cr=91,crs=161,crv=0},-- Tool - Gnomish Army Knife
+		{cr=91,crs=15,crv=0}, -- Tool - Gyromatic Micro-Adjustor
 	},
 	Inscription = {
-		--"cr=91;crs=81;crv=0", -- Tool - Hollow Quill
-		"cr=91;crs=121;crv=0",-- Tool - Scribe Tools
+		--{cr=91,crs=81,crv=0}, -- Tool - Hollow Quill
+		{cr=91,crs=121,crv=0},-- Tool - Scribe Tools
 	},
 --	Jewelcrafting = { -- TODO: missing on wowhead 08/11/27
 --	},
 	Mining = {
-		"cr=91;crs=168;crv=0",-- Tool - Bladed Pickaxe
-		"cr=91;crs=161;crv=0",-- Tool - Gnomish Army Knife
-		"cr=91;crs=167;crv=0",-- Tool - Hammer Pick
-		"cr=91;crs=165;crv=0",-- Tool - Mining Pick
+		{cr=91,crs=168,crv=0},-- Tool - Bladed Pickaxe
+		{cr=91,crs=161,crv=0},-- Tool - Gnomish Army Knife
+		{cr=91,crs=167,crv=0},-- Tool - Hammer Pick
+		{cr=91,crs=165,crv=0},-- Tool - Mining Pick
 	},
 	Skinning = {
-		"cr=91;crs=168;crv=0",-- Tool - Bladed Pickaxe
-		"cr=91;crs=161;crv=0",-- Tool - Gnomish Army Knife
-		"cr=91;crs=166;crv=0",-- Tool - Skinning Knife
+		{cr=91,crs=168,crv=0},-- Tool - Bladed Pickaxe
+		{cr=91,crs=161,crv=0},-- Tool - Gnomish Army Knife
+		{cr=91,crs=166,crv=0},-- Tool - Skinning Knife
 	},
 }
 
-local Reagent_Ammo_filters = {
+local Reagent_Ammo_categories = {
 	Arrow = "6.2",
 	Bullet = "6.3",
 	Thrown = "2.16",
@@ -495,7 +572,7 @@ local Containers_ItemsInType_items = {
 	Mining = 29540,
 }
 
-local Bag_filters = {
+local Bag_categories = {
 	Basic = "1.0",
 	["Soul Shard"] = "1.1",
 	Herb = "1.2",
@@ -509,26 +586,26 @@ local Bag_filters = {
 	Quiver = "11.2",
 }
 
-local Tradeskill_Recipe_professions = {
-	Leatherworking = 1,
-	Tailoring = 2,
-	Engineering = 3,
-	Blacksmithing = 4,
-	Cooking = 5,
-	Alchemy = 6,
-	["First Aid"] = 7,
-	Enchanting = 8,
-	Fishing = 9,
-	Jewelcrafting = 10,
+local Tradeskill_Recipe_categories = {
+	Leatherworking = "9.1",
+	Tailoring = "9.2",
+	Engineering = "9.3",
+	Blacksmithing = "9.4",
+	Cooking = "9.5",
+	Alchemy = "9.6",
+	["First Aid"] = "9.7",
+	Enchanting = "9.8",
+	Fishing = "9.9",
+	Jewelcrafting = "9.10",
 	-- None for Inscription, yet
 }
 
 local Tradeskill_Recipe_filters = {
-	Quest = "18;crs=1;crv=0",
-	Drop = "72;crs=1;crv=0",
-	Crafted = "86;crs=11;crv=0",
-	Vendor = "92;crs=1;crv=0",
-	Other = "18:72:86:92;crs=5:2:12:2;crv=0:0:0:0",
+	Quest = {cr=18,crs=1,crv=0},
+	Drop = {cr=72,crs=1,crv=0},
+	Crafted = {cr=86,crs=11,crv=0},
+	Vendor = {cr=92,crs=1,crv=0},
+	Other = {cr={18,72,86,92},crs={5,2,12,2},crv={0,0,0,0}},
 }
 
 local Tradeskill_Gather_GemsInNodes_nodes = {
@@ -555,8 +632,15 @@ local Tradeskill_Gather_GemsInNodes_nodes = {
 }
 
 local Tradeskill_Profession_filters = {
+	["Blacksmithing.Basic"] = {cr=5,crs=2,crv=0},
+	["Engineering.Basic"] = {cr=5,crs=2,crv=0},
+	["Leatherworking.Basic"] = {cr=5,crs=2,crv=0},
+	["Tailoring.Basic"] = {cr=5,crs=2,crv=0},
+}
+
+local Tradeskill_Profession_categories = {
 	Alchemy = "11.171",
-	["Blacksmithing.Basic"] = "11.164&filter=cr=5;crs=2;crv=0",
+	["Blacksmithing.Basic"] = "11.164",
 	["Blacksmithing.Armorsmith"] = "11.164.9788",
 	["Blacksmithing.Weaponsmith.Axesmith"] = "11.164.17041",
 	["Blacksmithing.Weaponsmith.Hammersmith"] = "11.164.17040",
@@ -564,91 +648,92 @@ local Tradeskill_Profession_filters = {
 	["Blacksmithing.Weaponsmith.Basic"] = "11.164.9787",
 	Cooking = "9.185",
 	Enchanting = "11.333",
-	["Engineering.Basic"] = "11.202&filter=cr=5;crs=2;crv=0",
+	["Engineering.Basic"] = "11.202",
 	["Engineering.Gnomish"] = "11.202.20219",
 	["Engineering.Goblin"] = "11.202.20222",
 	["First Aid"] = "9.129",
 	Inscription = "11.773",
 	Jewelcrafting = "11.755",
-	["Leatherworking.Basic"] = "11.165&filter=cr=5;crs=2;crv=0",
+	["Leatherworking.Basic"] = "11.165",
 	["Leatherworking.Dragonscale"] = "11.165.10656",
 	["Leatherworking.Elemental"] = "11.165.10658",
 	["Leatherworking.Tribal"] = "11.165.10660",
 	Smelting = "11.186",
-	["Tailoring.Basic"] = "11.197&filter=cr=5;crs=2;crv=0",
+	["Tailoring.Basic"] = "11.197",
 	["Tailoring.Mooncloth"] = "11.197.26798",
 	["Tailoring.Shadoweave"] = "11.197.26801",
 	["Tailoring.Spellfire"] = "11.197.26797",
 	Poisons = "7.4.40",
 }
 
+
 local Gear_Socketed_filters = {
 	Back	= {
-		"sl=16;cr=80;crs=5;crv=0",
+		{sl=16,cr=80,crs=5,crv=0},
 	},
 	Chest	= {
-		"sl=5;cr=80;crs=5;crv=0;qu=0:1:2:3",
-		"sl=5;cr=80;crs=5;crv=0;qu=4:5:6:7",
+		{sl=5,cr=80,crs=5,crv=0,qu={0,1,2,3}},
+		{sl=5,cr=80,crs=5,crv=0,qu={4,5,6,7}},
 	},
 	Feet	= {
-		"sl=8;cr=80;crs=5;crv=0",
+		{sl=8,cr=80,crs=5,crv=0},
 	},
 	Finger	= {
-		"sl=11;cr=80;crs=5;crv=0",
+		{sl=11,cr=80,crs=5,crv=0},
 	},
 	Hands	= {
-		"sl=10;cr=80;crs=5;crv=0",
+		{sl=10,cr=80,crs=5,crv=0},
 	},
 	Head	= {
-		"sl=1;cr=80;crs=5;crv=0;qu=0:1:2:3",
-		"sl=1;cr=80;crs=5;crv=0;qu=4:5:6:7",
+		{sl=1,cr=80,crs=5,crv=0,qu={0,1,2,3}},
+		{sl=1,cr=80,crs=5,crv=0,qu={4,5,6,7}},
 	},
 	Legs	= {
-		"sl=7;cr=80;crs=5;crv=0",
+		{sl=7,cr=80,crs=5,crv=0},
 	},
 	["Main Hand"]	= {
-		"sl=21;cr=80;crs=5;crv=0",
+		{sl=21,cr=80,crs=5,crv=0},
 	},
 	Neck	= {
-		"sl=2;cr=80;crs=5;crv=0",
+		{sl=2,cr=80,crs=5,crv=0},
 	},
 	["Off Hand"]	= {
-		"sl=22;cr=80;crs=5;crv=0",
+		{sl=22,cr=80,crs=5,crv=0},
 	},
 	["One Hand"]	= {
-		"sl=13;cr=80;crs=5;crv=0",
+		{sl=13,cr=80,crs=5,crv=0},
 	},
 	Ranged	= {
-		"sl=15;cr=80;crs=5;crv=0",
+		{sl=15,cr=80,crs=5,crv=0},
 	},
 	Shield	= {
-		"sl=14;cr=80;crs=5;crv=0",
+		{sl=14,cr=80,crs=5,crv=0},
 	},
 	Shoulder	= {
-		"sl=3;cr=80;crs=5;crv=0;qu=0:1:2:3",
-		"sl=3;cr=80;crs=5;crv=0;qu=4:5:6:7",
+		{sl=3,cr=80,crs=5,crv=0,qu={0,1,2,3}},
+		{sl=3,cr=80,crs=5,crv=0,qu={4,5,6,7}},
 	},
 	Trinket	= {
-		"sl=12;cr=80;crs=5;crv=0",
+		{sl=12,cr=80,crs=5,crv=0},
 	},
 	["Two Hand"]	= {
-		"sl=17;cr=80;crs=5;crv=0",
+		{sl=17,cr=80,crs=5,crv=0},
 	},
 	Waist	= {
-		"sl=6;cr=80;crs=5;crv=0",
+		{sl=6,cr=80,crs=5,crv=0},
 	},
 	Wrist	= {
-		"sl=9;cr=80;crs=5;crv=0",
+		{sl=9,cr=80,crs=5,crv=0},
 	},
 }
 
-local Gear_levelgroups = {
-	";maxrl=59",
-	";minrl=60;maxrl=60",
-	";minrl=61;maxrl=69",
-	";minrl=70;maxrl=70",
-	";minrl=71;maxrl=79",
-	";minrl=80;maxrl=80",
+local Gear_level_filters = {
+	{maxrl=59},
+	{minrl=60,maxrl=60},
+	{minrl=61,maxrl=69},
+	{minrl=70,maxrl=70},
+	{minrl=71,maxrl=79},
+	{minrl=80,maxrl=80},
 }
 
 local Gear_Vendor = {
@@ -734,41 +819,41 @@ local Currency_Items = {
 	["Wintergrasp Mark of Honor"] = 43589,
 }
 
-local Tradeskill_Gem_Cut_filters = {
-	";maxle=60",
-	";minle=61;maxle=70;qu=2",
-	";minle=61;maxle=70;qu=3",
-	";minle=61;maxle=70;qu=4",
-	";minle=71;maxle=80;qu=2",
-	";minle=71;maxle=80;qu=3",
-	";minle=71;maxle=80;qu=4",
-	";minle=81",
+local Tradeskill_Gem_Cut_level_filters = {
+	{maxle=60},
+	{minle=61,maxle=70,qu=2},
+	{minle=61,maxle=70,qu=3},
+	{minle=61,maxle=70,qu=4},
+	{minle=71,maxle=80,qu=2},
+	{minle=71,maxle=80,qu=3},
+	{minle=71,maxle=80,qu=4},
+	{minle=81},
 }
 
-local Tradeskill_Gem_Color_filters = {
-	Red = 0,
-	Blue = 1,
-	Yellow = 2,
-	Purple = 3,
-	Green = 4,
-	Orange = 5,
-	Meta = 6,
-	-- Simple = 7,
-	Prismatic = 8
+local Tradeskill_Gem_Color_categories = {
+	Red = "3.0",
+	Blue = "3.1",
+	Yellow = "3.2",
+	Purple = "3.3",
+	Green = "3.4",
+	Orange = "3.5",
+	Meta = "3.6",
+	-- Simple = "3.7",
+	Prismatic = "3.8"
 }
 
 local Consumable_Bandage_filters = {
-	Basic = "cr=86;crs=6;crv=0",
-	["Alterac Valley"] = "na=bandage;cr=92:104;crs=1:0;crv=0:Alterac",
-	["Warsong Gulch"] = "na=bandage;cr=92:107;crs=1:0;crv=0:Warsong",
-	["Arathi Basin"] = "na=bandage;cr=92:107;crs=1:0;crv=0:Arathi",
+	Basic = {cr=86,crs=6,crv=0},
+	["Alterac Valley"] = {na="bandage",cr={92,104},crs={1,0},crv={0,"Alterac"}},
+	["Warsong Gulch"] = {na="bandage",cr={92,107},crs={1,0},crv={0,"Warsong"}},
+	["Arathi Basin"] = {na="bandage",cr={92,107},crs={1,0},crv={0,"Arathi"}},
 }
 
 local Consumable_Buff_Type_filters = {
-	["Battle"] = "cr=107;crs=0;crv=battle+elixir",
-	["Guardian"] = "cr=107;crs=0;crv=guardian+elixir",
-	["Both1"] = "cr=107;crs=0;crv=guardian+and+battle+elixir",
-	["Both2"] = "cr=107;crs=0;crv=effect+persists+through+death",
+	["Battle"] = {cr=107,crs=0,crv="battle elixir"},
+	["Guardian"] = {cr=107,crs=0,crv="guardian elixir"},
+	["Both1"] = {cr=107,crs=0,crv="guardian and battle elixir"},
+	["Both2"] = {cr=107,crs=0,crv="effect persists through death"},
 }
 
 local InstanceLoot_TrashMobs = {
@@ -787,15 +872,6 @@ local InstanceLoot_TrashMobs = {
 	["Ulduar"] = { id = 4273, levels = {219, 226, 232}, hasheroic = true },
 }
 
-local Quality_filters = {
-	"qu=1",
-	"qu=2",
-	"qu=3",
-	"qu=4",
-	"qu=5",
-	"qu=6",
-	"qu=7",
-}
 
 
 --[[ SET HANDLERS ]]
@@ -808,11 +884,11 @@ local function handle_trash_mobs(set)
 	local levels = type(info.levels) == "number" and { info.levels } or info.levels
 	local sets = {}
 	for _, level in ipairs(levels) do
-		local url = "http://www.wowhead.com/items&filter=minle="..level..";maxle="..level..";cr="..dropsin..":"..(info.boe and "3" or "2")..";crs="..info.id..":1;crv=0:0#0+2+1"
+		local url = WH("items", nil, {minle = level, maxle = level, cr = {dropsin, info.boe and "3" or "2"}, crs = {info.id, 1}, crv={0, 0}})
 		local set = basic_listview_handler(url, function (item)
 			local itemid = item.id
 			local count = 0
-			local url = "http://www.wowhead.com/item="..itemid
+			local url = WH("item", itemid)
 			basic_listview_handler(url, function (item)
 				if instance == "Blackwing Lair" and item.name:find("Death Talon") then -- Hack for BWL
 					count = count + INSTANCELOOT_TRASHMINSRC
@@ -839,7 +915,7 @@ do
 		if value ~= nil then return value end
 
 		local count = 0
-		local url = "http://www.wowhead.com/item="..itemid
+		local url = WH("item", itemid)
 		local page = getpage(url)
 
 		local name = page:match("<h1>([^<%-]+)</h1>")
@@ -873,7 +949,7 @@ end
 
 handlers["^ClassSpell"] = function (set, data)
 	local class, tree = set:match('^ClassSpell%.(.+)%.(.+)$')
-	return basic_listview_handler("http://www.wowhead.com/spells="..Class_Skills[class][tree], function(item)
+	return basic_listview_handler(WH("spells", Class_Skills_categories[class][tree]), function(item)
 		return "-"..item.id..":"..item.level
 	end)
 end
@@ -883,7 +959,7 @@ handlers["^Consumable%.Bandage"] = function (set, data)
 	local setname = set:match("%.([^%.]+)$")
 	local filter = Consumable_Bandage_filters[setname]
 	if not filter then return end
-	local page = getpage("http://www.wowhead.com/items&filter="..filter)
+	local page = getpage(WH("items", nil, filter))
 	for itemid, content in page:gmatch("_%[(%d+)%]=(%b[])") do
 		local heal = content:match("Heals (%d+) damage")
 		if heal then
@@ -897,54 +973,49 @@ handlers["^Consumable%.Bandage"] = function (set, data)
 	return newset
 end
 
+local both_buff_types
 handlers["^Consumable%.Buff Type"] = function (set, data)
 	local newset
 	local setname = set:match("%.([^%.]+)$")
 
 	local filter = Consumable_Buff_Type_filters[setname]
-	if setname ~= "Both"and not filter then return end
+	if setname ~= "Both" and not filter then return end
 
-	local list = {}
-	local handler = function (item)
-		list[item.id] = true
+	if not both_buff_types then
+		both_buff_types = {}
+		local handler = function (item)
+			both_buff_types[item.id] = true
+		end
+		basic_listview_handler(WH("items", nil, Consumable_Buff_Type_filters.Both1), handler)
+		basic_listview_handler(WH("items", nil, Consumable_Buff_Type_filters.Both2), handler)
 	end
-	basic_listview_handler("http://www.wowhead.com/items&filter="..Consumable_Buff_Type_filters.Both1, handler)
-	basic_listview_handler("http://www.wowhead.com/items&filter="..Consumable_Buff_Type_filters.Both2, handler)
-	local both = {}
-	for entry in pairs(list) do
-		both[#both+1] = entry
-	end
-	both = table.concat(both,",")
+
 
 	if setname == 'Both' then
-		return both
+		local list = {}
+		for entry in pairs(both_buff_types) do
+			list[#list + 1] = entry
+		end
+		return table.concat(list,",")
 	end
 
-	local page = getpage("http://www.wowhead.com/items&filter="..filter)
-
-	return basic_listview_handler("http://www.wowhead.com/items&filter="..filter, function (item)
+	return basic_listview_handler(WH("items", nil, filter), function (item)
 		local itemid = item.id
-		if not both:match(itemid) then
+		if not both_buff_types[itemid] then
 			return itemid
 		end
 	end)
 end
 
 handlers["^Consumable%.Scroll"] = function (set, data)
-	local newset = {}
-	local page = getpage("http://www.wowhead.com/items=0.4")
-	for itemid in page:gmatch("_%[(%d+)%]") do
-		newset[#newset + 1] = itemid
-	end
-	table.sort(newset, sortSet)
-	return table.concat(newset, ",")
+	return basic_listview_handler(WH("items", "0.4"))
 end
 
 handlers["^CurrencyItems"] = function (set, data)
 	local currency = set:match("^CurrencyItems%.([^%.]+)")
 	if not Currency_Items[currency] then return end
 	local currency_id = assert(Currency_Items[currency])
-	return basic_listview_handler("http://www.wowhead.com/item="..currency_id, function (item)
+	return basic_listview_handler(WH("item", currency_id), function (item)
 
 		local count
 		for _, v in ipairs(item.cost[4]) do
@@ -963,8 +1034,10 @@ handlers["^Gear%.Socketed"] = function (set, data)
 	local newset = {}
 	local slot = set:match("%.([^%.]+)$")
 	for _, filter in ipairs(Gear_Socketed_filters[slot]) do
-		for _, levelfilter in ipairs(Gear_levelgroups) do
-			basic_listview_handler("http://www.wowhead.com/items&filter="..filter..levelfilter, nil, nil, newset)
+		for _, levelfilter in ipairs(Gear_level_filters) do
+			filter.minrl = levelfilter.minrl
+			filter.maxrl = levelfilter.maxrl
+			basic_listview_handler(WH("items", nil, filter), nil, nil, newset)
 		end
 	end
 
@@ -974,8 +1047,8 @@ end
 
 handlers["^Gear%.Trinket$"] = function (set, data)
 	local newset = {}
-	for _, filter in ipairs(Quality_filters) do
-		basic_listview_handler("http://www.wowhead.com/items=4.-4&filter="..filter, nil, nil, newset)
+	for q = 1, 7  do
+		basic_listview_handler(WH("items", "4.-4", {qu=q}), nil, nil, newset)
 	end
 
 	table.sort(newset, sortSet)
@@ -986,7 +1059,7 @@ end
 handlers["^Gear%.Vendor"] = function (set, data)
 	local currency, vendor = set:match("^Gear%.Vendor%.(.+)%.(.+)$")
 	local currency_id, vendor_id = assert(Gear_Vendor[currency].id), assert(Gear_Vendor[currency][vendor])
-	return basic_listview_handler("http://www.wowhead.com/npc="..vendor_id, function (item)
+	return basic_listview_handler(WH("npc", vendor_id), function (item)
 		local class = item.classs
 		local count
 		for i, v in ipairs(item.cost) do
@@ -1008,13 +1081,13 @@ handlers["^GearSet"] = function (set, data)
 		id = GearSets_fixedids[setname]
 	elseif set:find(".PvP.Arena.") then
 	-- wowhead can't do exact match on name as it seems so other arena sets including the name would show up to (and be picked unfortunatly)
-		id = basic_listview_get_first_id("http://www.wowhead.com/itemsets&filter=qu=4;na="..url.escape(setname))
+		id = basic_listview_get_first_id(WH("itemsets", nil, {qu=4, na=setname}))
 	else
-		id = basic_listview_get_first_id("http://www.wowhead.com/itemsets&filter=na="..url.escape(setname))
+		id = basic_listview_get_first_id(WH("itemsets", nil, {na=setname}))
 	end
 	if id then
 		local count = 0
-		page = getpage("http://www.wowhead.com/itemset="..id)
+		page = getpage(WH("itemset", id))
 		local summary = json(page:match("new Summary%((%b{})%)"), true)
 		for _, g in ipairs(summary.groups) do
 			local itemid = g[1][1]
@@ -1045,10 +1118,12 @@ handlers["^InstanceLoot%."] = function (set, data)
 	local id, type = basic_listview_get_npc_id(boss, zone), "npc"
 	if not id then
 		local zoneid = get_zone_id_from_name(zone)
-		id, type = basic_listview_get_first_id("http://www.wowhead.com/objects&filter=na="..url.escape(boss).. (zoneid and (";cr=1;crs="..zoneid..";crv=0") or "")), "object"
+		local filter = zoneid and {cr=1, crs=zoneid, crv=0} or {}
+		filter.na = boss
+		id, type = basic_listview_get_first_id(WH("objects", nil, filter)), "object"
 	end
 	if id then
-		local views = get_page_listviews("http://www.wowhead.com/"..type.."="..id)
+		local views = get_page_listviews(WH(type, id))
 		local heroicname, heroicset
 
 		local handler = function (item)
@@ -1141,9 +1216,9 @@ end
 
 handlers["^Misc%.Bag%."] = function (set, data)
 	local setname = set:match("%.([^%.]+)$")
-	local searchstring = Bag_filters[setname]
-	if not searchstring then return end
-	return basic_listview_handler("http://www.wowhead.com/items="..searchstring, function (item)
+	local cat = Bag_categories[setname]
+	if not cat then return end
+	return basic_listview_handler(WH("items", cat), function (item)
 		return item.id..":"..item.nslots
 	end)
 end
@@ -1153,34 +1228,26 @@ handlers["^Misc%.Container%.ItemsInType"] = function (set, data)
 	local container = set:match("%.([^%.]+)$")
 	local container_id = Containers_ItemsInType_items[container]
 	if not container_id then return end
-	return basic_listview_handler("http://www.wowhead.com/item="..container_id, nil, "can-contain")
+	return basic_listview_handler(WH("item", container_id), nil, "can-contain")
 end
 
 handlers["^Misc%.Openable"] = function (set, data)
 	local newset = {}
-	for q = 0, 5 do	-- do not do 6 heirloom, it just causes a timeout delay as there are none atm
-		if (q == 1) then
-			for level = 0, 60, 30 do
-				basic_listview_handler(string.format("http://www.wowhead.com/items&filter=qu=1;minle=%d;maxle=%d;cr=11;crs=1;crv=0", level, level + 29), nil, nil, newset)
-			end
-		else
-			basic_listview_handler(string.format("http://www.wowhead.com/items&filter=qu=%d;cr=11;crs=1;crv=0", q), nil, nil, newset)
-		end
-	end
+	multiple_qualities_listview_handler("items", nil, {cr=11,crs=1,crv=0}, newset, "le")
 	-- Add the clams that are not in the query
-	basic_listview_handler("http://www.wowhead.com/items&filter=na=clam;cr=107;crs=0;crv=Open", nil, nil, newset)
+	basic_listview_handler(WH("items", nil, {na="clam", cr=107, crs=0, crv="Open"}), nil, nil, newset)
 	table.sort(newset, sortSet)
 	return table.concat(newset, ",")
 end
 
 handlers["^Misc%.Key"] = function (set, data)
 	local setname = set:match("%.([^%.]+)$")
-	return basic_listview_handler("http://www.wowhead.com/items=13", nil, nil, newset)
+	return basic_listview_handler(WH("items", 13), nil, nil, newset)
 end
 
 handlers["^Misc%.Lockboxes"] = function (set, data)
-	return basic_listview_handler("http://www.wowhead.com/items&filter=cr=10;crs=1;crv=0", function (item)
-		page = getpage("http://www.wowhead.com/item="..item.id.."&xml")
+	return basic_listview_handler(WH("items", nil, {cr=10,crs=1,crv=0}), function (item)
+		page = getpage(WH("item", item.id).."&xml") -- hack
 		local skill = page:match("Requires Lockpicking %((%d+)%)")
 		if skill then
 			return item.id..":"..skill
@@ -1191,16 +1258,16 @@ handlers["^Misc%.Lockboxes"] = function (set, data)
 end
 
 handlers["^Misc%.Minipet%.Normal"] = function (set, data)
-	return basic_listview_handler("http://www.wowhead.com/items=15.2")
+	return basic_listview_handler(WH("items", "15.2"))
 end
 
 handlers["^Misc%.Reagent%.Ammo"] = function (set, data)
 	local newset
 	local setname = set:match("%.([^%.]+)$")
 	local count = 0
-	local filter = Reagent_Ammo_filters[setname]
+	local filter = Reagent_Ammo_categories[setname]
 	if not filter then return end
-	newset = basic_listview_handler("http://www.wowhead.com/items="..filter, function (item)
+	newset = basic_listview_handler(WH("items", filter), function (item)
 		count = count + 1
 		return item.id..":"..math.floor(item.dps * 10)
 	end)
@@ -1210,15 +1277,7 @@ end
 
 handlers["^Misc%.Usable%.StartsQuest$"] = function (set, data)
 	local newset = {}
-	for q = 0, 5 do	-- do not do 6 heirloom, it just causes a timeout delay as there are none atm
-		if (q == 1) then
-			for level = 0, 90, 30 do
-				basic_listview_handler(string.format("http://www.wowhead.com/items&filter=qu=1;minrl=%d;maxrl=%d;cr=6;crs=1;crv=0", level, level + 29), nil, nil, newset)
-			end
-		else
-			basic_listview_handler(string.format("http://www.wowhead.com/items&filter=qu=%d;cr=6;crs=1;crv=0", q), nil, nil, newset)
-		end
-	end
+	multiple_qualities_listview_handler("items", nil, {cr=6,crs=1,crv=0}, newset, "rl")
 	table.sort(newset, sortSet)
 	return table.concat(newset, ",")
 end
@@ -1226,13 +1285,13 @@ end
 handlers["^Tradeskill%.Crafted"] = function (set, data)
 	local profession = set:match("^Tradeskill%.Crafted%.(.+)$")
 	dprint(9, "profession", profession)
-	local filter = Tradeskill_Profession_filters[profession]
-	if not filter then return end
+	local cat = Tradeskill_Profession_categories[profession]
+	if not cat then return end
 
 	local newset, fp_set, rp_set, lp_set, level_set = {}, {}, {}, {}, {}
 
 	local reagenttable = {}
-	basic_listview_handler("http://www.wowhead.com/spells="..filter, function (item)
+	basic_listview_handler(WH("spells", cat, Tradeskill_Profession_filters[profession]), function (item)
 		local spellid = item.id
 		if not item.reagents then return end
 		-- local colorstring = itemstring:match("colors:(%b[])")
@@ -1293,13 +1352,13 @@ handlers["^Tradeskill%.Gather"] = function (set, data)
 		local nodetype = set:match("%.([^%.]+)$")
 		local id = Tradeskill_Gather_GemsInNodes_nodes[nodetype]
 		if not id then return end
-		return basic_listview_handler("http://www.wowhead.com/object="..id, function(item)
+		return basic_listview_handler(WH("object", id), function(item)
 			if item.classs == "3" then return item.id end
 		end)
 	else
 		local gathertype = set:match("%.([^%.]+)$")
-		local filter = Tradeskill_Gather_filters[gathertype]
-		return filter and basic_listview_handler("http://www.wowhead.com/items&filter=cr="..filter..";crs=1;crv=0")
+		local filter = Tradeskill_Gather_filter_values[gathertype]
+		return filter and basic_listview_handler(WH("items", nil, {cr=filter, crs=1, crv=0}))
 	end
 end
 
@@ -1310,7 +1369,7 @@ handlers["^Tradeskill%.Gem"] = function (set, data)
 		local gems = {}
 		local gem_cut_func = function (item)
 			local itemid = item.id
-			basic_listview_handler("http://www.wowhead.com/item="..itemid, function (item)
+			basic_listview_handler(WH("item", itemid), function (item)
 				for _, reagent in ipairs(item.reagents) do
 					local src_id, count = unpack(reagent)
 					if src_id ~= 27860 then -- Purified Draenic Water
@@ -1320,8 +1379,12 @@ handlers["^Tradeskill%.Gem"] = function (set, data)
 				end
 			end, 'created-by')
 		end
-		for _, filter in ipairs(Tradeskill_Gem_Cut_filters) do
-			basic_listview_handler("http://www.wowhead.com/items&filter=cr=81;crs=5;crv=0"..filter, gem_cut_func)
+		local filter = {cr=81,crs=5,crv=0}
+		for _, entry in ipairs(Tradeskill_Gem_Cut_level_filters) do
+			filter.minle = entry.minle
+			filter.maxle = entry.maxle
+			filter.qu = entry.qu
+			basic_listview_handler(WH("items", nil, filter), gem_cut_func)
 		end
 		for k, v in pairs(gems) do
 			table.sort(v)
@@ -1330,18 +1393,18 @@ handlers["^Tradeskill%.Gem"] = function (set, data)
 		table.sort(newset, sortSet_id)
 		return table.concat(newset, ",")
 	else
-		local filter = Tradeskill_Gem_Color_filters[color]
-		return filter and basic_listview_handler("http://www.wowhead.com/items=3."..filter)
+		local filter = Tradeskill_Gem_Color_categories[color]
+		return filter and basic_listview_handler(WH("items", filter))
 	end
 end
 
 handlers["^Tradeskill%.Mat%.ByProfession"] = function (set, data)
 	local profession = set:match("^Tradeskill%.Mat%.ByProfession%.(.+)$")
-	local filter = Tradeskill_Profession_filters[profession]
-	if not filter then return end
+	local cat = Tradeskill_Profession_categories[profession]
+	if not cat then return end
 	local reagentlist = {}
 
-	basic_listview_handler("http://www.wowhead.com/spells="..filter, function (item)
+	basic_listview_handler(WH("spells", cat, Tradeskill_Profession_filters[profession]), function (item)
 		if not item.reagents then return end
 		for _, r in ipairs(item.reagents) do
 			reagentlist[r[1]] = true
@@ -1357,16 +1420,13 @@ end
 
 handlers["^Tradeskill%.Recipe%."] = function (set, data)
 	local count = 0
-	local profession, filter = set:match("^Tradeskill%.Recipe%.([^%.]+)%.(.+)$")
-	profession = Tradeskill_Recipe_professions[profession]
+	local profession, src = set:match("^Tradeskill%.Recipe%.([^%.]+)%.(.+)$")
+	profession = Tradeskill_Recipe_categories[profession]
 	filter = Tradeskill_Recipe_filters[filter]
 	if not profession or not filter then return end
 
-	local url = "http://www.wowhead.com/items=9."..profession.."&filter=cr="..filter
-
-	return basic_listview_handler(url, function (item)
-		return item.id..":"..item.skill
-	end)
+	return basic_listview_handler(WH("items", profession, filter),
+		function (item) return item.id..":"..item.skill end)
 end
 
 handlers["^Tradeskill%.Tool"] = function (set, data)
@@ -1377,7 +1437,7 @@ handlers["^Tradeskill%.Tool"] = function (set, data)
 	if not filters then return end
 
 	for _, filter in ipairs(filters) do
-		basic_listview_handler("http://www.wowhead.com/items&filter="..filter, nil, nil, newset)
+		basic_listview_handler(WH("items", nil, filter), nil, nil, newset)
 	end
 
 	table.sort(newset, sortSet)
@@ -1400,7 +1460,7 @@ local additionalSetItems = {
 
 local function update_all_sets(sets, setcount)
 	local setid = 0
-	local notmined = {}
+	local failed = 0
 	for set, data in pairs(sets) do
 		setid = setid + 1
 		local newset
@@ -1423,6 +1483,8 @@ local function update_all_sets(sets, setcount)
 			dprint(1, ("current set: %4d/%4d"):format(setid, setcount), set, "   - skipped: multiset")
 		end
 		if newset then
+			local add = additionalSetItems[set]
+			if add then newset = newset..add end
 			printdiff(set, sets[set] or "", newset)
 			-- check if we mined an empty set that would overwrite existing data
 			if newset == "" and sets[set] ~= newset then
@@ -1431,10 +1493,10 @@ local function update_all_sets(sets, setcount)
 				sets[set] = newset
 			end
 		else
-			table.insert(notmined, set)
+			failed = failed + 1
 		end
 	end
-	return notmined
+	return failed
 end
 
 local function write_output(file, sets)
@@ -1442,7 +1504,7 @@ local function write_output(file, sets)
 	for line in file:gmatch('([^\n]-\n)') do
 		local setname, spaces, comment = line:match('\t%[%"([^"]+)%"%]([^=]-)= "[^"]-",([^\n]-)\n')
 		if setname and sets[setname] then
-			f:write('\t["'..setname..'"]'..spaces..'= "'..sets[setname]..(additionalSetItems[setname] or '')..'",'..comment..'\n')
+			f:write('\t["',setname,'"]',spaces,'= "',sets[setname],'",',comment,'\n')
 		else
 			f:write(line)
 		end
@@ -1463,12 +1525,7 @@ local function main()
 	print(("%dm %ds spent servicing %d web requests"):format(httptime/60, httptime%60, httpcount))
 	print(("%dm %ds spent in processing data"):format((elapsed-httptime)/60,(elapsed-httptime)%60))
 	print(("Approx %dm %.2fs CPU time used"):format(cputime/60, cputime%60))
-	local notminedcount = 0
-	for k,v in ipairs(notmined) do
-		--print("not mined:"..v)
-		notminedcount = notminedcount + 1
-	end
-	print(("%d sets mined, %d sets not mined."):format(setcount-notminedcount, notminedcount))
+	print(("%d sets mined, %d sets not mined."):format(setcount - notmined, notmined))
 	write_output(file, sets)
 end
 
