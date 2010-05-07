@@ -1085,6 +1085,9 @@ handlers["^GearSet"] = function (set, data)
 	local setname = set:match("%.([^%.]+)$")
 	if GearSets_fixedids[setname] then
 		id = GearSets_fixedids[setname]
+	elseif set:find(".Gray.") then
+	-- these aren't real sets so they can't be auto-mined
+		return nil
 	elseif set:find(".PvP.Arena.") then
 	-- wowhead can't do exact match on name as it seems so other arena sets including the name would show up to (and be picked unfortunatly)
 		id = basic_listview_get_first_id(WH("itemsets", nil, {qu=4, na=setname}))
