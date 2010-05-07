@@ -12,6 +12,8 @@ local INSTANCELOOT_MIN = INSTANCELOOT_MIN or 50
 local INSTANCELOOT_MAXSRC = INSTANCELOOT_MAXSRC or 5
 local INSTANCELOOT_TRASHMINSRC = INSTANCELOOT_TRASHMINSRC or 3
 
+local MAX_TRADESKILL_LEVEL = 450
+
 if arg[1] == "-chksrc" and arg[2] then
 	table.remove(arg, 1)
 	print("Enabling deep scan for Loot table of the following tables", arg[1])
@@ -32,13 +34,17 @@ local function printdiff(set, old, new)
 	local has_drop_rate = set:find("InstanceLoot", nil, true)
 			and not set:find("Trash Mobs", nil, true)
 	local temp = {}
-	for entry in old:gmatch("[^,]+") do
-		if has_drop_rate then entry = entry:match("(%d+):%d+") end
-		temp[entry] = -1
+	if old then
+		for entry in old:gmatch("[^,]+") do
+			if has_drop_rate then entry = entry:match("(%d+):%d+") end
+			temp[entry] = -1
+		end
 	end
-	for entry in new:gmatch("[^,]+") do
-		if has_drop_rate then entry = entry:match("(%d+):%d+") end
-		temp[entry] = (temp[entry] or 0) + 1
+	if new then
+		for entry in new:gmatch("[^,]+") do
+			if has_drop_rate then entry = entry:match("(%d+):%d+") end
+			temp[entry] = (temp[entry] or 0) + 1
+		end
 	end
 	local added, removed = {}, {}
 	for entry, value in pairs(temp) do
@@ -1295,13 +1301,12 @@ handlers["^Tradeskill%.Crafted"] = function (set, data)
 		local spellid = item.id
 		if not item.reagents then return end
 		-- local colorstring = itemstring:match("colors:(%b[])")
-		local skilllvl = math.min(450, tonumber(item.learnedat) or 450)
-		local itemid
+		local skilllvl = math.min(MAX_TRADESKILL_LEVEL, tonumber(item.learnedat) or MAX_TRADESKILL_LEVEL)
+		local itemid = item.creates and item.creates[1] or (-1 * spellid) -- count ?
 		dprint(3, profession, itemid, skilllvl)
-		itemid = item.creates and item.creates[1] or (-1 * spellid) -- count ?
 		if itemid and skilllvl > 0 then
-			newset[#newset + 1] = item.id..":"..item.learnedat
-			local newrecipemats = item.id..":"
+			newset[#newset + 1] = itemid..":"..item.learnedat
+			local newrecipemats = itemid..":"
 			for _, reagent in ipairs(item.reagents) do
 				local reagentid, reagentnum = unpack(reagent)
 				if reagenttable[reagentid] then
