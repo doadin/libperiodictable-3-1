@@ -160,30 +160,30 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["Consumable.Cooldown.Drums.Nets"]					= "24268:70,24269:80,41509:83",--NOT AUTOGENNED
 	["Consumable.Cooldown.Drums.Other"]					= "1127,1178,1191,1399,1434,2091,3456,4384,4388,4391,4395,4852,4941,5332,10646,10719,10830,11565,11566,13509,13514,15778,21325,23379,23841",--NOT AUTOGENNED
 
+	-- This one food category is Autogenned. More may follow
+	["Consumable.Food.Edible.Combo.Conjured"]			= "65500:1494,65515:1992,65516:2934,65517:4200,34062:7200,43518:12840,43523:19200,65499:19200",
+
 	--NOT AUTOGENNED (All food.  I'd like to get this mined, but the filters for these items on allakhazam and wowhead are nonexistant.)
 	-- Basic foods regenerate health only.
 	-- Combo Foods regenerate hp & mana.  Please add Combo foods to the Combo Health and Combo Mana categories below as well.
 	-- Bonus foods provide some kind of buff which is listed by buff under Consumable.Food.Buff.*  Please add items to both lists.
-	["Consumable.Food.Bread"]					= "m,Consumable.Food.Edible.Bread.Basic,Consumable.Food.Edible.Bread.Bonus,Consumable.Food.Edible.Bread.Conjured,Consumable.Food.Edible.Bread.Combo.Conjured,Consumable.Food.Edible.Bread.Combo.Non-Conjured",
+	["Consumable.Food.Bread"]					= "m,Consumable.Food.Edible.Bread.Basic,Consumable.Food.Edible.Bread.Bonus,Consumable.Food.Edible.Bread.Conjured,Consumable.Food.Edible.Bread.Combo.Non-Conjured",
 	["Consumable.Food.Cheese"]					= "m,Consumable.Food.Edible.Cheese.Basic,Consumable.Food.Edible.Cheese.Bonus",
 	["Consumable.Food.Fish"]					= "m,Consumable.Food.Edible.Fish.Basic,Consumable.Food.Edible.Fish.Bonus,Consumable.Food.Inedible.Fish,Consumable.Food.Edible.Fish.Combo",
 	["Consumable.Food.Fruit"]					= "m,Consumable.Food.Edible.Fruit.Basic,Consumable.Food.Edible.Fruit.Bonus,Consumable.Food.Edible.Fruit.Combo",
 	["Consumable.Food.Fungus"]					= "m,Consumable.Food.Edible.Fungus.Basic,Consumable.Food.Edible.Fungus.Bonus,Consumable.Food.Edible.Fungus.Combo,Consumable.Food.Inedible.Fungus",
 	["Consumable.Food.Meat"]					= "m,Consumable.Food.Edible.Meat.Basic,Consumable.Food.Edible.Meat.Bonus,Consumable.Food.Inedible.Meat",
 	["Consumable.Food.Misc"]					= "m,Consumable.Food.Edible.Misc.Basic,Consumable.Food.Edible.Misc.Bonus",
-	["Consumable.Food.Edible.Basic.Conjured"]			= "m,Consumable.Food.Edible.Bread.Conjured,Consumable.Food.Edible.Bread.Combo.Conjured",
+	["Consumable.Food.Edible.Basic.Conjured"]			= "m,Consumable.Food.Edible.Combo.Conjured",
 	["Consumable.Food.Edible.Basic.Non-Conjured"]			= "m,Consumable.Food.Edible.Bread.Basic,Consumable.Food.Edible.Cheese.Basic,Consumable.Food.Edible.Fish.Basic,Consumable.Food.Edible.Fruit.Basic,Consumable.Food.Edible.Fungus.Basic,Consumable.Food.Edible.Meat.Basic,Consumable.Food.Edible.Misc.Basic",
 	["Consumable.Food.Edible.Bonus"]				= "m,Consumable.Food.Edible.Bread.Bonus,Consumable.Food.Edible.Cheese.Bonus,Consumable.Food.Edible.Fish.Bonus,Consumable.Food.Edible.Fruit.Bonus,Consumable.Food.Edible.Fungus.Bonus,Consumable.Food.Edible.Meat.Bonus,Consumable.Food.Edible.Misc.Bonus",
-	["Consumable.Food.Edible.Combo.Conjured"]			= "m,Consumable.Food.Edible.Bread.Combo.Conjured",
 	["Consumable.Food.Edible.Combo.Non-Conjured"]			= "m,Consumable.Food.Edible.Misc.Combo,Consumable.Food.Edible.Fungus.Combo,Consumable.Food.Edible.Fruit.Combo,Consumable.Food.Edible.Fish.Combo,Consumable.Food.Edible.Bread.Combo.Non-Conjured",
 	["Consumable.Food.Edible.Battleground.Alterac Valley.Combo"]	= "19301:4410",
 	["Consumable.Food.Edible.Battleground.Arathi Basin.Basic"]	= "20063:1074,20064:1608,20062:2148,20223:1074,20224:1608,20222:2148,20226:1074,20227:1608,20225:2148",
 	["Consumable.Food.Edible.Battleground.Warsong Gulch.Basic"]	= "19062:1074,19061:1608,19060:2148",
 	["Consumable.Food.Edible.Bread.Basic"]				= "19696:50,20857:61,4540:61,4541:243,4542:552,4544:874,16169:874,4601:1392,8950:2148,23160:2148,29394:7500,27855:4320,28486:4320,24072:243,30816:61,29449:7500,42432:13200,42428:13200,42433:13200,42778:15000,33449:13200,42431:15000,42430:13200,44609:13200,42434:15000,42429:15000,35950:15000",
-	["Consumable.Food.Edible.Bread.Combo.Conjured"]			= "65500:1494,65515:1992,65516:2934,65517:4200,43518:12840,43523:15000",
 	["Consumable.Food.Edible.Bread.Combo.Non-Conjured"]		= "13724:2148,19301:4410,34780:7500",
 	["Consumable.Food.Edible.Bread.Bonus"]				= "2683:243,3666:552,17197:61,43490:0,33924:0",
-	["Consumable.Food.Edible.Bread.Conjured"]			= "1113:243,1114:552,1487:874,5349:61,8075:1392,8076:2148,22895:4320,22019:7500",
 	["Consumable.Food.Edible.Cheese.Basic"]				= "2070:61,414:243,17406:243,422:552,1707:874,3927:1392,8932:2148,27857:4320,29448:7500,30458:4320,44607:15000,35952:15000,44608:13200,44749:13200,33443:13200",
 	["Consumable.Food.Edible.Cheese.Bonus"]				= "3665:552,12218:1392",
 	["Consumable.Food.Edible.Fish.Basic"]				= "19996:50,1326:243,6316:243,21552:1392,16766:1392,2682:294,4592:243,4593:552,4594:874,5095:243,6290:61,6887:1392,787:61,8364:874,8957:2148,8959:1392,13546:1392,13930:1392,13935:2148,27661:4320,27858:4320,12238:243,13933:2148,29452:7500,33048:7500,35285:7500,43646:7500,33451:13200,43571:13200,44049:15000,35951:15000,44071:15000",
@@ -290,7 +290,6 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["Consumable.Water.Buff.Spirit"]			= "34017:2,34018:4,34019:6,34020:8,13813:10,19318:10,34021:12,34022:14,33034:20,33035:20,33036:20,33825:20",
 	["Consumable.Water.Buff.Stamina"]			= "34017:2,34018:4,34019:6,34020:8,34021:12,34022:14,33034:20,33035:20",
 	["Consumable.Water.Buff.Strength"]			= "33036:20",
-	["Consumable.Water.Conjured"]				= "5350:151,2288:436,2136:835,3772:1344,8077:1992,8078:2934,8079:4200,30703:5100,22018:7200",
 	["Consumable.Water.Percentage"]				= "19997:60,21241:60",
 
 	--!!Add to miner

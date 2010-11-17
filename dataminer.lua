@@ -1266,6 +1266,18 @@ handlers["^Misc%.Lockboxes"] = function (set, data)
 	end)
 end
 
+handlers["^Consumable.Food.Edible.Combo.Conjured"] = function (set, data)
+	return basic_listview_handler(WH("items", "0.5", {cr="9:107:107";crs="1:0:0";crv="0:health:mana"}), function (item)
+		page = getpage(WH("item", item.id).."&xml") -- hack
+		local mana = page:match("health and (%d+) mana")
+		if mana then
+			return item.id..":"..mana
+		else
+			print("Consumable.Food.Edible.Combo.Conjured error "..item.id)
+		end
+	end)
+end
+
 handlers["^Misc%.Minipet%.Normal"] = function (set, data)
 	return basic_listview_handler(WH("items", "15.2"))
 end
