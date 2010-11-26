@@ -544,7 +544,7 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["GearSet.Dungeon 1.Rogue.Shadowcraft Armor"]		= "16707,16708,16709,16710,16711,16712,16713,16721",
 	["GearSet.Dungeon 1.Shaman.The Elements"]		= "16666,16667,16668,16669,16670,16671,16672,16673",
 	["GearSet.Dungeon 1.Warlock.Dreadmist Raiment"]		= "16698,16699,16700,16701,16702,16703,16704,16705",
-	["GearSet.Dungeon 1.Warrior.Battlegear of Valor"]	= "45375,45376,45377,45379,45380",
+	["GearSet.Dungeon 1.Warrior.Battlegear of Valor"]	= "16730,16731,16732,16733,16734,16735,16736,16737",
 
 	["GearSet.Dungeon 2.Druid.Feralheart Raiment"]		= "22106,22107,22108,22109,22110,22111,22112,22113",
 	["GearSet.Dungeon 2.Hunter.Beastmaster Armor"]		= "22010,22011,22013,22015,22016,22017,22060,22061",
