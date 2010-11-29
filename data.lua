@@ -1,10 +1,10 @@
 -- (c) 2007 Nymbia.  see LGPLv2.1.txt for full details.
 --[[
-tab size for this file is 8, since nymbia is quite insane.
-so please, do not run around adjusting tabs, just edit your items & check it in & enjoy the randomly spaced look.
+tab size for this file is 8,since nymbia is quite insane.
+so please,do not run around adjusting tabs,just edit your items & check it in & enjoy the randomly spaced look.
 
 
-This file does not have valid lua syntax, because it should never be loaded directly.  Syntax is now checked so we block comment the whole shebang.
+This file does not have valid lua syntax,because it should never be loaded directly.  Syntax is now checked so we block comment the whole shebang.
 ]]
 
 --[[ ClassSpell
@@ -47,8 +47,8 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["Consumable.Bandage.Battleground.Arathi Basin"]	= "20232:1104,20234:2000,20235:640,20237:1104,20243:2000,20244:640",
 	["Consumable.Bandage.Battleground.Warsong Gulch"]	= "19067:1104,19066:2000,19068:640",
 
-	--NOT AUTOGENNED Self buffs are on caster only, target buffs are on target
-	--Under no circumstances do you add food buffs here, nor weapon buffs for now.  These are applied differently / noncombat
+	--NOT AUTOGENNED Self buffs are on caster only,target buffs are on target
+	--Under no circumstances do you add food buffs here,nor weapon buffs for now.  These are applied differently / noncombat
 	["Consumable.Buff.Agility.Flask"]			= "33208:18,32598:20,32599:20",
 	["Consumable.Buff.Agility.Self"]			= "2457:4,3390:8,8949:15,28104:15,8412:25,9187:25,13452:25,22831:35",
 	["Consumable.Buff.Agility.Target"]			= "3012:3,1477:5,4425:8,10309:10,27498:15,33457:20,43463:25,43464:30",
@@ -130,7 +130,7 @@ This file does not have valid lua syntax, because it should never be loaded dire
 
 	["Consumable.Buff Pet"]					= "27656,33874,43005",
 
-	-- Items on Health Stone vs Potion cooldown, each with Health, Mana & Rejuvenation subsets.
+	-- Items on Health Stone vs Potion cooldown,each with Health,Mana & Rejuvenation subsets.
 	["Consumable.Cooldown.Potion.Combat.Battle"]				= "13442,22828,22837,22838,22839,40211,40212",
 	["Consumable.Cooldown.Potion.Combat.Guardian"]				= "4623,13455,22849,40093",
 	["Consumable.Cooldown.Potion.Health.Anywhere"]				= "43569:1920",
@@ -163,7 +163,7 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	-- This one food category is Autogenned. More may follow
 	["Consumable.Food.Edible.Combo.Conjured"]			= "65500:1494,65515:1992,65516:2934,65517:4200,34062:7200,43518:12840,43523:19200,65499:19200",
 
-	--NOT AUTOGENNED (All food.  I'd like to get this mined, but the filters for these items on allakhazam and wowhead are nonexistant.)
+	--NOT AUTOGENNED (All food.  I'd like to get this mined,but the filters for these items on allakhazam and wowhead are nonexistant.)
 	-- Basic foods regenerate health only.
 	-- Combo Foods regenerate hp & mana.  Please add Combo foods to the Combo Health and Combo Mana categories below as well.
 	-- Bonus foods provide some kind of buff which is listed by buff under Consumable.Food.Buff.*  Please add items to both lists.
@@ -206,7 +206,7 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["Consumable.Food.Inedible.Fungus"]				= "27676",
 	["Consumable.Food.Feast"]					= "43015,43478,34753,43480",
 
-	-- Consumable.Food.Buff lists the *.Bonus foods from above by effect, not amount healed.  Multiple buffs are listed under each individual buff.
+	-- Consumable.Food.Buff lists the *.Bonus foods from above by effect,not amount healed.  Multiple buffs are listed under each individual buff.
 	["Consumable.Food.Bonus"]			= "m,Consumable.Food.Edible.Bread.Bonus,Consumable.Food.Edible.Cheese.Bonus,Consumable.Food.Edible.Fish.Bonus,Consumable.Food.Edible.Fruit.Bonus,Consumable.Food.Edible.Fungus.Bonus,Consumable.Food.Edible.Meat.Bonus,Consumable.Food.Edible.Misc.Bonus",
 
 	["Consumable.Food.Buff.Agility"]		= "13928:10,27664:20,30358:20,27659:20,42999:40",
@@ -227,11 +227,11 @@ This file does not have valid lua syntax, because it should never be loaded dire
 
 	["Consumable.Food.Buff.Other"]			= "6657,12217,33866,42997,43001,43491,43492,43488,43490,33924,37452,43572",
 
-	["Consumable.Food.Combo Health"]		= "21071:155,21153:567,2682:294,3448:294,13724:2148,33004:2148,20031:2550,19301:4410,28112:4410,32722:2148,33053:7500,34062:7500,34780:7500,43518:13200,43523:15000,34760:15000,34761:15000,34759:15000,45932:18000, 65500:972,65515:1392,65516:2148,65517:4320,43518:18480,43523:22500", -- Value == Total health recovered
-	["Consumable.Food.Combo Mana"]			= "21071:315,21153:882,2682:294,3448:294,33004:2934,13724:4410,20031:4410,19301:4410,28112:4410,32722:4410,33053:7200,34062:7200,34780:7200,43518:9180,43523:12960,34760:12960,34761:12960,34759:12960,65500:1494,65515:1992,65516:2934,65517:4200,43518:12840,43523:19200", -- Value == Total mana recovered
-	["Consumable.Food.Combo Percent"]		= "21537:100,20388:75,20389:75,20390:75,21215:100", -- Value == Total percentage HP/MP recovered
-	["Consumable.Food.Percent.Basic"]		= "19696:50,19994:50,19995:50,21235:50,19996:50", -- Value == Percentage HP recovered
-	["Consumable.Food.Percent.Bonus"]		= "20516:48,21254:48,44791:50", -- Value == Percentage HP recovered (with Well Fed buff)
+	["Consumable.Food.Combo Health"]		= "21071:155,21153:567,2682:294,3448:294,13724:2148,33004:2148,20031:2550,19301:4410,28112:4410,32722:2148,33053:7500,34062:7500,34780:7500,43518:13200,43523:15000,34760:15000,34761:15000,34759:15000,45932:18000,65500:972,65515:1392,65516:2148,65517:4320,43518:18480,43523:22500",-- Value == Total health recovered
+	["Consumable.Food.Combo Mana"]			= "21071:315,21153:882,2682:294,3448:294,33004:2934,13724:4410,20031:4410,19301:4410,28112:4410,32722:4410,33053:7200,34062:7200,34780:7200,43518:9180,43523:12960,34760:12960,34761:12960,34759:12960,65500:1494,65515:1992,65516:2934,65517:4200,43518:12840,43523:19200",-- Value == Total mana recovered
+	["Consumable.Food.Combo Percent"]		= "21537:100,20388:75,20389:75,20390:75,21215:100",-- Value == Total percentage HP/MP recovered
+	["Consumable.Food.Percent.Basic"]		= "19696:50,19994:50,19995:50,21235:50,19996:50",-- Value == Percentage HP recovered
+	["Consumable.Food.Percent.Bonus"]		= "20516:48,21254:48,44791:50",-- Value == Percentage HP recovered (with Well Fed buff)
 
 	-- Deprecated: Consumable.Potion.Buff.Armor - Consumable.Potion.Other.Rage
 	-- See Consumable.Buff.*
@@ -252,7 +252,7 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["Consumable.Potion.Other.Energy"]					= "7676,27553",
 	["Consumable.Potion.Other.Rage"]					= "5631:30,5633:45,13442:45",
 
-	--NOT AUTOGENNED (All potions.  I'd like to get this mined, but the filters for these items on allakhazam and wowhead are nonexistant.)
+	--NOT AUTOGENNED (All potions.  I'd like to get this mined,but the filters for these items on allakhazam and wowhead are nonexistant.)
 	["Consumable.Potion.Other.Cure"]					= "3386,13462,9030,2633",
 	["Consumable.Potion.Recovery.Dreamless Sleep"]				= "12190:1200,20002:2100,22836:3600",
 	["Consumable.Potion.Recovery.Health.Anywhere"]				="43569:1920",
@@ -281,7 +281,7 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["Consumable.Warlock.Soulstone"]			= "5232:18,16892:30,16893:40,16895:50,16896:60,22116:70,36895:76",--NOT AUTOGENNED
 	["Consumable.Warlock.Spellstone"]			= "13602:11,36896:20,36897:20",--NOT AUTOGENNED
 
-	--NOT AUTOGENNED (All water.  I'd like to get this mined, but the filters for these items on allakhazam and wowhead are nonexistant.)
+	--NOT AUTOGENNED (All water.  I'd like to get this mined,but the filters for these items on allakhazam and wowhead are nonexistant.)
 	["Consumable.Water.Basic"]				= "1401:60,159:151,1179:436,17404:436,1205:835,9451:835,19299:835,1708:1344,4791:1344,10841:1344,17405:1344,1645:1992,19300:1992,8766:2934,23161:2934,23585:2934,24006:2934,38429:2934,32455:4200,18300:4200,24007:4200,28399:5100,29454:5100,38430:5100,27860:7200,29395:7200,30457:7200,29401:7200,33042:7200,32668:7200,32453:7200,35954:7200,37253:7200,38431:7200,44750:7200,38698:9180,42777:12960,43086:9180,40357:7200,33445:12960,33444:9180,43236:12960,41731:12960,39520:12960",
 	["Consumable.Water.Battleground.Arathi Basin"]		= "20063:2202,20064:3306,20062:4410,20223:2202,20224:3306,20222:4410,20226:2202,20227:3306,20225:4410",
 	["Consumable.Water.Battleground.Warsong Gulch"]		= "19062:2202,19061:3306,19060:4410",
@@ -803,127 +803,127 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["GearSet.PvP.Arena.Warlock.Gladiator's Felshroud"]	= "30186,30187,30188,30200,30201",
 	["GearSet.PvP.Arena.Warrior.Gladiator's Battlegear"]	= "24544,24545,24546,24547,24549",
 
-	["GearSet.PvP.Arena2.Druid.Merciless Gladiator's Refuge"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena2.Druid.Merciless Gladiator's Sanctuary"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena2.Druid.Merciless Gladiator's Wildhide"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena2.Hunter.Merciless Gladiator's Pursuit"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena2.Mage.Merciless Gladiator's Regalia"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena2.Paladin.Merciless Gladiator's Aegis"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena2.Paladin.Merciless Gladiator's Redemption"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena2.Paladin.Merciless Gladiator's Vindication"]	= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena2.Priest.Merciless Gladiator's Investiture"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena2.Priest.Merciless Gladiator's Raiment"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena2.Rogue.Merciless Gladiator's Vestments"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena2.Shaman.Merciless Gladiator's Earthshaker"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena2.Shaman.Merciless Gladiator's Thunderfist"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena2.Shaman.Merciless Gladiator's Wartide"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena2.Warlock.Merciless Gladiator's Dreadgear"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena2.Warlock.Merciless Gladiator's Felshroud"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena2.Warrior.Merciless Gladiator's Battlegear"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
+	["GearSet.PvP.Arena2.Druid.Merciless Gladiator's Refuge"]="31987,31988,31989,31990,31991",
+	["GearSet.PvP.Arena2.Druid.Merciless Gladiator's Sanctuary"]="31967,31968,31969,31971,31972",
+	["GearSet.PvP.Arena2.Druid.Merciless Gladiator's Wildhide"]="32056,32057,32058,32059,32060",
+	["GearSet.PvP.Arena2.Hunter.Merciless Gladiator's Pursuit"]="31960,31961,31962,31963,31964",
+	["GearSet.PvP.Arena2.Mage.Merciless Gladiator's Regalia"]="32047,32048,32049,32050,32051",
+	["GearSet.PvP.Arena2.Paladin.Merciless Gladiator's Aegis"]="31992,31993,31995,31996,31997",
+	["GearSet.PvP.Arena2.Paladin.Merciless Gladiator's Redemption"]="32020,32021,32022,32023,32024",
+	["GearSet.PvP.Arena2.Paladin.Merciless Gladiator's Vindication"]="32039,32040,32041,32042,32043",
+	["GearSet.PvP.Arena2.Priest.Merciless Gladiator's Investiture"]="32015,32016,32017,32018,32019",
+	["GearSet.PvP.Arena2.Priest.Merciless Gladiator's Raiment"]="32034,32035,32036,32037,32038",
+	["GearSet.PvP.Arena2.Rogue.Merciless Gladiator's Vestments"]="31998,31999,32000,32001,32002",
+	["GearSet.PvP.Arena2.Shaman.Merciless Gladiator's Earthshaker"]="32004,32005,32006,32007,32008",
+	["GearSet.PvP.Arena2.Shaman.Merciless Gladiator's Thunderfist"]="32009,32010,32011,32012,32013",
+	["GearSet.PvP.Arena2.Shaman.Merciless Gladiator's Wartide"]="32029,32030,32031,32032,32033",
+	["GearSet.PvP.Arena2.Warlock.Merciless Gladiator's Dreadgear"]="31973,31974,31975,31976,31977",
+	["GearSet.PvP.Arena2.Warlock.Merciless Gladiator's Felshroud"]="31979,31980,31981,31982,31983",
+	["GearSet.PvP.Arena2.Warrior.Merciless Gladiator's Battlegear"]="30486,30487,30488,30489,30490",
 
-	["GearSet.PvP.Arena3.Druid.Vengeful Gladiator's Refuge"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena3.Druid.Vengeful Gladiator's Sanctuary"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena3.Druid.Vengeful Gladiator's Wildhide"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena3.Hunter.Vengeful Gladiator's Pursuit"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena3.Mage.Vengeful Gladiator's Regalia"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena3.Paladin.Vengeful Gladiator's Aegis"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena3.Paladin.Vengeful Gladiator's Redemption"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena3.Paladin.Vengeful Gladiator's Vindication"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena3.Priest.Vengeful Gladiator's Investiture"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena3.Priest.Vengeful Gladiator's Raiment"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena3.Rogue.Vengeful Gladiator's Vestments"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena3.Shaman.Vengeful Gladiator's Earthshaker"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena3.Shaman.Vengeful Gladiator's Thunderfist"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena3.Shaman.Vengeful Gladiator's Wartide"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena3.Warlock.Vengeful Gladiator's Dreadgear"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena3.Warlock.Vengeful Gladiator's Felshroud"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena3.Warrior.Vengeful Gladiator's Battlegear"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
+	["GearSet.PvP.Arena3.Druid.Vengeful Gladiator's Refuge"]="33690,33691,33692,33693,33694",
+	["GearSet.PvP.Arena3.Druid.Vengeful Gladiator's Sanctuary"]="33671,33672,33673,33674,33675",
+	["GearSet.PvP.Arena3.Druid.Vengeful Gladiator's Wildhide"]="33767,33768,33769,33770,33771",
+	["GearSet.PvP.Arena3.Hunter.Vengeful Gladiator's Pursuit"]="33664,33665,33666,33667,33668",
+	["GearSet.PvP.Arena3.Mage.Vengeful Gladiator's Regalia"]="33757,33758,33759,33760,33761",
+	["GearSet.PvP.Arena3.Paladin.Vengeful Gladiator's Aegis"]="33695,33696,33697,33698,33699",
+	["GearSet.PvP.Arena3.Paladin.Vengeful Gladiator's Redemption"]="33722,33723,33724,33725,33726",
+	["GearSet.PvP.Arena3.Paladin.Vengeful Gladiator's Vindication"]="33749,33750,33751,33752,33753",
+	["GearSet.PvP.Arena3.Priest.Vengeful Gladiator's Investiture"]="33717,33718,33719,33720,33721",
+	["GearSet.PvP.Arena3.Priest.Vengeful Gladiator's Raiment"]="33744,33745,33746,33747,33748",
+	["GearSet.PvP.Arena3.Rogue.Vengeful Gladiator's Vestments"]="33700,33701,33702,33703,33704",
+	["GearSet.PvP.Arena3.Shaman.Vengeful Gladiator's Earthshaker"]="33706,33707,33708,33709,33710",
+	["GearSet.PvP.Arena3.Shaman.Vengeful Gladiator's Thunderfist"]="33711,33712,33713,33714,33715",
+	["GearSet.PvP.Arena3.Shaman.Vengeful Gladiator's Wartide"]="33738,33739,33740,33741,33742",
+	["GearSet.PvP.Arena3.Warlock.Vengeful Gladiator's Dreadgear"]="33676,33677,33678,33679,33680",
+	["GearSet.PvP.Arena3.Warlock.Vengeful Gladiator's Felshroud"]="33682,33683,33684,33685,33686",
+	["GearSet.PvP.Arena3.Warrior.Vengeful Gladiator's Battlegear"]="33728,33729,33730,33731,33732",
 
-	["GearSet.PvP.Arena4.Druid.Brutal Gladiator's Refuge"]			= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena4.Druid.Brutal Gladiator's Sanctuary"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena4.Druid.Brutal Gladiator's Wildhide"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena4.Hunter.Brutal Gladiator's Pursuit"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena4.Mage.Brutal Gladiator's Regalia"]			= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena4.Paladin.Brutal Gladiator's Aegis"]			= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena4.Paladin.Brutal Gladiator's Redemption"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena4.Paladin.Brutal Gladiator's Vindication"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena4.Priest.Brutal Gladiator's Investiture"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena4.Priest.Brutal Gladiator's Raiment"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena4.Rogue.Brutal Gladiator's Vestments"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena4.Shaman.Brutal Gladiator's Earthshaker"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena4.Shaman.Brutal Gladiator's Thunderfist"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena4.Shaman.Brutal Gladiator's Wartide"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena4.Warlock.Brutal Gladiator's Dreadgear"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena4.Warlock.Brutal Gladiator's Felshroud"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena4.Warrior.Brutal Gladiator's Battlegear"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
+	["GearSet.PvP.Arena4.Druid.Brutal Gladiator's Refuge"]="35022,35023,35024,35025,35026",
+	["GearSet.PvP.Arena4.Druid.Brutal Gladiator's Sanctuary"]="34998,34999,35000,35001,35002",
+	["GearSet.PvP.Arena4.Druid.Brutal Gladiator's Wildhide"]="35111,35112,35113,35114,35115",
+	["GearSet.PvP.Arena4.Hunter.Brutal Gladiator's Pursuit"]="34990,34991,34992,34993,34994",
+	["GearSet.PvP.Arena4.Mage.Brutal Gladiator's Regalia"]="35096,35097,35098,35099,35100",
+	["GearSet.PvP.Arena4.Paladin.Brutal Gladiator's Aegis"]="35027,35028,35029,35030,35031",
+	["GearSet.PvP.Arena4.Paladin.Brutal Gladiator's Redemption"]="35059,35060,35061,35062,35063",
+	["GearSet.PvP.Arena4.Paladin.Brutal Gladiator's Vindication"]="35088,35089,35090,35091,35092",
+	["GearSet.PvP.Arena4.Priest.Brutal Gladiator's Investiture"]="35053,35054,35055,35056,35057",
+	["GearSet.PvP.Arena4.Priest.Brutal Gladiator's Raiment"]="35083,35084,35085,35086,35087",
+	["GearSet.PvP.Arena4.Rogue.Brutal Gladiator's Vestments"]="35032,35033,35034,35035,35036",
+	["GearSet.PvP.Arena4.Shaman.Brutal Gladiator's Earthshaker"]="35042,35043,35044,35045,35046",
+	["GearSet.PvP.Arena4.Shaman.Brutal Gladiator's Thunderfist"]="35048,35049,35050,35051,35052",
+	["GearSet.PvP.Arena4.Shaman.Brutal Gladiator's Wartide"]="35077,35078,35079,35080,35081",
+	["GearSet.PvP.Arena4.Warlock.Brutal Gladiator's Dreadgear"]="35003,35004,35005,35006,35007",
+	["GearSet.PvP.Arena4.Warlock.Brutal Gladiator's Felshroud"]="35009,35010,35011,35012,35013",
+	["GearSet.PvP.Arena4.Warrior.Brutal Gladiator's Battlegear"]="35066,35067,35068,35069,35070",
 
-	["GearSet.PvP.Arena5.Tier 1.Death Knight.Savage Gladiator's Desecration"]	= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena5.Tier 1.Druid.Savage Gladiator's Refuge"]			= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena5.Tier 1.Druid.Savage Gladiator's Sanctuary"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena5.Tier 1.Druid.Savage Gladiator's Wildhide"]			= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena5.Tier 1.Hunter.Savage Gladiator's Pursuit"]			= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena5.Tier 1.Mage.Savage Gladiator's Regalia"]			= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena5.Tier 1.Paladin.Savage Gladiator's Redemption"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena5.Tier 1.Paladin.Savage Gladiator's Vindication"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena5.Tier 1.Priest.Savage Gladiator's Investiture"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena5.Tier 1.Priest.Savage Gladiator's Raiment"]			= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena5.Tier 1.Rogue.Savage Gladiator's Vestments"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena5.Tier 1.Shaman.Savage Gladiator's Earthshaker"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena5.Tier 1.Shaman.Savage Gladiator's Thunderfist"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena5.Tier 1.Shaman.Savage Gladiator's Wartide"]			= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena5.Tier 1.Warlock.Savage Gladiator's Felshroud"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena5.Tier 1.Warrior.Savage Gladiator's Battlegear"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
+	["GearSet.PvP.Arena5.Tier 1.Death Knight.Savage Gladiator's Desecration"]="40779,40799,40817,40837,40857",
+	["GearSet.PvP.Arena5.Tier 1.Druid.Savage Gladiator's Refuge"]="41268,41269,41270,41272,41271",
+	["GearSet.PvP.Arena5.Tier 1.Druid.Savage Gladiator's Sanctuary"]="41770,41675,41664,41658,41712",
+	["GearSet.PvP.Arena5.Tier 1.Druid.Savage Gladiator's Wildhide"]="41290,41324,41301,41313,41278",
+	["GearSet.PvP.Arena5.Tier 1.Hunter.Savage Gladiator's Pursuit"]="41084,41140,41154,41202,41214",
+	["GearSet.PvP.Arena5.Tier 1.Mage.Savage Gladiator's Regalia"]="41962,41943,41968,41949,41956",
+	["GearSet.PvP.Arena5.Tier 1.Paladin.Savage Gladiator's Redemption"]="40898,40918,40930,40936,40960",
+	["GearSet.PvP.Arena5.Tier 1.Paladin.Savage Gladiator's Vindication"]="40780,40798,40818,40838,40858",
+	["GearSet.PvP.Arena5.Tier 1.Priest.Savage Gladiator's Investiture"]="41847,41848,41849,41850,41851",
+	["GearSet.PvP.Arena5.Tier 1.Priest.Savage Gladiator's Raiment"]="41937,41912,41924,41930,41918",
+	["GearSet.PvP.Arena5.Tier 1.Rogue.Savage Gladiator's Vestments"]="41643,41644,41645,41646,41647",
+	["GearSet.PvP.Arena5.Tier 1.Shaman.Savage Gladiator's Earthshaker"]="41078,41134,41148,41160,41208",
+	["GearSet.PvP.Arena5.Tier 1.Shaman.Savage Gladiator's Thunderfist"]="40987,41004,41016,41030,41041",
+	["GearSet.PvP.Arena5.Tier 1.Shaman.Savage Gladiator's Wartide"]="40986,40998,41010,41023,41024",
+	["GearSet.PvP.Arena5.Tier 1.Warlock.Savage Gladiator's Felshroud"]="42008,41990,42014,41996,42002",
+	["GearSet.PvP.Arena5.Tier 1.Warrior.Savage Gladiator's Battlegear"]="40778,40797,40816,40836,40856",
 
-	["GearSet.PvP.Arena5.Tier 2.Death Knight.Hateful Gladiator's Desecration"]	= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena5.Tier 2.Druid.Hateful Gladiator's Refuge"]			= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena5.Tier 2.Druid.Hateful Gladiator's Sanctuary"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena5.Tier 2.Druid.Hateful Gladiator's Wildhide"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena5.Tier 2.Hunter.Hateful Gladiator's Pursuit"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena5.Tier 2.Mage.Hateful Gladiator's Regalia"]			= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena5.Tier 2.Paladin.Hateful Gladiator's Redemption"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena5.Tier 2.Paladin.Hateful Gladiator's Vindication"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena5.Tier 2.Priest.Hateful Gladiator's Investiture"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena5.Tier 2.Priest.Hateful Gladiator's Raiment"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena5.Tier 2.Rogue.Hateful Gladiator's Vestments"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena5.Tier 2.Shaman.Hateful Gladiator's Earthshaker"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena5.Tier 2.Shaman.Hateful Gladiator's Thunderfist"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena5.Tier 2.Shaman.Hateful Gladiator's Wartide"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena5.Tier 2.Warlock.Hateful Gladiator's Felshroud"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena5.Tier 2.Warrior.Hateful Gladiator's Battlegear"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
+	["GearSet.PvP.Arena5.Tier 2.Death Knight.Hateful Gladiator's Desecration"]="40781,40803,40820,40841,40860",
+	["GearSet.PvP.Arena5.Tier 2.Druid.Hateful Gladiator's Refuge"]="41273,41284,41296,41308,41319",
+	["GearSet.PvP.Arena5.Tier 2.Druid.Hateful Gladiator's Sanctuary"]="41659,41665,41676,41713,41771",
+	["GearSet.PvP.Arena5.Tier 2.Druid.Hateful Gladiator's Wildhide"]="41279,41291,41302,41314,41325",
+	["GearSet.PvP.Arena5.Tier 2.Hunter.Hateful Gladiator's Pursuit"]="41085,41141,41155,41203,41215",
+	["GearSet.PvP.Arena5.Tier 2.Mage.Hateful Gladiator's Regalia"]="41944,41950,41957,41963,41969",
+	["GearSet.PvP.Arena5.Tier 2.Paladin.Hateful Gladiator's Redemption"]="40904,40925,40931,40937,40961",
+	["GearSet.PvP.Arena5.Tier 2.Paladin.Hateful Gladiator's Vindication"]="40782,40802,40821,40842,40861",
+	["GearSet.PvP.Arena5.Tier 2.Priest.Hateful Gladiator's Investiture"]="41852,41857,41862,41867,41872",
+	["GearSet.PvP.Arena5.Tier 2.Priest.Hateful Gladiator's Raiment"]="41913,41919,41925,41931,41938",
+	["GearSet.PvP.Arena5.Tier 2.Rogue.Hateful Gladiator's Vestments"]="41648,41653,41670,41681,41765",
+	["GearSet.PvP.Arena5.Tier 2.Shaman.Hateful Gladiator's Earthshaker"]="41079,41135,41149,41162,41209",
+	["GearSet.PvP.Arena5.Tier 2.Shaman.Hateful Gladiator's Thunderfist"]="40989,41005,41017,41031,41042",
+	["GearSet.PvP.Arena5.Tier 2.Shaman.Hateful Gladiator's Wartide"]="40988,40999,41011,41025,41036",
+	["GearSet.PvP.Arena5.Tier 2.Warlock.Hateful Gladiator's Felshroud"]="41991,42001,42003,42009,42015",
+	["GearSet.PvP.Arena5.Tier 2.Warrior.Hateful Gladiator's Battlegear"]="40783,40801,40819,40840,40859",
 
-	["GearSet.PvP.Arena5.Tier 3.Death Knight.Deadly Gladiator's Desecration"]	= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena5.Tier 3.Druid.Deadly Gladiator's Refuge"]			= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena5.Tier 3.Druid.Deadly Gladiator's Sanctuary"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena5.Tier 3.Druid.Deadly Gladiator's Wildhide"]			= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena5.Tier 3.Hunter.Deadly Gladiator's Pursuit"]			= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena5.Tier 3.Mage.Deadly Gladiator's Regalia"]			= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena5.Tier 3.Paladin.Deadly Gladiator's Redemption"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena5.Tier 3.Paladin.Deadly Gladiator's Vindication"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena5.Tier 3.Priest.Deadly Gladiator's Investiture"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena5.Tier 3.Priest.Deadly Gladiator's Raiment"]			= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena5.Tier 3.Rogue.Deadly Gladiator's Vestments"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena5.Tier 3.Shaman.Deadly Gladiator's Earthshaker"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena5.Tier 3.Shaman.Deadly Gladiator's Thunderfist"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena5.Tier 3.Shaman.Deadly Gladiator's Wartide"]			= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena5.Tier 3.Warlock.Deadly Gladiator's Felshroud"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena5.Tier 3.Warrior.Deadly Gladiator's Battlegear"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
+	["GearSet.PvP.Arena5.Tier 3.Death Knight.Deadly Gladiator's Desecration"]="40784,40806,40824,40845,40863",
+	["GearSet.PvP.Arena5.Tier 3.Druid.Deadly Gladiator's Refuge"]="41274,41286,41297,41309,41320",
+	["GearSet.PvP.Arena5.Tier 3.Druid.Deadly Gladiator's Sanctuary"]="41660,41666,41677,41714,41772",
+	["GearSet.PvP.Arena5.Tier 3.Druid.Deadly Gladiator's Wildhide"]="41280,41292,41303,41315,41326",
+	["GearSet.PvP.Arena5.Tier 3.Hunter.Deadly Gladiator's Pursuit"]="41086,41142,41156,41204,41216",
+	["GearSet.PvP.Arena5.Tier 3.Mage.Deadly Gladiator's Regalia"]="41945,41951,41958,41964,41970",
+	["GearSet.PvP.Arena5.Tier 3.Paladin.Deadly Gladiator's Redemption"]="40905,40926,40932,40938,40962",
+	["GearSet.PvP.Arena5.Tier 3.Paladin.Deadly Gladiator's Vindication"]="40785,40805,40825,40846,40864",
+	["GearSet.PvP.Arena5.Tier 3.Priest.Deadly Gladiator's Investiture"]="41853,41858,41863,41868,41873",
+	["GearSet.PvP.Arena5.Tier 3.Priest.Deadly Gladiator's Raiment"]="41914,41920,41926,41933,41939",
+	["GearSet.PvP.Arena5.Tier 3.Rogue.Deadly Gladiator's Vestments"]="41649,41654,41671,41682,41766",
+	["GearSet.PvP.Arena5.Tier 3.Shaman.Deadly Gladiator's Earthshaker"]="41080,41136,41150,41198,41210",
+	["GearSet.PvP.Arena5.Tier 3.Shaman.Deadly Gladiator's Thunderfist"]="40991,41006,41018,41032,41043",
+	["GearSet.PvP.Arena5.Tier 3.Shaman.Deadly Gladiator's Wartide"]="40990,41000,41012,41026,41037",
+	["GearSet.PvP.Arena5.Tier 3.Warlock.Deadly Gladiator's Felshroud"]="41992,41997,42004,42010,42016",
+	["GearSet.PvP.Arena5.Tier 3.Warrior.Deadly Gladiator's Battlegear"]="40786,40804,40823,40844,40862",
 
-	["GearSet.PvP.Arena6.Death Knight.Furious Gladiator's Desecration"]		= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena6.Druid.Furious Gladiator's Refuge"]				= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena6.Druid.Furious Gladiator's Sanctuary"]			= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena6.Druid.Furious Gladiator's Wildhide"]			= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena6.Hunter.Furious Gladiator's Pursuit"]			= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena6.Mage.Furious Gladiator's Regalia"]				= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena6.Paladin.Furious Gladiator's Redemption"]			= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena6.Paladin.Furious Gladiator's Vindication"]			= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena6.Priest.Furious Gladiator's Investiture"]			= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena6.Priest.Furious Gladiator's Raiment"]			= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena6.Rogue.Furious Gladiator's Vestments"]			= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena6.Shaman.Furious Gladiator's Earthshaker"]			= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena6.Shaman.Furious Gladiator's Thunderfist"]			= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena6.Shaman.Furious Gladiator's Wartide"]			= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena6.Warlock.Furious Gladiator's Felshroud"]			= "31061,31064,31065,31067,31070,34434,34528,34563",
-	["GearSet.PvP.Arena6.Warrior.Furious Gladiator's Battlegear"]			= "31061,31064,31065,31067,31070,34434,34528,34563",
+	["GearSet.PvP.Arena6.Death Knight.Furious Gladiator's Desecration"]="40787,40809,40827,40848,40868",
+	["GearSet.PvP.Arena6.Druid.Furious Gladiator's Refuge"]="41275,41287,41298,41310,41321",
+	["GearSet.PvP.Arena6.Druid.Furious Gladiator's Sanctuary"]="41661,41667,41678,41715,41773",
+	["GearSet.PvP.Arena6.Druid.Furious Gladiator's Wildhide"]="41281,41293,41304,41316,41327",
+	["GearSet.PvP.Arena6.Hunter.Furious Gladiator's Pursuit"]="41087,41143,41157,41205,41217",
+	["GearSet.PvP.Arena6.Mage.Furious Gladiator's Regalia"]="41946,41953,41959,41965,41971",
+	["GearSet.PvP.Arena6.Paladin.Furious Gladiator's Redemption"]="40907,40927,40933,40939,40963",
+	["GearSet.PvP.Arena6.Paladin.Furious Gladiator's Vindication"]="40788,40808,40828,40849,40869",
+	["GearSet.PvP.Arena6.Priest.Furious Gladiator's Investiture"]="41854,41859,41864,41869,41874",
+	["GearSet.PvP.Arena6.Priest.Furious Gladiator's Raiment"]="41915,41921,41927,41934,41940",
+	["GearSet.PvP.Arena6.Rogue.Furious Gladiator's Vestments"]="41650,41655,41672,41683,41767",
+	["GearSet.PvP.Arena6.Shaman.Furious Gladiator's Earthshaker"]="41081,41137,41151,41199,41211",
+	["GearSet.PvP.Arena6.Shaman.Furious Gladiator's Thunderfist"]="40993,41007,41019,41033,41044",
+	["GearSet.PvP.Arena6.Shaman.Furious Gladiator's Wartide"]="40992,41001,41013,41027,41038",
+	["GearSet.PvP.Arena6.Warlock.Furious Gladiator's Felshroud"]="41993,41998,42005,42011,42017",
+	["GearSet.PvP.Arena6.Warrior.Furious Gladiator's Battlegear"]="40789,40807,40826,40847,40866",
 
 	["GearSet.PvP.Honor.Alliance.Druid.Grand Marshal's Refuge"]		= "31589,31590,31591,31592,31593",
 	["GearSet.PvP.Honor.Alliance.Druid.Grand Marshal's Sanctuary"]		= "28618,28619,28620,28622,28623",
@@ -1998,12 +1998,12 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["Misc.Minipet.Normal"]					= "4401,8485,8486,8487,8488,8489,8490,8491,8492,8494,8495,8496,8497,8498,8499,8500,8501,10360,10361,10392,10393,10394,10398,10822,11023,11026,11027,11110,11474,11825,11826,12264,12529,13582,13583,13584,15996,18964,19054,19055,19450,19462,20371,20769,21168,21277,21301,21305,21308,21309,22114,22200,22235,22781,23002,23007,23015,23083,23712,23713,25535,27445,29363,29364,29901,29902,29903,29904,29953,29956,29957,29958,29960,30360,31760,32233,32498,32588,32616,32617,32622,33154,33816,33818,33993,34425,34478,34492,34493,34518,34519,34535,34955,35227,35349,35350,35504,37297,37298,37460,38050,38628,38658,39286,39656,39896,39898,39899,39973,40653,41133,43698,44721,44723,44738,44794,44810,44819,44820,44822,44841,44965,44970,44971,44973,44974,44980,44982,44983,44984,44998,45002,45022,45057,45180,45606,45942,46396,46397,46398,46544,46545,46707,46767,46802,46820,46821,46831,48112,48114,48116,48118,48120,48122,48124,48126,49287,49343,49362,49646,49662,49663,49665,49693,49912,50446,53641,54436,54847,56806,63138,63355,63398,64403,64996,65355,65361,65362,65363,65364,65661,65662,66076,67128,67417,67418,68384,68385,68618,68619",
 	["Misc.Minipet.Snowball"]				= "21301,21305,21308,21309",--NOT AUTOGENNED
 	["Misc.Mount.Ahn'Qiraj"]				= "21218:100,21321:100,21323:100,21324:100,21176:100",--NOT AUTOGENNED
-	["Misc.Mount.Flying"]					= "25471:60,25470:60,25472:60,25475:60,25476:60,25474:60,33176:60,34060:60,35225:60,25473:280,25528:280,25529:280,25527:280,25531:280,25533:280,25477:280,25532:280,32857:280,32858:280,32859:280,32860:280,32861:280,32862:280,32314:280,32316:280,32317:280,32318:280,32319:280,33182:280,33999:280,34061:280,35226:280,32458:310,30609:310,37676:310", --NOT AUTOGENNED
+	["Misc.Mount.Flying"]					= "25471:60,25470:60,25472:60,25475:60,25476:60,25474:60,33176:60,34060:60,35225:60,25473:280,25528:280,25529:280,25527:280,25531:280,25533:280,25477:280,25532:280,32857:280,32858:280,32859:280,32860:280,32861:280,32862:280,32314:280,32316:280,32317:280,32318:280,32319:280,33182:280,33999:280,34061:280,35226:280,32458:310,30609:310,37676:310",--NOT AUTOGENNED
 	["Misc.Mount.Normal"]					= "33189:10,1132:60,2411:60,2414:60,5655:60,5656:60,5665:60,5668:60,5864:60,5872:60,5873:60,8588:60,8563:60,8591:60,8592:60,8595:60,8629:60,8631:60,8632:60,8653:60,13321:60,13322:60,13331:60,13332:60,13333:60,15277:60,15290:60,15292:60,28481:60,29743:60,29744:60,29220:60,29221:60,29222:60,28927:60,33183:60,33976:60,19902:100,8586:100,12302:100,12303:100,12330:100,12351:100,12353:100,12354:100,13086:100,13317:100,13326:100,13327:100,13328:100,13329:100,13334:100,13335:100,15293:100,18241:100,18242:100,18243:100,18244:100,18245:100,18246:100,18247:100,18248:100,18766:100,18767:100,18772:100,18773:100,18774:100,18776:100,18777:100,18778:100,18785:100,18786:100,18787:100,18788:100,18789:100,18790:100,18791:100,18793:100,18794:100,18795:100,18796:100,18797:100,18798:100,18902:100,19029:100,19030:100,19872:100,21176:100,29465:100,29466:100,29467:100,29468:100,29469:100,29470:100,29471:100,29472:100,29745:100,29746:100,29747:100,29223:100,29224:100,28936:100,29102:100,29103:100,29104:100,29105:100,29227:100,29228:100,29229:100,29230:100,28915:100,29231:100,30480:100,31830:100,31832:100,31834:100,31836:100,31829:100,31831:100,31833:100,31835:100,32768:100,33184:100,33225:100,33977:100,33809:100,34129:100,35513:100,35906:100,37719:100,37828:100",--NOT AUTOGENNED
 	["Misc.Openable"]						= "4632,4633,4634,4636,4637,4638,5335,5523,5524,5738,5758,5759,5760,6307,6351,6352,6353,6354,6355,6356,6357,6643,6645,6647,6715,6755,6827,7190,7209,7870,7973,8049,8366,8484,8647,9265,9276,9363,9539,9540,9541,10456,10479,10569,10695,10752,10773,10834,11024,11107,11422,11423,11568,11617,11883,11887,11912,11937,11938,11955,11966,12033,12122,12339,12849,13874,13875,13881,13891,13918,15102,15103,15699,15874,15876,15902,16783,16882,16883,16884,16885,17685,17726,17727,17962,17963,17964,17965,17969,18636,18804,19035,19150,19151,19152,19153,19154,19155,19296,19297,19298,19422,19425,20228,20229,20230,20231,20233,20236,20393,20469,20601,20602,20603,20708,20766,20767,20768,20805,20808,20809,21042,21113,21131,21132,21133,21150,21156,21162,21164,21191,21216,21228,21266,21270,21271,21310,21315,21327,21363,21386,21509,21510,21511,21512,21513,21528,21640,21740,21741,21742,21743,21746,21812,21975,21979,21980,21981,22137,22154,22155,22156,22157,22158,22159,22160,22161,22162,22163,22164,22165,22166,22167,22168,22169,22170,22171,22172,22178,22320,22568,22648,22649,22650,22746,23022,23846,23921,24336,24402,24476,25419,25422,25423,25424,27446,27481,27511,27513,29569,30260,30320,30650,31408,31522,31800,31952,31955,32064,32462,32624,32625,32626,32627,32628,32629,32630,32631,32724,32777,32835,33045,33844,33857,33926,33928,34077,34119,34426,34583,34584,34585,34587,34592,34593,34594,34595,34846,34863,34871,35232,35286,35313,35348,35512,35792,35945,36781,37168,37586,39418,39883,39903,39904,41426,41888,43346,43347,43504,43556,43575,43622,43624,44113,44142,44161,44163,44475,44663,44700,44718,44751,44943,44951,45072,45328,45724,45875,45878,45909,45986,46007,46110,46740,46809,46810,46812,49294,49631,49909,49926,50160,50161,50301,51316,51999,52000,52001,52002,52003,52004,52005,52006,52676,54516,54535,54536,54537,63349,65513,66943,67248,67250,67414,67443,68384",
 	["Misc.Spell.Mount.Ahn'Qiraj"]				= "-25953:100,-26056:100,-26054:100,-26055:100",--NOT AUTOGENNED
-	["Misc.Spell.Mount.Flying.Fast"]			= "-41514", --NOT AUTOGENNED
-	["Misc.Spell.Mount.Flying.Slow"]			= "-32239", --NOT AUTOGENNED
+	["Misc.Spell.Mount.Flying.Fast"]			= "-41514",--NOT AUTOGENNED
+	["Misc.Spell.Mount.Flying.Slow"]			= "-32239",--NOT AUTOGENNED
 	["Misc.Spell.Mount.Ground.Fast"]			= "-16081,-22718,-22721,-23509,-43688,-51412",--NOT AUTOGENNED
 	["Misc.Spell.Mount.Ground.Slow"]			= "-32420",--NOT AUTOGENNED
 
@@ -2062,13 +2062,13 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["Misc.Unlock.Seaforium Charges"]			= "4367:150,4398:250,18594:300,23819:350",--NOT AUTOGENNED
 	["Misc.Unlock.Skeleton Keys"]				= "15869:25,15870:125,15871:200,15872:300",--NOT AUTOGENNED
 
-	--NOT AUTOGENNED These are items you need to (right) click to use.  If it makes no sense in a button, it does not belong here.  BossItem: Tear's of the Goddess:Archimond's npcId.  Permanent: Vargoth's Staff, Pony Keg, etc. Quest: removed by Blizzard on quest completion. Replenished: dailies like booterang or others you can replenish like Halaa bombs.
+	--NOT AUTOGENNED These are items you need to (right) click to use.  If it makes no sense in a button,it does not belong here.  BossItem: Tear's of the Goddess:Archimond's npcId.  Permanent: Vargoth's Staff,Pony Keg,etc. Quest: removed by Blizzard on quest completion. Replenished: dailies like booterang or others you can replenish like Halaa bombs.
 	["Misc.Usable.BossItem"]				= "24494:17968,31088:21212,32408:22887,37815,37859,37860,49278",--NOT AUTOGENNED
 	["Misc.Usable.Permanent"]				= "7148,10684,11590,15846,18232,18587,18645,18660,19697,23821,24140,28111,34008,37829,40768,40769,40772,42546,46735",--NOT AUTOGENNED
-	["Misc.Usable.Quest"]					= "38701,37307,33472,33441,29445,33343,10687,43243,33072,38149,37381,36796,36738,37621,34692,28607,34915,38696,40587,9439,37198,35278,33627,35127,23792,29027,11132,37539,39041,39316,23361,45000,39158,34975,12815,37300,34870,30175,34127,34973,44460,9978,32915,23875,44476,42732,34779,36956,31668,32576,35272,30479,33311,29447,28547,31300,34026,41161,34772,38709,43564,37604,40946,29226,35479,29618,31739,40917,34111,31141,11948,44576,42479,40676,34082,34781,24355,29473,31373,38621,36859,43670,42246,37661,30527,33779,44461,24278,12928,46396,33346,33323,34027,44307,31763,31344,46693,31663,25555,43166,44479,33278,46893,15766,37881,28336,33614,31652,36787,6196,28038,36734,35907,30852,21829,34624,35943,34076,32741,24467,36779,41058,36827,25658,35734,30721,43315,23337,33340,24428,29443,29207,31517,24318,34711,33418,32315,34812,18904,31880,33339,34978,38332,37304,42441,38515,44478,44222,24084,31815,34811,24501,32602,37727,34979,31808,11953,35293,33796,36818,43214,33960,33335,31350,29778,29101,41505,38624,31403,33637,38467,28550,31463,35704,37888,28634,31825,37459,39206,33581,37923,39739,29324,35838,35850,39315,37071,29737,31088,6635,33618,15002,35690,31881,31610,29478,44304,21711,37306,30653,43608,11522,30672,34715,33091,44127,33108,44048,43524,44459,31121,33486,23417,41372,29818,38731,33095,32456,34083,31122,28962,12906,35230,38659,30561,37465,33088,23691,35671,35116,34710,35288,23749,23818,36873,39566,23268,39615,30854,35491,6636,37125,35688,39651,33563,41265,46106,23877,33341,32680,34420,12922,35837,33606,33819,28651,23654,33306,10690,25458,30704,38380,46362,30614,38083,34971,39747,40397,37187,34920,42733,23480,42442,13536,23995,40390,38510,35125,34913,30853,31828,36865,32917,33806,32834,45080,30818,19036,29795,12288,27479,22693,39695,16991,33113,34782,42480,35121,37063,30657,23680,34806,33554,35352,34024,39313,28725,41366,10688,34862,23358,39157,25889,37259,49655,5411,46954,31754,46397,18597,39165,31146,36835,46069,45083,45067,31108,44950,11914,38697,44818,33621,33336,34954,28292,6637,44802,44784,34669,44704,33310,36751,35813,44480,44477,32321,27317,29513,31495,32696,44433,44301,32919,34124,33344,37716,34691,32912,31769,33778,44251,24474,30742,30616,44246,23669,30462,36774,38564,44186,33282,44010,43968,42624,43494,34869,30353,41131,36834,34013,9442,34121,23788,32467,25465,24502,42424,39314,33780,43206,33342,33774,9437,31310,29429,43153,43059,33164,31606,42986,42928,42918,34871,34833,42894,28351,42837,38330,42781,34032,36936,30811,31678,42769,42679,42499,42481,42419,42164,36815,31347,25853,41615,41612,25771,41390,40731,38519,14644,41340,33119,23485,39572,41130,38622,18598,40730,40600,40551,43159,39737,43229,39697,39696,39645,30719,32698,41430,41179,39571,39700,39305,25552,39187,39164,31386,33129,39154,35224,41988,38689,38684,31360,37542,33450,38623,40970,42797,38607,38573,44212,38512,23751,38619,38324,16974,38302,37933,33349,37932,23394,38544,31128,31702,37887,44653,37577,24470,35281,37877,41431,30803,37708,37665,35739,17310,29817,31772,26002,37581,30756,29482,33634,12891,5456,37570,37568,15454,29018,38657,31129,37314,37445,42840,24560,37438,40686,39268,37287,33101,37202,32406,30850,21833,38323,24498,23876,28369,35944,37173,35792,33321,38627,33190,37045,37006,31518,7308,32446,36935,31810,36864,28452,36847,33477,41776,31346,12807,36786,33607,31809,30638,35908,36771,34598,36764,36747,34981,36732,32918,33615,23645,38676,35828,35797,39574,31807,37129,35736,30654,30652,35718,30847,35401,40971,32657,33098,34968,19183,28353,30651,10689,34830,28352,30656,24289,34599,34051,34023,44450,9319,33865,20387,22473,16114,36775,32920,29803,18752,31736,36777,30639,28132,34844,28106,32825,32503,29912,31946,25770,23693,31372,22259,46070,32960,30481,30094,43289,30618,737,5623,5621,10515,12346,5165,8066,43134,11567,44145,6286,11566,62022,62020,23896,44143,10792,55806,55185,53057,12368,52288,52287,5185,12350,52286,44165,50851,44157,44156,44155,4986,44146,6999,6913,43141,43139,43101,43094,37156,11563,34489,34368,4639,33852,33851,5810,23897,21143,12646,12534,12459,12458,12455,12451,52708,12323,12300,4702,12287,12286,11613,11564,11562,11320,11286,11147,11020,6626,3912,10757,10622,6928,10464,10338,6684,9323,9283,9253,9252,9251,4529,8155,8149,7464,7269,44144,34253,6931,10465,9364,10818,6436,6284,33837,5619,44154,8526,4472,3745,3710,3251,11565,6997,37143,7273,37140,12262,8051,43142,12347,49700,3080,23898,7131,7586,11079,12647,8683,5068,12450,12460,6866,12457,43147,4027,5218,43090,44147,49064,46781,56221,56250,49652,49202,46352,57177,52715,52014,49651,49629,45911,56247,55141,57185,46546,53464,49647,54217,54214,44975,53101,49240,56473,56188,45001,52576,58177,46856,55123,57179,49611,46789,46363,52013,53105,57172,49350,56835,58784,56222,55986,52032,55972,52833,56815,57117,52484,49176,49150,55158,56255,56018,54785,57409,49028,57920,57761,56009,49679,44868,58884,58860,49038,58856,54216,56813,58783,58502,58500,58254,58362,58253,46829,56808,58203,58200,58169,57138,58147,58112,57991,57412,46853,57183,57182,49014,57181,56048,49882,57178,56803,58165,52283,52065,49108,56814,46720,56809,56134,56801,56800,53052,46776,44888,56003,50031,46838,56572,56470,56263,55049,56207,49887,56184,56168,56081,56069,56024,52507,56016,52481,56011,56798,52280,46094,55883,55240,55211,55208,55171,46722,49368,54851,54746,54744,54608,54466,54456,58788,53120,56799,52854,52712,52682,56014,52271,57119,46739,51547,52043,52031,52017,50602,50465,50232,50128,56794,52853,44889,49948,52073,53104,44999,54840,49782,49701,48104,49685,48768,49539,44995,49144,56837,46389,58209,55050,46716,56821,45545,45065,52059,46777,44959,52044,50053,52683,55230,49743,67249",--NOT AUTOGENNED
+	["Misc.Usable.Quest"]					= "737,1352,3080,3251,3710,3745,3912,4027,4472,4529,4639,4702,4750,4754,4760,4762,4823,4956,4986,5021,5068,5165,5185,5218,5251,5411,5415,5416,5462,5475,5619,5621,5623,5638,5692,5693,5694,5695,5810,5845,5867,5880,6074,6284,6286,6436,6516,6544,6623,6626,6648,6649,6650,6684,6783,6866,6913,6928,6931,6988,6997,6999,7131,7207,7208,7247,7269,7273,7388,7464,7586,7667,7733,7740,7741,7766,7767,7768,7866,8051,8066,8149,8155,8526,8584,8683,9189,9241,9251,9252,9253,9263,9283,9319,9323,9328,9364,9466,9530,9606,9618,9619,9620,9621,10327,10338,10444,10445,10464,10465,10515,10622,10663,10699,10757,10792,10793,10794,10818,11020,11079,11085,11132,11141,11147,11148,11169,11170,11231,11243,11286,11320,11412,11445,11473,11522,11562,11563,11564,11565,11566,11567,11569,11570,11609,11613,11682,11804,11833,12262,12284,12286,12287,12300,12323,12346,12347,12350,12368,12450,12451,12455,12457,12458,12459,12460,12472,12534,12565,12566,12627,12646,12647,12722,12733,12785,12807,12815,12844,12848,12886,12887,12888,12891,12906,12922,12928,12942,13156,13180,13289,13536,13752,13892,14338,14523,14547,14644,15002,15042,15208,15209,15454,15688,15710,15736,15766,15826,15842,15844,15848,15874,15875,15877,15883,15908,15911,15913,15914,15915,15916,15917,15919,15920,15921,15922,15923,16114,16208,16308,16333,16603,16645,16646,16647,16648,16649,16650,16651,16652,16653,16654,16655,16656,16787,16972,16974,16991,17117,17122,17224,17310,17323,17324,17325,17333,17362,17363,17364,17384,17505,17506,17507,17626,17689,17693,17696,17731,17757,17761,17762,17763,17764,17765,18149,18150,18152,18153,18155,18156,18157,18158,18159,18258,18488,18539,18601,18626,18627,18629,18630,18659,18663,18670,18685,18688,18707,18746,18749,18752,18779,18780,18781,18782,18783,18784,18802,18904,19036,19227,19230,19231,19232,19233,19234,19235,19236,19258,19259,19260,19261,19262,19263,19264,19265,19268,19269,19270,19271,19272,19273,19274,19275,19276,19278,19279,19280,19281,19282,19283,19284,19707,19708,19709,19710,19711,19712,19713,19714,19715,19813,19814,19815,19816,19817,19818,19819,19820,19821,19850,19851,19858,19883,19931,19932,19974,20387,20389,20518,20526,20527,20528,20531,20532,20533,20535,20540,20542,20543,20544,20604,21041,21112,21136,21143,21144,21946,21984,21986,22046,22047,22048,22049,22050,22051,22052,22056,22057,22115,22151,22432,22473,22693,22726,22737,22754,22755,22796,22896,22955,22962,23191,23268,23337,23358,23394,23417,23480,23485,23566,23645,23654,23655,23659,23669,23674,23675,23680,23682,23691,23693,23697,23702,23703,23732,23735,23749,23751,23788,23792,23801,23818,23861,23875,23876,23877,23896,23897,23898,23934,23995,24099,24147,24148,24149,24157,24184,24221,24287,24318,24337,24428,24467,24470,24474,24498,24501,24502,24560,25458,25490,25509,25552,25555,25604,25648,25658,25684,25747,25748,25749,25750,25770,25771,25840,25889,26002,27479,28047,28048,28106,28209,28283,28336,28351,28352,28353,28369,28452,28455,28478,28547,28550,28607,28634,28651,28725,28786,28962,29018,29027,29101,29205,29206,29207,29226,29324,29429,29445,29447,29473,29478,29482,29513,29618,29737,29742,29778,29795,29803,29817,29818,29912,29952,30094,30175,30251,30259,30292,30353,30354,30416,30425,30462,30479,30481,30527,30530,30540,30561,30595,30614,30616,30618,30638,30639,30651,30652,30653,30654,30656,30657,30672,30688,30701,30704,30717,30742,30756,30803,30811,30818,30850,30852,30853,30854,30875,31108,31124,31128,31129,31141,31144,31146,31251,31300,31310,31316,31344,31347,31350,31360,31372,31373,31386,31403,31463,31524,31606,31610,31652,31655,31663,31664,31668,31678,31702,31736,31739,31742,31752,31754,31763,31769,31772,31807,31808,31809,31810,31811,31815,31825,31827,31828,31882,31883,31884,31885,31886,31887,31888,31889,31892,31893,31894,31895,31896,31898,31899,31900,31901,31902,31903,31904,31905,31906,31908,31909,31910,31911,31912,31913,31915,31916,31917,31918,31946,31994,32069,32244,32315,32321,32406,32446,32456,32467,32503,32542,32563,32618,32680,32696,32698,32741,32758,32825,32834,32907,32960,33001,33009,33044,33050,33061,33069,33070,33072,33082,33088,33091,33095,33098,33101,33108,33113,33119,33129,33164,33166,33190,33221,33238,33278,33282,33284,33290,33302,33306,33308,33310,33311,33321,33323,33335,33336,33339,33340,33341,33342,33343,33344,33346,33349,33352,33418,33441,33442,33450,33456,33472,33477,33486,33554,33563,33581,33606,33607,33613,33614,33615,33616,33618,33621,33627,33637,33774,33778,33779,33780,33796,33806,33819,33837,33851,33852,33960,34013,34023,34024,34026,34032,34051,34083,34111,34121,34124,34127,34161,34248,34253,34255,34257,34338,34368,34414,34420,34475,34477,34483,34489,34500,34533,34598,34620,34624,34669,34688,34691,34692,34710,34711,34715,34772,34779,34781,34806,34811,34812,34830,34833,34844,34862,34869,34870,34897,34908,34913,34915,34920,34954,34961,34962,34968,34971,34973,34975,34978,34979,34981,35116,35121,35125,35127,35224,35228,35230,35233,35237,35272,35278,35281,35288,35293,35352,35401,35479,35491,35506,35586,35688,35690,35704,35718,35734,35736,35739,35746,35797,35828,35837,35838,35850,35907,35908,35941,35943,35944,36726,36732,36734,36738,36745,36747,36751,36760,36763,36764,36771,36774,36775,36777,36779,36786,36787,36796,36815,36818,36827,36834,36835,36847,36849,36850,36851,36859,36864,36865,36873,36935,36936,36956,37006,37013,37045,37063,37071,37125,37129,37140,37143,37156,37157,37158,37173,37187,37202,37259,37287,37300,37304,37306,37307,37314,37358,37381,37438,37445,37459,37465,37539,37542,37568,37570,37576,37577,37621,37661,37665,37708,37716,37727,37877,37878,37881,37887,37923,37932,37933,38083,38149,38302,38317,38323,38324,38330,38332,38380,38467,38510,38512,38515,38519,38544,38556,38564,38566,38573,38574,38606,38607,38619,38621,38622,38623,38624,38627,38657,38659,38676,38684,38689,38696,38697,38699,38709,38731,39041,39154,39157,39158,39164,39187,39206,39238,39253,39265,39266,39268,39305,39313,39314,39315,39316,39434,39566,39571,39572,39574,39576,39577,39598,39599,39615,39645,39651,39664,39689,39693,39694,39695,39696,39697,39700,39737,39738,39739,39747,39748,40397,40551,40587,40600,40652,40676,40686,40730,40731,40732,40917,40945,40946,40970,40971,41058,41130,41131,41161,41179,41265,41340,41366,41372,41390,41430,41431,41505,41507,41612,41615,41776,41988,41989,42104,42105,42106,42107,42108,42164,42246,42419,42422,42424,42441,42442,42479,42480,42481,42499,42624,42679,42732,42733,42769,42774,42781,42797,42837,42839,42840,42894,42918,42922,42928,42975,42977,42978,42979,42980,42981,42982,42983,43006,43039,43059,43090,43094,43101,43134,43139,43141,43142,43147,43153,43159,43166,43206,43214,43229,43243,43289,43299,43315,43494,43524,43564,43608,43968,43985,44009,44010,44048,44127,44143,44144,44145,44146,44147,44154,44155,44156,44157,44165,44184,44185,44186,44212,44222,44246,44251,44260,44261,44262,44263,44264,44265,44266,44267,44268,44269,44270,44271,44272,44273,44274,44275,44277,44278,44279,44280,44281,44282,44284,44285,44286,44287,44288,44289,44290,44291,44292,44293,44301,44304,44307,44414,44433,44450,44459,44460,44461,44476,44477,44478,44479,44480,44576,44653,44704,44784,44802,44868,44888,44889,44890,44925,44950,44959,44967,44975,44986,44995,44999,45000,45001,45005,45023,45026,45028,45029,45030,45031,45032,45033,45034,45035,45036,45044,45046,45065,45070,45080,45083,45281,45478,45545,45568,45569,45571,45572,45598,45683,45710,45807,45902,45911,46094,46316,46352,46362,46363,46365,46367,46380,46382,46385,46388,46389,46392,46546,46693,46701,46702,46716,46719,46720,46722,46739,46776,46777,46781,46782,46785,46789,46829,46838,46847,46853,46856,46870,46885,46893,46895,46954,47006,47009,47029,47030,47033,47036,48104,48106,48110,48249,48665,48707,48768,48857,48943,48953,49014,49028,49038,49040,49042,49050,49064,49102,49108,49130,49132,49138,49144,49150,49176,49194,49199,49202,49219,49240,49350,49351,49352,49365,49368,49533,49539,49611,49629,49647,49651,49652,49655,49668,49669,49670,49679,49685,49700,49701,49723,49782,49865,49879,49880,49882,49887,49889,49920,49944,49948,50031,50053,50128,50130,50131,50134,50218,50220,50232,50237,50334,50382,50405,50408,50430,50441,50465,50602,50742,50746,50851,51547,51567,51956,52013,52014,52017,52031,52032,52043,52044,52059,52065,52073,52189,52202,52271,52272,52280,52283,52286,52287,52288,52345,52481,52484,52505,52507,52514,52541,52566,52576,52682,52683,52706,52707,52708,52709,52710,52712,52713,52715,52717,52819,52828,52833,52853,52854,53009,53052,53054,53057,53101,53104,53105,53107,53120,53464,53510,53637,53794,54214,54215,54216,54217,54456,54462,54463,54466,54608,54744,54746,54747,54785,54814,54821,54840,54851,55049,55050,55122,55123,55137,55141,55145,55152,55153,55158,55163,55165,55171,55173,55177,55179,55185,55188,55190,55200,55208,55211,55213,55220,55230,55238,55240,55806,55883,55966,55972,55986,55987,56003,56009,56011,56012,56014,56016,56018,56020,56024,56048,56069,56081,56134,56140,56168,56169,56178,56180,56184,56188,56207,56221,56222,56226,56227,56247,56250,56255,56263,56470,56473,56572,56576,56794,56798,56799,56800,56801,56803,56808,56809,56813,56814,56815,56821,56835,56837,57117,57119,57138,57172,57177,57178,57179,57180,57181,57182,57183,57185,57409,57412,57761,57920,57991,58112,58147,58165,58167,58169,58177,58200,58203,58209,58253,58254,58362,58365,58500,58502,58783,58784,58788,58856,58860,58884,58885,58895,58935,58949,58955,58958,58964,58965,58966,58967,59033,59226,59261,59363,59522,60206,60212,60266,60273,60374,60382,60384,60385,60387,60490,60502,60503,60753,60768,60773,60808,60809,60810,60815,60834,60835,60859,60861,60870,61033,61036,61038,61043,61283,61284,61309,61323,61334,61363,61367,61369,61374,61375,61379,61385,61511,61920,61928,61988,61989,61990,61991,61992,61993,61994,61995,61996,61997,61998,61999,62000,62001,62002,62003,62004,62005,62006,62007,62008,62009,62010,62011,62012,62013,62014,62015,62016,62017,62018,62019,62020,62022,62054,62057,62248,62315,62326,62379,62394,62397,62398,62412,62493,62495,62496,62503,62508,62517,62534,62541,62542,62548,62608,62610,62611,62775,62794,62813,62819,62823,62824,62825,62826,62829,62899,62912,62917,62920,62925,62926,63027,63031,63071,63079,63086,63092,63104,63126,63137,63139,63150,63284,63332,63350,63351,63356,63357,63383,63387,63390,63393,63395,63419,63426,63427,63428,63469,63508,63513,63514,63515,63517,63681,63699,64300,64301,64313,64341,64376,64416,64445,64471,64492,64583,64637,64660,64668,64669,64687,65146,65162,65514,65898,66060,66061,67232,67241,67247,67249,67537",--NOT AUTOGENNED
 	["Misc.Usable.Replenished"]				= "17202,44698,32907,33837,33851,33852,4384,11020,21212,21213,24429,24538,28452,32971,33096,33098,33929,33930,33931,33932,33933,34248,34253,34255,34257,34338,34368,34414,34475,34483,34489,34533,35233,34500,35228,35506,37576,38556,38566,38574,39213,39266,39577,39598,39599,39689,39693,39694,39748,41989,42104,42105,42106,42107,42108,42479,42769,42774,43101,43142,43147,43139,44986,45005,45046,45281,45902,46367,46380,46382,46870,46885,47006,47009,47029,47033,47036,49351,49352,49668,49669,49670,50130,50131,50851",--NOT AUTOGENNED
 	["Misc.Usable.Fun"]						= "1973,5507,5740,9312,9313,9314,9315,9317,9318,17712,18662,20397,20398,20399,20409,20410,20411,20413,20414,20557,21328,21519,21536,21557,21558,21559,21561,21562,21569,21571,21574,21576,21589,21590,21592,21593,21595,21713,21714,21716,21718,21744,21745,21747,21813,22200,22206,22218,22261,22728,23767,23768,23769,23770,23771,25886,28455,31666,32542,33079,33081,33226,33808,33927,34068,34191,34258,34480,34494,34497,34498,34499,34686,36862,36863,37431,37460,37710,37750,37816,37925,38506,39477,39769,41427,43352,43626,44114,44228,44430,44481,44482,44606,44731,44800,44812,44844,45011,45013,45014,45015,45016,45017,45018,45019,45020,45021,45037,45047,45061,45063,45073,45176,45177,45178,45179,45850,45851,45852,45853,45854,45984,46718,46725,46779,46780,46783,46831,46843,46861,46887,46888,49126,49040,50163",--NOT AUTOGENNED
-	["Misc.Usable.StartsQuest"]				= "1307,1357,1962,1972,2794,2839,2874,3317,3668,3706,3985,4056,4098,4433,4613,4614,4854,4881,4903,4926,5099,5102,5103,5138,5179,5352,5791,5877,6172,6196,6776,7666,8524,8623,8704,8705,9250,9254,9326,9370,10000,10441,10454,10589,10621,11116,11463,11668,11818,12558,12564,12771,12780,12842,13140,13250,13920,14646,14647,14648,14649,14650,14651,16303,16304,16305,16408,16782,16790,17126,18356,18357,18358,18359,18360,18361,18362,18363,18364,18628,18703,18706,18769,18770,18771,18969,18972,18987,19002,19003,19016,19018,19228,19257,19267,19277,19423,19424,19443,19452,19802,20310,20461,20483,20644,20741,20742,20765,20806,20807,20938,20939,20940,20941,20942,20943,20944,20945,20947,20948,20949,21165,21166,21167,21220,21221,21230,21245,21248,21249,21250,21251,21252,21253,21255,21256,21257,21258,21259,21260,21261,21262,21263,21264,21265,21379,21380,21381,21382,21384,21385,21514,21749,21750,21751,21776,22520,22597,22600,22601,22602,22603,22604,22605,22606,22607,22608,22609,22610,22611,22612,22613,22614,22615,22616,22617,22618,22620,22621,22622,22623,22624,22719,22723,22727,22888,22970,22972,22973,22974,22975,22977,23179,23180,23181,23182,23183,23184,23228,23249,23338,23580,23678,23759,23777,23797,23837,23850,23870,23890,23892,23900,23910,24132,24330,24367,24407,24414,24483,24484,24504,24558,24559,25459,28552,29233,29234,29235,29236,29476,29588,29590,29738,30431,30579,30756,31120,31239,31241,31345,31363,31384,31489,31707,31890,31891,31907,31914,32385,32386,32405,32523,32621,32726,33102,33114,33115,33289,33314,33345,33347,33961,33962,33978,34028,34091,34469,34777,34815,34984,35568,35569,35648,35723,36742,36744,36746,36756,36780,36855,36856,36940,36958,37163,37164,37432,37599,37736,37737,37830,37833,38280,38281,38321,38660,38673,39713,40666,41267,41556,42203,42772,43242,43297,43512,44148,44158,44259,44276,44294,44326,44569,44577,44725,45039,45506,45857,46004,46052,46053,46875,46876,46877,46878,46879,46880,46881,46882,46883,46884,46955,47246,48679,49205,49641,49643,49644,49676,50320,50379,50380,51315", -- AUTOGENNED
+	["Misc.Usable.StartsQuest"]				= "1307,1357,1962,1972,2794,2839,2874,3317,3668,3706,3985,4056,4098,4433,4613,4614,4854,4881,4903,4926,5099,5102,5103,5138,5179,5352,5791,5877,6172,6196,6776,7666,8524,8623,8704,8705,9250,9254,9326,9370,10000,10441,10454,10589,10621,11116,11463,11668,11818,12558,12564,12771,12780,12842,13140,13250,13920,14646,14647,14648,14649,14650,14651,16303,16304,16305,16408,16782,16790,17126,18356,18357,18358,18359,18360,18361,18362,18363,18364,18628,18703,18706,18769,18770,18771,18969,18972,18987,19002,19003,19016,19018,19228,19257,19267,19277,19423,19424,19443,19452,19802,20310,20461,20483,20644,20741,20742,20765,20806,20807,20938,20939,20940,20941,20942,20943,20944,20945,20947,20948,20949,21165,21166,21167,21220,21221,21230,21245,21248,21249,21250,21251,21252,21253,21255,21256,21257,21258,21259,21260,21261,21262,21263,21264,21265,21379,21380,21381,21382,21384,21385,21514,21749,21750,21751,21776,22520,22597,22600,22601,22602,22603,22604,22605,22606,22607,22608,22609,22610,22611,22612,22613,22614,22615,22616,22617,22618,22620,22621,22622,22623,22624,22719,22723,22727,22888,22970,22972,22973,22974,22975,22977,23179,23180,23181,23182,23183,23184,23228,23249,23338,23580,23678,23759,23777,23797,23837,23850,23870,23890,23892,23900,23910,24132,24330,24367,24407,24414,24483,24484,24504,24558,24559,25459,28552,29233,29234,29235,29236,29476,29588,29590,29738,30431,30579,30756,31120,31239,31241,31345,31363,31384,31489,31707,31890,31891,31907,31914,32385,32386,32405,32523,32621,32726,33102,33114,33115,33289,33314,33345,33347,33961,33962,33978,34028,34091,34469,34777,34815,34984,35568,35569,35648,35723,36742,36744,36746,36756,36780,36855,36856,36940,36958,37163,37164,37432,37599,37736,37737,37830,37833,38280,38281,38321,38660,38673,39713,40666,41267,41556,42203,42772,43242,43297,43512,44148,44158,44259,44276,44294,44326,44569,44577,44725,45039,45506,45857,46004,46052,46053,46875,46876,46877,46878,46879,46880,46881,46882,46883,46884,46955,47246,48679,49205,49641,49643,49644,49676,50320,50379,50380,51315",-- AUTOGENNED
 	["Misc.Usable.Target"]					= "43229",--NOT AUTOGENNED
 
 	["Misc.Reagent.Ammo.Arrow"]		= "37309:10,67440:24",
@@ -2089,7 +2089,7 @@ This file does not have valid lua syntax, because it should never be loaded dire
 
 --[[ Reputation
 	--NOT AUTOGENNED (ALL REP REWARDS)
-	-- 1:Hated, 2:Hostile, 3:Unfriendly, 4:Neutral, 5:Friendly, 6:Honored, 7:Revered, 8:Exalted, 9:Full Exalted
+	-- 1:Hated,2:Hostile,3:Unfriendly,4:Neutral,5:Friendly,6:Honored,7:Revered,8:Exalted,9:Full Exalted
 	["Reputation.Reward.Argent Crusade"]		= "41726:7,42187:8,43154:5,44139:6,44150:7,44214:7,44216:6,44239:6,44240:6,44244:7,44245:7,44247:7,44248:7,44283:8,44295:8,44296:8,44297:8",
 	["Reputation.Reward.Argent Dawn"]		= "18171:7,18182:8,18169:7,18170:7,18172:7,18173:7,13482:6,13810:7,13813:7,13724:5,19447:7,19446:6,19442:6,19216:6,19217:7,19328:6,19329:7,19203:6,19205:7",
 	["Reputation.Reward.Ashtongue Deathsworn"]	= "32490:8,32486:8,32488:8,32492:8,32493:8,32487:8,32485:8,32491:8,32489:8,32429:5,32430:5,32431:6,32447:6,32436:5,32435:5,32433:6,32434:6,32438:5,32440:5,32439:6,32437:6,32432:6,32442:5,32444:5,32443:6,32441:6",
