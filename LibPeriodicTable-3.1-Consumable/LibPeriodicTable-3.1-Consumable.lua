@@ -125,6 +125,10 @@ LibStub("LibPeriodicTable-3.1"):AddData("Consumable", gsub("$Rev$", "(%d+)", fun
 	-- This one food category is Autogenned. More may follow
 	["Consumable.Food.Edible.Combo.Conjured"]="65500:1494,65515:1992,65516:2934,65517:4200,34062:7200,43518:12840,43523:19200,65499:19200",
 
+	--This is here for backwards compatibility. Separate Food and Water (conjured) no longer exist
+	["Consumable.Food.Edible.Bread.Conjured"]="m,Consumable.Food.Edible.Combo.Conjured",
+	["Consumable.Water.Conjured"]="m,Consumable.Food.Edible.Combo.Conjured",
+
 	--NOT AUTOGENNED (All food.  I'd like to get this mined, but the filters for these items on allakhazam and wowhead are nonexistant.)
 	-- Basic foods regenerate health only.
 	-- Combo Foods regenerate hp & mana.  Please add Combo foods to the Combo Health and Combo Mana categories below as well.
