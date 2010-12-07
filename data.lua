@@ -161,6 +161,7 @@ This file does not have valid lua syntax,because it should never be loaded direc
 	["Consumable.Cooldown.Drums.Other"]					= "1127,1178,1191,1399,1434,2091,3456,4384,4388,4391,4395,4852,4941,5332,10646,10719,10830,11565,11566,13509,13514,15778,21325,23379,23841",--NOT AUTOGENNED
 
 	-- This one food category is Autogenned. More may follow
+	-- NOTE: Harvest Bread (id 19696, 2% health/sec) should be here too. How do we get that in the autogenned category?
 	["Consumable.Food.Edible.Combo.Conjured"]			= "65500:1494,65515:1992,65516:2934,65517:4200,34062:7200,43518:12840,43523:19200,65499:19200",
 
 	--This is here for backwards compatibility. Separate Food and Water (conjured) no longer exist
