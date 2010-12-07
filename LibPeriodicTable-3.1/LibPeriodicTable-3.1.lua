@@ -121,33 +121,27 @@ end
 
 function multisetiter(t)
 	local k,v
-	if iterpos then
-		-- We already have a position that we're at in the iteration, grab the next value up.
-		k,v = next(t[iternum],iterpos)
-	else
-		-- We havent yet touched this set, grab the first value.
-		k,v = next(t[iternum])
-	end
-	if k == "set" then
-		k,v = next(t[iternum], k)
-	end
-	if k then
-		-- There's an entry here, no need to move on to the next table yet.
-		iterpos = k
-		return k,v,t[iternum].set
-	else
-		-- No entry, time to check for a new table.
-		iternum = iternum + 1
-		if not t[iternum] then
-			return
+	repeat
+		if iterpos then
+			-- We already have a position that we're at in the iteration, grab the next value up.
+			k,v = next(t[iternum],iterpos)
+		else
+			-- We havent yet touched this set, grab the first value.
+			k,v = next(t[iternum])
 		end
-		k,v = next(t[iternum])
 		if k == "set" then
-			k,v = next(t[iternum],k)
+			k,v = next(t[iternum], k)
 		end
-		iterpos = k
-		return k,v,t[iternum].set
-	end
+		if k then
+			-- There's an entry here, no need to move on to the next table yet.
+			iterpos = k
+			return k,v,t[iternum].set
+		else
+			-- No entry, time to check for a new table.
+			iternum = iternum + 1
+			iterpos = nil
+		end
+	until not t[iternum]
 end
 
 do
@@ -232,6 +226,7 @@ cache = setmetatable({}, {
 		end
 	end
 })
+LPTcache = cache
 ---------------------------------------------
 --                  API                    --
 ---------------------------------------------
