@@ -68,7 +68,7 @@ end
 
 local sets
 
-local json = require"json"
+local json = require("json")
 json.register_constant("undefined", json.null)
 local url = require("socket.url")
 local httptime, httpcount = 0, 0
@@ -546,7 +546,7 @@ local Tradeskill_Tool_filters = {
 		--{cr=91,crs=81,crv=0}, -- Tool - Hollow Quill
 		{cr=91,crs=121,crv=0},-- Tool - Scribe Tools
 	},
---	Jewelcrafting = { -- TODO: missing on wowhead 08/11/27
+--	Jewelcrafting = { -- TODO: missing on wowhead 10/12/20
 --	},
 	Mining = {
 		{cr=91,crs=168,crv=0},-- Tool - Bladed Pickaxe
@@ -603,7 +603,7 @@ local Tradeskill_Recipe_categories = {
 	Enchanting = "9.8",
 	Fishing = "9.9",
 	Jewelcrafting = "9.10",
-	-- None for Inscription, yet
+	Inscription = "9.11",
 }
 
 local Tradeskill_Recipe_filters = {
@@ -616,42 +616,53 @@ local Tradeskill_Recipe_filters = {
 
 local Tradeskill_Gather_GemsInNodes_nodes = {
 	["Copper Vein"] = 1731,
+	["Incendicite Mineral Vein"] = 1610,
 	["Tin Vein"] = 1732,
+	["Lesser Bloodstone Deposit"] = 2653,
+	["Ooze Covered Silver Vein"] = 73940,
 	["Silver Vein"] = 1733,
 	["Iron Deposit"] = 1735,
+	["Indurium Mineral Vein"] = 19903,
 	["Gold Vein"] = 1734,
+	["Ooze Covered Gold Vein"] = 73941,
 	["Mithril Deposit"] = 2040,
-	["Dark Iron Deposit"] = 165658,
+	["Ooze Covered Mithril Deposit"] = 123310,
+	["Ooze Covered Truesilver Deposit"] = 123309,
 	["Truesilver Deposit"] = 2047,
+	["Dark Iron Deposit"] = 165658,
+	["Ooze Covered Thorium Vein"] = 123848,
 	["Small Thorium Vein"] = 324,
-	["Hakkari Thorium Vein"] = 180215,
+	["Ooze Covered Rich Thorium Vein"] = 177388,
 	["Rich Thorium Vein"] = 175404,
 	["Fel Iron Deposit"] = 181555,
+	["Nethercite Deposit"] = 185877,
+	["Large Obsidian Chunk"] = 181069,
+	["Small Obsidian Chunk"] = 181068,
 	["Adamantite Deposit"] = 181556,
+	["Cobalt Deposit"] = 189978,
 	["Rich Adamantite Deposit"] = 181569,
+	["Ancient Gem Vein"] = 185557,
 	["Khorium Vein"] = 181557,
-	["Cobalt Node"] = 189978,
-	["Rich Cobalt Node"] = 189979,
-	["Saronite Node"] = 189980,
-	["Rich Saronite Node"] = 189981,
-	["Titanium Node"] = 191133,
+	["Rich Cobalt Deposit"] = 189979,
+	["Saronite Deposit"] = 189980,
+	["Obsidium Deposit"] = 202736,
+	["Rich Saronite Deposit"] = 189981,
+	["Pure Saronite Deposit"] = 195036,
+	["Rich Obsidium Deposit"] = 202739,
+	["Titanium Vein"] = 191133,
+	["Elementium Vein"] = 202738,
+	["Rich Elementium Vein"] = 202741,
+	["Pyrite Deposit"] = 202737,
+	["Rich Pyrite Deposit"] = 202740,
 }
 
 local Tradeskill_Profession_filters = {
-	["Blacksmithing.Basic"] = {cr=5,crs=2,crv=0},
 	["Engineering.Basic"] = {cr=5,crs=2,crv=0},
-	["Leatherworking.Basic"] = {cr=5,crs=2,crv=0},
-	["Tailoring.Basic"] = {cr=5,crs=2,crv=0},
 }
 
 local Tradeskill_Profession_categories = {
 	Alchemy = "11.171",
-	["Blacksmithing.Basic"] = "11.164",
-	["Blacksmithing.Armorsmith"] = "11.164.9788",
-	["Blacksmithing.Weaponsmith.Axesmith"] = "11.164.17041",
-	["Blacksmithing.Weaponsmith.Hammersmith"] = "11.164.17040",
-	["Blacksmithing.Weaponsmith.Swordsmith"] = "11.164.17039",
-	["Blacksmithing.Weaponsmith.Basic"] = "11.164.9787",
+	Blacksmithing = "11.164",
 	Cooking = "9.185",
 	Enchanting = "11.333",
 	["Engineering.Basic"] = "11.202",
@@ -660,16 +671,9 @@ local Tradeskill_Profession_categories = {
 	["First Aid"] = "9.129",
 	Inscription = "11.773",
 	Jewelcrafting = "11.755",
-	["Leatherworking.Basic"] = "11.165",
-	["Leatherworking.Dragonscale"] = "11.165.10656",
-	["Leatherworking.Elemental"] = "11.165.10658",
-	["Leatherworking.Tribal"] = "11.165.10660",
+	Leatherworking = "11.165",
 	Smelting = "11.186",
-	["Tailoring.Basic"] = "11.197",
-	["Tailoring.Mooncloth"] = "11.197.26798",
-	["Tailoring.Shadoweave"] = "11.197.26801",
-	["Tailoring.Spellfire"] = "11.197.26797",
-	Poisons = "7.4.40",
+	Tailoring = "11.197",
 }
 
 
@@ -779,6 +783,124 @@ local GearSets_fixedids = {
 	["Gladiator's Vindication"] = 583,
 	["Gladiator's Wartide"] = 686,
 	["Gladiator's Wildhide"] = 585,
+
+-- T9
+	["Conqueror's Garona's Battlegear"] = 858,
+	["Conqueror's Gul'dan's Regalia"] = 845,
+	["Conqueror's Hellscream's Battlegear"] = 868,
+	["Conqueror's Hellscream's Plate"] = 870,
+	["Conqueror's Kel'Thuzad's Regalia"] = 846,
+	["Conqueror's Khadgar's Regalia"] = 843,
+	["Conqueror's Koltira's Battlegear"] = 872,
+	["Conqueror's Koltira's Plate"] = 874,
+	["Conqueror's Liadrin's Battlegear"] = 878,
+	["Conqueror's Liadrin's Garb"] = 876,
+	["Conqueror's Liadrin's Plate"] = 880,
+	["Conqueror's Malfurion's Battlegear"] = 855,
+	["Conqueror's Malfurion's Garb"] = 851,
+	["Conqueror's Malfurion's Regalia"] = 853,
+	["Conqueror's Nobundo's Battlegear"] = 865,
+	["Conqueror's Nobundo's Garb"] = 861,
+	["Conqueror's Nobundo's Regalia"] = 864,
+	["Conqueror's Runetotem's Battlegear"] = 856,
+	["Conqueror's Runetotem's Garb"] = 852,
+	["Conqueror's Runetotem's Regalia"] = 854,
+	["Conqueror's Sunstrider's Regalia"] = 844,
+	["Conqueror's Thassarian's Battlegear"] = 871,
+	["Conqueror's Thassarian's Plate"] = 873,
+	["Conqueror's Thrall's Battlegear"] = 866,
+	["Conqueror's Thrall's Garb"] = 862,
+	["Conqueror's Thrall's Regalia"] = 863,
+	["Conqueror's Turalyon's Battlegear"] = 877,
+	["Conqueror's Turalyon's Garb"] = 875,
+	["Conqueror's Turalyon's Plate"] = 879,
+	["Conqueror's VanCleef's Battlegear"] = 857,
+	["Conqueror's Velen's Raiment"] = 847,
+	["Conqueror's Velen's Regalia"] = 849,
+	["Conqueror's Windrunner's Battlegear"] = 859,
+	["Conqueror's Windrunner's Pursuit"] = 860,
+	["Conqueror's Wrynn's Battlegear"] = 867,
+	["Conqueror's Wrynn's Plate"] = 869,
+	["Conqueror's Zabra's Raiment"] = 848,
+	["Conqueror's Zabra's Regalia"] = 850,
+	["Triumphant Garona's Battlegear"] = {["245"] = -151, ["258"] = -189},
+	["Triumphant Gul'dan's Regalia"] = {["245"] = -138, ["258"] = -176},
+	["Triumphant Hellscream's Battlegear"] = {["245"] = -161, ["258"] = -199},
+	["Triumphant Hellscream's Plate"] = {["245"] = -163, ["258"] = -201},
+	["Triumphant Kel'Thuzad's Regalia"] = {["245"] = -139, ["258"] = -177},
+	["Triumphant Khadgar's Regalia"] = {["245"] = -136, ["258"] = -174},
+	["Triumphant Koltira's Battlegear"] = {["245"] = -165, ["258"] = -203},
+	["Triumphant Koltira's Plate"] = {["245"] = -167, ["258"] = -205},
+	["Triumphant Liadrin's Battlegear"] = {["245"] = -171, ["258"] = -209},
+	["Triumphant Liadrin's Garb"] = {["245"] = -169, ["258"] = -207},
+	["Triumphant Liadrin's Plate"] = {["245"] = -173, ["258"] = -211},
+	["Triumphant Malfurion's Battlegear"] = {["245"] = -148, ["258"] = -186},
+	["Triumphant Malfurion's Garb"] = {["245"] = -144, ["258"] = -182},
+	["Triumphant Malfurion's Regalia"] = {["245"] = -146, ["258"] = -184},
+	["Triumphant Nobundo's Battlegear"] = {["245"] = -158, ["258"] = -196},
+	["Triumphant Nobundo's Garb"] = {["245"] = -154, ["258"] = -192},
+	["Triumphant Nobundo's Regalia"] = {["245"] = -157, ["258"] = -195},
+	["Triumphant Runetotem's Battlegear"] = {["245"] = -149, ["258"] = -187},
+	["Triumphant Runetotem's Garb"] = {["245"] = -145, ["258"] = -183},
+	["Triumphant Runetotem's Regalia"] = {["245"] = -147, ["258"] = -185},
+	["Triumphant Sunstrider's Regalia"] = {["245"] = -137, ["258"] = -175},
+	["Triumphant Thassarian's Battlegear"] = {["245"] = -164, ["258"] = -202},
+	["Triumphant Thassarian's Plate"] = {["245"] = -166, ["258"] = -204},
+	["Triumphant Thrall's Battlegear"] = {["245"] = -159, ["258"] = -197},
+	["Triumphant Thrall's Garb"] = {["245"] = -155, ["258"] = -193},
+	["Triumphant Thrall's Regalia"] = {["245"] = -156, ["258"] = -194},
+	["Triumphant Turalyon's Battlegear"] = {["245"] = -170, ["258"] = -208},
+	["Triumphant Turalyon's Garb"] = {["245"] = -168, ["258"] = -206},
+	["Triumphant Turalyon's Plate"] = {["245"] = -172, ["258"] = -210},
+	["Triumphant VanCleef's Battlegear"] = {["245"] = -150, ["258"] = -188},
+	["Triumphant Velen's Raiment"] = {["245"] = -140, ["258"] = -178},
+	["Triumphant Velen's Regalia"] = {["245"] = -142, ["258"] = -180},
+	["Triumphant Windrunner's Battlegear"] = {["245"] = -152, ["258"] = -190},
+	["Triumphant Windrunner's Pursuit"] = {["245"] = -153, ["258"] = -191},
+	["Triumphant Wrynn's Battlegear"] = {["245"] = -160, ["258"] = -198},
+	["Triumphant Wrynn's Plate"] = {["245"] = -162, ["258"] = -200},
+	["Triumphant Zabra's Raiment"] = {["245"] = -141, ["258"] = -179},
+	["Triumphant Zabra's Regalia"] = {["245"] = -143, ["258"] = -181},
+
+-- T10
+	["Ahn'Kahar Blood Hunter's Battlegear"] = 891,
+	["Bloodmage's Regalia"] = 883,
+	["Crimson Acolyte's Raiment"] = 885,
+	["Crimson Acolyte's Regalia"] = 886,
+	["Dark Coven's Regalia"] = 884,
+	["Frost Witch's Battlegear"] = 894,
+	["Frost Witch's Garb"] = 892,
+	["Frost Witch's Regalia"] = 893,
+	["Lasherweave Battlegear"] = 889,
+	["Lasherweave Garb"] = 887,
+	["Lasherweave Regalia"] = 888,
+	["Lightsworn Battlegear"] = 900,
+	["Lightsworn Garb"] = 899,
+	["Lightsworn Plate"] = 901,
+	["Scourgelord's Battlegear"] = 897,
+	["Scourgelord's Plate"] = 898,
+	["Shadowblade's Battlegear"] = 890,
+	["Ymirjar Lord's Battlegear"] = 895,
+	["Ymirjar Lord's Plate"] = 896,
+	["Sanctified Ahn'Kahar Blood Hunter's Battlegear"] = {["264"] = -236, ["277"] = -255},
+	["Sanctified Bloodmage's Regalia"] = {["264"] = -228, ["277"] = -247},
+	["Sanctified Crimson Acolyte's Raiment"] = {["264"] = -230, ["277"] = -249},
+	["Sanctified Crimson Acolyte's Regalia"] = {["264"] = -231, ["277"] = -250},
+	["Sanctified Dark Coven's Regalia"] = {["264"] = -229, ["277"] = -248},
+	["Sanctified Frost Witch's Battlegear"] = {["264"] = -239, ["277"] = -258},
+	["Sanctified Frost Witch's Garb"] = {["264"] = -237, ["277"] = -256},
+	["Sanctified Frost Witch's Regalia"] = {["264"] = -238, ["277"] = -257},
+	["Sanctified Lasherweave Battlegear"] = {["264"] = -234, ["277"] = -253},
+	["Sanctified Lasherweave Garb"] = {["264"] = -232, ["277"] = -251},
+	["Sanctified Lasherweave Regalia"] = {["264"] = -233, ["277"] = -252},
+	["Sanctified Lightsworn Battlegear"] = {["264"] = -245, ["277"] = -264},
+	["Sanctified Lightsworn Garb"] = {["264"] = -244, ["277"] = -263},
+	["Sanctified Lightsworn Plate"] = {["264"] = -246, ["277"] = -265},
+	["Sanctified Scourgelord's Battlegear"] = {["264"] = -242, ["277"] = -261},
+	["Sanctified Scourgelord's Plate"] = {["264"] = -243, ["277"] = -262},
+	["Sanctified Shadowblade's Battlegear"] = {["264"] = -235, ["277"] = -254},
+	["Sanctified Ymirjar Lord's Battlegear"] = {["264"] = -240, ["277"] = -259},
+	["Sanctified Ymirjar Lord's Plate"] = {["264"] = -241, ["277"] = -260},
 }
 
 local Currency_Items = {
@@ -833,7 +955,10 @@ local Tradeskill_Gem_Cut_level_filters = {
 	{minle=71,maxle=80,qu=2},
 	{minle=71,maxle=80,qu=3},
 	{minle=71,maxle=80,qu=4},
-	{minle=81},
+	{minle=81,maxle=85,qu=2},
+	{minle=81,maxle=85,qu=3},
+	{minle=81,maxle=85,qu=4},
+	{minle=86},
 }
 
 local Tradeskill_Gem_Color_categories = {
@@ -844,8 +969,10 @@ local Tradeskill_Gem_Color_categories = {
 	Green = "3.4",
 	Orange = "3.5",
 	Meta = "3.6",
-	-- Simple = "3.7",
-	Prismatic = "3.8"
+	Simple = "3.7",
+	Prismatic = "3.8",
+	Hydraulic = "3.9",
+	Cogwheel = "3.10",
 }
 
 local Consumable_Bandage_filters = {
@@ -1085,6 +1212,10 @@ handlers["^GearSet"] = function (set, data)
 	local setname = set:match("%.([^%.]+)$")
 	if GearSets_fixedids[setname] then
 		id = GearSets_fixedids[setname]
+		if type(id) == "table" then -- support for heroic versions of sets based on ilevel
+			local ilevel = set:match("%.Tier %d+%.(%d+)%.")
+			id = id[ilevel]
+		end
 	elseif set:find(".Gray.") then
 	-- these aren't real sets so they can't be auto-mined
 		return nil
@@ -1334,8 +1465,15 @@ handlers["^Tradeskill%.Crafted"] = function (set, data)
 			end
 			newrecipemats = newrecipemats:sub(1,-2)
 			local levels = {}
-			for k,v in ipairs(item.colors) do
-				levels[k] = v == 0 and "-" or tostring(v)
+			if not item.colors then
+				levels[1] = "?"
+				levels[2] = "?"
+				levels[3] = "?"
+				levels[4] = "?"
+			else
+				for k,v in ipairs(item.colors) do
+					levels[k] = v == 0 and "-" or tostring(v)
+				end
 			end
 			fp_set[#fp_set + 1] = newrecipemats
 			lp_set[#lp_set + 1] = "-"..spellid..":"..itemid
@@ -1367,15 +1505,15 @@ handlers["^Tradeskill%.Crafted"] = function (set, data)
 	return table.concat(newset, ",")
 end
 
-handlers["^Tradeskill%.Gather"] = function (set, data)
+handlers["^Tradeskill%.Gather%."] = function (set, data)
 	local count = 0
 	if set:match("^Tradeskill%.Gather%.GemsInNodes") then
 		local nodetype = set:match("%.([^%.]+)$")
 		local id = Tradeskill_Gather_GemsInNodes_nodes[nodetype]
 		if not id then return end
 		return basic_listview_handler(WH("object", id), function(item)
-			if item.classs == "3" then return item.id end
-		end)
+			if item.classs == 3 then return item.id end
+		end, "mining")
 	else
 		local gathertype = set:match("%.([^%.]+)$")
 		local filter = Tradeskill_Gather_filter_values[gathertype]
@@ -1383,7 +1521,7 @@ handlers["^Tradeskill%.Gather"] = function (set, data)
 	end
 end
 
-handlers["^Tradeskill%.Gem"] = function (set, data)
+handlers["^Tradeskill%.Gem%."] = function (set, data)
 	local color = set:match("%.([^%.]+)$")
 	if color == "Cut" then
 		local newset = {}
@@ -1400,7 +1538,7 @@ handlers["^Tradeskill%.Gem"] = function (set, data)
 				end
 			end, 'created-by')
 		end
-		local filter = {cr=81,crs=5,crv=0}
+		local filter = {cr=81,crs=7,crv=0}
 		for _, entry in ipairs(Tradeskill_Gem_Cut_level_filters) do
 			filter.minle = entry.minle
 			filter.maxle = entry.maxle
@@ -1443,7 +1581,7 @@ handlers["^Tradeskill%.Recipe%."] = function (set, data)
 	local count = 0
 	local profession, src = set:match("^Tradeskill%.Recipe%.([^%.]+)%.(.+)$")
 	profession = Tradeskill_Recipe_categories[profession]
-	filter = Tradeskill_Recipe_filters[filter]
+	filter = Tradeskill_Recipe_filters[src]
 	if not profession or not filter then return end
 
 	return basic_listview_handler(WH("items", profession, filter),
