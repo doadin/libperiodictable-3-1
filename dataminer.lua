@@ -1296,12 +1296,13 @@ handlers["^Misc%.Reagent%.Ammo"] = function (set, data)
 	return newset
 end
 
-handlers["^Misc%.Usable%.StartsQuest$"] = function (set, data)
-	local newset = {}
-	multiple_qualities_listview_handler("items", nil, {cr=6,crs=1,crv=0}, newset, "rl")
-	table.sort(newset, sortSet)
-	return table.concat(newset, ",")
-end
+-- Misses way too much stuff
+--handlers["^Misc%.Usable%.StartsQuest$"] = function (set, data)
+--	local newset = {}
+--	multiple_qualities_listview_handler("items", nil, {cr=6,crs=1,crv=0}, newset, "rl")
+--	table.sort(newset, sortSet)
+--	return table.concat(newset, ",")
+--end
 
 handlers["^Tradeskill%.Crafted"] = function (set, data)
 	local profession = set:match("^Tradeskill%.Crafted%.(.+)$")
