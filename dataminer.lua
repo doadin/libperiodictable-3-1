@@ -746,14 +746,6 @@ local Gear_level_filters = {
 	{minrl=80,maxrl=80},
 }
 
-local Gear_Vendor = {
-	["Badge of Justice"] = {
-		id = 29434,
-		["G'eras"] = 18525,
-		["Smith Hauthaa"] = 25046,
-	},
-}
-
 local GearSets_fixedids = {
 	["Battlegear of Undead Slaying"] = 533,
 	["Blessed Battlegear of Undead Slaying"] = 784,
@@ -904,47 +896,55 @@ local GearSets_fixedids = {
 }
 
 local Currency_Items = {
-	["Alterac Valley Mark of Honor"] = 20560,
 	["Apexis Crystal"] = 32572,
 	["Apexis Shard"] = 32569,
-	["Arathi Basin Mark of Honor"] = 20559,
 	["Arcane Rune"] = 29736,
-	["Arctic Fur"] = 44128,
---	["Arena Points"] = 43307,
-	["Badge of Justice"] = 29434,
-	["Brewfest Prize Token"] = 37829,
-	["Burning Blossom"] = 23247,
-	["Champion's Seal"] = 44990,
+	["Champion's Seal"] = -241,
 	["Coilfang Armaments"] = 24368,
-	["Coin of Ancestry"] = 21100,
-	["Dalaran Cooking Award"] = 43016,
-	["Dalaran Jewelcrafter's Token"] = 41596,
-	["Dream Shard"] = 34052,
-	["Emblem of Frost"] = 49426,
-	["Emblem of Conquest"] = 45624,
-	["Emblem of Heroism"] = 40752,
-	["Emblem of Triumph"] = 47241,
-	["Emblem of Valor"] = 40753,
+	["Conquest Points"] = -390,
 	["Glowcap"] = 24245,
 	["Halaa Battle Token"] = 26045,
 	["Halaa Research Token"] = 26044,
 	["Heavy Borean Leather"] = 38425,
 	["Holy Dust"] = 29735,
---	["Honor Points"] = 43308,
-	["Isle of Conquest Mark of Honor"] = 47395,
+	["Honor Points"] = -392,
+	["Justice Points"] = -395,
 	["Mark of Honor Hold"] = 24579,
 	["Mark of the Illidari"] = 32897,
 	["Mark of Thrallmar"] = 24581,
-	["Necrotic Rune"] = 22484,
-	["Noblegarden Chocolate"] = 44791,
+--	["Necrotic Rune"] = 22484,
 	["Spirit Shard"] = 28558,
-	["Stone Keeper's Shard"] = 43228,
-	["Strand of the Ancients Mark of Honor"] = 42425,
 	["Sunmote"] = 34664,
-	["Venture Coin"] = 37836,
-	["Warsong Gulch Mark of Honor"] = 20558,
+	["Tol Barad Commendation"] = -391,
+	["Valor Points"] = -396,
 	["Winterfin Clam"] = 34597,
-	["Wintergrasp Mark of Honor"] = 43589,
+
+-- PROFESSIONS
+--   Blacksmithing
+	["Elementium Bar"] = 52186,
+	["Hardened Elementium Bar"] = 53039,
+	["Pyrium Bar"] = 51950,
+--   Cooking
+	["Dalaran Cooking Award"] = -81,
+	["Chef's Award"] = -402,
+--   Enchanting
+	["Dream Shard"] = 34052,
+	["Abyss Crystal"] = 34057,
+	["Heavenly Shard"] = 52721,
+	["Maelstrom Crystal"] = 52722,
+--   Jewelcrafting
+	["Dalaran Jewelcrafter's Token"] = -61,
+	["Illustrious Jewelcrafter's Token"] = -361,
+--   Leatherworking
+	["Heavy Borean Leather"] = 38425,
+	["Arctic Fur"] = 44128,
+	["Heavy Savage Leather"] = 56516,
+
+-- SEASONAL
+--	["Brewfest Prize Token"] = 37829,
+--	["Burning Blossom"] = 23247,
+--	["Coin of Ancestry"] = 21100,
+--	["Noblegarden Chocolate"] = 44791,
 }
 
 local Tradeskill_Gem_Cut_level_filters = {
@@ -1148,18 +1148,31 @@ handlers["^CurrencyItems"] = function (set, data)
 	local currency = set:match("^CurrencyItems%.([^%.]+)")
 	if not Currency_Items[currency] then return end
 	local currency_id = assert(Currency_Items[currency])
-	return basic_listview_handler(WH("item", currency_id), function (item)
-
-		local count
-		for _, v in ipairs(item.cost[4]) do
-			if v[1] == currency_id then
-				count = v[2]
-				break
+	if currency_id > 0 then
+		return basic_listview_handler(WH("item", currency_id), function (item)
+			local count
+			for _, v in ipairs(item.cost[3]) do
+				if v[1] == currency_id then
+					count = v[2]
+					break
+				end
 			end
-		end
-		if not count then print(itemstr) end
-		return item.id..":"..count
-	end, "currency-for")
+			if not count then print(itemstr) end
+			return item.id..":"..count
+		end, "currency-for")
+	else
+		return basic_listview_handler(WH("currency", -currency_id), function (item)
+			local count
+			for _, v in ipairs(item.cost[2]) do
+				if v[1] == -currency_id then
+					count = v[2]
+					break
+				end
+			end
+			if not count then print(itemstr) end
+			return item.id..":"..count
+		end, "items")
+	end
 end
 
 
@@ -1187,24 +1200,6 @@ handlers["^Gear%.Trinket$"] = function (set, data)
 	table.sort(newset, sortSet)
 	print("Trinkets Total:", # newset)
 	return table.concat(newset, ",")
-end
-
-handlers["^Gear%.Vendor"] = function (set, data)
-	local currency, vendor = set:match("^Gear%.Vendor%.(.+)%.(.+)$")
-	local currency_id, vendor_id = assert(Gear_Vendor[currency].id), assert(Gear_Vendor[currency][vendor])
-	return basic_listview_handler(WH("npc", vendor_id), function (item)
-		local class = item.classs
-		local count
-		for i, v in ipairs(item.cost) do
-			if v == currency_id then
-				count = item.cost[i + 1]
-				break
-			end
-		end
-		if count and (class == 2 or class == 4) then
-			return item.id..":"..count
-		end
-	end, "sells")
 end
 
 handlers["^GearSet"] = function (set, data)
