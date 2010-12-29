@@ -930,6 +930,7 @@ local Currency_Items = {
 --   Enchanting
 	["Dream Shard"] = 34052,
 	["Abyss Crystal"] = 34057,
+	["Hypnotic Dust"] = 52555,
 	["Heavenly Shard"] = 52721,
 	["Maelstrom Crystal"] = 52722,
 --   Jewelcrafting
@@ -939,6 +940,9 @@ local Currency_Items = {
 	["Heavy Borean Leather"] = 38425,
 	["Arctic Fur"] = 44128,
 	["Heavy Savage Leather"] = 56516,
+--   Tailoring
+	["Bolt of Embersilk Cloth"] = 53643,
+	["Dreamcloth"] = 54440,
 
 -- SEASONAL
 --	["Brewfest Prize Token"] = 37829,
