@@ -132,6 +132,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("Tradeskill", gsub("$Rev$", "(%d+)", fun
 	["Tradeskill.Mat.ByType.Stone"]="2835,7912,2836,2838,12365",
 	["Tradeskill.Mat.ByType.Thread"]="2320,2321,4291,8343,14341,38426",
 	["Tradeskill.Mat.ByType.Vial"]="3371,18256,8925,3372,40411",
+	["Tradeskill.Mat.ByType.Volatile"]="52325,52326,52327,52328,52329",
 
 	["Tradeskill.Tool.Alchemy"]="9149,13503,31080,35748,35749,35750,35751,44322,44323,44324,58483",
 	["Tradeskill.Tool.Blacksmithing"]="5956,40772,40892",
