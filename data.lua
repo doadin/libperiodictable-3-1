@@ -211,11 +211,6 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["Consumable.Food.Inedible.Fungus"]				= "27676",
 	["Consumable.Food.Feast"]					= "43015,43478,34753,43480,62289,62290",
 
-	["Consumable.Food.Inedible.Fish"]				= "2675,4603:874,4655,5468,5503,5504,6289:61,6291:30,6303:30,6308:243,6317:61,6361:61,6362:552,7974,8365:552,12206,13754:874,13755:874,13756:874,13758:874,13759:874,13760:874,13889:1392,13893:1392,15924,13890,13888:1392,27422,27435,27437,27438,27439,27429,27425,24477,2674,27515,27516,33823,33824,41812,41808,41805,41800,41807,41810,41809,41814,41802,41801,41806,41813,41803,36782,12207,43501,3685,6889",
-	["Consumable.Food.Inedible.Meat"]				= "729,20424,769,1015,1081,2672,2673,2677,2924,3173,3404,3667,3712,3730,3731,4739,5051,5465,5467,5469,5470,5471,12037,12184,12202,12203,12204,12205,12208,12223,27669,27671,27677,27678,22644,27668,23676,31670,27674,31671,27682,27681,35562,1080,21024,2886,723,43011,43010,43009,33120,35794,43012,43013,34736",
-	["Consumable.Food.Inedible.Fungus"]				= "27676",
-	["Consumable.Food.Feast"]					= "43015,43478,34753,43480",
-
 	-- Consumable.Food.Buff lists the *.Bonus foods from above by effect, not amount healed.  Multiple buffs are listed under each individual buff.
 	["Consumable.Food.Bonus"]			= "m,Consumable.Food.Edible.Bread.Bonus,Consumable.Food.Edible.Cheese.Bonus,Consumable.Food.Edible.Fish.Bonus,Consumable.Food.Edible.Fruit.Bonus,Consumable.Food.Edible.Fungus.Bonus,Consumable.Food.Edible.Meat.Bonus,Consumable.Food.Edible.Misc.Bonus",
 
