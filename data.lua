@@ -134,7 +134,7 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["Consumable.Cooldown.Potion.Combat.Battle"]				= "13442,22828,22837,22838,22839,40211,40212",
 	["Consumable.Cooldown.Potion.Combat.Guardian"]				= "4623,13455,22849,40093",
 	["Consumable.Cooldown.Potion.Health.Anywhere"]				= "43569:1920",
-	["Consumable.Cooldown.Potion.Health.Basic"]				= "118:80,858:160,4596:160,929:320,1710:520,11562:670,3928:800,18839:800,13446:1400,31838:1400,31839:1400,31852:1400,31853:1400,28100:1400,33092:2000,23822:2000,22829:2000,32947:2000,33934:2000,39327:2000,39671:2000,33447:3600,41166:3600,57191:12500",
+	["Consumable.Cooldown.Potion.Health.Basic"]				= "118:80,858:160,4596:160,929:320,1710:520,11562:670,3928:800,18839:800,13446:1400,31838:1400,31839:1400,31852:1400,31853:1400,28100:1400,33092:2000,23822:2000,22829:2000,32947:2000,33934:2000,39327:2000,39671:2000,33447:3600,41166:3600,57191:12500,63300:12500",
 	["Consumable.Cooldown.Potion.Health.Blades Edge"]			= "32784:1400,32910:1400",
 	["Consumable.Cooldown.Potion.Health.Coilfang"]				= "32904:2000",
 	["Consumable.Cooldown.Potion.Health.Tempest Keep"]			= "32905:2000",
@@ -2142,7 +2142,7 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["Misc.Bag.Special.Leatherworking"]	= "34482:20,67395:20,34490:24,38399:28",
 	["Misc.Bag.Special.Mining"]		= "30746:20,67396:20,29540:28,38347:32",
 	["Misc.Bag.Special.Quiver"]		= "2101:6,5439:8,7278:8,3573:10,11362:10,3605:12,7371:14,2662:16,8217:16,19319:16,18714:18,29143:18,29144:18,34100:20,34105:24,44448:28",
-	["Misc.Bag.Special.Soul Shard"]		= "22243:12,22244:16,21340:20,21341:24,21342:28,21872:28,41597:32",
+	["Misc.Bag.Special.Soul Shard"]		= "",
 
 	["Misc.Battleground Tokens"]				= "20558,20559,20560,29024",--NOT AUTOGENNED
 	["Misc.Battle Standard.Battleground"]			= "18606,18607",--NOT AUTOGENNED
