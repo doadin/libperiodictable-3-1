@@ -568,28 +568,30 @@ local Reagent_Ammo_categories = {
 }
 
 local Containers_ItemsInType_items = {
-	["Soul Shard"] = 21342,
-	Herb = 22251,
-	Enchanting = 21858,
-	Engineering = 30745,
-	Gem = 30747,
-	Inscription = 39489,
-	Leatherworking = 34482,
-	Mining = 29540,
+--	["Soul Shard"] = 21342,
+	Herb = 67393, -- "Carriage - Going Green" Herb Tote Bag
+	Enchanting = 67389, -- "Carriage - Exclusive" Enchanting Evening Purse
+	Engineering = 67390, -- "Carriage - Maddy" High Tech Bag
+	Gem = 67392, -- "Carriage - Exclusive" Gem Studded Clutch
+	Inscription = 67394, -- "Carriage - Xandera" Student's Satchel
+	Leatherworking = 67395, -- "Carriage - Meeya" Leather Bag
+	Mining = 67396, -- "Carriage - Christina" Precious Metal Bag
+	Tackle = 60218, -- Lure Master Tackle Box
 }
 
 local Bag_categories = {
 	Basic = "1.0",
-	["Soul Shard"] = "1.1",
+--	["Soul Shard"] = "1.1",
 	Herb = "1.2",
 	Enchanting = "1.3",
 	Engineering = "1.4",
-	Inscription = "1.8",
-	Jewelcrafting = "1.5",
-	Leatherworking = "1.7",
+	Gem = "1.5",
 	Mining = "1.6",
-	Ammo = "11.3",
-	Quiver = "11.2",
+	Leatherworking = "1.7",
+	Inscription = "1.8",
+--	Tackle = "1.9",
+--	Ammo = "11.3",
+--	Quiver = "11.2",
 }
 
 local Tradeskill_Recipe_categories = {
