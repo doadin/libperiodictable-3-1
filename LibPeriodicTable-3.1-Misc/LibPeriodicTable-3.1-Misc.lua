@@ -54,7 +54,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("Misc", gsub("$Rev$", "(%d+)", function(
 	["Misc.Currency.Instances"]="28558,29434,32897,24368",
 	["Misc.Currency.World"]="26045,26044,24579,29736,29735,24245,32569,32572",
 	["Misc.Currency.Battlegrounds"]="20560,20559,29024,20558",
-	["Misc.Darkmoon Faire.Card"]="19287,19288,19289,19290,31856,31857,31858,31859,42987,42988,42989,42990,44253,44254,44255,",
+	["Misc.Darkmoon Faire.Card"]="19287,19288,19289,19290,31856,31857,31858,31859,42987,42988,42989,42990,44253,44254,44255,62047,62048,62049,62050,62051",
 	["Misc.Engineering.Explosives"]="m,Misc.Explosives.Engineering",
 	["Misc.Explosives.Engineering"]="4358,4360,4365,4370,6714,4374,4378,4380,10507,4390,4403,4394,18588,10514,10586,10562,18641,15993,16005,16040,23736,23737,23826,23827,32413,40536,40771,41119",
 	["Misc.Explosives.Other"]="4598,11566,23841",
@@ -95,7 +95,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("Misc", gsub("$Rev$", "(%d+)", function(
 	["Misc.QuestMats.Arcanum.Tenacity"]="11754,11734,11564,11753",
 	["Misc.QuestMats.Arcanum.Voracity"]="11754,11737,11951,11563",
 
-	["Misc.QuestMats.Darkmoon Faire.Deck.All"]=" 19228,19257,19267,19277,31890,31907,31914,31891,37163,37164,44148,44158,44259,44276,44294,44326",
+	["Misc.QuestMats.Darkmoon Faire.Deck.All"]="19228,19257,19267,19277,31890,31907,31914,31891,37163,37164,44148,44158,44259,44276,44294,44326,62021,62044,62045,62046",
 
 	["Misc.QuestMats.Darkmoon Faire.Deck.Rogues"]="37140,37143,37156",
 	["Misc.QuestMats.Darkmoon Faire.Deck.Swords"]="37145,37147,37159,37160,37161",
@@ -116,6 +116,11 @@ LibStub("LibPeriodicTable-3.1"):AddData("Misc", gsub("$Rev$", "(%d+)", function(
 	["Misc.QuestMats.Darkmoon Faire.Deck.Nobles"]="44268,44269,44270,44271,44272,44273,44274,44275",
 	["Misc.QuestMats.Darkmoon Faire.Deck.Prisms"]="44260,44261,44262,44263,44264,44265,44266,44267",
 	["Misc.QuestMats.Darkmoon Faire.Deck.Undeath"]="44286,44287,44288,44289,44290,44291,44292,44293",
+
+	["Misc.QuestMats.Darkmoon Faire.Deck.Volcanic"]="61988,61989,61990,61991,61992,61993,61994,61995",
+	["Misc.QuestMats.Darkmoon Faire.Deck.Tsunami"]="62012,62013,62014,62015,62016,62017,62018,62019",
+	["Misc.QuestMats.Darkmoon Faire.Deck.Hurricane"]="62004,62005,62006,62007,62008,62009,62010,62011",
+	["Misc.QuestMats.Darkmoon Faire.Deck.Earthquake"]="61996,61997,61998,61999,62000,62001,62002,62003",
 
 	["Misc.QuestMats.Darkmoon Faire.Turnin.Blacksmithing"]="3240:1,3486:4,3835:8,7945:12,12644:20",
 	["Misc.QuestMats.Darkmoon Faire.Turnin.Engineering"]="4363:1,4375:4,9313:8,11590:12,15994:20",

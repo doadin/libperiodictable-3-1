@@ -970,7 +970,6 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["GearSet.Tier 11.372.Warlock.Shadowflame Regalia"]			= "65259,65260,65261,65262,65263",
 	["GearSet.Tier 11.372.Warrior.Earthen Battleplate"]			= "65269,65270,65271,65272,65273",
 	["GearSet.Tier 11.372.Warrior.Earthen Warplate"]			= "65264,65265,65266,65267,65268",
-
 ]=]
 
 --[=[ PvP Sets
@@ -1160,6 +1159,57 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["GearSet.PvP.Arena6.Shaman.Furious Gladiator's Wartide"]			= "40992,41001,41013,41027,41038",
 	["GearSet.PvP.Arena6.Warlock.Furious Gladiator's Felshroud"]			= "41993,41998,42005,42011,42017",
 	["GearSet.PvP.Arena6.Warrior.Furious Gladiator's Battlegear"]			= "40789,40807,40826,40847,40866",
+
+	["GearSet.PvP.Arena7.Death Knight.Relentless Gladiator's Desecration"] = "40791,40811,40830,40851,40871",
+	["GearSet.PvP.Arena7.Druid.Relentless Gladiator's Refuge"] = "41276,41288,41299,41311,41322",
+	["GearSet.PvP.Arena7.Druid.Relentless Gladiator's Sanctuary"] = "41662,41668,41679,41716,41774",
+	["GearSet.PvP.Arena7.Druid.Relentless Gladiator's Wildhide"] = "41282,41294,41305,41317,41328",
+	["GearSet.PvP.Arena7.Hunter.Relentless Gladiator's Pursuit"] = "41088,41144,41158,41206,41218",
+	["GearSet.PvP.Arena7.Mage.Relentless Gladiator's Regalia"] = "41947,41954,41960,41966,41972",
+	["GearSet.PvP.Arena7.Paladin.Relentless Gladiator's Redemption"] = "40910,40928,40934,40940,40964",
+	["GearSet.PvP.Arena7.Paladin.Relentless Gladiator's Vindication"] = "40792,40812,40831,40852,40872",
+	["GearSet.PvP.Arena7.Priest.Relentless Gladiator's Investiture"] = "41855,41860,41865,41870,41875",
+	["GearSet.PvP.Arena7.Priest.Relentless Gladiator's Raiment"] = "41916,41922,41928,41935,41941",
+	["GearSet.PvP.Arena7.Rogue.Relentless Gladiator's Vestments"] = "41651,41656,41673,41684,41768",
+	["GearSet.PvP.Arena7.Shaman.Relentless Gladiator's Earthshaker"] = "41082,41138,41152,41200,41212",
+	["GearSet.PvP.Arena7.Shaman.Relentless Gladiator's Thunderfist"] = "40995,41008,41020,41034,41045",
+	["GearSet.PvP.Arena7.Shaman.Relentless Gladiator's Wartide"] = "40994,41002,41014,41028,41039",
+	["GearSet.PvP.Arena7.Warlock.Relentless Gladiator's Felshroud"] = "41994,41999,42006,42012,42018",
+	["GearSet.PvP.Arena7.Warrior.Relentless Gladiator's Battlegear"] = "40790,40810,40829,40850,40870",
+
+	["GearSet.PvP.Arena8.Death Knight.Wrathful Gladiator's Desecration"] = "51413,51414,51415,51416,51418",
+	["GearSet.PvP.Arena8.Druid.Wrathful Gladiator's Refuge"] = "51419,51420,51421,51422,51424",
+	["GearSet.PvP.Arena8.Druid.Wrathful Gladiator's Sanctuary"] = "51425,51426,51427,51428,51430",
+	["GearSet.PvP.Arena8.Druid.Wrathful Gladiator's Wildhide"] = "51433,51434,51435,51436,51438",
+	["GearSet.PvP.Arena8.Hunter.Wrathful Gladiator's Pursuit"] = "51458,51459,51460,51461,51462",
+	["GearSet.PvP.Arena8.Mage.Wrathful Gladiator's Regalia"] = "51463,51464,51465,51466,51467",
+	["GearSet.PvP.Arena8.Paladin.Wrathful Gladiator's Redemption"] = "51468,51469,51470,51471,51473",
+	["GearSet.PvP.Arena8.Paladin.Wrathful Gladiator's Vindication"] = "51474,51475,51476,51477,51479",
+	["GearSet.PvP.Arena8.Priest.Wrathful Gladiator's Investiture"] = "51482,51483,51484,51485,51486",
+	["GearSet.PvP.Arena8.Priest.Wrathful Gladiator's Raiment"] = "51487,51488,51489,51490,51491",
+	["GearSet.PvP.Arena8.Rogue.Wrathful Gladiator's Vestments"] = "51492,51493,51494,51495,51496",
+	["GearSet.PvP.Arena8.Shaman.Wrathful Gladiator's Earthshaker"] = "51503,51504,51505,51506,51508",
+	["GearSet.PvP.Arena8.Shaman.Wrathful Gladiator's Thunderfist"] = "51509,51510,51511,51512,51514",
+	["GearSet.PvP.Arena8.Shaman.Wrathful Gladiator's Wartide"] = "51497,51498,51499,51500,51502",
+	["GearSet.PvP.Arena8.Warlock.Wrathful Gladiator's Felshroud"] = "51536,51537,51538,51539,51540",
+	["GearSet.PvP.Arena8.Warrior.Wrathful Gladiator's Battlegear"] = "51541,51542,51543,51544,51545",
+
+	["GearSet.PvP.Arena9.Death Knight.Vicious Gladiator's Desecration"] = "60408,60409,60410,60411,60412",
+	["GearSet.PvP.Arena9.Druid.Vicious Gladiator's Refuge"] = "60448,60449,60450,60451,60452",
+	["GearSet.PvP.Arena9.Druid.Vicious Gladiator's Sanctuary"] = "60443,60444,60445,60446,60447",
+	["GearSet.PvP.Arena9.Druid.Vicious Gladiator's Wildhide"] = "60453,60454,60455,60456,60457",
+	["GearSet.PvP.Arena9.Hunter.Vicious Gladiator's Pursuit"] = "60423,60424,60425,60426,60427",
+	["GearSet.PvP.Arena9.Mage.Vicious Gladiator's Regalia"] = "60463,60464,60465,60466,60467",
+	["GearSet.PvP.Arena9.Paladin.Vicious Gladiator's Redemption"] = "60601,60602,60603,60604,60605",
+	["GearSet.PvP.Arena9.Paladin.Vicious Gladiator's Vindication"] = "60413,60414,60415,60416,60417",
+	["GearSet.PvP.Arena9.Priest.Vicious Gladiator's Investiture"] = "60468,60469,60470,60471,60472",
+	["GearSet.PvP.Arena9.Priest.Vicious Gladiator's Raiment"] = "60473,60474,60475,60476,60477",
+	["GearSet.PvP.Arena9.Rogue.Vicious Gladiator's Vestments"] = "60458,60459,60460,60461,60462",
+	["GearSet.PvP.Arena9.Shaman.Vicious Gladiator's Earthshaker"] = "60433,60434,60435,60436,60437",
+	["GearSet.PvP.Arena9.Shaman.Vicious Gladiator's Thunderfist"] = "60438,60439,60440,60441,60442",
+	["GearSet.PvP.Arena9.Shaman.Vicious Gladiator's Wartide"] = "60428,60429,60430,60431,60432",
+	["GearSet.PvP.Arena9.Warlock.Vicious Gladiator's Felshroud"] = "60478,60479,60480,60481,60482",
+	["GearSet.PvP.Arena9.Warrior.Vicious Gladiator's Battlegear"] = "60418,60419,60420,60421,60422",
 
 	["GearSet.PvP.Honor.Alliance.Druid.Grand Marshal's Refuge"]		= "31589,31590,31591,31592,31593",
 	["GearSet.PvP.Honor.Alliance.Druid.Grand Marshal's Sanctuary"]		= "28618,28619,28620,28622,28623",
@@ -1871,6 +1921,18 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["InstanceLoot.Trial of the Champion.Eadric's Cache"]			= "47176:143,47177:156,47178:147,47181:150,47185:150,47197:140,47199:146,47200:148,47201:140,47202:150,47210:150,47213:152",
 	["InstanceLoot.Trial of the Champion.The Black Knight"]			= "47215:164,47216:162,47220:158,47221:165,47222:162,47226:159,47227:164,47228:155,47229:156,47230:163,47231:160,47232:157",
 
+-- Trial of the Crusader
+	["InstanceLoot.Trial of the Crusader.Icehowl"] = "",
+	["InstanceLoot.Trial of the Crusader.Northrend Beasts"] = "m,InstanceLoot.Trial of the Crusader.Icehowl",
+	["InstanceLoot.Trial of the Crusader.Lord Jaraxxus"] = "",
+	["InstanceLoot.Trial of the Crusader.Champions' Cache"] = "",
+	["InstanceLoot.Trial of the Crusader.Faction Champions"] = "m,InstanceLoot.Trial of the Crusader.Champions' Cache",
+	["InstanceLoot.Trial of the Crusader.Fjola Lightbane"] = "",
+	["InstanceLoot.Trial of the Crusader.Eydis Darkbane"] = "",
+	["InstanceLoot.Trial of the Crusader.The Twin Val'kyr"] = "m,InstanceLoot.Trial of the Crusader.Fjola Lightbane,InstanceLoot.Trial of the Crusader.Eydis Darkbane",
+	["InstanceLoot.Trial of the Crusader.Anub'arak"] = "",
+
+-- Icecrown Citadel
 -- Frozen Halls
 	["InstanceLoot.Frozen Halls Hub"]					= "m,InstanceLoot.The Forge of Souls,InstanceLoot.Pit of Saron,InstanceLoot.Halls of Reflection",
 -- The Forge of Souls
@@ -1887,7 +1949,6 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["InstanceLoot.Halls of Reflection.The Lich King"]			= "m,InstanceLoot.Halls of Reflection.The Captain's Chest",
 	["InstanceLoot.Halls of Reflection.The Captain's Chest"]		= "49839:203,49840:200,49841:107,49842:98,49843:112,49844:190,49845:234,49846:229,49847:105,49848:105,49849:111,49851:109",
 
--- Icecrown Citadel
 -- The Lower Spire
 	["InstanceLoot.Icecrown Citadel.Lord Marrowgar"]			= "49949:193,49950:154,49951:152,49952:154,49960:141,49964:137,49967:145,49968:322,49975:217,49976:209,49977:280,49978:210,49979:139,49980:132,50339:208,50415:292,50759:141,50760:137,50761:270,50762:135,50763:89,50764:178,50771:207,50772:141,50773:143,50774:137,50775:131",
 	["InstanceLoot.Icecrown Citadel.Lady Deathwhisper"]			= "49982:197,49983:194,49985:125,49986:134,49987:196,49988:194,49989:193,49990:193,49991:199,49992:328,49993:142,49994:212,49995:143,49996:155,50034:286,50342:182,50776:207,50777:138,50778:141,50779:136,50780:140,50781:257,50782:199,50783:133,50784:134,50785:123,50786:123",
@@ -2195,6 +2256,18 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["InstanceLootHeroic.Trial of the Champion.Eadric's Cache"]			= "47494:126,47495:130,47496:130,47497:133,47498:128,47500:131,47501:122,47502:125,47503:129,47504:128,47508:127,47509:124",
 	["InstanceLootHeroic.Trial of the Champion.The Black Knight"]			= "47527:144,47529:143,47560:139,47561:141,47562:145,47563:143,47564:128,47565:127,47566:129,47567:128,47568:127,47569:125,49682:132",
 
+-- Trial of the Crusader
+	["InstanceLootHeroic.Trial of the Crusader.Icehowl"] = "",
+	["InstanceLootHeroic.Trial of the Crusader.Northrend Beasts"] = "m,InstanceLoot.Trial of the Crusader.Icehowl",
+	["InstanceLootHeroic.Trial of the Crusader.Lord Jaraxxus"] = "",
+	["InstanceLootHeroic.Trial of the Crusader.Champions' Cache"] = "",
+	["InstanceLootHeroic.Trial of the Crusader.Faction Champions"] = "m,InstanceLoot.Trial of the Crusader.Champions' Cache",
+	["InstanceLootHeroic.Trial of the Crusader.Fjola Lightbane"] = "",
+	["InstanceLootHeroic.Trial of the Crusader.Eydis Darkbane"] = "",
+	["InstanceLootHeroic.Trial of the Crusader.The Twin Val'kyr"] = "m,InstanceLoot.Trial of the Crusader.Fjola Lightbane,InstanceLoot.Trial of the Crusader.Eydis Darkbane",
+	["InstanceLootHeroic.Trial of the Crusader.Anub'arak"] = "",
+
+-- Icecrown Citadel
 -- Frozen Halls
 	["InstanceLootHeroic.Frozen Halls Hub"]						= "m,InstanceLootHeroic.The Forge of Souls,InstanceLootHeroic.Pit of Saron,InstanceLootHeroic.Halls of Reflection",
 -- The Forge of Souls
@@ -2211,7 +2284,6 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["InstanceLootHeroic.Halls of Reflection.The Lich King"]			= "m,InstanceLootHeroic.Halls of Reflection.The Captain's Chest",
 	["InstanceLootHeroic.Halls of Reflection.The Captain's Chest"]			= "50302:231,50303:242,50304:95,50305:93,50306:90,50308:99,50309:139,50310:141,50311:145,50312:134,50313:141,50314:140",
 
--- Icecrown Citadel
 -- The Lower Spire
 	["InstanceLootHeroic.Icecrown Citadel.Lord Marrowgar"]				= "50346:0,50604:0,50605:0,50606:0,50607:0,50608:0,50609:0,50610:0,50611:0,50612:0,50613:0,50614:0,50615:0,50616:0,50617:0,50709:0,51928:0,51929:0,51930:0,51931:0,51932:0,51933:0,51934:0,51935:0,51936:0,51937:0,51938:0",
 	["InstanceLootHeroic.Icecrown Citadel.Lady Deathwhisper"]			= "50343:0,50638:0,50639:0,50640:0,50641:0,50642:0,50643:0,50644:0,50645:0,50646:0,50647:0,50648:0,50649:0,50650:0,50651:0,50652:0,51917:0,51918:0,51919:0,51920:0,51921:0,51922:0,51923:0,51924:0,51925:0,51926:0,51927:0",
@@ -2377,7 +2449,7 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["Misc.Currency.Instances"]				= "28558,29434,32897,24368",--NOT AUTOGENNED
 	["Misc.Currency.World"]					= "26045,26044,24579,29736,29735,24245,32569,32572",--NOT AUTOGENNED
 	["Misc.Currency.Battlegrounds"]				= "20560,20559,29024,20558",--NOT AUTOGENNED
-	["Misc.Darkmoon Faire.Card"]				= "19287,19288,19289,19290,31856,31857,31858,31859,42987,42988,42989,42990,44253,44254,44255,",--NOT AUTOGENNED
+	["Misc.Darkmoon Faire.Card"]				= "19287,19288,19289,19290,31856,31857,31858,31859,42987,42988,42989,42990,44253,44254,44255,62047,62048,62049,62050,62051",--NOT AUTOGENNED
 	["Misc.Explosives.Engineering"]				= "4358,4360,4365,4370,6714,4374,4378,4380,10507,4390,4403,4394,18588,10514,10586,10562,18641,15993,16005,16040,23736,23737,23826,23827,32413,40536,40771,41119",--NOT AUTOGENNED
 	["Misc.Explosives.Other"]				= "4598,11566,23841",--NOT AUTOGENNED
 	["Misc.Engineering.Fireworks"]				= "9315,9317,9314,9318,19026,9313,9312,21569,5740,21570,21557,21558,21559,21561,21595,21593,21589,21562,21592,21590,21571,21574,21576,21744,21716,21714,21718,34258",--NOT AUTOGENNED
@@ -2413,7 +2485,7 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["Misc.QuestMats.Arcanum.Tenacity"]				= "11754,11734,11564,11753",
 	["Misc.QuestMats.Arcanum.Voracity"]				= "11754,11737,11951,11563",
 
-	["Misc.QuestMats.Darkmoon Faire.Deck.All"]			=" 19228,19257,19267,19277,31890,31907,31914,31891,37163,37164,44148,44158,44259,44276,44294,44326",
+	["Misc.QuestMats.Darkmoon Faire.Deck.All"]			= "19228,19257,19267,19277,31890,31907,31914,31891,37163,37164,44148,44158,44259,44276,44294,44326,62021,62044,62045,62046",
 
 	["Misc.QuestMats.Darkmoon Faire.Deck.Rogues"]			= "37140,37143,37156",
 	["Misc.QuestMats.Darkmoon Faire.Deck.Swords"]			= "37145,37147,37159,37160,37161",
@@ -2434,6 +2506,11 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["Misc.QuestMats.Darkmoon Faire.Deck.Nobles"]			= "44268,44269,44270,44271,44272,44273,44274,44275",
 	["Misc.QuestMats.Darkmoon Faire.Deck.Prisms"]			= "44260,44261,44262,44263,44264,44265,44266,44267",
 	["Misc.QuestMats.Darkmoon Faire.Deck.Undeath"]			= "44286,44287,44288,44289,44290,44291,44292,44293",
+
+	["Misc.QuestMats.Darkmoon Faire.Deck.Volcanic"]			= "61988,61989,61990,61991,61992,61993,61994,61995",
+	["Misc.QuestMats.Darkmoon Faire.Deck.Tsunami"]			= "62012,62013,62014,62015,62016,62017,62018,62019",
+	["Misc.QuestMats.Darkmoon Faire.Deck.Hurricane"]		= "62004,62005,62006,62007,62008,62009,62010,62011",
+	["Misc.QuestMats.Darkmoon Faire.Deck.Earthquake"]		= "61996,61997,61998,61999,62000,62001,62002,62003",
 
 	["Misc.QuestMats.Darkmoon Faire.Turnin.Blacksmithing"]		= "3240:1,3486:4,3835:8,7945:12,12644:20",
 	["Misc.QuestMats.Darkmoon Faire.Turnin.Engineering"]		= "4363:1,4375:4,9313:8,11590:12,15994:20",

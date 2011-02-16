@@ -271,6 +271,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("InstanceLoot", gsub("$Rev$", "(%d+)", f
 	["InstanceLoot.Onyxia's Lair.Onyxia"]="16908:1,16914:2,49294:919,49295:921,49296:75,49297:68,49298:63,49299:68,49301:0,49302:64,49303:75,49304:67,49305:66,49306:68,49307:65,49308:69,49309:74,49310:45,49315:179,49316:92,49317:95,49318:186,49319:184,49320:83,49321:85,49322:182,49323:58,49324:62,49325:58,49326:56,49327:58,49328:62,49329:69,49330:57,49331:60,49332:81,49333:86,49437:68,49463:46,49643:482,49644:469",
 
 	["InstanceLoot.Ragefire Chasm.Bazzalan"]="",
+	["InstanceLoot.Ragefire Chasm.Oggleflint"]="",
 	["InstanceLoot.Ragefire Chasm.Jergosh the Invoker"]="14147:368,14150:392,14151:179",
 	["InstanceLoot.Ragefire Chasm.Taragaman the Hungerer"]="14145:171,14148:379,14149:352",
 
@@ -326,14 +327,11 @@ LibStub("LibPeriodicTable-3.1"):AddData("InstanceLoot", gsub("$Rev$", "(%d+)", f
 	["InstanceLoot.Scholomance.The Ravenian"]="14612:6,14624:9,14629:8",
 	["InstanceLoot.Scholomance.Vectus"]="14577:70,18691:73",
 
-	["InstanceLoot.Shadowfang Keep.Archmage Arugal"]="6220:172,6324:351,6392:347",
+	["InstanceLoot.Shadowfang Keep.Baron Ashbury"]="",
 	["InstanceLoot.Shadowfang Keep.Baron Silverlaine"]="",
 	["InstanceLoot.Shadowfang Keep.Commander Springvale"]="",
-	["InstanceLoot.Shadowfang Keep.Deathsworn Captain"]="6641:623,6642:322",
-	["InstanceLoot.Shadowfang Keep.Fenrus the Devourer"]="3230:171,6340:715",
-	["InstanceLoot.Shadowfang Keep.Odo the Blindwatcher"]="6318:337,6319:625",
-	["InstanceLoot.Shadowfang Keep.Razorclaw the Butcher"]="1292:90,6226:432,6633:440",
-	["InstanceLoot.Shadowfang Keep.Wolf Master Nandos"]="3748:566,6314:381",
+	["InstanceLoot.Shadowfang Keep.Lord Walden"]="",
+	["InstanceLoot.Shadowfang Keep.Lord Godfrey"]="",
 
 	["InstanceLoot.Stratholme.Archivist Galford"]="13385:119,13386:210,13387:234,16692:186,18716:193,22897:174",
 	["InstanceLoot.Stratholme.Balnazzar"]="12103:162,13348:179,13353:20,13358:151,13359:164,13360:159,13369:186,13520:32,14512:64,16725:157,18717:161,18718:150,18720:143",
@@ -405,25 +403,15 @@ LibStub("LibPeriodicTable-3.1"):AddData("InstanceLoot", gsub("$Rev$", "(%d+)", f
 	["InstanceLoot.The Mechanar.Nethermancer Sepethrea"]="22920:16,28258:177,28259:203,28260:190,28262:180,28263:177",
 	["InstanceLoot.The Mechanar.Pathaleon the Calculator"]="21907:40,27899:117,28202:156,28204:168,28265:125,28266:157,28267:140,28269:145,28275:160,28278:167,28285:136,28286:165,28288:142",
 
-	["InstanceLoot.The Deadmines.Brainwashed Noble"]="3902:284,5967:689",
-	["InstanceLoot.The Deadmines.Captain Greenskin"]="5200:279,5201:374,10403:264",
-	["InstanceLoot.The Deadmines.Cookie"]="5197:538,5198:351",
-	["InstanceLoot.The Deadmines.Edwin VanCleef"]="5191:166,5193:252,5202:263,10399:165",
-	["InstanceLoot.The Deadmines.Foreman Thistlenettle"]="2166:11,2167:9,2168:8",
-	["InstanceLoot.The Deadmines.Gilnid"]="1156:371,5199:557",
-	["InstanceLoot.The Deadmines.Marisa du'Paige"]="3019:249,4660:723",
-	["InstanceLoot.The Deadmines.Miner Johnson"]="5443:389,5444:566",
-	["InstanceLoot.The Deadmines.Mr. Smite"]="5192:372,5196:376,7230:186",
-	["InstanceLoot.The Deadmines.Rhahk'Zor"]="872:29,5187:856",
-	["InstanceLoot.The Deadmines.Sneed's Shredder"]="1937:92,2169:800",
-	["InstanceLoot.The Deadmines.Sneed"]="5194:281,5195:666",
+	["InstanceLoot.The Deadmines.Glubtok"]="",
+	["InstanceLoot.The Deadmines.Helix Gearbreaker"]="",
+	["InstanceLoot.The Deadmines.Foe Reaper 5000"]="",
+	["InstanceLoot.The Deadmines.Admiral Ripsnarl"]="",
+	["InstanceLoot.The Deadmines.\"Captain\" Cookie"]= "",
 
-	["InstanceLoot.The Stockade.Bazil Thredd"]="",
-	["InstanceLoot.The Stockade.Bruegal Ironknuckle"]="2941:192,2942:185,3228:585",
-	["InstanceLoot.The Stockade.Dextren Ward"]="",
-	["InstanceLoot.The Stockade.Hamhock"]="",
-	["InstanceLoot.The Stockade.Kam Deepfury"]="2280:8",
-	["InstanceLoot.The Stockade.Targorr the Dread"]="",
+	["InstanceLoot.The Stockade.Randolph Moloch"]="",
+	["InstanceLoot.The Stockade.Lord Overheat"]="",
+	["InstanceLoot.The Stockade.Hogger"]="",
 
 	["InstanceLoot.Uldaman.Ancient Stone Keeper"]="9410:455,9411:458",
 	["InstanceLoot.Uldaman.Archaedas"]="9413:128,9418:135,11118:636",
@@ -640,6 +628,8 @@ LibStub("LibPeriodicTable-3.1"):AddData("InstanceLoot", gsub("$Rev$", "(%d+)", f
 
 	["InstanceLoot.Vault of Archavon.Archavon the Stone Watcher"]="39492:32,39493:33,39495:35,39497:32,39498:33,39500:32,39515:16,39517:17,39519:15,39523:17,39528:16,39530:15,39538:10,39539:12,39543:11,39544:10,39546:11,39547:11,39554:12,39555:10,39557:10,39558:31,39560:33,39564:31,39579:30,39580:31,39582:34,39588:10,39589:11,39591:11,39592:11,39593:11,39595:11,39597:10,39601:10,39603:11,39606:16,39607:16,39609:18,39611:16,39612:15,39617:16,39618:11,39620:15,39622:15,39623:16,39624:10,39626:15,39629:11,39630:11,39632:11,39633:10,39634:11,39636:10,39638:10,39639:11,39641:11,40781:33,40782:16,40783:32,40801:34,40802:16,40803:31,40840:33,40841:32,40842:15,40904:16,40925:16,40937:15,40988:10,40989:10,40999:11,41005:11,41025:9,41031:11,41079:11,41085:32,41135:11,41141:32,41162:10,41203:31,41284:10,41291:11,41296:10,41302:10,41308:11,41314:11,41648:32,41653:33,41659:9,41665:10,41765:33,41771:10,41857:17,41862:17,41872:16,41919:16,41925:15,41938:16,41950:33,41957:33,41969:32,42001:31,42003:31,42015:32,43959:8,44083:8",
 	["InstanceLoot.Vault of Archavon.Emalon the Storm Watcher"]="40804:24,40805:12,40806:27,40844:22,40845:25,40846:11,40879:15,40880:16,40888:13,40926:11,40938:11,40974:15,40975:14,40982:14,41000:7,41006:8,41026:7,41032:8,41048:6,41054:7,41059:6,41064:8,41069:7,41074:6,41136:8,41142:24,41198:8,41204:26,41224:13,41229:14,41234:14,41286:8,41292:8,41297:7,41303:8,41616:7,41620:7,41624:6,41629:7,41634:7,41639:6,41654:24,41666:8,41766:25,41772:7,41831:14,41835:15,41839:12,41863:11,41873:11,41880:15,41884:14,41892:12,41897:14,41902:15,41908:12,41926:11,41939:12,41958:23,41970:23,42004:23,42016:26,42027:14,42028:14,42029:6,42030:5,42031:5,42032:5,42033:5,42062:6,42063:5,42064:5,42065:5,42066:5,42067:14,42068:13,42114:14,42115:14,43959:9,44083:9,45337:26,45338:23,45341:23,45343:22,45345:19,45347:15,45351:16,45353:16,45355:15,45357:17,45360:50,45362:49,45367:48,45370:16,45371:17,45376:17,45379:17,45383:16,45384:16,45387:22,45388:24,45392:23,45394:24,45397:50,45399:50,45401:17,45403:16,45406:16,45409:17,45414:15,45416:17,45419:47,45420:48,45426:22,45427:24,45430:23,45432:24,46131:51",
+	["InstanceLoot.Vault of Archavon.Koralon the Flame Watcher"]="",
+	["InstanceLoot.Vault of Archavon.Toravon the Ice Watcher"]="",
 
 -- Trial of the Champion
 	["InstanceLoot.Trial of the Champion.Grand Champions"]="m,InstanceLoot.Trial of the Champion.Champion's Cache",
@@ -650,6 +640,18 @@ LibStub("LibPeriodicTable-3.1"):AddData("InstanceLoot", gsub("$Rev$", "(%d+)", f
 	["InstanceLoot.Trial of the Champion.Eadric's Cache"]="47176:143,47177:156,47178:147,47181:150,47185:150,47197:140,47199:146,47200:148,47201:140,47202:150,47210:150,47213:152",
 	["InstanceLoot.Trial of the Champion.The Black Knight"]="47215:164,47216:162,47220:158,47221:165,47222:162,47226:159,47227:164,47228:155,47229:156,47230:163,47231:160,47232:157",
 
+-- Trial of the Crusader
+	["InstanceLoot.Trial of the Crusader.Icehowl"]="",
+	["InstanceLoot.Trial of the Crusader.Northrend Beasts"]="m,InstanceLoot.Trial of the Crusader.Icehowl",
+	["InstanceLoot.Trial of the Crusader.Lord Jaraxxus"]="",
+	["InstanceLoot.Trial of the Crusader.Champions' Cache"]="",
+	["InstanceLoot.Trial of the Crusader.Faction Champions"]="m,InstanceLoot.Trial of the Crusader.Champions' Cache",
+	["InstanceLoot.Trial of the Crusader.Fjola Lightbane"]="",
+	["InstanceLoot.Trial of the Crusader.Eydis Darkbane"]="",
+	["InstanceLoot.Trial of the Crusader.The Twin Val'kyr"]="m,InstanceLoot.Trial of the Crusader.Fjola Lightbane,InstanceLoot.Trial of the Crusader.Eydis Darkbane",
+	["InstanceLoot.Trial of the Crusader.Anub'arak"]="",
+
+-- Icecrown Citadel
 -- Frozen Halls
 	["InstanceLoot.Frozen Halls Hub"]="m,InstanceLoot.The Forge of Souls,InstanceLoot.Pit of Saron,InstanceLoot.Halls of Reflection",
 -- The Forge of Souls
@@ -666,24 +668,101 @@ LibStub("LibPeriodicTable-3.1"):AddData("InstanceLoot", gsub("$Rev$", "(%d+)", f
 	["InstanceLoot.Halls of Reflection.The Lich King"]="m,InstanceLoot.Halls of Reflection.The Captain's Chest",
 	["InstanceLoot.Halls of Reflection.The Captain's Chest"]="49839:203,49840:200,49841:107,49842:98,49843:112,49844:190,49845:234,49846:229,49847:105,49848:105,49849:111,49851:109",
 
--- Icecrown Citadel
 -- The Lower Spire
 	["InstanceLoot.Icecrown Citadel.Lord Marrowgar"]="49949:193,49950:154,49951:152,49952:154,49960:141,49964:137,49967:145,49968:322,49975:217,49976:209,49977:280,49978:210,49979:139,49980:132,50339:208,50415:292,50759:141,50760:137,50761:270,50762:135,50763:89,50764:178,50771:207,50772:141,50773:143,50774:137,50775:131",
 	["InstanceLoot.Icecrown Citadel.Lady Deathwhisper"]="49982:197,49983:194,49985:125,49986:134,49987:196,49988:194,49989:193,49990:193,49991:199,49992:328,49993:142,49994:212,49995:143,49996:155,50034:286,50342:182,50776:207,50777:138,50778:141,50779:136,50780:140,50781:257,50782:199,50783:133,50784:134,50785:123,50786:123",
 	["InstanceLoot.Icecrown Citadel.Gunship Armory"]="49998:239,49999:160,50000:173,50001:171,50002:180,50003:148,50005:240,50006:148,50008:277,50009:125,50010:153,50011:201,50340:207,50352:193,50359:187,50411:148,50787:221,50788:146,50789:147,50790:102,50791:157,50792:147,50793:246,50794:161,50795:106,50796:122,50797:105",
 	["InstanceLoot.Icecrown Citadel.Deathbringer's Cache"]="50014:164,50015:131,50333:167,50362:238,50412:170,50798:270,50799:137,50800:141,50801:124,50802:76,50803:174,50804:158,50805:252,50806:104,50807:118,50808:113,50809:216,52025:4,52025:587,52026:3,52026:464,52027:484,52027:2",
 	["InstanceLoot.Icecrown Citadel.Deathbringer Saurfang"]="m,InstanceLoot.Icecrown Citadel.Deathbringer's Cache",
-	-- The Plagueworks
+-- The Plagueworks
 	["InstanceLoot.Icecrown Citadel.Festergut"]="50035:156,50036:110,50037:168,50038:154,50040:290,50041:132,50042:200,50056:194,50059:129,50060:178,50061:174,50062:263,50063:171,50064:165,50226:948,50413:168,50414:173,50810:224,50811:146,50812:146,50852:192,50858:150,50859:91,50966:279,50967:126,50985:123,50986:127,50988:128,50990:179",
 	["InstanceLoot.Icecrown Citadel.Rotface"]="50016:182,50019:181,50020:175,50021:179,50022:178,50023:214,50024:143,50025:273,50026:148,50027:146,50028:280,50030:118,50032:120,50033:180,50231:903,50353:237,50998:217,50999:139,51000:154,51001:139,51002:136,51003:143,51004:273,51005:125,51006:125,51007:183,51008:120,51009:119",
 	["InstanceLoot.Icecrown Citadel.Professor Putricide"]="50067:179,50068:188,50069:128,50179:180,50341:162,50351:260,51010:148,51011:159,51012:159,51013:163,51014:163,51015:161,51016:234,51017:161,51018:112,51019:115,51020:177,52025:632,52026:5,52026:500,52027:5,52027:495",
-	-- The Crimson Hall
+-- The Crimson Hall
 	["InstanceLoot.Icecrown Citadel.Prince Valanar"]="49919:292,50071:164,50072:146,50073:144,50074:150,50075:146,50170:310,50171:145,50172:163,50173:345,50174:144,50175:142,50176:142,50177:150,50184:141,51021:150,51022:201,51023:146,51024:143,51025:136,51325:135,51326:226,51379:122,51380:117,51381:236,51382:116,51383:112",
 	["InstanceLoot.Icecrown Citadel.Blood-Queen Lana'thel"]="50065:113,50178:164,50180:111,50181:158,50182:169,50354:107,51384:129,51385:198,51386:126,51387:162,51548:120,51550:134,51551:138,51552:119,51553:187,51554:189,51555:119,51556:129,52025:39,52025:644,52026:26,52026:507,52027:28,52027:500",
-	-- The Frostwing Halls
+-- The Frostwing Halls
 	["InstanceLoot.Icecrown Citadel.Cache of the Dreamwalker"]="50183:177,50185:78,50186:263,50187:155,50188:142,50190:139,50192:219,50195:140,50199:155,50202:173,50205:270,50416:109,50417:129,50418:173,50472:170,51561:159,51562:234,51563:134,51564:105,51565:126,51566:111,51582:254,51583:87,51584:221,51585:106,51586:108,51777:104",
 	["InstanceLoot.Icecrown Citadel.Valithria Dreamwalker"]="m,InstanceLoot.Icecrown Citadel.Cache of the Dreamwalker",
 	["InstanceLoot.Icecrown Citadel.Sindragosa"]="50360:228,50361:144,50421:187,50423:185,50424:154,51779:189,51782:144,51783:119,51784:151,51785:164,51786:149,51787:116,51788:228,51789:114,51790:151,51791:181,51792:131,52025:631,52025:22,52026:520,52026:12,52027:22,52027:494",
-	-- The Frozen Throne
+-- The Frozen Throne
 	["InstanceLoot.Icecrown Citadel.The Lich King"]="49426:2,49426:1,49981:301,49997:149,50012:209,50070:264,50425:172,50426:122,50427:146,50428:166,50429:174,51795:135,51796:251,51797:188,51798:226,51799:259,51800:125,51801:145,51802:198,51803:180,52025:651,52026:522,52027:405",
+-- Trash
+	["InstanceLoot.Icecrown Citadel.Trash Mobs"]="",
+
+-- The Ruby Sanctum
+	["InstanceLoot.The Ruby Sanctum.Halion"]="",
+
+-- -----
+-- Cataclysm Instances
+-- -----
+
+-- Abyssal Maw: Throne of the Tides
+	["InstanceLoot.Throne of the Tides.Lady Naz'jar"]="",
+	["InstanceLoot.Throne of the Tides.Commander Ulthok"]="",
+	["InstanceLoot.Throne of the Tides.Mindbender Ghur'sha"]="",
+	["InstanceLoot.Throne of the Tides.Neptulon's Cache"]="",
+	["InstanceLoot.Throne of the Tides.Ozumat"]="m,InstanceLoot.Throne of the Tides.Neptulon's Cache",
+-- Blackrock Mountain: Blackrock Caverns
+	["InstanceLoot.Blackrock Caverns.Rom'ogg Bonecrusher"]="",
+	["InstanceLoot.Blackrock Caverns.Corla, Herald of Twilight"]="",
+	["InstanceLoot.Blackrock Caverns.Karsh Steelbender"]="",
+	["InstanceLoot.Blackrock Caverns.Beauty"]="",
+	["InstanceLoot.Blackrock Caverns.Ascendant Lord Obsidius"]="",
+-- Grim Batol
+	["InstanceLoot.Grim Batol.General Umbriss"]="",
+	["InstanceLoot.Grim Batol.Forgemaster Throngus"]="",
+	["InstanceLoot.Grim Batol.Drahga Shadowburner"]="",
+	["InstanceLoot.Grim Batol.Erudax"]="",
+-- Halls of Origination
+	["InstanceLoot.Halls of Origination.Temple Guardian Anhuur"]="",
+	["InstanceLoot.Halls of Origination.Earthrager Ptah"]="",
+	["InstanceLoot.Halls of Origination.Anraphet"]="",
+	["InstanceLoot.Halls of Origination.Isiset"]="",
+	["InstanceLoot.Halls of Origination.Ammunae"]="",
+	["InstanceLoot.Halls of Origination.Setesh"]="",
+	["InstanceLoot.Halls of Origination.Rajh"]="",
+-- Lost City of the Tol'vir
+	["InstanceLoot.Lost City of the Tol'vir.General Husam"]="",
+	["InstanceLoot.Lost City of the Tol'vir.High Prophet Barim"]="",
+	["InstanceLoot.Lost City of the Tol'vir.Lockmaw"]="",
+	["InstanceLoot.Lost City of the Tol'vir.Siamat"]="",
+-- The Stonecore
+	["InstanceLoot.The Stonecore.Corborus"]="",
+	["InstanceLoot.The Stonecore.Slabhide"]="",
+	["InstanceLoot.The Stonecore.Ozruk"]="",
+	["InstanceLoot.The Stonecore.High Priestess Azil"]="",
+-- The Skywall: The Vortex Pinnacle
+	["InstanceLoot.The Vortex Pinnacle.Grand Vizier Ertan"]="",
+	["InstanceLoot.The Vortex Pinnacle.Altairus"]="",
+	["InstanceLoot.The Vortex Pinnacle.Asaad"]="",
+-- Baradin Hold
+	["InstanceLoot.Baradin Hold.Argaloth"]="",
+-- Blackrock Mountain: Blackwing Descent
+	["InstanceLoot.Blackwing Descent.Magmaw"]="",
+	["InstanceLoot.Blackwing Descent.Electron"]="",
+	["InstanceLoot.Blackwing Descent.Toxitron"]="",
+	["InstanceLoot.Blackwing Descent.Magmatron"]="",
+	["InstanceLoot.Blackwing Descent.Arcanotron"]="",
+	["InstanceLoot.Blackwing Descent.Omnotron Defense System"]="m,InstanceLoot.Throne of the Tides.Electron,InstanceLoot.Blackwing Descent.Toxitron,InstanceLoot.Blackwing Descent.Magmatron,InstanceLoot.Blackwing Descent.Arcanotron",
+	["InstanceLoot.Blackwing Descent.Maloriak"]="",
+	["InstanceLoot.Blackwing Descent.Atramedes"]="",
+	["InstanceLoot.Blackwing Descent.Chimaeron"]="",
+	["InstanceLoot.Blackwing Descent.Nefarian"]="",
+	["InstanceLoot.Blackwing Descent.Trash Mobs"]="",
+-- The Bastion of Twilight
+	["InstanceLoot.The Bastion of Twilight.Halfus Wyrmbreaker"]="",
+	["InstanceLoot.The Bastion of Twilight.Valiona"]="",
+	["InstanceLoot.The Bastion of Twilight.Theralion"]="",
+	["InstanceLoot.The Bastion of Twilight.Valiona & Theralion"]="m,InstanceLoot.The Bastion of Twilight.Valiona,InstanceLoot.The Bastion of Twilight.Theralion",
+	["InstanceLoot.The Bastion of Twilight.Elementium Monstrosity"]="",
+	["InstanceLoot.The Bastion of Twilight.Twilight Ascendant Council"]="m,InstanceLoot.The Bastion of Twilight.Elementium Monstrosity",
+	["InstanceLoot.The Bastion of Twilight.Cho'gall"]="",
+	["InstanceLoot.The Bastion of Twilight.Trash Mobs"]="",
+-- Throne of the Four Winds
+	["InstanceLoot.Throne of the Four Winds.Nezir"]="",
+	["InstanceLoot.Throne of the Four Winds.Anshal"]="",
+	["InstanceLoot.Throne of the Four Winds.Rohash"]="",
+	["InstanceLoot.Throne of the Four Winds.Conclave of Wind"]="m,InstanceLoot.Throne of the Four Winds.Nezir,InstanceLoot.Throne of the Four Winds.Anshal,InstanceLoot.Throne of the Four Winds.Rohash",
+	["InstanceLoot.Throne of the Four Winds.Al'Akir"]="",
 })
