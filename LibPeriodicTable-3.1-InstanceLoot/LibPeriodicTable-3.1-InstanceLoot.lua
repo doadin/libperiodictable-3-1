@@ -327,8 +327,8 @@ LibStub("LibPeriodicTable-3.1"):AddData("InstanceLoot", gsub("$Rev$", "(%d+)", f
 	["InstanceLoot.Scholomance.Vectus"]="14577:70,18691:73",
 
 	["InstanceLoot.Shadowfang Keep.Archmage Arugal"]="6220:172,6324:351,6392:347",
-	["InstanceLoot.Shadowfang Keep.Baron Silverlaine"]="6321:189,6323:396",
-	["InstanceLoot.Shadowfang Keep.Commander Springvale"]="3191:434,6320:371",
+	["InstanceLoot.Shadowfang Keep.Baron Silverlaine"]="",
+	["InstanceLoot.Shadowfang Keep.Commander Springvale"]="",
 	["InstanceLoot.Shadowfang Keep.Deathsworn Captain"]="6641:623,6642:322",
 	["InstanceLoot.Shadowfang Keep.Fenrus the Devourer"]="3230:171,6340:715",
 	["InstanceLoot.Shadowfang Keep.Odo the Blindwatcher"]="6318:337,6319:625",

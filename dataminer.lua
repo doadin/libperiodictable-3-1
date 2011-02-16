@@ -12,7 +12,7 @@ local INSTANCELOOT_MIN = INSTANCELOOT_MIN or 50
 local INSTANCELOOT_MAXSRC = INSTANCELOOT_MAXSRC or 5
 local INSTANCELOOT_TRASHMINSRC = INSTANCELOOT_TRASHMINSRC or 3
 
-local MAX_TRADESKILL_LEVEL = 450
+local MAX_TRADESKILL_LEVEL = 525
 
 if arg[1] == "-chksrc" and arg[2] then
 	table.remove(arg, 1)
@@ -313,7 +313,6 @@ local function get_zone_id_from_name(name)
 		end
 	end
 end
-
 
 -- Used to sort tables with values [-id|id][:value] using value as primary sort data
 local function sortSet(a, b)
@@ -678,7 +677,6 @@ local Tradeskill_Profession_categories = {
 	Tailoring = "11.197",
 }
 
-
 local Gear_Socketed_filters = {
 	Back	= {
 		{sl=16,cr=80,crs=5,crv=0},
@@ -895,6 +893,27 @@ local GearSets_fixedids = {
 	["Sanctified Shadowblade's Battlegear"] = {["264"] = -235, ["277"] = -254},
 	["Sanctified Ymirjar Lord's Battlegear"] = {["264"] = -240, ["277"] = -259},
 	["Sanctified Ymirjar Lord's Plate"] = {["264"] = -241, ["277"] = -260},
+
+-- T11
+	["Battlegear of the Raging Elements"] = {["359"] = 939, ["372"] = -296},
+	["Earthen Battleplate"] = {["359"] = 943, ["372"] = -300},
+	["Earthen Warplate"] = {["359"] = 942, ["372"] = -299},
+	["Firelord's Vestments"] = {["359"] = 931, ["372"] = -288},
+	["Lightning-Charged Battlegear"] = {["359"] = 930, ["372"] = -287},
+	["Magma Plated Battlearmor"] = {["359"] = 926, ["372"] = -283},
+	["Magma Plated Battlegear"] = {["359"] = 925, ["372"] = -282},
+	["Mercurial Regalia"] = {["359"] = 936, ["372"] = -293},
+	["Mercurial Vestments"] = {["359"] = 935, ["372"] = -292},
+	["Regalia of the Raging Elements"] = {["359"] = 940, ["372"] = -297},
+	["Reinforced Sapphirium Battlearmor"] = {["359"] = 934, ["372"] = -291},
+	["Reinforced Sapphirium Battleplate"] = {["359"] = 932, ["372"] = -289},
+	["Reinforced Sapphirium Regalia"] = {["359"] = 933, ["372"] = -290},
+	["Shadowflame Regalia"] = {["359"] = 941, ["372"] = -298},
+	["Stormrider's Battlegarb"] = {["359"] = 927, ["372"] = -284},
+	["Stormrider's Regalia"] = {["359"] = 929, ["372"] = -286},
+	["Stormrider's Vestments"] = {["359"] = 928, ["372"] = -285},
+	["Vestments of the Raging Elements"] = {["359"] = 938, ["372"] = -295},
+	["Wind Dancer's Regalia"] = {["359"] = 937, ["372"] = -294},
 }
 
 local Currency_Items = {
@@ -1009,9 +1028,10 @@ local InstanceLoot_TrashMobs = {
 	["Sunwell Plateau"] = { id = 4075, levels = 154, },
 	["Naxxramas"] = { id = 3456, levels = {200, 213}, hasheroic = true },
 	["Ulduar"] = { id = 4273, levels = {219, 226, 232}, hasheroic = true },
+	["Icecrown Citadel"] = { id = 4812, levels = {264}, hasheroic = true },
+	["The Bastion of Twilight"] = { id = 5334, levels = {359}, hasheroic = true },
+	["Blackwing Descent"] = { id = 5094, levels = {359}, hasheroic = true },
 }
-
-
 
 --[[ SET HANDLERS ]]
 
@@ -1181,7 +1201,6 @@ handlers["^CurrencyItems"] = function (set, data)
 	end
 end
 
-
 handlers["^Gear%.Socketed"] = function (set, data)
 	local newset = {}
 	local slot = set:match("%.([^%.]+)$")
@@ -1249,10 +1268,6 @@ handlers["^InstanceLoot%."] = function (set, data)
 	if not INSTANCELOOT_CHKSRC then return end
 	local newset = {}
 	local zone, boss = set:match("([^%.]+)%.([^%.]+)$")
-	if boss == " Smite" then
-		boss = "Mr. Smite"
-		zone = "The Deadmines"
-	end
 	if boss == "Trash Mobs" then
 		return handle_trash_mobs(set)
 	end
@@ -1313,7 +1328,9 @@ handlers["^InstanceLoot%."] = function (set, data)
 				id == "heroic-drops" or
 				id == "heroic-contents" or
 				id == "heroic-10-drops" or
-				id == "heroic-25-drops"
+				id == "heroic-25-drops" or
+				id == "drops:mode=heroic10" or
+				id == "drops:mode=heroic25"
 			then
 				handle_heroic_list(view.data, view.count)
 			end
@@ -1324,7 +1341,9 @@ handlers["^InstanceLoot%."] = function (set, data)
 				id == "normal-drops" or
 				id == "drops" or
 				id == "normal-contents" or
-				id == "normal-10-drops"
+				id == "normal-10-drops" or
+				id == "drops:mode=normal10" or
+				id == "drops:mode=normal25"
 			then
 				handle_normal_list(view.data, view.count)
 			elseif id == "normal-25-drops" then

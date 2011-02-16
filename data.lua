@@ -389,7 +389,6 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["Gear.Socketed.Two Hand"]			= "24461,27986,28222,28393,28774,28800,29993,30722,30732,33490,33492,33494,34182,34183,34247,34337,34608,34797,37653,42318,42319,42323,42324,42328,42329,42333,42334,42364,42366,42385,42386,42391,42392,43834,43858,43920,44421,44422,44423,44424,45457,45516,45533,45613,45868,45886,45948,45949,45950,45951,45952,45953,45954,45955,45956,45996,46033,46067,47069,47078,47114,47130,47233,47239,47285,47302,47329,47446,47463,47491,47515,47516,47519,47520,47522,47524,47525,47737,47743,47815,47834,47884,47892,47900,47911,47951,47960,47968,47979,48023,48036,48045,48056,48402,48404,48406,48410,48412,48414,48517,48521,48523,48695,48705,48710,48713,49623,49802,49888,49919,49992,50040,50070,50178,50181,50267,50296,50415,50425,50429,50603,50648,50695,50709,50725,50727,50730,50731,50735,50761,50798,50805,50966,50998,51022,51388,51389,51390,51391,51392,51393,51400,51401,51402,51403,51404,51405,51431,51432,51456,51457,51480,51481,51562,51582,51796,51797,51799,51828,51833,51857,51881,51887,51898,51905,51936,51943,51945,51946",
 	["Gear.Socketed.Waist"]				= "21846,21873,23510,24063,24091,24255,24256,24257,24388,24395,24458,25694,25695,25922,27478,27672,27743,27755,27760,27843,27985,28124,28566,28750,28778,28779,28799,28828,29319,29494,29500,29516,29520,29524,29984,30030,30032,30034,30036,30038,30040,30042,30044,30046,30064,30096,30106,30879,30888,30897,32333,32342,32519,32769,32867,33211,33279,33331,33446,33480,33483,33524,33536,33559,33583,34485,34487,34488,34527,34528,34541,34542,34543,34545,34546,34547,34549,34554,34555,34556,34557,34558,34793,34923,34929,34932,34935,34941,34944,35929,36978,37171,37194,37937,39759,40271,40278,40688,40689,40691,40692,40693,40694,40695,40696,40697,40877,40879,40881,40883,40966,40974,40976,40978,41048,41050,41051,41052,41068,41069,41070,41071,41233,41234,41235,41236,41330,41616,41617,41618,41628,41629,41630,41631,41827,41831,41832,41833,41877,41880,41881,41882,41896,41897,41898,41899,43584,43587,43591,43594,43841,43892,43914,43947,43989,44181,44309,45241,45455,45491,45508,45550,45551,45552,45553,45554,45555,45556,45557,45558,45616,45619,46041,46071,46072,46073,46074,46075,46076,46077,46078,46079,46080,46095,46972,46973,46990,46991,46999,47002,47072,47076,47081,47084,47107,47112,47140,47145,47152,47153,47174,47195,47207,47218,47227,47229,47231,47258,47265,47268,47283,47286,47299,47308,47311,47323,47419,47426,47429,47444,47447,47460,47469,47472,47484,47510,47563,47614,47617,47669,47837,47855,47859,47863,47909,47921,47924,47925,47929,47932,47937,47977,47994,47997,47998,48002,48005,48009,48054,49179,49806,50451,50762,50773,50778,50784,50795,50987,50989,50991,50992,50993,50994,50995,50996,50997,51000,51017,51325,51327,51337,51340,51343,51350,51359,51362,51365,51368,51371,51374,51555,51564,51782,51821,51831,51836,51853,51862,51879,51908,51919,51925,51930,51935,53118,53121",
 	["Gear.Socketed.Wrist"]				= "23506,23515,24249,24250,24251,25697,28167,28170,28171,28174,28381,28405,28411,28424,28445,28448,28451,28502,28605,28638,28643,28646,28795,28973,28978,28981,28984,28988,28989,28992,28996,28999,29002,29006,29517,29521,29523,29966,30047,30057,30091,30861,30862,30863,30864,30868,30869,30870,30871,31598,31599,32324,32647,32655,32809,32810,32811,32812,32813,32814,32816,32817,32818,32819,32820,32821,32980,32989,32997,33285,33520,33535,33540,33557,33578,33580,33589,33813,33876,33881,33883,33887,33889,33893,33894,33897,33901,33904,33906,33910,33913,33917,34431,34432,34433,34434,34435,34436,34437,34438,34439,34441,34442,34443,34444,34445,34446,34447,34448,34602,34697,34698,34705,34789,35166,35167,35168,35169,35170,35171,35172,35173,35174,35175,35176,35177,35178,35179,35180,36945,37590,39765,40198,40282,40306,40323,40324,40330,40332,43879,43913,43980,44008,44197,44200,45269,45446,45460,45611,45663,45869,45888,46345,46967,47066,47068,47074,47098,47111,47143,47155,47208,47211,47414,47438,47441,47442,47455,47459,47467,47474,47485,47570,47571,47572,47573,47574,47575,47576,47577,47579,47580,47581,47582,47583,47584,47585,47586,47587,47588,47916,47918,47927,47935,47989,47991,48000,48008,49960,49994,50000,50002,50030,50032,50175,50333,50417,50611,50630,50651,50655,50659,50670,50686,50687,50721,50774,50785,50789,50796,50802,50985,51563,51783,51820,51832,51872,51885,51901,51907,51914,51918,51929,53112,53126,53134,53486",
-
 	["Gear.Trinket"]				= "744,833,1404,1490,1713,1973,2802,2820,3456,4130,4381,4396,4397,5079,7506,7734,8663,8703,9149,10418,10455,10576,10577,10585,10587,10645,10659,10716,10720,10723,10725,10727,10779,11122,11302,11810,11811,11815,11819,11832,11905,12065,12846,12930,13164,13171,13209,13213,13379,13382,13503,13515,13544,13965,13966,13968,14022,14023,14557,15867,15873,16022,17064,17082,17690,17691,17744,17759,17774,17900,17901,17902,17903,17904,17905,17906,17907,17908,17909,18354,18370,18371,18406,18465,18466,18467,18468,18469,18470,18471,18472,18473,18537,18634,18637,18638,18639,18646,18665,18706,18815,18820,18834,18845,18846,18849,18850,18851,18852,18853,18854,18856,18857,18858,18859,18862,18863,18864,18951,19024,19120,19141,19287,19288,19289,19290,19336,19337,19339,19340,19341,19342,19343,19344,19345,19379,19395,19406,19431,19812,19930,19947,19948,19949,19950,19951,19952,19953,19954,19955,19956,19957,19958,19959,19979,19990,19991,19992,20036,20071,20072,20130,20503,20512,20534,20636,21115,21116,21117,21118,21119,21120,21180,21181,21326,21473,21488,21565,21566,21567,21568,21579,21625,21647,21670,21685,21748,21756,21758,21760,21763,21769,21777,21784,21789,21891,22268,22321,22678,22954,23001,23027,23040,23041,23042,23046,23047,23206,23207,23558,23570,23835,23836,24124,24125,24126,24127,24128,24376,24390,24551,25619,25620,25628,25633,25634,25653,25786,25787,25829,25936,25937,26055,27416,27529,27683,27770,27828,27891,27896,27900,27920,27921,27922,27924,27926,27927,28034,28040,28041,28042,28108,28109,28121,28190,28223,28234,28235,28236,28237,28238,28239,28240,28241,28242,28243,28288,28370,28418,28528,28579,28590,28727,28785,28789,28823,28830,29132,29179,29181,29370,29376,29383,29387,29592,29593,29776,30293,30300,30340,30343,30344,30345,30346,30348,30349,30350,30351,30446,30447,30448,30449,30450,30619,30620,30621,30626,30627,30629,30663,30664,30665,30696,30720,30841,31080,31113,31615,31617,31856,31857,31858,31859,32481,32483,32485,32486,32487,32488,32489,32490,32491,32492,32493,32496,32501,32505,32534,32654,32658,32694,32695,32770,32771,32782,32863,32864,33828,33829,33830,33831,33832,34029,34049,34050,34162,34163,34423,34424,34427,34428,34429,34430,34470,34471,34472,34473,34576,34577,34578,34579,34580,35326,35327,35693,35694,35700,35702,35703,35748,35749,35750,35751,35935,35937,36871,36872,36874,36972,36993,37064,37111,37127,37128,37166,37220,37254,37264,37390,37555,37556,37557,37558,37559,37560,37562,37638,37657,37660,37723,37734,37835,37844,37864,37865,37872,37873,38070,38071,38072,38073,38080,38081,38212,38213,38257,38258,38259,38287,38288,38289,38290,38358,38359,38588,38589,38674,38675,38760,38761,38762,38763,38764,38765,39229,39257,39292,39388,39811,39821,39889,40255,40256,40257,40258,40354,40371,40372,40373,40382,40430,40431,40432,40476,40477,40483,40492,40531,40532,40593,40601,40682,40683,40684,40685,40727,40754,40767,40865,41121,41587,41588,41589,41590,42122,42123,42124,42126,42128,42129,42130,42131,42132,42133,42134,42135,42136,42137,42341,42395,42413,42418,42987,42988,42989,42990,42991,42992,43555,43573,43829,43836,43837,43838,44013,44014,44015,44063,44073,44074,44097,44098,44253,44254,44255,44322,44323,44324,44579,44597,44870,44912,44914,45131,45148,45158,45219,45263,45286,45292,45308,45313,45466,45490,45507,45518,45522,45535,45609,45631,45703,45866,45929,45931,46021,46038,46051,46081,46082,46083,46084,46085,46086,46087,46088,46312,47041,47059,47080,47088,47115,47131,47182,47188,47213,47214,47215,47216,47271,47290,47303,47316,47432,47451,47464,47477,47725,47726,47727,47728,47734,47735,47879,47880,47881,47882,47946,47947,47948,47949,48018,48019,48020,48021,48722,48724,49074,49076,49078,49080,49116,49118,49310,49463,49464,49487,49488,50198,50235,50259,50260,50339,50340,50341,50342,50343,50344,50345,50346,50348,50349,50351,50352,50353,50354,50355,50356,50357,50358,50359,50360,50361,50362,50363,50364,50365,50366,50706,50726,51377,51378,52199,52351,52352,52353,52354,53597,54547,54569,54571,54572,54573,54588,54589,54590,54591,55237,55251,55256,55266,55787,55795,55810,55814,55816,55819,55845,55854,55868,55874,55879,55881,55889,55995,56100,56102,56115,56121,56132,56136,56138,56280,56285,56290,56295,56320,56328,56339,56345,56347,56351,56370,56377,56393,56394,56400,56406,56407,56414,56427,56431,56440,56449,56458,56462,56463,56847,56849,57316,57325,57338,57346,58180,58181,58182,58183,58184,58483,59224,59326,59332,59354,59441,59461,59473,59500,59506,59514,59515,59519,59520,59617,59630,59633,59661,59664,59685,59689,59707,59710,59792,60233,60403,60794,60798,60799,60800,60801,60806,60807,60856,61026,61030,61031,61032,61033,61034,61035,61045,61046,61047,61411,61429,61433,61448,61462,62047,62048,62049,62050,62051,62463,62464,62465,62466,62467,62468,62469,62470,62471,62472,62966,62978,62984,62995,63192,63194,63241,63245,63632,63633,63742,63745,63838,63839,63840,63841,63842,63843,64597,64627,64645,64687,64688,64689,64740,64741,64742,64761,64762,64763,64789,64790,64791,64792,64793,64794,65026,65029,65048,65053,65072,65104,65105,65109,65110,65118,65124,65140,65175,65176,65286,65357,65803,65804,65805,65923,65931,66879,66969,66994,67037,67101,67118,67152,68709,68710,68711,68712,68713,68775,68776,68777",
 ]]
 
@@ -931,6 +930,47 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["GearSet.Tier 10.277.Warlock.Sanctified Dark Coven's Regalia"]			= "51230,51231,51232,51233,51234",
 	["GearSet.Tier 10.277.Warrior.Sanctified Ymirjar Lord's Battlegear"]		= "51225,51226,51227,51228,51229",
 	["GearSet.Tier 10.277.Warrior.Sanctified Ymirjar Lord's Plate"]			= "51220,51221,51222,51223,51224",
+
+	["GearSet.Tier 11.359.Death Knight.Magma Plated Battlearmor"]		= "60349,60350,60351,60352,60353",
+	["GearSet.Tier 11.359.Death Knight.Magma Plated Battlegear"]		= "60339,60340,60341,60342,60343",
+	["GearSet.Tier 11.359.Druid.Stormrider's Battlegarb"]		= "60286,60287,60288,60289,60290",
+	["GearSet.Tier 11.359.Druid.Stormrider's Regalia"]			= "60281,60282,60283,60284,60285",
+	["GearSet.Tier 11.359.Druid.Stormrider's Vestments"]		= "60276,60277,60278,60279,60280",
+	["GearSet.Tier 11.359.Hunter.Lightning-Charged Battlegear"]		= "60303,60304,60305,60306,60307",
+	["GearSet.Tier 11.359.Mage.Firelord's Vestments"]			= "60243,60244,60245,60246,60247",
+	["GearSet.Tier 11.359.Paladin.Reinforced Sapphirium Battlearmor"]	= "60354,60355,60356,60357,60358",
+	["GearSet.Tier 11.359.Paladin.Reinforced Sapphirium Battleplate"]	= "60344,60345,60346,60347,60348",
+	["GearSet.Tier 11.359.Paladin.Reinforced Sapphirium Regalia"]		= "60359,60360,60361,60362,60363",
+	["GearSet.Tier 11.359.Priest.Mercurial Regalia"]			= "60253,60254,60255,60256,60257",
+	["GearSet.Tier 11.359.Priest.Mercurial Vestments"]			= "60258,60259,60261,60262,60275",
+	["GearSet.Tier 11.359.Rogue.Wind Dancer's Regalia"]			= "60298,60299,60300,60301,60302",
+	["GearSet.Tier 11.359.Shaman.Battlegear of the Raging Elements"]	= "60318,60319,60320,60321,60322",
+	["GearSet.Tier 11.359.Shaman.Regalia of the Raging Elements"]		= "60313,60314,60315,60316,60317",
+	["GearSet.Tier 11.359.Shaman.Vestments of the Raging Elements"]		= "60308,60309,60310,60311,60312",
+	["GearSet.Tier 11.359.Warlock.Shadowflame Regalia"]			= "60248,60249,60250,60251,60252",
+	["GearSet.Tier 11.359.Warrior.Earthen Battleplate"]			= "60328,60329,60330,60331,60332",
+	["GearSet.Tier 11.359.Warrior.Earthen Warplate"]			= "60323,60324,60325,60326,60327",
+
+	["GearSet.Tier 11.372.Death Knight.Magma Plated Battlearmor"]		= "65184,65185,65186,65187,65188",
+	["GearSet.Tier 11.372.Death Knight.Magma Plated Battlegear"]		= "65179,65180,65181,65182,65183",
+	["GearSet.Tier 11.372.Druid.Stormrider's Battlegarb"]		= "65189,65190,65191,65192,65193",
+	["GearSet.Tier 11.372.Druid.Stormrider's Regalia"]			= "65199,65200,65201,65202,65203",
+	["GearSet.Tier 11.372.Druid.Stormrider's Vestments"]		= "65194,65195,65196,65197,65198",
+	["GearSet.Tier 11.372.Hunter.Lightning-Charged Battlegear"]		= "65204,65205,65206,65207,65208",
+	["GearSet.Tier 11.372.Mage.Firelord's Vestments"]			= "65209,65210,65211,65212,65213",
+	["GearSet.Tier 11.372.Paladin.Reinforced Sapphirium Battlearmor"]	= "65224,65225,65226,65227,65228",
+	["GearSet.Tier 11.372.Paladin.Reinforced Sapphirium Battleplate"]	= "65214,65215,65216,65217,65218",
+	["GearSet.Tier 11.372.Paladin.Reinforced Sapphirium Regalia"]		= "65219,65220,65221,65222,65223",
+	["GearSet.Tier 11.372.Priest.Mercurial Regalia"]			= "65234,65235,65236,65237,65238",
+	["GearSet.Tier 11.372.Priest.Mercurial Vestments"]			= "65229,65230,65231,65232,65233",
+	["GearSet.Tier 11.372.Rogue.Wind Dancer's Regalia"]			= "65239,65240,65241,65242,65243",
+	["GearSet.Tier 11.372.Shaman.Battlegear of the Raging Elements"]	= "65249,65250,65251,65252,65253",
+	["GearSet.Tier 11.372.Shaman.Regalia of the Raging Elements"]		= "65254,65255,65256,65257,65258",
+	["GearSet.Tier 11.372.Shaman.Vestments of the Raging Elements"]		= "65244,65245,65246,65247,65248",
+	["GearSet.Tier 11.372.Warlock.Shadowflame Regalia"]			= "65259,65260,65261,65262,65263",
+	["GearSet.Tier 11.372.Warrior.Earthen Battleplate"]			= "65269,65270,65271,65272,65273",
+	["GearSet.Tier 11.372.Warrior.Earthen Warplate"]			= "65264,65265,65266,65267,65268",
+
 ]=]
 
 --[=[ PvP Sets
@@ -1380,6 +1420,7 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["InstanceLoot.Onyxia's Lair.Onyxia"]				= "16908:1,16914:2,49294:919,49295:921,49296:75,49297:68,49298:63,49299:68,49301:0,49302:64,49303:75,49304:67,49305:66,49306:68,49307:65,49308:69,49309:74,49310:45,49315:179,49316:92,49317:95,49318:186,49319:184,49320:83,49321:85,49322:182,49323:58,49324:62,49325:58,49326:56,49327:58,49328:62,49329:69,49330:57,49331:60,49332:81,49333:86,49437:68,49463:46,49643:482,49644:469",
 
 	["InstanceLoot.Ragefire Chasm.Bazzalan"]			= "",
+	["InstanceLoot.Ragefire Chasm.Oggleflint"]			= "",
 	["InstanceLoot.Ragefire Chasm.Jergosh the Invoker"]		= "14147:368,14150:392,14151:179",
 	["InstanceLoot.Ragefire Chasm.Taragaman the Hungerer"]		= "14145:171,14148:379,14149:352",
 
@@ -1434,14 +1475,11 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["InstanceLoot.Scholomance.The Ravenian"]			= "14612:6,14624:9,14629:8",
 	["InstanceLoot.Scholomance.Vectus"]				= "14577:70,18691:73",
 
-	["InstanceLoot.Shadowfang Keep.Archmage Arugal"]		= "6220:172,6324:351,6392:347",
-	["InstanceLoot.Shadowfang Keep.Baron Silverlaine"]		= "6321:189,6323:396",
-	["InstanceLoot.Shadowfang Keep.Commander Springvale"]		= "3191:434,6320:371",
-	["InstanceLoot.Shadowfang Keep.Deathsworn Captain"]		= "6641:623,6642:322",
-	["InstanceLoot.Shadowfang Keep.Fenrus the Devourer"]		= "3230:171,6340:715",
-	["InstanceLoot.Shadowfang Keep.Odo the Blindwatcher"]		= "6318:337,6319:625",
-	["InstanceLoot.Shadowfang Keep.Razorclaw the Butcher"]		= "1292:90,6226:432,6633:440",
-	["InstanceLoot.Shadowfang Keep.Wolf Master Nandos"]		= "3748:566,6314:381",
+	["InstanceLoot.Shadowfang Keep.Baron Ashbury"]= "",
+	["InstanceLoot.Shadowfang Keep.Baron Silverlaine"]= "",
+	["InstanceLoot.Shadowfang Keep.Commander Springvale"]= "",
+	["InstanceLoot.Shadowfang Keep.Lord Walden"]= "",
+	["InstanceLoot.Shadowfang Keep.Lord Godfrey"]= "",
 
 	["InstanceLoot.Stratholme.Archivist Galford"]			= "13385:119,13386:210,13387:234,16692:186,18716:193,22897:174",
 	["InstanceLoot.Stratholme.Balnazzar"]				= "12103:162,13348:179,13353:20,13358:151,13359:164,13360:159,13369:186,13520:32,14512:64,16725:157,18717:161,18718:150,18720:143",
@@ -1482,25 +1520,15 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["InstanceLoot.The Temple of Atal'Hakkar.Zolo"]			= "10788:58,10786:55,10787:48,10785:37,10783:27,10784:18",
 	["InstanceLoot.The Temple of Atal'Hakkar.Zul'Lor"]		= "10788:59,10786:54,10787:53,10785:40,10783:32,10784:22",
 
-	["InstanceLoot.The Deadmines.Brainwashed Noble"]		= "3902:284,5967:689",
-	["InstanceLoot.The Deadmines.Captain Greenskin"]		= "5200:279,5201:374,10403:264",
-	["InstanceLoot.The Deadmines.Cookie"]				= "5197:538,5198:351",
-	["InstanceLoot.The Deadmines.Edwin VanCleef"]			= "5191:166,5193:252,5202:263,10399:165",
-	["InstanceLoot.The Deadmines.Foreman Thistlenettle"]		= "2166:11,2167:9,2168:8",
-	["InstanceLoot.The Deadmines.Gilnid"]				= "1156:371,5199:557",
-	["InstanceLoot.The Deadmines.Marisa du'Paige"]			= "3019:249,4660:723",
-	["InstanceLoot.The Deadmines.Miner Johnson"]			= "5443:389,5444:566",
-	["InstanceLoot.The Deadmines.Mr. Smite"]			= "5192:372,5196:376,7230:186",
-	["InstanceLoot.The Deadmines.Rhahk'Zor"]			= "872:29,5187:856",
-	["InstanceLoot.The Deadmines.Sneed's Shredder"]			= "1937:92,2169:800",
-	["InstanceLoot.The Deadmines.Sneed"]				= "5194:281,5195:666",
+	["InstanceLoot.The Deadmines.Glubtok"]= "",
+	["InstanceLoot.The Deadmines.Helix Gearbreaker"]= "",
+	["InstanceLoot.The Deadmines.Foe Reaper 5000"]= "",
+	["InstanceLoot.The Deadmines.Admiral Ripsnarl"]= "",
+	["InstanceLoot.The Deadmines.\"Captain\" Cookie"]= "",
 
-	["InstanceLoot.The Stockade.Bazil Thredd"]			= "",
-	["InstanceLoot.The Stockade.Bruegal Ironknuckle"]		= "2941:192,2942:185,3228:585",
-	["InstanceLoot.The Stockade.Dextren Ward"]			= "",
-	["InstanceLoot.The Stockade.Hamhock"]				= "",
-	["InstanceLoot.The Stockade.Kam Deepfury"]			= "2280:8",
-	["InstanceLoot.The Stockade.Targorr the Dread"]			= "",
+	["InstanceLoot.The Stockade.Randolph Moloch"]= "",
+	["InstanceLoot.The Stockade.Lord Overheat"]= "",
+	["InstanceLoot.The Stockade.Hogger"]= "",
 
 	["InstanceLoot.Uldaman.Ancient Stone Keeper"]			= "9410:455,9411:458",
 	["InstanceLoot.Uldaman.Archaedas"]				= "9413:128,9418:135,11118:636",
@@ -1831,6 +1859,8 @@ This file does not have valid lua syntax, because it should never be loaded dire
 
 	["InstanceLoot.Vault of Archavon.Archavon the Stone Watcher"]		= "39492:32,39493:33,39495:35,39497:32,39498:33,39500:32,39515:16,39517:17,39519:15,39523:17,39528:16,39530:15,39538:10,39539:12,39543:11,39544:10,39546:11,39547:11,39554:12,39555:10,39557:10,39558:31,39560:33,39564:31,39579:30,39580:31,39582:34,39588:10,39589:11,39591:11,39592:11,39593:11,39595:11,39597:10,39601:10,39603:11,39606:16,39607:16,39609:18,39611:16,39612:15,39617:16,39618:11,39620:15,39622:15,39623:16,39624:10,39626:15,39629:11,39630:11,39632:11,39633:10,39634:11,39636:10,39638:10,39639:11,39641:11,40781:33,40782:16,40783:32,40801:34,40802:16,40803:31,40840:33,40841:32,40842:15,40904:16,40925:16,40937:15,40988:10,40989:10,40999:11,41005:11,41025:9,41031:11,41079:11,41085:32,41135:11,41141:32,41162:10,41203:31,41284:10,41291:11,41296:10,41302:10,41308:11,41314:11,41648:32,41653:33,41659:9,41665:10,41765:33,41771:10,41857:17,41862:17,41872:16,41919:16,41925:15,41938:16,41950:33,41957:33,41969:32,42001:31,42003:31,42015:32,43959:8,44083:8",
 	["InstanceLoot.Vault of Archavon.Emalon the Storm Watcher"]		= "40804:24,40805:12,40806:27,40844:22,40845:25,40846:11,40879:15,40880:16,40888:13,40926:11,40938:11,40974:15,40975:14,40982:14,41000:7,41006:8,41026:7,41032:8,41048:6,41054:7,41059:6,41064:8,41069:7,41074:6,41136:8,41142:24,41198:8,41204:26,41224:13,41229:14,41234:14,41286:8,41292:8,41297:7,41303:8,41616:7,41620:7,41624:6,41629:7,41634:7,41639:6,41654:24,41666:8,41766:25,41772:7,41831:14,41835:15,41839:12,41863:11,41873:11,41880:15,41884:14,41892:12,41897:14,41902:15,41908:12,41926:11,41939:12,41958:23,41970:23,42004:23,42016:26,42027:14,42028:14,42029:6,42030:5,42031:5,42032:5,42033:5,42062:6,42063:5,42064:5,42065:5,42066:5,42067:14,42068:13,42114:14,42115:14,43959:9,44083:9,45337:26,45338:23,45341:23,45343:22,45345:19,45347:15,45351:16,45353:16,45355:15,45357:17,45360:50,45362:49,45367:48,45370:16,45371:17,45376:17,45379:17,45383:16,45384:16,45387:22,45388:24,45392:23,45394:24,45397:50,45399:50,45401:17,45403:16,45406:16,45409:17,45414:15,45416:17,45419:47,45420:48,45426:22,45427:24,45430:23,45432:24,46131:51",
+	["InstanceLoot.Vault of Archavon.Koralon the Flame Watcher"]= "",
+	["InstanceLoot.Vault of Archavon.Toravon the Ice Watcher"]= "",
 
 -- Trial of the Champion
 	["InstanceLoot.Trial of the Champion.Grand Champions"]			= "m,InstanceLoot.Trial of the Champion.Champion's Cache",
@@ -1864,20 +1894,94 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["InstanceLoot.Icecrown Citadel.Gunship Armory"]			= "49998:239,49999:160,50000:173,50001:171,50002:180,50003:148,50005:240,50006:148,50008:277,50009:125,50010:153,50011:201,50340:207,50352:193,50359:187,50411:148,50787:221,50788:146,50789:147,50790:102,50791:157,50792:147,50793:246,50794:161,50795:106,50796:122,50797:105",
 	["InstanceLoot.Icecrown Citadel.Deathbringer's Cache"]			= "50014:164,50015:131,50333:167,50362:238,50412:170,50798:270,50799:137,50800:141,50801:124,50802:76,50803:174,50804:158,50805:252,50806:104,50807:118,50808:113,50809:216,52025:4,52025:587,52026:3,52026:464,52027:484,52027:2",
 	["InstanceLoot.Icecrown Citadel.Deathbringer Saurfang"]			= "m,InstanceLoot.Icecrown Citadel.Deathbringer's Cache",
-	-- The Plagueworks
+-- The Plagueworks
 	["InstanceLoot.Icecrown Citadel.Festergut"]				= "50035:156,50036:110,50037:168,50038:154,50040:290,50041:132,50042:200,50056:194,50059:129,50060:178,50061:174,50062:263,50063:171,50064:165,50226:948,50413:168,50414:173,50810:224,50811:146,50812:146,50852:192,50858:150,50859:91,50966:279,50967:126,50985:123,50986:127,50988:128,50990:179",
 	["InstanceLoot.Icecrown Citadel.Rotface"]				= "50016:182,50019:181,50020:175,50021:179,50022:178,50023:214,50024:143,50025:273,50026:148,50027:146,50028:280,50030:118,50032:120,50033:180,50231:903,50353:237,50998:217,50999:139,51000:154,51001:139,51002:136,51003:143,51004:273,51005:125,51006:125,51007:183,51008:120,51009:119",
 	["InstanceLoot.Icecrown Citadel.Professor Putricide"]			= "50067:179,50068:188,50069:128,50179:180,50341:162,50351:260,51010:148,51011:159,51012:159,51013:163,51014:163,51015:161,51016:234,51017:161,51018:112,51019:115,51020:177,52025:632,52026:5,52026:500,52027:5,52027:495",
-	-- The Crimson Hall
+-- The Crimson Hall
 	["InstanceLoot.Icecrown Citadel.Prince Valanar"]			= "49919:292,50071:164,50072:146,50073:144,50074:150,50075:146,50170:310,50171:145,50172:163,50173:345,50174:144,50175:142,50176:142,50177:150,50184:141,51021:150,51022:201,51023:146,51024:143,51025:136,51325:135,51326:226,51379:122,51380:117,51381:236,51382:116,51383:112",
 	["InstanceLoot.Icecrown Citadel.Blood-Queen Lana'thel"]			= "50065:113,50178:164,50180:111,50181:158,50182:169,50354:107,51384:129,51385:198,51386:126,51387:162,51548:120,51550:134,51551:138,51552:119,51553:187,51554:189,51555:119,51556:129,52025:39,52025:644,52026:26,52026:507,52027:28,52027:500",
-	-- The Frostwing Halls
+-- The Frostwing Halls
 	["InstanceLoot.Icecrown Citadel.Cache of the Dreamwalker"]		= "50183:177,50185:78,50186:263,50187:155,50188:142,50190:139,50192:219,50195:140,50199:155,50202:173,50205:270,50416:109,50417:129,50418:173,50472:170,51561:159,51562:234,51563:134,51564:105,51565:126,51566:111,51582:254,51583:87,51584:221,51585:106,51586:108,51777:104",
 	["InstanceLoot.Icecrown Citadel.Valithria Dreamwalker"]			= "m,InstanceLoot.Icecrown Citadel.Cache of the Dreamwalker",
 	["InstanceLoot.Icecrown Citadel.Sindragosa"]				= "50360:228,50361:144,50421:187,50423:185,50424:154,51779:189,51782:144,51783:119,51784:151,51785:164,51786:149,51787:116,51788:228,51789:114,51790:151,51791:181,51792:131,52025:631,52025:22,52026:520,52026:12,52027:22,52027:494",
-	-- The Frozen Throne
+-- The Frozen Throne
 	["InstanceLoot.Icecrown Citadel.The Lich King"]				= "49426:2,49426:1,49981:301,49997:149,50012:209,50070:264,50425:172,50426:122,50427:146,50428:166,50429:174,51795:135,51796:251,51797:188,51798:226,51799:259,51800:125,51801:145,51802:198,51803:180,52025:651,52026:522,52027:405",
+-- Trash
+	["InstanceLoot.Icecrown Citadel.Trash Mobs"]= "",
 
+-- The Ruby Sanctum
+	["InstanceLoot.The Ruby Sanctum.Halion"]= "",
+]==]
+--[==[ Cataclysm Instances
+-- Abyssal Maw: Throne of the Tides
+	["InstanceLoot.Throne of the Tides.Lady Naz'jar"]= "",
+	["InstanceLoot.Throne of the Tides.Commander Ulthok"]= "",
+	["InstanceLoot.Throne of the Tides.Mindbender Ghur'sha"]= "",
+	["InstanceLoot.Throne of the Tides.Neptulon's Cache"]= "",
+	["InstanceLoot.Throne of the Tides.Ozumat"]= "m,InstanceLoot.Throne of the Tides.Neptulon's Cache",
+-- Blackrock Mountain: Blackrock Caverns
+	["InstanceLoot.Blackrock Caverns.Rom'ogg Bonecrusher"]= "",
+	["InstanceLoot.Blackrock Caverns.Corla, Herald of Twilight"]= "",
+	["InstanceLoot.Blackrock Caverns.Karsh Steelbender"]= "",
+	["InstanceLoot.Blackrock Caverns.Beauty"]= "",
+	["InstanceLoot.Blackrock Caverns.Ascendant Lord Obsidius"]= "",
+-- Grim Batol
+	["InstanceLoot.Grim Batol.General Umbriss"]= "",
+	["InstanceLoot.Grim Batol.Forgemaster Throngus"]= "",
+	["InstanceLoot.Grim Batol.Drahga Shadowburner"]= "",
+	["InstanceLoot.Grim Batol.Erudax"]= "",
+-- Halls of Origination
+	["InstanceLoot.Halls of Origination.Temple Guardian Anhuur"]= "",
+	["InstanceLoot.Halls of Origination.Earthrager Ptah"]= "",
+	["InstanceLoot.Halls of Origination.Anraphet"]= "",
+	["InstanceLoot.Halls of Origination.Isiset"]= "",
+	["InstanceLoot.Halls of Origination.Ammunae"]= "",
+	["InstanceLoot.Halls of Origination.Setesh"]= "",
+	["InstanceLoot.Halls of Origination.Rajh"]= "",
+-- Lost City of the Tol'vir
+	["InstanceLoot.Lost City of the Tol'vir.General Husam"]= "",
+	["InstanceLoot.Lost City of the Tol'vir.High Prophet Barim"]= "",
+	["InstanceLoot.Lost City of the Tol'vir.Lockmaw"]= "",
+	["InstanceLoot.Lost City of the Tol'vir.Siamat"]= "",
+-- The Stonecore
+	["InstanceLoot.The Stonecore.Corborus"]= "",
+	["InstanceLoot.The Stonecore.Slabhide"]= "",
+	["InstanceLoot.The Stonecore.Ozruk"]= "",
+	["InstanceLoot.The Stonecore.High Priestess Azil"]= "",
+-- The Skywall: The Vortex Pinnacle
+	["InstanceLoot.The Vortex Pinnacle.Grand Vizier Ertan"]= "",
+	["InstanceLoot.The Vortex Pinnacle.Altairus"]= "",
+	["InstanceLoot.The Vortex Pinnacle.Asaad"]= "",
+-- Baradin Hold
+	["InstanceLoot.Baradin Hold.Argaloth"]= "",
+-- Blackrock Mountain: Blackwing Descent
+	["InstanceLoot.Blackwing Descent.Magmaw"]= "",
+	["InstanceLoot.Blackwing Descent.Electron"]= "",
+	["InstanceLoot.Blackwing Descent.Toxitron"]= "",
+	["InstanceLoot.Blackwing Descent.Magmatron"]= "",
+	["InstanceLoot.Blackwing Descent.Arcanotron"]= "",
+	["InstanceLoot.Blackwing Descent.Omnotron Defense System"]= "m,InstanceLoot.Throne of the Tides.Electron,InstanceLoot.Blackwing Descent.Toxitron,InstanceLoot.Blackwing Descent.Magmatron,InstanceLoot.Blackwing Descent.Arcanotron",
+	["InstanceLoot.Blackwing Descent.Maloriak"]= "",
+	["InstanceLoot.Blackwing Descent.Atramedes"]= "",
+	["InstanceLoot.Blackwing Descent.Chimaeron"]= "",
+	["InstanceLoot.Blackwing Descent.Nefarian"]= "",
+	["InstanceLoot.Blackwing Descent.Trash Mobs"]= "",
+-- The Bastion of Twilight
+	["InstanceLoot.The Bastion of Twilight.Halfus Wyrmbreaker"]= "",
+	["InstanceLoot.The Bastion of Twilight.Valiona"]= "",
+	["InstanceLoot.The Bastion of Twilight.Theralion"]= "",
+	["InstanceLoot.The Bastion of Twilight.Valiona & Theralion"]= "m,InstanceLoot.The Bastion of Twilight.Valiona,InstanceLoot.The Bastion of Twilight.Theralion",
+	["InstanceLoot.The Bastion of Twilight.Elementium Monstrosity"]= "",
+	["InstanceLoot.The Bastion of Twilight.Twilight Ascendant Council"]= "m,InstanceLoot.The Bastion of Twilight.Elementium Monstrosity",
+	["InstanceLoot.The Bastion of Twilight.Cho'gall"]= "",
+	["InstanceLoot.The Bastion of Twilight.Trash Mobs"]= "",
+-- Throne of the Four Winds
+	["InstanceLoot.Throne of the Four Winds.Nezir"]= "",
+	["InstanceLoot.Throne of the Four Winds.Anshal"]= "",
+	["InstanceLoot.Throne of the Four Winds.Rohash"]= "",
+	["InstanceLoot.Throne of the Four Winds.Conclave of Wind"]= "m,InstanceLoot.Throne of the Four Winds.Nezir,InstanceLoot.Throne of the Four Winds.Anshal,InstanceLoot.Throne of the Four Winds.Rohash",
+	["InstanceLoot.Throne of the Four Winds.Al'Akir"]= "",
 ]==]
 ]=]
 --[=[ heroic
@@ -2079,6 +2183,8 @@ This file does not have valid lua syntax, because it should never be loaded dire
 
 	["InstanceLootHeroic.Vault of Archavon.Archavon the Stone Watcher"]		= "40415:72,40417:67,40418:63,40422:67,40423:63,40445:37,40448:33,40449:29,40454:37,40457:36,40458:31,40460:24,40462:21,40463:21,40466:24,40468:23,40469:20,40471:22,40472:24,40493:20,40495:60,40496:71,40500:63,40503:63,40504:72,40506:65,40508:21,40509:25,40512:22,40514:22,40515:24,40517:21,40520:25,40522:22,40523:22,40525:33,40527:36,40529:34,40544:32,40545:36,40547:31,40550:32,40552:34,40556:31,40559:32,40563:36,40567:32,40569:22,40570:24,40572:21,40574:20,40575:23,40577:22,40579:21,40580:23,40583:21,40784:68,40785:34,40786:64,40804:67,40805:32,40806:64,40844:63,40845:63,40846:30,40905:32,40926:35,40938:32,40990:21,40991:22,41000:22,41006:21,41026:21,41032:22,41080:23,41086:62,41136:22,41142:62,41198:22,41204:64,41286:21,41292:21,41297:22,41303:21,41309:22,41315:23,41649:67,41654:64,41660:22,41666:21,41766:65,41772:20,41858:33,41863:32,41873:32,41920:31,41926:32,41939:32,41951:64,41958:62,41970:63,41997:70,42004:64,42016:61,43959:8,44083:8",
 	["InstanceLootHeroic.Vault of Archavon.Emalon the Storm Watcher"]		= "40807:49,40808:10,40809:48,40847:49,40848:48,40849:22,40881:25,40882:26,40889:32,40927:45,40939:22,40976:27,40977:28,40983:30,41001:18,41007:17,41027:16,41033:16,41051:13,41055:13,41060:15,41065:16,41070:14,41075:14,41137:16,41143:50,41199:16,41205:50,41225:30,41230:27,41235:26,41287:15,41293:17,41298:16,41304:16,41617:11,41621:12,41625:15,41630:11,41635:11,41640:15,41655:50,41667:16,41767:51,41773:16,41832:27,41836:28,41840:27,41864:26,41874:23,41881:28,41885:27,41893:30,41898:27,41903:26,41909:28,41927:24,41940:26,41959:47,41971:47,42005:50,42017:44,42034:31,42035:29,42036:11,42037:11,42038:12,42039:11,42040:11,42069:12,42070:12,42071:12,42072:11,42073:12,42074:27,42075:29,42116:25,42117:25,43959:9,44083:8,46113:48,46116:48,46119:49,46121:45,46124:100,46126:98,46132:95,46133:92,46135:97,46139:95,46142:102,46144:104,46148:47,46150:46,46153:32,46155:33,46158:33,46160:32,46163:51,46164:48,46169:46,46170:48,46174:33,46176:31,46179:33,46181:33,46183:34,46185:29,46188:47,46189:32,46192:33,46195:46,46199:33,46200:34,46202:32,46207:30,46208:34,46210:34,46373:7",
+	["InstanceLootHeroic.Vault of Archavon.Koralon the Flame Watcher"]= "",
+	["InstanceLootHeroic.Vault of Archavon.Toravon the Ice Watcher"]= "",
 
 -- Trial of the Champion
 	["InstanceLootHeroic.Trial of the Champion.Grand Champions"]			= "m,InstanceLootHeroic.Trial of the Champion.Champion's Cache",
@@ -2125,6 +2231,95 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["InstanceLootHeroic.Icecrown Citadel.Sindragosa"]				= "50364:0,50365:0,50633:0,50635:0,50636:0,51811:0,51812:0,51813:0,51814:0,51815:0,51816:0,51817:0,51818:0,51819:0,51820:0,51821:0,51822:0,52025:0,52026:0,52027:0,52028:0,52029:0,52030:0",
 -- The Frozen Throne
 	["InstanceLootHeroic.Icecrown Citadel.The Lich King"]				= "49426:0,50730:0,50731:0,50732:0,50733:0,50734:0,50735:0,50736:0,50737:0,50738:0,50818:0,51939:0,51940:0,51941:0,51942:0,51943:0,51944:0,51945:0,51946:0,51947:0,52025:0,52026:0,52027:0,52028:0,52029:0,52030:0",
+-- Trash
+	["InstanceLootHeroic.Icecrown Citadel.Trash Mobs"]= "",
+
+-- The Ruby Sanctum
+	["InstanceLootHeroic.The Ruby Sanctum.Halion"]= "",
+]==]
+--[==[ Cataclysm Instances
+-- Abyssal Maw: Throne of the Tides
+	["InstanceLootHeroic.Throne of the Tides.Lady Naz'jar"]= "",
+	["InstanceLootHeroic.Throne of the Tides.Commander Ulthok"]= "",
+	["InstanceLootHeroic.Throne of the Tides.Mindbender Ghur'sha"]= "",
+	["InstanceLootHeroic.Throne of the Tides.Neptulon's Cache"]= "",
+	["InstanceLootHeroic.Throne of the Tides.Ozumat"]= "m,InstanceLootHeroic.Throne of the Tides.Neptulon's Cache",
+-- Blackrock Mountain: Blackrock Caverns
+	["InstanceLootHeroic.Blackrock Caverns.Rom'ogg Bonecrusher"]= "",
+	["InstanceLootHeroic.Blackrock Caverns.Corla, Herald of Twilight"]= "",
+	["InstanceLootHeroic.Blackrock Caverns.Karsh Steelbender"]= "",
+	["InstanceLootHeroic.Blackrock Caverns.Beauty"]= "",
+	["InstanceLootHeroic.Blackrock Caverns.Ascendant Lord Obsidius"]= "",
+-- Grim Batol
+	["InstanceLootHeroic.Grim Batol.General Umbriss"]= "",
+	["InstanceLootHeroic.Grim Batol.Forgemaster Throngus"]= "",
+	["InstanceLootHeroic.Grim Batol.Drahga Shadowburner"]= "",
+	["InstanceLootHeroic.Grim Batol.Erudax"]= "",
+-- Halls of Origination
+	["InstanceLootHeroic.Halls of Origination.Temple Guardian Anhuur"]= "",
+	["InstanceLootHeroic.Halls of Origination.Earthrager Ptah"]= "",
+	["InstanceLootHeroic.Halls of Origination.Anraphet"]= "",
+	["InstanceLootHeroic.Halls of Origination.Isiset"]= "",
+	["InstanceLootHeroic.Halls of Origination.Ammunae"]= "",
+	["InstanceLootHeroic.Halls of Origination.Setesh"]= "",
+	["InstanceLootHeroic.Halls of Origination.Rajh"]= "",
+-- Lost City of the Tol'vir
+	["InstanceLootHeroic.Lost City of the Tol'vir.General Husam"]= "",
+	["InstanceLootHeroic.Lost City of the Tol'vir.High Prophet Barim"]= "",
+	["InstanceLootHeroic.Lost City of the Tol'vir.Augh"]= "",
+	["InstanceLootHeroic.Lost City of the Tol'vir.Siamat"]= "",
+-- The Stonecore
+	["InstanceLootHeroic.The Stonecore.Corborus"]= "",
+	["InstanceLootHeroic.The Stonecore.Slabhide"]= "",
+	["InstanceLootHeroic.The Stonecore.Ozruk"]= "",
+	["InstanceLootHeroic.The Stonecore.High Priestess Azil"]= "",
+-- The Skywall: The Vortex Pinnacle
+	["InstanceLootHeroic.The Vortex Pinnacle.Grand Vizier Ertan"]= "",
+	["InstanceLootHeroic.The Vortex Pinnacle.Altairus"]= "",
+	["InstanceLootHeroic.The Vortex Pinnacle.Asaad"]= "",
+-- Shadowfang Keep
+	["InstanceLootHeroic.Shadowfang Keep.Baron Ashbury"]= "",
+	["InstanceLootHeroic.Shadowfang Keep.Baron Silverlaine"]= "",
+	["InstanceLootHeroic.Shadowfang Keep.Commander Springvale"]= "",
+	["InstanceLootHeroic.Shadowfang Keep.Lord Walden"]= "",
+	["InstanceLootHeroic.Shadowfang Keep.Lord Godfrey"]= "",
+-- The Deadmines
+	["InstanceLootHeroic.The Deadmines.Glubtok"]= "",
+	["InstanceLootHeroic.The Deadmines.Helix Gearbreaker"]= "",
+	["InstanceLootHeroic.The Deadmines.Foe Reaper 5000"]= "",
+	["InstanceLootHeroic.The Deadmines.Admiral Ripsnarl"]= "",
+	["InstanceLootHeroic.The Deadmines.\"Captain\" Cookie"]= "",
+	["InstanceLootHeroic.The Deadmines.Vanessa VanCleef"]= "",
+-- Baradin Hold
+	["InstanceLootHeroic.Baradin Hold.Argaloth"]= "",
+-- Blackrock Mountain: Blackwing Descent
+	["InstanceLootHeroic.Blackwing Descent.Magmaw"]= "",
+	["InstanceLootHeroic.Blackwing Descent.Electron"]= "",
+	["InstanceLootHeroic.Blackwing Descent.Toxitron"]= "",
+	["InstanceLootHeroic.Blackwing Descent.Magmatron"]= "",
+	["InstanceLootHeroic.Blackwing Descent.Arcanotron"]= "",
+	["InstanceLootHeroic.Blackwing Descent.Omnotron Defense System"]= "m,InstanceLootHeroic.Throne of the Tides.Electron,InstanceLootHeroic.Blackwing Descent.Toxitron,InstanceLootHeroic.Blackwing Descent.Magmatron,InstanceLootHeroic.Blackwing Descent.Arcanotron",
+	["InstanceLootHeroic.Blackwing Descent.Maloriak"]= "",
+	["InstanceLootHeroic.Blackwing Descent.Atramedes"]= "",
+	["InstanceLootHeroic.Blackwing Descent.Chimaeron"]= "",
+	["InstanceLootHeroic.Blackwing Descent.Nefarian"]= "",
+	["InstanceLootHeroic.Blackwing Descent.Trash Mobs"]= "",
+-- The Bastion of Twilight
+	["InstanceLootHeroic.The Bastion of Twilight.Halfus Wyrmbreaker"]= "",
+	["InstanceLootHeroic.The Bastion of Twilight.Valiona"]= "",
+	["InstanceLootHeroic.The Bastion of Twilight.Theralion"]= "",
+	["InstanceLootHeroic.The Bastion of Twilight.Valiona & Theralion"]= "m,InstanceLootHeroic.The Bastion of Twilight.Valiona,InstanceLootHeroic.The Bastion of Twilight.Theralion",
+	["InstanceLootHeroic.The Bastion of Twilight.Elementium Monstrosity"]= "",
+	["InstanceLootHeroic.The Bastion of Twilight.Twilight Ascendant Council"]= "m,InstanceLootHeroic.The Bastion of Twilight.Elementium Monstrosity",
+	["InstanceLootHeroic.The Bastion of Twilight.Cho'gall"]= "",
+	["InstanceLootHeroic.The Bastion of Twilight.Sinestra"]= "",
+	["InstanceLootHeroic.The Bastion of Twilight.Trash Mobs"]= "",
+-- Throne of the Four Winds
+	["InstanceLootHeroic.Throne of the Four Winds.Nezir"]= "",
+	["InstanceLootHeroic.Throne of the Four Winds.Anshal"]= "",
+	["InstanceLootHeroic.Throne of the Four Winds.Rohash"]= "",
+	["InstanceLootHeroic.Throne of the Four Winds.Conclave of Wind"]= "m,InstanceLootHeroic.Throne of the Four Winds.Nezir,InstanceLootHeroic.Throne of the Four Winds.Anshal,InstanceLootHeroic.Throne of the Four Winds.Rohash",
+	["InstanceLootHeroic.Throne of the Four Winds.Al'Akir"]= "",
 ]==]
 ]=]
 ]]
