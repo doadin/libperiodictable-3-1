@@ -208,6 +208,9 @@ LibStub("LibPeriodicTable-3.1"):AddData("InstanceLootHeroic", gsub("$Rev$", "(%d
 	["InstanceLootHeroic.Vault of Archavon.Koralon the Flame Watcher"]="",
 	["InstanceLootHeroic.Vault of Archavon.Toravon the Ice Watcher"]="",
 
+-- Onyxia's Lair
+	["InstanceLootHeroic.Onyxia's Lair.Onyxia"]="",
+
 -- Trial of the Champion
 	["InstanceLootHeroic.Trial of the Champion.Grand Champions"]="m,InstanceLootHeroic.Trial of the Champion.Champion's Cache",
 	["InstanceLootHeroic.Trial of the Champion.Champion's Cache"]="47243:147,47244:146,47248:145,47249:147,47250:151,47493:139",
@@ -270,7 +273,8 @@ LibStub("LibPeriodicTable-3.1"):AddData("InstanceLootHeroic", gsub("$Rev$", "(%d
 -- The Ruby Sanctum
 	["InstanceLootHeroic.The Ruby Sanctum.Halion"]="",
 
--- -----
+-- commented out as long as dataminer's not fixed
+--[[ -----
 -- Cataclysm Instances
 -- -----
 
@@ -356,4 +360,5 @@ LibStub("LibPeriodicTable-3.1"):AddData("InstanceLootHeroic", gsub("$Rev$", "(%d
 	["InstanceLootHeroic.Throne of the Four Winds.Rohash"]="",
 	["InstanceLootHeroic.Throne of the Four Winds.Conclave of Wind"]="m,InstanceLootHeroic.Throne of the Four Winds.Nezir,InstanceLootHeroic.Throne of the Four Winds.Anshal,InstanceLootHeroic.Throne of the Four Winds.Rohash",
 	["InstanceLootHeroic.Throne of the Four Winds.Al'Akir"]="",
+]]
 })
