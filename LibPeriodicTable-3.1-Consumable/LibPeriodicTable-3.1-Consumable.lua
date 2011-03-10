@@ -106,7 +106,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("Consumable", gsub("$Rev$", "(%d+)", fun
 	["Consumable.Cooldown.Potion.Mana.Coilfang"]="32903:2400",
 	["Consumable.Cooldown.Potion.Mana.Pvp"]="17351:1120,17352:640",
 	["Consumable.Cooldown.Potion.Mana.Tempest Keep"]="32902:2400",
-	["Consumable.Cooldown.Potion.Rejuvenation.Regular"]="2456:120,11952:425,9144:750,29531:750,18253:1600,22850:2200,34440:2200,40087:3300,40077:3800,57193:8800",
+	["Consumable.Cooldown.Potion.Rejuvenation.Regular"]="2456:120,11952:425,9144:750,29531:750,18253:1600,22850:2200,34440:2200,40087:3300,40077:3800,57193:8800,57099:15000",
 	["Consumable.Cooldown.Potion.Rejuvenation.Dreamless Sleep"]="12190:1200,20002:2100,22836:3600,40081:5400",
 	["Consumable.Cooldown.Potion.Rune"]="39327:50",
 	["Consumable.Cooldown.Stone.Combat.Battle"]="22788",
