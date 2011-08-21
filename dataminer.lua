@@ -914,6 +914,27 @@ local GearSets_fixedids = {
 	["Stormrider's Vestments"] = {["359"] = 928, ["372"] = -285},
 	["Vestments of the Raging Elements"] = {["359"] = 938, ["372"] = -295},
 	["Wind Dancer's Regalia"] = {["359"] = 937, ["372"] = -294},
+
+-- T12
+	["Elementium Deathplate Battlegear"] = {["378"] = 1000, ["391"] = -349},
+	["Elementium Deathplate Battlearmor"] = {["378"] = 1001, ["391"] = -350},
+	["Obsidian Arborweave Battlegarb"] = {["378"] = 1002, ["391"] = -351},
+	["Obsidian Arborweave Regalia"] = {["378"] = 1003, ["391"] = -352},
+	["Obsidian Arborweave Vestments"] = {["378"] = 1004, ["391"] = -353},
+	["Flamewaker's Battlegear"] = {["378"] = 1005, ["391"] = -354},
+	["Vestments of the Dark Phoenix"] = {["378"] = 1006, ["391"] = -355},
+	["Firehawk Robes of Conflagration"] = {["378"] = 1007, ["391"] = -356},
+	["Balespider's Burning Vestments"] = {["378"] = 1008, ["391"] = -357},
+	["Vestments of the Cleansing Flame"] = {["378"] = 1009, ["391"] = -358},
+	["Regalia of the Cleansing Flame"] = {["378"] = 1010, ["391"] = -359},
+	["Regalia of Immolation"] = {["378"] = 1011, ["391"] = -360},
+	["Battleplate of Immolation"] = {["378"] = 1012, ["391"] = -361},
+	["Battlearmor of Immolation"] = {["378"] = 1013, ["391"] = -362},
+	["Volcanic Vestments"] = {["378"] = 1014, ["391"] = -363},
+	["Volcanic Battlegear"] = {["378"] = 1015, ["391"] = -364},
+	["Volcanic Regalia"] = {["378"] = 1016, ["391"] = -365},
+	["Molten Giant Warplate"] = {["378"] = 1017, ["391"] = -366},
+	["Molten Giant Battleplate"] = {["378"] = 1018, ["391"] = -367},
 }
 
 local Currency_Items = {
