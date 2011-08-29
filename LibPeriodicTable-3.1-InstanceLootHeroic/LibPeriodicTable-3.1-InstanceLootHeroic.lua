@@ -330,8 +330,6 @@ LibStub("LibPeriodicTable-3.1"):AddData("InstanceLootHeroic", gsub("$Rev$", "(%d
 	["InstanceLootHeroic.The Deadmines.Admiral Ripsnarl"]="",
 	["InstanceLootHeroic.The Deadmines.\"Captain\" Cookie"]= "",
 	["InstanceLootHeroic.The Deadmines.Vanessa VanCleef"]="",
--- Baradin Hold
-	["InstanceLootHeroic.Baradin Hold.Argaloth"]="",
 -- Blackrock Mountain: Blackwing Descent
 	["InstanceLootHeroic.Blackwing Descent.Magmaw"]="",
 	["InstanceLootHeroic.Blackwing Descent.Electron"]="",
@@ -360,5 +358,15 @@ LibStub("LibPeriodicTable-3.1"):AddData("InstanceLootHeroic", gsub("$Rev$", "(%d
 	["InstanceLootHeroic.Throne of the Four Winds.Rohash"]="",
 	["InstanceLootHeroic.Throne of the Four Winds.Conclave of Wind"]="m,InstanceLootHeroic.Throne of the Four Winds.Nezir,InstanceLootHeroic.Throne of the Four Winds.Anshal,InstanceLootHeroic.Throne of the Four Winds.Rohash",
 	["InstanceLootHeroic.Throne of the Four Winds.Al'Akir"]="",
+-- Firelands
+	["InstanceLootHeroic.Firelands.Beth'tilac"]="",
+	["InstanceLootHeroic.Firelands.Lord Rhyolith"]="",
+	["InstanceLootHeroic.Firelands.Alysrazor"]="",
+	["InstanceLootHeroic.Firelands.Shannox"]="",
+	["InstanceLootHeroic.Firelands.Baleroc"]="",
+	["InstanceLootHeroic.Firelands.Majordomo Staghelm"]="",
+	["InstanceLootHeroic.Firelands.Cache of the Fire Lord"]="",
+	["InstanceLootHeroic.Firelands.Ragnaros"]="m,InstanceLootHeroic.Firelands.Cache of the Fire Lord",
+	["InstanceLootHeroic.Firelands.Trash Mobs"]="",
 ]]
 })
