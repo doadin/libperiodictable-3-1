@@ -953,6 +953,7 @@ local Currency_Items = {
 	["Justice Points"] = -395,
 	["Mark of Honor Hold"] = 24579,
 	["Mark of the Illidari"] = 32897,
+	["Mark of the World Tree"] = -416,
 	["Mark of Thrallmar"] = 24581,
 --	["Necrotic Rune"] = 22484,
 	["Spirit Shard"] = 28558,
@@ -1211,6 +1212,7 @@ handlers["^CurrencyItems"] = function (set, data)
 		return basic_listview_handler(WH("currency", -currency_id), function (item)
 			local count
 			for _, v in ipairs(item.cost[2]) do
+				if v[1] == 396 and item.level == 359 then return end --XXX temp fix for jp items showing up on a vp vendor (http://www.wowhead.com/npc=44245)
 				if v[1] == -currency_id then
 					count = v[2]
 					break
