@@ -3,7 +3,7 @@
 ## Notes: Library of compressed itemid sets.
 ## Author: Nymbia
 ## X-eMail: nymbia@gmail.com
-## Interface: 40100
+## Interface: 40200
 ## Version: v3.3.0.@project-revision@
 
 ## X-Website: http://www.wowace.com/projects/libperiodictable-3-1/
