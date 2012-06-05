@@ -79,7 +79,7 @@ local function decode_constant(s, startPos, allowStringConstants)
 	if not value and allowStringConstants then
 		value = result
 	end
-	assert(value, ("invalid constant %s"):format(result))
+	--assert(value, ("invalid constant %s"):format(result)) -- [ckaotik] constants can be nil/false which won't validate!
 	return value, endPos + 1
 end
 

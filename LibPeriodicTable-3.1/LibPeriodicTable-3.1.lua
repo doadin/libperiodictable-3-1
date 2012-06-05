@@ -56,11 +56,11 @@ end
 do
 	local tables = setmetatable({},{__mode = 'k'})
 	function makeNonPresentMultiSet(parentname)
-		-- makes an implied multiset, ie if you define only the set "a.b.c", 
+		-- makes an implied multiset, ie if you define only the set "a.b.c",
 		-- a request to "a.b" will come through here for a.b to be built.
 		-- an expensive function because it needs to iterate all active sets,
 		-- moreso for invalid sets.
-		
+
 		-- store some temp tables with weak keys to reduce garbage churn
 		local temp = next(tables)
 		if temp then
@@ -69,7 +69,7 @@ do
 			temp = {}
 		end
 		-- Escape characters that will screw up the name matching.
-		local escapedparentname = parentname:gsub("([%.%(%)%%%+%-%*%?%[%]%^%$])", "%%%1")
+		local escapedparentname = parentname:gsub("([%,%.%(%)%%%+%-%*%?%[%]%^%$])", "%%%1")
 		-- Check all the sets to see if they start with this name.
 		for k in pairs(sets) do
 			if k:match("^"..escapedparentname.."%.") then

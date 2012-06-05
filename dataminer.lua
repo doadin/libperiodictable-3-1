@@ -2,11 +2,13 @@
 --this tool is run in the lua command line.  http://lua.org
 --socket is required for internet data.
 --get socket here: http://luaforge.net/projects/luasocket/
---if available curl will be used, which allows connection re-use
+--if available, bit (LuaBitOp) will be used for instance difficulty loot
+--if available, curl will be used, which allows connection re-use
 --if available, sqlite3 will be used for the cache database
 
 local SOURCE = SOURCE or "data.lua"
 local DEBUG = DEBUG or 2
+local TRANSMOGSETS_CHKSRC = TRANSMOGSETS_CHKSRC
 local INSTANCELOOT_CHKSRC = INSTANCELOOT_CHKSRC
 local INSTANCELOOT_MIN = INSTANCELOOT_MIN or 50
 local INSTANCELOOT_MAXSRC = INSTANCELOOT_MAXSRC or 5
@@ -73,7 +75,7 @@ json.register_constant("undefined", json.null)
 local url = require("socket.url")
 local httptime, httpcount = 0, 0
 
-local WOWHEAD_FILTER_PARAMS = { "na", "minle", "maxle", "minrl", "maxrl", "qu", "sl", "cr", "crs", "crv" }
+local WOWHEAD_FILTER_PARAMS = { "na", "ma", "minle", "maxle", "minrl", "maxrl", "qu", "sl", "cr", "crs", "crv" }
 
 local function WH(page, value, filter)
 	local escape = url.escape
@@ -110,6 +112,7 @@ local function WH(page, value, filter)
 			-- we don't escape if filter is a string
 			url[#url + 1] = filter
 		end
+		url[#url + 1] = ";eb=1" -- [ckaotik] exclude pandaria items
 	end
 	return table.concat(url)
 end
@@ -127,6 +130,7 @@ do
 			dprint(3, "curl", url)
 			local temp = {}
 			c:setopt(curl.OPT_URL, url)
+			c:setopt(curl.OPT_USERAGENT, "Mozilla/5.0") -- needed or item information will be missing
 			c:setopt(curl.OPT_WRITEFUNCTION, write)
 			c:setopt(curl.OPT_WRITEDATA, temp)
 			local stime = os.time()
@@ -214,6 +218,17 @@ local function read_data_file()
 	for set, data in file:gmatch('\t%[%"('..subset..'[^"]*)%"%][^=]-= "([^"]-)"') do
 		sets[set] = data
 		setcount = setcount + 1
+	end
+	-- when scanning loot also offer heroic/lfr versions
+	if (arg[1] or ''):match("^InstanceLoot%.") then
+		for set, data in file:gmatch('\t%[%"('..(string.gsub(subset, "^InstanceLoot", "InstanceLootHeroic"))..'[^"]*)%"%][^=]-= "([^"]-)"') do
+			sets[set] = data
+			setcount = setcount + 1
+		end
+		for set, data in file:gmatch('\t%[%"('..(string.gsub(subset, "^InstanceLoot", "InstanceLootLFR"))..'[^"]*)%"%][^=]-= "([^"]-)"') do
+			sets[set] = data
+			setcount = setcount + 1
+		end
 	end
 
 	return file, sets, setcount
@@ -385,7 +400,7 @@ local function basic_listview_handler(url, handler, names, inplace_set)
 		if not names then break end
 	end
 	local itemcount = #newset
-	dprint(3, itemcount, url)
+	dprint(3, "BasicListViewHandler", itemcount, url)
 	if not inplace_set then
 		table.sort(newset, sortSet)
 		return table.concat(newset, ",")
@@ -411,6 +426,10 @@ end
 local function basic_listview_get_npc_id(npc, zone)
 	-- override because of a bug in wowhead where the mob is not reported as lootable.
 	if npc == "Sathrovarr the Corruptor" then return 24892 end
+	-- override because "," in names screws things up
+	if npc == "Corla Herald of Twilight" then return 39679 end
+	-- override because NPC name exists multiple times
+	if npc == "Kael'thas Sunstrider" and zone == "Magisters' Terrace" then return 24664 end
 	local url = WH("npcs", nil, {na = npc, cr=9, crs=1, crv=0})
 	local views = get_page_listviews(url)
 	if not views.npcs then return end
@@ -520,10 +539,11 @@ local Tradeskill_Tool_filters = {
 		{cr=91,crs=161,crv=0},-- Tool - Gnomish Army Knife
 		{cr=91,crs=167,crv=0},-- Tool - Hammer Pick
 	},
+	--[[ [ckaotik] deprecated
 	Cooking = {
 		{cr=91,crs=169,crv=0},-- Tool - Flint and Tinder
 		{cr=91,crs=161,crv=0},-- Tool - Gnomish Army Knife
-	},
+	},]]--
 	Enchanting = {
 		{cr=91,crs=62,crv=0}, -- Tool - Runed Adamantite Rod
 		{cr=91,crs=10,crv=0}, -- Tool - Runed Arcanite Rod
@@ -533,6 +553,7 @@ local Tradeskill_Tool_filters = {
 		{cr=91,crs=41,crv=0}, -- Tool - Runed Fel Iron Rod
 		{cr=91,crs=8,crv=0},  -- Tool - Runed Golden Rod
 		{cr=91,crs=7,crv=0},  -- Tool - Runed Silver Rod
+		{cr=91,crs=190,crv=0},-- Tool - Runed Titanium Rod [ckaotik]
 		{cr=91,crs=9,crv=0},  -- Tool - Runed Truesilver Rod
 	},
 	Engineering = {
@@ -546,6 +567,7 @@ local Tradeskill_Tool_filters = {
 		{cr=91,crs=121,crv=0},-- Tool - Scribe Tools
 	},
 --	Jewelcrafting = { -- TODO: missing on wowhead 10/12/20
+	-- Tool - Jeweler's Kit still missing as of 12/06/04
 --	},
 	Mining = {
 		{cr=91,crs=168,crv=0},-- Tool - Bladed Pickaxe
@@ -560,11 +582,12 @@ local Tradeskill_Tool_filters = {
 	},
 }
 
+--[[ deprecated [ckaotik]
 local Reagent_Ammo_categories = {
 	Arrow = "6.2",
 	Bullet = "6.3",
 	Thrown = "2.16",
-}
+} ]]--
 
 local Containers_ItemsInType_items = {
 --	["Soul Shard"] = 21342,
@@ -588,9 +611,24 @@ local Bag_categories = {
 	Mining = "1.6",
 	Leatherworking = "1.7",
 	Inscription = "1.8",
---	Tackle = "1.9",
+	Tackle = "1.9",
 --	Ammo = "11.3",
 --	Quiver = "11.2",
+}
+
+local Minipet_filters = {
+	Achievement = {cr=172,crs=1,crv=0},
+	Quest = {cr=18,crs=1,crv=0},
+	Drop = {cr=128,crs=4,crv=0},
+	Crafted = {cr=86,crs=11,crv=0},
+	Vendor = {cr=92,crs=1,crv=0},
+	Other = {cr={128,128,128},crs={5,8,2},crv={0,0,0},ma=1}, -- the bad & the ugly
+}
+
+local Mount_filter_categories = {
+	Normal = "15.5.1",
+	Flying = "15.5.2",
+	Aquatic = "15.5.3",
 }
 
 local Tradeskill_Recipe_categories = {
@@ -605,6 +643,7 @@ local Tradeskill_Recipe_categories = {
 	Fishing = "9.9",
 	Jewelcrafting = "9.10",
 	Inscription = "9.11",
+	Mining = "9.12",
 }
 
 local Tradeskill_Recipe_filters = {
@@ -677,63 +716,64 @@ local Tradeskill_Profession_categories = {
 	Tailoring = "11.197",
 }
 
+-- [ckaotik] fixed crv filter: 7 = socket?yes
 local Gear_Socketed_filters = {
 	Back	= {
-		{sl=16,cr=80,crs=5,crv=0},
+		{sl=16,cr=80,crs=7,crv=0},
 	},
 	Chest	= {
-		{sl=5,cr=80,crs=5,crv=0,qu={0,1,2,3}},
-		{sl=5,cr=80,crs=5,crv=0,qu={4,5,6,7}},
+		{sl=5,cr=80,crs=7,crv=0,qu={0,1,2,3}},
+		{sl=5,cr=80,crs=7,crv=0,qu={4,5,6,7}},
 	},
 	Feet	= {
-		{sl=8,cr=80,crs=5,crv=0},
+		{sl=8,cr=80,crs=7,crv=0},
 	},
 	Finger	= {
-		{sl=11,cr=80,crs=5,crv=0},
+		{sl=11,cr=80,crs=7,crv=0},
 	},
 	Hands	= {
-		{sl=10,cr=80,crs=5,crv=0},
+		{sl=10,cr=80,crs=7,crv=0},
 	},
 	Head	= {
-		{sl=1,cr=80,crs=5,crv=0,qu={0,1,2,3}},
-		{sl=1,cr=80,crs=5,crv=0,qu={4,5,6,7}},
+		{sl=1,cr=80,crs=7,crv=0,qu={0,1,2,3}},
+		{sl=1,cr=80,crs=7,crv=0,qu={4,5,6,7}},
 	},
 	Legs	= {
-		{sl=7,cr=80,crs=5,crv=0},
+		{sl=7,cr=80,crs=7,crv=0},
 	},
 	["Main Hand"]	= {
-		{sl=21,cr=80,crs=5,crv=0},
+		{sl=21,cr=80,crs=7,crv=0},
 	},
 	Neck	= {
-		{sl=2,cr=80,crs=5,crv=0},
+		{sl=2,cr=80,crs=7,crv=0},
 	},
 	["Off Hand"]	= {
-		{sl=22,cr=80,crs=5,crv=0},
+		{sl=22,cr=80,crs=7,crv=0},
 	},
 	["One Hand"]	= {
-		{sl=13,cr=80,crs=5,crv=0},
+		{sl=13,cr=80,crs=7,crv=0},
 	},
 	Ranged	= {
-		{sl=15,cr=80,crs=5,crv=0},
+		{sl=15,cr=80,crs=7,crv=0},
 	},
 	Shield	= {
-		{sl=14,cr=80,crs=5,crv=0},
+		{sl=14,cr=80,crs=7,crv=0},
 	},
 	Shoulder	= {
-		{sl=3,cr=80,crs=5,crv=0,qu={0,1,2,3}},
-		{sl=3,cr=80,crs=5,crv=0,qu={4,5,6,7}},
+		{sl=3,cr=80,crs=7,crv=0,qu={0,1,2,3}},
+		{sl=3,cr=80,crs=7,crv=0,qu={4,5,6,7}},
 	},
 	Trinket	= {
-		{sl=12,cr=80,crs=5,crv=0},
+		{sl=12,cr=80,crs=7,crv=0},
 	},
 	["Two Hand"]	= {
-		{sl=17,cr=80,crs=5,crv=0},
+		{sl=17,cr=80,crs=7,crv=0},
 	},
 	Waist	= {
-		{sl=6,cr=80,crs=5,crv=0},
+		{sl=6,cr=80,crs=7,crv=0},
 	},
 	Wrist	= {
-		{sl=9,cr=80,crs=5,crv=0},
+		{sl=9,cr=80,crs=7,crv=0},
 	},
 }
 
@@ -744,6 +784,8 @@ local Gear_level_filters = {
 	{minrl=70,maxrl=70},
 	{minrl=71,maxrl=79},
 	{minrl=80,maxrl=80},
+	{minrl=81,maxrl=84}, -- [ckaotik]
+	{minrl=85,maxrl=85}, -- [ckaotik]
 }
 
 local GearSets_fixedids = {
@@ -935,6 +977,27 @@ local GearSets_fixedids = {
 	["Volcanic Regalia"] = {["378"] = 1016, ["391"] = -365},
 	["Molten Giant Warplate"] = {["378"] = 1017, ["391"] = -366},
 	["Molten Giant Battleplate"] = {["378"] = 1018, ["391"] = -367},
+
+-- T13
+	["Necrotic Boneplate Armor"] = {["384"] = -483, ["397"] = 1056, ["410"] = -502},
+	["Necrotic Boneplate Battlegear"] = {["384"] = -482, ["397"] = 1057, ["410"] = -501},
+	["Deep Earth Battlegarb"] = {["384"] = -480, ["397"] = 1058, ["410"] = -499},
+	["Deep Earth Regalia"] = {["384"] = -479, ["397"] = 1059, ["410"] = -498},
+	["Deep Earth Vestments"] = {["384"] = -481, ["397"] = 1060, ["410"] = -500},
+	["Wyrmstalker Battlegear"] = {["384"] = -478, ["397"] = 1061, ["410"] = -497},
+	["Time Lord's Regalia"] = {["384"] = -477, ["397"] = 1062, ["410"] = -496},
+	["Armor of Radiant Glory"] = {["384"] = -476, ["397"] = 1065, ["410"] = -495},
+	["Battleplate of Radiant Glory"] = {["384"] = -474, ["397"] = 1064, ["410"] = -493},
+	["Regalia of Radiant Glory"] = {["384"] = -475, ["397"] = 1063, ["410"] = -494},
+	["Regalia of Dying light"] = {["384"] = -472, ["397"] = 1067, ["410"] = -491},
+	["Vestments of Dying Light"] = {["384"] = -473, ["397"] = 1066, ["410"] = -492},
+	["Blackfang Battleweave"] = {["384"] = -471, ["397"] = 1068, ["410"] = -490},
+	["Spiritwalker's Battlegear"] = {["384"] = -468, ["397"] = 1071, ["410"] = -487},
+	["Spiritwalker's Regalia"] = {["384"] = -470, ["397"] = 1070, ["410"] = -489},
+	["Spiritwalker's Vestments"] = {["384"] = -469, ["397"] = 1069, ["410"] = -488},
+	["Vestments of the Faceless Shroud"] = {["384"] = -467, ["397"] = 1072, ["410"] = -486},
+	["Colossal Dragonplate Armor"] = {["384"] = -466, ["397"] = 1074, ["410"] = -485},
+	["Colossal Dragonplate Battlegear"] = {["384"] = -465, ["397"] = 1073, ["410"] = -484},
 }
 
 local Currency_Items = {
@@ -1036,40 +1099,158 @@ local Consumable_Buff_Type_filters = {
 	["Both2"] = {cr=107,crs=0,crv="effect persists through death"},
 }
 
+--[[ ITEM UTILITY FUNCTIONS ]]
+
+-- .boe : will only search for boe items
+-- .heroic : will only search for heroic items
+-- .levels : only check items with these levels
+-- .format : method of parsing, 1:old
+-- if old format: .israid : filter by raid difficulty (not dungeon)
 local InstanceLoot_TrashMobs = {
-	["Molten Core"] = { id = 2717, boe = true, levels = 66, },
-	["Blackwing Lair"] = { id = 2677, levels = {70,71}, },
+	--[[ CLASSIC ]]
+	["Molten Core"] = { id = 2717, boe = true, levels = {66}, israid = true, format = 1 },
+	["Blackwing Lair"] = { id = 2677, levels = {70,71}, israid = true, format = 1 },
 	-- ["Zul'Gurub"] = { id = , levels = , }, -- Zul'Gurub has none
 	-- ["Ruins of Ahn'Qiraj"] = { id = , levels = , }, -- Ruins of Ahn'Qiraj has none
-	["Ahn'Qiraj"] = { id = 3428, levels = 71, }, -- Temple of Ahn'Qiraj really
-	["Karazhan"] = { id = 2562, levels = 115, },
-	["Serpentshrine Cavern"] = { id = 3607, levels = 128, },
-	["The Eye"] = { id = 3842, levels = 128, },
-	["Hyjal Summit"] = { id = 3606, levels = 141, },
-	["Black Temple"] = { id = 3959, levels = 141, },
-	["Sunwell Plateau"] = { id = 4075, levels = 154, },
-	["Naxxramas"] = { id = 3456, levels = {200, 213}, hasheroic = true },
-	["Ulduar"] = { id = 4273, levels = {219, 226, 232}, hasheroic = true },
-	["Icecrown Citadel"] = { id = 4812, levels = {264}, hasheroic = true },
-	["The Bastion of Twilight"] = { id = 5334, levels = {359}, hasheroic = true },
-	["Blackwing Descent"] = { id = 5094, levels = {359}, hasheroic = true },
+	["Ahn'Qiraj"] = { id = 3428, levels = {71}, israid = true, format = 1 }, -- Temple of Ahn'Qiraj really
+	--[[ BURNING CRUSADE ]]
+	["Karazhan"] = { id = 2562, levels = {115}, israid = true, format = 1 },
+	["Serpentshrine Cavern"] = { id = 3607, levels = {128}, israid = true, format = 1 },
+	["The Eye"] = { id = 3842, levels = {128}, israid = true, format = 1 },
+	["Hyjal Summit"] = { id = 3606, levels = {141}, israid = true, format = 1 },
+	["Black Temple"] = { id = 3959, levels = {141}, israid = true, format = 1 },
+	["Sunwell Plateau"] = { id = 4075, levels = {154}, israid = true, format = 1 },
+	--[[ WRATH ]]
+	["Naxxramas"] = { id = 3456, levels = {200, 213} },
+	["Ulduar"] = { id = 4273, levels = {200, 219, 226} },
+	["Icecrown Citadel"] = { id = 4812, levels = {200, 264} },
+	--[[ CATACLYSM ]]
+	["The Bastion of Twilight"] = { id = 5334, levels = {359} },
+	["Blackwing Descent"] = { id = 5094, levels = {359} },
+	["Firelands"] = { id = 5723, levels = {359, 378}, boe = true },
+	["Dragon Soul"] = { id = 5892, levels = {397}, boe = true },
 }
+
+--[[
+	WoWHead dificulty mapping:
+	-- Dungeons
+	1: heroic 5man
+	2: normal 5man
+	-- Raids
+	4: all (loot statistics)
+	8: normal 10man
+	16: normal 25man
+	32: heroic 10man
+	64: heroic 25man
+	128: lfr 25man
+]]
+local status, bit = pcall(require, "bit")
+if not status then bit = nil end
+local is_heroic_item = function(item)
+	local result
+	if bit then
+		result = bit.band(1+32+64, item.modes.mode) ~= 0
+	else
+		result = item.heroic or (item.modes and (item.modes["1"] or item.modes["32"] or item.modes["64"]))
+	end
+	-- recheck, normal 25man might be our heroic version
+	if not result then
+		if bit then
+			result = bit.band(16, item.modes.mode) ~= 0 and bit.band(8, item.modes.mode) == 0
+		else
+			result = item.modes["16"] and not item.modes["8"]
+		end
+	end
+	return result
+end
+local is_lfr_item = function(item)
+	local result
+	if bit then
+		result = bit.band(128, item.modes.mode) ~= 0
+	else
+		result = item.raidfinder or item.modes["128"]
+	end
+	return result
+end
+local is_normal_item = function(item, heroic, lfr)
+	local result
+	local heroic = heroic or is_heroic_item(item)
+	local lfr = lfr or is_lfr_item(item)
+	if bit then
+		result = bit.band(2+8+16, item.modes.mode) ~= 0 or (not heroic and not lfr)
+		-- item drops in normal 25, but not normal 10 - this is most likely a heroic item
+		if result and bit.band(16, item.modes.mode) ~= 0 and bit.band(8, item.modes.mode) == 0 then
+			result = nil
+		end
+	else
+		result = (item.modes and (item.modes["2"] or item.modes["8"] or item.modes["16"])) or (not heroic and not lfr)
+		if result and item.modes["16"] and not item.modes["8"] then
+			result = nil
+		end
+	end
+	return result
+end
 
 --[[ SET HANDLERS ]]
 
 local function handle_trash_mobs(set)
 	local instance = set:match("^InstanceLoot.-%.([^%.]+)")
 	local info = assert(InstanceLoot_TrashMobs[instance], "Instance "..instance.." not found !")
-	-- 16 = "Drops in...", 105 = "Drops in... (Normal mode), 106 = "Drops in... (Heroic mode)
-	local dropsin = set:match("^InstanceLootHeroic%.") and "106" or info.hasheroic and "105" or "16"
-	local levels = type(info.levels) == "number" and { info.levels } or info.levels
+	local heroicset = set:match("^InstanceLootHeroic%.")
+
+	-- "Drops in ... ": <instance>, "Drops in 10 man normal (Raid)": <any>, etc.
+	local cr, crs, crv = { 16 }, { info.id }, { 0 }
+	if info.format and info.format == 1 then -- old format
+		if info.israid then -- raids
+			if heroicset or info.heroic then
+				table.insert(cr, "149") -- 10 man
+				table.insert(cr, "150") -- 25 man
+
+				table.insert(crs, "-2323") -- "Any"
+				table.insert(crs, "-2323")
+
+				table.insert(crv, 0)
+				table.insert(crv, 0)
+			elseif instance ~= "Dragon Soul" then 	-- hack
+				table.insert(cr, "147") -- 10 man
+				table.insert(cr, "148") -- 25 man
+
+				table.insert(crs, "-2323")
+				table.insert(crs, "-2323")
+
+				table.insert(crv, 0)
+				table.insert(crv, 0)
+			end
+		else -- dungeons
+			if heroicset or info.heroic then
+				table.insert(cr, "106") -- 10 man
+				table.insert(crs, "-2323")
+				table.insert(crv, 0)
+			else
+				table.insert(cr, "105") -- 10 man
+				table.insert(crs, "-2323")
+				table.insert(crv, 0)
+			end
+		end
+	elseif heroicset or info.heroic then -- new format, heroic
+		table.insert(cr, "148") -- heroic?
+		table.insert(crs, 1)
+		table.insert(crv, 0)
+	end
+
+	if info.boe then
+		table.insert(cr, "3")
+		table.insert(crs, 1)
+		table.insert(crv, 0)
+	end
+
 	local sets = {}
-	for _, level in ipairs(levels) do
-		local url = WH("items", nil, {minle = level, maxle = level, cr = {dropsin, info.boe and "3" or "2"}, crs = {info.id, 1}, crv={0, 0}})
+	for _, level in ipairs(info.levels) do
+		local url = WH("items", nil, {minle = level, maxle = level, cr = cr, crs = crs, crv = crv})
 		local set = basic_listview_handler(url, function (item)
-			local itemid = item.id
-			local count = 0
+			local itemid, count = item.id, 0
 			local url = WH("item", itemid)
+
 			basic_listview_handler(url, function (item)
 				if instance == "Blackwing Lair" and item.name:find("Death Talon") then -- Hack for BWL
 					count = count + INSTANCELOOT_TRASHMINSRC
@@ -1102,29 +1283,19 @@ do
 		local name = page:match("<h1>([^<%-]+)</h1>")
 		dprint(4, "name", name)
 
-		basic_listview_handler(url, function () count = count + 1 end, "dropped-by")
-		dprint(4, boss, itemid, droprate, count, count > INSTANCELOOT_MAXSRC)
+		basic_listview_handler(url, function (entry)
+			if entry.count and entry.count < INSTANCELOOT_MIN then return end
+			count = count + 1
+		end, "dropped-by")
 
 		if count > INSTANCELOOT_MAXSRC then
 			dprint(3, name, "Added to Junk (too many source)")
 			junkdrops[itemid] = true
 			return true
-		else--if count == 1 then
+		else
 			junkdrops[itemid] = false
 			return false
 		end
-
---~ 		for n, binding in page:gmatch("<b[^>]+>([^<]+)</b><br />Binds when ([a-z ]+)") do
---~ 			dprint(5, "Junk check", name, n, binding)
---~ 			if n == name and binding == "equipped" then
---~ 				dprint(3, name, "Added to Junk (equipped)")
---~ 				junkdrops[itemid] = true
---~ 				return true
---~ 			end
---~ 		end
-
---~ 		junkdrops[itemid] = false
---~ 		return false
 	end
 end
 
@@ -1263,7 +1434,7 @@ handlers["^GearSet"] = function (set, data)
 	-- these aren't real sets so they can't be auto-mined
 		return nil
 	elseif set:find(".PvP.Arena.") then
-	-- wowhead can't do exact match on name as it seems so other arena sets including the name would show up to (and be picked unfortunatly)
+	-- wowhead can't do exact match on name as it seems so other arena sets including the name would show up to (and be picked unfortunately)
 		id = basic_listview_get_first_id(WH("itemsets", nil, {qu=4, na=setname}))
 	else
 		id = basic_listview_get_first_id(WH("itemsets", nil, {na=setname}))
@@ -1287,6 +1458,50 @@ handlers["^GearSet"] = function (set, data)
 	end
 end
 
+local ArmorTypes = {
+	["Cloth"] = 1,
+	["Leather"] = 2,
+	["Mail"] = 3,
+	["Plate"] = 4,
+}
+local ArmorQualities = {
+	["Junk"] = 0,
+	["Common"] = 1,
+	["Uncommon"] = 2,
+	["Rare"] = 3,
+	["Epic"] = 4,
+}
+local transmogparsed = {}
+
+handlers["^TransmogSet"] = function (set, data)
+	if not TRANSMOGSETS_CHKSRC then return end
+	local type, quality, name = set:match("^TransmogSet%.([^%.]+)%.([^%.]+)%.?(.*)$")
+	local setstub = "TransmogSet."..type.."."..quality
+	if transmogparsed[setstub] then return end
+
+	local url = "http://www.wowhead.com/transmog-sets?filter=qu="..ArmorQualities[quality]..";type="..ArmorTypes[type]
+	if not url then return end
+	local page = assert(getpage(url))
+
+	local data
+	for var in page:gmatch("var transmogSets = (%b[])") do
+		data = json(var, true)
+	end
+
+	for _, tset in pairs(data) do
+		local setname = string.sub(tset.name, 2)
+		local transmogset = sets[setstub.."."..setname]
+
+		if not transmogset then
+			dprint(2, "ERR MISSING transmogrification set " .. setstub.."."..setname)
+		else
+			sets[setstub.."."..setname] = table.concat(tset.pieces, ",")
+		end
+	end
+	transmogparsed[setstub] = true
+
+end
+
 handlers["^InstanceLoot%."] = function (set, data)
 	if not INSTANCELOOT_CHKSRC then return end
 	local newset = {}
@@ -1301,91 +1516,183 @@ handlers["^InstanceLoot%."] = function (set, data)
 		filter.na = boss
 		id, type = basic_listview_get_first_id(WH("objects", nil, filter)), "object"
 	end
+
 	if id then
 		local views = get_page_listviews(WH(type, id))
-		local heroicname, heroicset
+		local count_heroic, count_lfr = 0, 0
+
+		local handle_heroic_item = function (item)
+			local normalsub = set:match("^.-%.(.+)$")
+			local heroicname = "InstanceLootHeroic."..normalsub
+			if not sets[heroicname] and count_heroic == 0 then
+				dprint(2, "ERR MISSING Heroic set for " .. normalsub .. ": " .. heroicname)
+			end
+			count_heroic = count_heroic + 1
+		end
+		local handle_lfr_item = function (item)
+			local normalsub = set:match("^.-%.(.+)$")
+			local lfrname = "InstanceLootLFR."..normalsub
+			if not sets[lfrname] and count_lfr == 0 then
+				dprint(2, "ERR MISSING LFR set for " .. normalsub .. ": " .. lfrname)
+			end
+			count_lfr = count_lfr + 1
+		end
 
 		local handler = function (item)
-			dprint(8, "checking item", item.id)
+			dprint(4, "checking item", item.id)
+
 			if is_junk_drop(item.id) then return end
-			local droprate = item.count and (totaldrops > 0) and math.floor(item.count / totaldrops * 1000) or 0
 			local quality = 6 - tonumber(item.name:match("^(%d)"))
 			if quality < 1 then return end
+
+			local is_lfr = is_lfr_item(item)
+			local is_heroic = is_heroic_item(item)
+			local is_normal = is_normal_item(item, is_heroic, is_lfr)
+
+			if is_heroic then handle_heroic_item(item) end
+			if is_lfr then handle_lfr_item(item) end
+
+			if not is_normal then return end
+			local totalDrops = (item.modes and item.modes["2"] and item.modes["2"].count) or (item.modes and item.modes["8"] and item.modes["8"].count) or (item.modes and item.modes["16"] and item.modes["16"].count) or item.count or 0
+			local totalLoot = (item.modes and item.modes["2"] and item.modes["2"].outof) or (item.modes and item.modes["8"] and item.modes["8"].outof) or (item.modes and item.modes["16"] and item.modes["16"].outof) or totaldrops or 0
+
+			local droprate = (totalDrops > 0 and totalLoot > 0) and totalDrops/totalLoot or 0
+				  droprate = math.floor(droprate * 1000)
 			return item.id..":"..droprate
 		end
 
-		local handle_normal_list = function (itemlist, count)
-			totaldrops = count
-			for _, item in ipairs(itemlist) do
-				local v = handler(item)
-				if v and not is_in(newset, v) then
-					newset[#newset + 1] = v
+		for id, view in pairs(views) do
+			if id == "contains" or id == "drops" then
+				totaldrops = view.count
+				for _, item in ipairs(view.data) do
+					local v = handler(item)
+					if v and not is_in(newset, v) then
+						table.insert(newset, v)
+					end
 				end
 			end
+		end
+		if not totaldrops or totaldrops == 0 then
+			print("*ERROR* "..boss.. " NO LOOT DATA FOUND!")
 		end
 
-		local handle_heroic_list = function (itemlist, count)
-			if heroicname == nil then
-				local normalsub = set:match("^InstanceLoot%.(.+)$")
-				heroicname = "InstanceLootHeroic."..normalsub
-				if not sets[heroicname] then
-					dprint(2, "ERR MISSING Heroic set for " .. normalsub)
-					heroicname = false
-				else
-					heroicset = {}
-				end
-			end
-			if not heroicname then return end
-			totaldrops = count
-			for _, item in ipairs(itemlist) do
-				local v = handler(item)
-				if v and not is_in(heroicset, v) then
-					heroicset[#heroicset + 1] = v
-				end
-			end
+		dprint(2, "InstanceLoot: "..boss.." has "..(newset and #newset or 0).." normal, "..count_heroic.." heroic and "..count_lfr.." raid finder drops.")
+		table.sort(newset, sortSet_id)
+		return table.concat(newset, ",")
+	else
+		print("*ERROR* "..boss.. " NOT FOUND !")
+	end
+end
+handlers["^InstanceLootHeroic%."] = function (set, data)
+	if not INSTANCELOOT_CHKSRC then return end
+
+	local newset = {}
+	local zone, boss = set:match("([^%.]+)%.([^%.]+)$")
+	if boss == "Trash Mobs" then
+		return handle_trash_mobs(set)
+	end
+	local id, type = basic_listview_get_npc_id(boss, zone), "npc"
+	if not id then
+		local zoneid = get_zone_id_from_name(zone)
+		local filter = zoneid and {cr=1, crs=zoneid, crv=0} or {}
+		filter.na = boss
+		id, type = basic_listview_get_first_id(WH("objects", nil, filter)), "object"
+	end
+
+	if id then
+		local views = get_page_listviews(WH(type, id))
+		local handler = function (item)
+			dprint(4, "checking item", item.id)
+			if is_junk_drop(item.id) then return end
+			local quality = 6 - tonumber(item.name:match("^(%d)"))
+			if quality < 1 then return end
+
+			local is_heroic = is_heroic_item(item)
+			if not is_heroic then return end
+
+			local totalDrops = (item.modes["32"] and item.modes["32"].count or 0)
+				+ (item.modes["64"] and item.modes["64"].count or 0)
+				+ (item.modes["1"] and item.modes["1"].count or 0)
+			local totalLoot = (item.modes["32"] and item.modes["32"].outof or 0)
+				+ (item.modes["64"] and item.modes["64"].outof or 0)
+				+ (item.modes["1"] and item.modes["1"].outof or 0)
+
+			local droprate = (totalDrops > 0 and totalLoot > 0) and totalDrops/totalLoot or 0
+				  droprate = math.floor(droprate * 1000)
+			return item.id..":"..droprate
 		end
 
-		-- two pass to handle the changing meaning of "heroic"
 		for id, view in pairs(views) do
-			if
-				id == "heroic-drops" or
-				id == "heroic-contents" or
-				id == "heroic-10-drops" or
-				id == "heroic-25-drops" or
-				id == "drops:mode=heroic10" or
-				id == "drops:mode=heroic25"
-			then
-				handle_heroic_list(view.data, view.count)
-			end
-		end
-		for id, view in pairs(views) do
-			if
-				id == "contains" or
-				id == "normal-drops" or
-				id == "drops" or
-				id == "normal-contents" or
-				id == "normal-10-drops" or
-				id == "drops:mode=normal10" or
-				id == "drops:mode=normal25"
-			then
-				handle_normal_list(view.data, view.count)
-			elseif id == "normal-25-drops" then
-				if heroicset then
-					handle_normal_list(view.data, view.count)
-				else
-					handle_heroic_list(view.data, view.count)
+			if id == "contains" or	id == "drops" then
+				totaldrops = view.count
+				for _, item in ipairs(view.data) do
+					local v = handler(item)
+					if v and not is_in(newset, v) then
+						table.insert(newset, v)
+					end
 				end
 			end
 		end
-		if heroicset then
-			table.sort(heroicset, sortSet_id)
-			local set = table.concat(heroicset, ",")
-			printdiff(heroicname, sets[heroicname] or "", set)
-			sets[heroicname] = set
+		if not totaldrops or totaldrops == 0 then
+			print("*ERROR* "..boss.. " NO LOOT DATA FOUND!")
 		end
-		local count_normal = newset and #newset or 0
-		local count_heroic = heroicset and #heroicset or 0
-		dprint(2, "InstanceLoot: "..boss.." has "..count_normal.." normal and "..count_heroic.." heroic drops.")
+
+		table.sort(newset, sortSet_id)
+		return table.concat(newset, ",")
+	else
+		print("*ERROR* "..boss.. " NOT FOUND !")
+	end
+end
+handlers["^InstanceLootLFR%."] = function (set, data)
+	if not INSTANCELOOT_CHKSRC then return end
+
+	local newset = {}
+	local zone, boss = set:match("([^%.]+)%.([^%.]+)$")
+	if boss == "Trash Mobs" then
+		return handle_trash_mobs(set)
+	end
+	local id, type = basic_listview_get_npc_id(boss, zone), "npc"
+	if not id then
+		local zoneid = get_zone_id_from_name(zone)
+		local filter = zoneid and {cr=1, crs=zoneid, crv=0} or {}
+		filter.na = boss
+		id, type = basic_listview_get_first_id(WH("objects", nil, filter)), "object"
+	end
+
+	if id then
+		local views = get_page_listviews(WH(type, id))
+		local handler = function (item)
+			dprint(4, "checking item", item.id)
+			if is_junk_drop(item.id) then return end
+			local quality = 6 - tonumber(item.name:match("^(%d)"))
+			if quality < 1 then return end
+
+			local is_lfr = is_lfr_item(item)
+			if not is_lfr then return end
+
+			local totalDrops = item.modes["128"].count
+			local totalLoot = item.modes["128"].outof
+
+			local droprate = (totalDrops > 0 and totalLoot > 0) and totalDrops/totalLoot or 0
+				  droprate = math.floor(droprate * 1000)
+			return item.id..":"..droprate
+		end
+
+		for id, view in pairs(views) do
+			if id == "contains" or	id == "drops" then
+				totaldrops = view.count
+				for _, item in ipairs(view.data) do
+					local v = handler(item)
+					if v and not is_in(newset, v) then
+						table.insert(newset, v)
+					end
+				end
+			end
+		end
+		if not totaldrops or totaldrops == 0 then
+			print("*ERROR* "..boss.. " NO LOOT DATA FOUND!")
+		end
+
 		table.sort(newset, sortSet_id)
 		return table.concat(newset, ",")
 	else
@@ -1452,10 +1759,37 @@ handlers["^Consumable.Food.Edible.Combo.Conjured"] = function (set, data)
 	end)
 end
 
+--[[ too many by now, need to split into subgroups
 handlers["^Misc%.Minipet%.Normal"] = function (set, data)
 	return basic_listview_handler(WH("items", "15.2"))
+end ]]
+
+handlers["^Misc%.Minipet%."] = function (set, data)
+	local count = 0
+	local src = set:match("^Misc%.Minipet%.(.+)$")
+	filter = Minipet_filters[src]
+	if not filter then return end
+
+	return basic_listview_handler(WH("items", "15.2", filter),
+		function (item)
+			return item.id..":"..(item.sourcemore and item.sourcemore[1].ti or 0)
+		end)
 end
 
+handlers["^Misc%.Mount%."] = function (set, data)
+	local count = 0
+	local category = set:match("^Misc%.Mount%.([^%.]+)$")
+	category = Mount_filter_categories[category]
+	if not category then return end
+
+	return basic_listview_handler(WH("items", category, {cr=161,crs=1,crv=0}),
+		function (item)
+			return item.id..":"..item.level
+		end)
+end
+
+
+--[[ deprecated
 handlers["^Misc%.Reagent%.Ammo"] = function (set, data)
 	local newset
 	local setname = set:match("%.([^%.]+)$")
@@ -1468,15 +1802,15 @@ handlers["^Misc%.Reagent%.Ammo"] = function (set, data)
 	end)
 	dprint(2, "Reagent.Ammo."..setname..":"..count)
 	return newset
-end
+end ]]--
 
 -- Misses way too much stuff
---handlers["^Misc%.Usable%.StartsQuest$"] = function (set, data)
---	local newset = {}
---	multiple_qualities_listview_handler("items", nil, {cr=6,crs=1,crv=0}, newset, "rl")
---	table.sort(newset, sortSet)
---	return table.concat(newset, ",")
---end
+handlers["^Misc%.Usable%.StartsQuest$"] = function (set, data)
+	local newset = {}
+	multiple_qualities_listview_handler("items", nil, {cr=6,crs=1,crv=0}, newset, "rl")
+	table.sort(newset, sortSet)
+	return table.concat(newset, ",")
+end
 
 handlers["^Tradeskill%.Crafted"] = function (set, data)
 	local profession = set:match("^Tradeskill%.Crafted%.(.+)$")
@@ -1576,10 +1910,11 @@ handlers["^Tradeskill%.Gem%."] = function (set, data)
 					local src_id, count = unpack(reagent)
 					if src_id ~= 27860 then -- Purified Draenic Water
 						if not gems[src_id] then gems[src_id] = {} end
-						gems[src_id][#(gems[src_id]) + 1] = itemid
+						-- gems[src_id][#(gems[src_id]) + 1] = itemid
+						table.insert(gems[src_id], itemid)
 					end
 				end
-			end, 'created-by')
+			end, 'created-by-spell')
 		end
 		local filter = {cr=81,crs=7,crv=0}
 		for _, entry in ipairs(Tradeskill_Gem_Cut_level_filters) do
@@ -1658,6 +1993,7 @@ local additionalSetItems = {
 	["ClassSpell.Mage.Frost"] = ",-12472:20,-11958:30,-11426:40,-31687:50,-44572:60",
 	["ClassSpell.Paladin.Protection"] = ",-64205:20",
 	["ClassSpell.Rogue.Combat"] = ",-51690:60",
+	["Tradeskill.Recipe.Jewelcrafting.Vendor"] = ",71949:525",
 }
 
 local function update_all_sets(sets, setcount)

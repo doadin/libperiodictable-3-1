@@ -11,6 +11,9 @@ local function update(filename)
 		if setname and sets[setname] then
 			f:write('\t["'..setname..'"]="'..sets[setname]..'",\n')
 		else
+			if setname then
+				print("Set "..setname.." not found in latest data.")
+			end
 			f:write(line)
 		end
 	end
@@ -32,8 +35,10 @@ update("./LibPeriodicTable-3.1-Consumable/LibPeriodicTable-3.1-Consumable.lua")
 update("./LibPeriodicTable-3.1-CurrencyItems/LibPeriodicTable-3.1-CurrencyItems.lua")
 update("./LibPeriodicTable-3.1-InstanceLoot/LibPeriodicTable-3.1-InstanceLoot.lua")
 update("./LibPeriodicTable-3.1-InstanceLootHeroic/LibPeriodicTable-3.1-InstanceLootHeroic.lua")
+update("./LibPeriodicTable-3.1-InstanceLootLFR/LibPeriodicTable-3.1-InstanceLootLFR.lua")
 update("./LibPeriodicTable-3.1-Gear/LibPeriodicTable-3.1-Gear.lua")
 update("./LibPeriodicTable-3.1-GearSet/LibPeriodicTable-3.1-GearSet.lua")
+update("./LibPeriodicTable-3.1-TransmogSet/LibPeriodicTable-3.1-TransmogSet.lua")
 update("./LibPeriodicTable-3.1-Misc/LibPeriodicTable-3.1-Misc.lua")
 update("./LibPeriodicTable-3.1-Reputation/LibPeriodicTable-3.1-Reputation.lua")
 update("./LibPeriodicTable-3.1-Tradeskill/LibPeriodicTable-3.1-Tradeskill.lua")
