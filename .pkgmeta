@@ -4,3 +4,4 @@ ignore:
     - compresssplit.lua
     - data.lua
     - dataminer.lua
+    - json.lua

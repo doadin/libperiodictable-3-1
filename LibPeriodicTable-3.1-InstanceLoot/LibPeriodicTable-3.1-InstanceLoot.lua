@@ -704,7 +704,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("InstanceLoot", gsub("$Rev$", "(%d+)", f
 	["InstanceLoot.Throne of the Tides.Ozumat"]="m,InstanceLoot.Throne of the Tides.Neptulon's Cache",
 -- Blackrock Mountain: Blackrock Caverns
 	["InstanceLoot.Blackrock Caverns.Rom'ogg Bonecrusher"]="55278:167,55279:117,55776:231,55777:268,55778:174",
-	["InstanceLoot.Blackrock Caverns.Corla, Herald of Twilight"]="21524:143,55263:178,55264:124,55265:179,55266:236,55267:237",
+	["InstanceLoot.Blackrock Caverns.Corla Herald of Twilight"]="21524:143,55263:178,55264:124,55265:179,55266:236,55267:237",
 	["InstanceLoot.Blackrock Caverns.Karsh Steelbender"]="55268:223,55269:146,55270:153,55271:219,55272:226",
 	["InstanceLoot.Blackrock Caverns.Beauty"]="55273:187,55274:125,55275:184,55276:187,55277:281",
 	["InstanceLoot.Blackrock Caverns.Ascendant Lord Obsidius"]="55779:163,55780:217,55781:161,55782:243,55783:165,55784:146,55785:146,55786:143,55787:282,55788:229",
