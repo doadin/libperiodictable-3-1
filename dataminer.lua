@@ -1735,6 +1735,11 @@ handlers["^Misc%.Key"] = function (set, data)
 	return basic_listview_handler(WH("items", 13), nil, nil, newset)
 end
 
+handlers["^Misc%.Tabard"] = function (set, data)
+	local setname = set:match("%.([^%.]+)$")
+	return basic_listview_handler(WH("items", nil, {sl=19,cr=161;crs=1;crv=0}), nil, nil, newset)
+end
+
 handlers["^Misc%.Lockboxes"] = function (set, data)
 	return basic_listview_handler(WH("items", nil, {cr=10,crs=1,crv=0}), function (item)
 		page = getpage(WH("item", item.id).."&xml") -- hack
