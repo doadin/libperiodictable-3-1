@@ -243,10 +243,10 @@ LibStub("LibPeriodicTable-3.1"):AddData("Consumable", gsub("$Rev$", "(%d+)", fun
 	["Consumable.Tailor.Net"]="m,Consumable.Cooldown.Drums.Nets",
 
 	--NOT AUTOGENNED These are items you need to (right) click to use.  If it makes no sense in a button, it does not belong here.  Permanent: Vargoth's Staff, Pony Keg, etc. Quest: removed by Blizzard on quest completion. Replenished: dailies like booterang or others you can replenish like Halaa bombs.
-	["Consumable.Warlock.Firestone"]="13700:75,22128:141",
+	["Consumable.Warlock.Firestone"]="",
 	["Consumable.Warlock.Healthstone"]="5509:500,5510:800,5511:250,5512:100,9421:1200,19004:110,19005:120,19006:275,19007:300,19008:550,19009:600,19010:880,19011:960,19012:1320,19013:1440,22103:2080,22104:2288,22105:2496,36889:3500,36890:3850,36891:4200,36892:4280,36893:4708,36894:5136",
-	["Consumable.Warlock.Soulstone"]="5232:18,16892:30,16893:40,16895:50,16896:60,22116:70,36895:76",
-	["Consumable.Warlock.Spellstone"]="13602:11,36896:20,36897:20",
+	["Consumable.Warlock.Soulstone"]="",
+	["Consumable.Warlock.Spellstone"]="",
 
 	--NOT AUTOGENNED (All water.  I'd like to get this mined, but the filters for these items on allakhazam and wowhead are nonexistant.)
 	["Consumable.Water.Basic"]="1401:60,159:151,1179:436,17404:436,1205:835,9451:835,19299:835,1708:1344,4791:1344,10841:1344,17405:1344,1645:1992,19300:1992,8766:2934,23161:2934,23585:2934,24006:2934,38429:2934,32455:4200,18300:4200,24007:4200,28399:5100,29454:5100,38430:5100,27860:7200,29395:7200,30457:7200,29401:7200,33042:7200,32668:7200,32453:7200,35954:7200,37253:7200,38431:7200,44750:7200,38698:9180,42777:12960,43086:9180,40357:7200,33445:12960,33444:9180,43236:12960,41731:12960,39520:12960,58256:45000,59029:45000,59230:45000,63251:96000,58257:96000,62675:96000,58274:19200,68140:96000,62672:96000",
@@ -260,17 +260,17 @@ LibStub("LibPeriodicTable-3.1"):AddData("Consumable", gsub("$Rev$", "(%d+)", fun
 	["Consumable.Water.Percentage"]="19997:60,21241:60",
 
 	--!!Add to miner
-	["Consumable.Weapon Buff.Firestone"]="41170:7,41169:14,41171:21,41172:28,40773:35,41173:42,41174:49",
+	["Consumable.Weapon Buff.Firestone"]="",
 	["Consumable.Weapon Buff.Misc"]="3824,3829,31535,23123,34538,34539,44065",
 	["Consumable.Weapon Buff.Oil.Mana"]="20745:4,20747:8,20748:12,22521:14",
 	["Consumable.Weapon Buff.Oil.Wizard"]="20744:8,20746:16,20750:24,20749:36,22522:42",
-	["Consumable.Weapon Buff.Poison.Anesthetic"]="21835:153,43237:231",
-	["Consumable.Weapon Buff.Poison.Crippling"]="3775:50",
-	["Consumable.Weapon Buff.Poison.Deadly"]="2892:36,2893:52,8984:80,8985:108,20844:136,22053:144,22054:180,43232:244,43233:296",
-	["Consumable.Weapon Buff.Poison.Instant"]="6947:22,6949:34,6950:50,8926:76,8927:105,8928:130,21927:170,43230:245,43231:300",
-	["Consumable.Weapon Buff.Poison.Mind Numbing"]="5237:60",
-	["Consumable.Weapon Buff.Poison.Wound"]="10918:17,10920:25,10921:38,10922:53,22055:112,43234:188,43235:231",
-	["Consumable.Weapon Buff.Spellstone"]="41191:10,41192:20,41193:30,41194:40,41195:50,41196:60",
+	["Consumable.Weapon Buff.Poison.Anesthetic"]="",
+	["Consumable.Weapon Buff.Poison.Crippling"]="",
+	["Consumable.Weapon Buff.Poison.Deadly"]="",
+	["Consumable.Weapon Buff.Poison.Instant"]="",
+	["Consumable.Weapon Buff.Poison.Mind Numbing"]="",
+	["Consumable.Weapon Buff.Poison.Wound"]="",
+	["Consumable.Weapon Buff.Spellstone"]="",
 	["Consumable.Weapon Buff.Stone.Sharpening Stone"]="23122,2862:2,2863:3,2871:4,7964:6,12404:8,18262,23528:12,23529:14",
 	["Consumable.Weapon Buff.Stone.Weight Stone"]="3239:2,3240:3,3241:4,7965:6,12643:8,28420:12,28421",
 })
