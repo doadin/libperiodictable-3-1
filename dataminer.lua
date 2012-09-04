@@ -75,7 +75,7 @@ json.register_constant("undefined", json.null)
 local url = require("socket.url")
 local httptime, httpcount = 0, 0
 
-local WOWHEAD_FILTER_PARAMS = { "na", "ma", "minle", "maxle", "minrl", "maxrl", "qu", "sl", "cr", "crs", "crv" }
+local WOWHEAD_FILTER_PARAMS = { "na", "ma", "minle", "maxle", "minrl", "maxrl", "minrs", "maxrs", "qu", "sl", "cr", "crs", "crv" }
 
 local function WH(page, value, filter)
 	local escape = url.escape
@@ -112,7 +112,7 @@ local function WH(page, value, filter)
 			-- we don't escape if filter is a string
 			url[#url + 1] = filter
 		end
-		url[#url + 1] = ";eb=1" -- [ckaotik] exclude pandaria items
+--~ 		url[#url + 1] = ";eb=1" -- [ckaotik] exclude pandaria items
 	end
 	return table.concat(url)
 end
@@ -390,6 +390,9 @@ local function basic_listview_handler(url, handler, names, inplace_set)
 	local views = get_page_listviews(url)
 	for name, view in pairs(views) do
 		if not names or names[name] then
+			if #(view.data) == 200 then
+				print("*WARNING* "..url.." possibly returns more than 200 entries")
+			end
 			for _, item in ipairs(view.data) do
 				local s = handler(item)
 				if s then
@@ -1068,7 +1071,10 @@ local Tradeskill_Gem_Cut_level_filters = {
 	{minle=81,maxle=85,qu=2},
 	{minle=81,maxle=85,qu=3},
 	{minle=81,maxle=85,qu=4},
-	{minle=86},
+	{minle=86,maxle=90,qu=2},
+	{minle=86,maxle=90,qu=3},
+	{minle=86,maxle=90,qu=4},
+	{minle=91},
 }
 
 local Tradeskill_Gem_Color_categories = {
@@ -1824,44 +1830,54 @@ handlers["^Tradeskill%.Crafted"] = function (set, data)
 	if not cat then return end
 
 	local newset, fp_set, rp_set, lp_set, level_set = {}, {}, {}, {}, {}
-
 	local reagenttable = {}
-	basic_listview_handler(WH("spells", cat, Tradeskill_Profession_filters[profession]), function (item)
-		local spellid = item.id
-		if not item.reagents then return end
-		-- local colorstring = itemstring:match("colors:(%b[])")
-		local skilllvl = math.min(MAX_TRADESKILL_LEVEL, tonumber(item.learnedat) or MAX_TRADESKILL_LEVEL)
-		local itemid = item.creates and item.creates[1] or (-1 * spellid) -- count ?
-		dprint(3, profession, itemid, skilllvl)
-		if itemid and skilllvl > 0 then
-			newset[#newset + 1] = itemid..":"..item.learnedat
-			local newrecipemats = itemid..":"
-			for _, reagent in ipairs(item.reagents) do
-				local reagentid, reagentnum = unpack(reagent)
-				if reagenttable[reagentid] then
-					reagenttable[reagentid] = reagenttable[reagentid]..";"..itemid.."x"..reagentnum
-				else
-					reagenttable[reagentid] = itemid.."x"..reagentnum
-				end
-				newrecipemats = newrecipemats..reagentid.."x"..reagentnum..";"
-			end
-			newrecipemats = newrecipemats:sub(1,-2)
-			local levels = {}
-			if not item.colors then
-				levels[1] = "?"
-				levels[2] = "?"
-				levels[3] = "?"
-				levels[4] = "?"
-			else
-				for k,v in ipairs(item.colors) do
-					levels[k] = v == 0 and "-" or tostring(v)
-				end
-			end
-			fp_set[#fp_set + 1] = newrecipemats
-			lp_set[#lp_set + 1] = "-"..spellid..":"..itemid
-			level_set[#level_set + 1] = itemid..":"..table.concat(levels, "/")
+
+	local skillfilter = {}
+	if Tradeskill_Profession_filters[profession] then
+		for k, v in pairs(Tradeskill_Profession_filters[profession]) do
+			skillfilter[k] = v
 		end
-	end)
+	end
+	for skilllevelfilter = 1, MAX_TRADESKILL_LEVEL, 25 do
+		skillfilter.minrs = skilllevelfilter
+		skillfilter.maxrs = skilllevelfilter + 24
+		basic_listview_handler(WH("spells", cat, skillfilter), function (item)
+			local spellid = item.id
+			if not item.reagents then return end
+			-- local colorstring = itemstring:match("colors:(%b[])")
+			local skilllvl = math.min(MAX_TRADESKILL_LEVEL, tonumber(item.learnedat) or MAX_TRADESKILL_LEVEL)
+			local itemid = item.creates and item.creates[1] or (-1 * spellid) -- count ?
+			dprint(3, profession, itemid, skilllvl)
+			if itemid and skilllvl > 0 then
+				newset[#newset + 1] = itemid..":"..item.learnedat
+				local newrecipemats = itemid..":"
+				for _, reagent in ipairs(item.reagents) do
+					local reagentid, reagentnum = unpack(reagent)
+					if reagenttable[reagentid] then
+						reagenttable[reagentid] = reagenttable[reagentid]..";"..itemid.."x"..reagentnum
+					else
+						reagenttable[reagentid] = itemid.."x"..reagentnum
+					end
+					newrecipemats = newrecipemats..reagentid.."x"..reagentnum..";"
+				end
+				newrecipemats = newrecipemats:sub(1,-2)
+				local levels = {}
+				if not item.colors then
+					levels[1] = "?"
+					levels[2] = "?"
+					levels[3] = "?"
+					levels[4] = "?"
+				else
+					for k,v in ipairs(item.colors) do
+						levels[k] = v == 0 and "-" or tostring(v)
+					end
+				end
+				fp_set[#fp_set + 1] = newrecipemats
+				lp_set[#lp_set + 1] = "-"..spellid..":"..itemid
+				level_set[#level_set + 1] = itemid..":"..table.concat(levels, "/")
+			end
+		end)
+	end
 	for k,v in pairs(reagenttable) do
 		rp_set[#rp_set + 1] = k..":"..v
 	end
@@ -1899,7 +1915,36 @@ handlers["^Tradeskill%.Gather%."] = function (set, data)
 	else
 		local gathertype = set:match("%.([^%.]+)$")
 		local filter = Tradeskill_Gather_filter_values[gathertype]
-		return filter and basic_listview_handler(WH("items", nil, {cr=filter, crs=1, crv=0}))
+		if filter then
+			filter = {cr=filter, crs=1, crv=0}
+			local newset = {}
+			for q = 0, 7 do
+				filter.qu = q
+				if q == 0 or q == 1 or q == 2 then
+					filter.minle = nil
+					filter.maxle = 1
+					basic_listview_handler(WH("items", nil, filter), nil, nil, newset)
+					filter.minle = 2
+					filter.maxle = 30
+					basic_listview_handler(WH("items", nil, filter), nil, nil, newset)
+					filter.minle = 31
+					filter.maxle = 60
+					basic_listview_handler(WH("items", nil, filter), nil, nil, newset)
+					filter.minle = 61
+					filter.maxle = 90
+					basic_listview_handler(WH("items", nil, filter), nil, nil, newset)
+					filter.minle = 91
+					filter.maxle = nil
+					basic_listview_handler(WH("items", nil, filter), nil, nil, newset)
+				else
+					filter.minle = nil
+					filter.maxle = nil
+					basic_listview_handler(WH("items", nil, filter), nil, nil, newset)
+				end
+			end
+			table.sort(newset, sortSet)
+			return table.concat(newset, ",")
+		end
 	end
 end
 
@@ -1946,12 +1991,22 @@ handlers["^Tradeskill%.Mat%.ByProfession"] = function (set, data)
 	if not cat then return end
 	local reagentlist = {}
 
-	basic_listview_handler(WH("spells", cat, Tradeskill_Profession_filters[profession]), function (item)
-		if not item.reagents then return end
-		for _, r in ipairs(item.reagents) do
-			reagentlist[r[1]] = true
+	local skillfilter = {}
+	if Tradeskill_Profession_filters[profession] then
+		for k, v in pairs(Tradeskill_Profession_filters[profession]) do
+			skillfilter[k] = v
 		end
-	end)
+	end
+	for skilllevelfilter = 1, MAX_TRADESKILL_LEVEL, 25 do
+		skillfilter.minrs = skilllevelfilter
+		skillfilter.maxrs = skilllevelfilter + 24
+		basic_listview_handler(WH("spells", cat, skillfilter), function (item)
+			if not item.reagents then return end
+			for _, r in ipairs(item.reagents) do
+				reagentlist[r[1]] = true
+			end
+		end)
+	end
 	local newset = {}
 	for reagent in pairs(reagentlist) do
 		newset[#newset + 1] = reagent
@@ -2034,6 +2089,7 @@ local function update_all_sets(sets, setcount)
 				dprint(1, "WARNING: mined empty data for non-empty set. skipping set", set)
 			else
 				sets[set] = newset
+				collectgarbage("collect")
 			end
 		else
 			failed = failed + 1
