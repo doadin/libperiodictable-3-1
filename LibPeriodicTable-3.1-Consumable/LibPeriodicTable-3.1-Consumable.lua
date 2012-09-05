@@ -10,10 +10,10 @@ LibStub("LibPeriodicTable-3.1"):AddData("Consumable", gsub("$Rev$", "(%d+)", fun
 
 	--NOT AUTOGENNED Self buffs are on caster only, target buffs are on target
 	--Under no circumstances do you add food buffs here, nor weapon buffs for now.  These are applied differently / noncombat
-	["Consumable.Buff.Agility.Flask"]="33208:18,32598:20,32599:20,47499:40,58149:80,58087:300,65455:300",
+	["Consumable.Buff.Agility.Flask"]="33208:18,32598:20,32599:20,47499:40,58149:80,58087:300,65455:300,75525:80",
 	["Consumable.Buff.Agility.Self"]="2457:4,3390:8,8949:15,28104:15,8412:25,9187:25,13452:25,22831:35,58145:1200",
 	["Consumable.Buff.Agility.Target"]="3012:3,1477:5,4425:8,10309:10,27498:15,33457:20,43463:25,43464:30",
-	["Consumable.Buff.Intellect.Flask"]="33208:18,32596:20,32600:20,32601:20,13511:65,47499:40,58149:80,58086:300,65455:300",
+	["Consumable.Buff.Intellect.Flask"]="33208:18,32596:20,32600:20,32601:20,13511:65,47499:40,58149:80,58086:300,65455:300,75525:80",
 	["Consumable.Buff.Intellect.Self"]="3383:6,28104:15,13447:18,8423:25,9179:25,32067:30",
 	["Consumable.Buff.Intellect.Target"]="955:3,2290:5,4419:12,10308:17,27499:21,33458:24,12458:30,37091:32,37092:48",
 	["Consumable.Buff.Spirit.Flask"]="33208:18,67438:300",
@@ -22,7 +22,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("Consumable", gsub("$Rev$", "(%d+)", fun
 	["Consumable.Buff.Stamina.Flask"]="33208:18,32596:30,32597:30,32598:30,32599:30,32600:30,32601:30,58085:300,65455:300",
 	["Consumable.Buff.Stamina.Self"]="20709:5,17048:10,21114:10,21151:15,28104:15,13453:18,30615:20",
 	["Consumable.Buff.Stamina.Target"]="1180:4,1711:8,4422:12,10307:16,27502:20,33461:42,37093:63,37094:132",
-	["Consumable.Buff.Strength.Flask"]="33208:18,32597:20,32598:20,47499:40,58149:80,58088:300,65455:300",
+	["Consumable.Buff.Strength.Flask"]="33208:18,32597:20,32598:20,47499:40,58149:80,58088:300,65455:300,75525:80",
 	["Consumable.Buff.Strength.Self"]="2454:4,6662:8,3391:8,28104:15,13453:18,8410:25,9206:25,22824:35,22837:75,22828:120,58146:1200",
 	["Consumable.Buff.Strength.Target"]="954:3,2289:5,4426:8,10310:10,27503:15,33462:20,43465:25,12451:30,43466:30",
 
