@@ -3389,7 +3389,7 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["InstanceLoot.Lost City of the Tol'vir.General Husam"]= "55856:168,55857:106,55858:221,55859:226,55860:251",
 	["InstanceLoot.Lost City of the Tol'vir.High Prophet Barim"]= "55861:194,55862:131,55863:194,55864:263,55865:191",
 	["InstanceLoot.Lost City of the Tol'vir.Lockmaw"]= "55866:0,55867:0,55868:0,55869:0,55870:0",
-	["InstanceLoot.Lost City of the Tol'vir.Augh"] = "55866:0,55867:0,55868:0,55869:0,55870:0", -- delete once dataminer gets fixed!
+	["InstanceLoot.Lost City of the Tol'vir.Augh"] = "m,InstanceLoot.Lost City of the Tol'vir.Lockmaw",
 	["InstanceLoot.Lost City of the Tol'vir.Siamat"]= "55871:180,55872:184,55873:175,55874:238,55875:182,55876:199,55877:132,55878:137,55879:278,55880:210",
 -- The Stonecore
 	["InstanceLoot.The Stonecore.Corborus"]= "55792:134,55793:135,55794:204,55795:278,55796:209",
@@ -3406,7 +3406,7 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["InstanceLoot.Baradin Hold.Alizabal"] = "73479:6,73481:6,73485:7,73487:6,73488:16,73489:17,73491:8,73492:16,73493:16,73494:15,73495:16,73496:10,73497:9,73498:9,73503:8,73505:6,73507:6,73509:6,73511:6,73514:7,73516:7,73518:6,73519:9,73520:6,73521:7,73522:6,73524:9,73526:7,73528:8,73529:6,73530:10,73531:7,73532:7,73533:7,73534:5,73535:3,73536:5,73537:4,73538:3,73539:5,73542:6,73544:6,73547:6,73549:7,73550:8,73551:8,73552:8,73553:8,73554:7,73555:8,73557:8,73559:7,73561:7,73562:7,73563:8,73564:8,73565:8,73566:7,73568:7,73570:6,73574:7,73576:9,73581:6,73583:7,73585:9,73586:7,73587:7,73588:8,73589:8,73590:8,73591:9,73592:9,73593:8,73597:9,73599:7,73600:8,73601:8,73602:7,73605:8,73607:7,73608:8,73609:7,73610:7,73613:8,73615:7,73617:6,73619:6,73621:17,73622:15,73623:15,73625:16,73626:16,73627:15,73628:17,73629:17,73630:15,73631:9,73632:7,73633:7,73634:8,73635:8,73636:8,73637:9,73638:8,73639:7,73640:17,73641:14,73643:9,73644:16,73645:14,73646:17,73647:15,73648:11,76212:10,76214:10,76341:13,76343:10,76346:9,76348:10,76357:11,76359:10,76749:9,76751:11,76757:9,76759:10,76766:12,76768:10,76875:10,76877:11,76975:9,76977:9,76985:9,76986:9,76989:8,76991:9,77004:10,77006:10,77009:9,77011:12,77014:9,77016:9,77018:8,77020:10,77024:9,77026:10,77029:10,77031:10,77036:11,77038:11,77041:9,77043:8",
 -- Blackrock Mountain: Blackwing Descent
 	["InstanceLoot.Blackwing Descent.Magmaw"]= "59328:76,59329:182,59331:160,59332:180,59333:129,59334:136,59335:142,59336:195,59340:107,59341:277,59452:136,59492:258,71716:8",
-	["InstanceLoot.Blackwing Descent.Electron"]= "",
+	["InstanceLoot.Blackwing Descent.Electron"]= "59117:0,59118:0,59119:0,59120:0,59121:0,59122:0,59216:0,59217:0,59218:0,59219:0,59220:0,63540:0",
 	["InstanceLoot.Blackwing Descent.Toxitron"]= "59117:0,59118:0,59119:0,59120:0,59121:0,59122:0,59216:130,59217:134,59218:131,59219:198,59220:269,63540:130",
 	["InstanceLoot.Blackwing Descent.Magmatron"]= "59117:117,59118:171,59119:169,59120:171,59121:224,59122:140,59216:0,59217:0,59218:0,59219:0,59220:0,63540:0",
 	["InstanceLoot.Blackwing Descent.Arcanotron"]= "59117:0,59118:0,59119:0,59120:0,59121:0,59122:0,59216:0,59217:0,59218:0,59219:0,59220:0,63540:0",
@@ -3456,6 +3456,36 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["InstanceLoot.Dragon Soul.Elementium Fragment"]= "71998:618,77067:59,77188:143,77189:112,77190:86,77191:164,77193:133,77194:132,77195:164,77196:165,77952:403,78359:113",
 	["InstanceLoot.Dragon Soul.Madness of Deathwing"]= "m,InstanceLoot.Dragon Soul.Elementium Fragment",
 	["InstanceLoot.Dragon Soul.Trash Mobs"]= "78879,78882,78884,78885,78886,78887,78888,78889",
+]==]
+--[==[ Mists of Pandaria Instances
+---- Gate of the Setting Sun
+--	["InstanceLoot.Gate of the Setting Sun.Saboteur Kip'tilak"] = "",
+--	["InstanceLoot.Gate of the Setting Sun.Striker Ga'dok"] = "",
+--	["InstanceLoot.Gate of the Setting Sun.Commander Ri'mok"] = "",
+--	["InstanceLoot.Gate of the Setting Sun.Raigonn "] = "",
+---- Mogu'shan Palace
+--	["InstanceLoot.Mogu'shan Palace.Trial of the King"] = "",
+--	["InstanceLoot.Mogu'shan Palace.Gekkan"] = "",
+--	["InstanceLoot.Mogu'shan Palace.Xin the Weaponmaster"] = "",
+---- Shado-Pan Monastery
+--	["InstanceLoot.Shado-Pan Monastery.Gu Cloudstrike"] = "",
+--	["InstanceLoot.Shado-Pan Monastery.Master Snowdrift"] = "",
+--	["InstanceLoot.Shado-Pan Monastery.Sha of Violence"] = "",
+--	["InstanceLoot.Shado-Pan Monastery.Taran Zhu"] = "",
+---- Siege of Niuzao Temple
+--	["InstanceLoot.Shado-Pan Monastery.Vizier Jin'bak"] = "",
+--	["InstanceLoot.Shado-Pan Monastery.Commander Vo'jak"] = "",
+--	["InstanceLoot.Shado-Pan Monastery.General Pa'valak"] = "",
+--	["InstanceLoot.Shado-Pan Monastery.Wing Leader Ner'onok"] = "",
+---- Stormstout Brewery
+--	["InstanceLoot.Stormstout Brewery.Ook-Ook"] = "",
+--	["InstanceLoot.Stormstout Brewery.Hoptallus"] = "",
+--	["InstanceLoot.Stormstout Brewery.Yan-Zhu the Uncasked"] = "",
+---- Temple of the Jade Serpent
+--	["InstanceLoot.Temple of the Jade Serpent.Wise Mari"] = "",
+--	["InstanceLoot.Temple of the Jade Serpent.Lorewalker Stonestep"] = "",
+--	["InstanceLoot.Temple of the Jade Serpent.Liu Flameheart"] = "",
+--	["InstanceLoot.Temple of the Jade Serpent.Sha of Doubt"] = "",
 ]==]
 ]=]
 --[=[ heroic
@@ -3772,7 +3802,7 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["InstanceLootHeroic.Lost City of the Tol'vir.General Husam"]= "56379:195,56380:200,56381:196,56382:195,56383:196",
 	["InstanceLootHeroic.Lost City of the Tol'vir.High Prophet Barim"]= "56384:199,56385:200,56386:194,56387:194,56388:195",
 	["InstanceLootHeroic.Lost City of the Tol'vir.Lockmaw"] = "56389:196,56390:194,56391:200,56392:196,56393:196",
-	["InstanceLootHeroic.Lost City of the Tol'vir.Augh"]= "56389:196,56390:194,56391:200,56392:196,56393:196",
+	["InstanceLootHeroic.Lost City of the Tol'vir.Augh"]= "m,InstanceLootHeroic.Lost City of the Tol'vir.Lockmaw",
 	["InstanceLootHeroic.Lost City of the Tol'vir.Siamat"]= "56394:186,56395:192,56396:198,56397:192,56398:192,56399:185,56400:193,56401:195,56402:194,56403:187",
 -- The Stonecore
 	["InstanceLootHeroic.The Stonecore.Corborus"]= "56328:199,56329:193,56330:193,56331:192,56332:194",
@@ -3796,9 +3826,26 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["InstanceLootHeroic.The Deadmines.Admiral Ripsnarl"]= "21524:155,65168:314,65169:313,65170:327",
 	["InstanceLootHeroic.The Deadmines.\"Captain\" Cookie"]= "",
 	["InstanceLootHeroic.The Deadmines.Vanessa VanCleef"]= "63478:244,63479:241,63480:243,63482:159,63483:164,63484:152,63485:159,63486:158,63487:163,65178:231",
+-- End Time
+	["InstanceLootHeroic.End Time.Echo of Baine"] = "72798:26,72799:39,72800:26,72801:40,72802:38,72803:28,72804:36,72805:41,72806:28,72807:28,72814:247,72815:107",
+	["InstanceLootHeroic.End Time.Echo of Jaina"] = "72798:25,72799:36,72800:28,72801:39,72802:40,72803:27,72804:36,72805:46,72806:30,72807:29,72808:210,72809:137",
+	["InstanceLootHeroic.End Time.Echo of Sylvanas"] = "72798:25,72799:38,72800:27,72801:40,72802:38,72803:30,72804:37,72805:41,72806:27,72807:28,72810:133,72811:221",
+	["InstanceLootHeroic.End Time.Echo of Tyrande"] = "72798:27,72799:41,72800:28,72801:42,72802:41,72803:29,72804:39,72805:44,72806:29,72807:32,72812:219,72813:111",
+	["InstanceLootHeroic.End Time.Murozond"] = "72816:93,72817:91,72818:86,72819:93,72820:137,72821:138,72822:95,72823:75,72824:121,72825:76,72826:115,72897:155",
+-- Hour of Twilight
+	["InstanceLootHeroic.Hour of Twilight.Arcurion"] = "72849:123,72850:85,72851:128,72853:130,72854:86,76150:84",
+	["InstanceLootHeroic.Hour of Twilight.Asira Dawnslayer"] = "72855:109,72856:87,72857:88,72859:136,72860:110,76151:136",
+	["InstanceLootHeroic.Hour of Twilight.Archbishop Benedictus"] = "72861:82,72862:153,72863:156,72864:78,72865:125,72866:103,72867:101,72868:122,72869:106,72870:123,72900:78,72901:117",
+-- Well of Eternity
+	["InstanceLootHeroic.Well of Eternity.Peroth'arn"] = "72827:102,72828:108,72829:103,72830:120,72831:132,72832:122",
+	["InstanceLootHeroic.Well of Eternity.Royal Cache"] = "72833:141,72834:114,72835:117,72836:115,72837:79,72838:116",
+	["InstanceLootHeroic.Well of Eternity.Queen Azshara"] = "m,InstanceLootHeroic.Well of Eternity.Royal Cache",
+	["InstanceLootHeroic.Well of Eternity.Minor Cache of the Aspects"] = "72839:120,72840:82,72841:85,72842:79,72843:83,72844:140,72845:123,72846:89,72847:90,72848:90,72898:164,72899:93",
+	["InstanceLootHeroic.Well of Eternity.Mannoroth"] = "m,InstanceLootHeroic.Well of Eternity.Minor Cache of the Aspects",
+	["InstanceLootHeroic.Well of Eternity.Captain Varo'then"] = "m,InstanceLootHeroic.Well of Eternity.Minor Cache of the Aspects",
 -- Blackrock Mountain: Blackwing Descent
 	["InstanceLootHeroic.Blackwing Descent.Magmaw"]= "65007:404,65020:404,65041:392,65042:226,65044:464,65045:190,65046:297,65047:142,65048:345,65049:404,65050:345,65051:309,67429:511,67430:547,67431:523",
-	["InstanceLootHeroic.Blackwing Descent.Electron"]= "",
+	["InstanceLootHeroic.Blackwing Descent.Electron"]= "65004:0,65076:0,65077:0,65078:0,65079:0,65080:0,65081:0,65082:0,65083:0,65084:0,65085:0,65086:0",
 	["InstanceLootHeroic.Blackwing Descent.Toxitron"]= "65004:256,65076:440,65077:343,65078:247,65079:230,65080:247,65081:0,65082:0,65083:0,65084:0,65085:0,65086:0",
 	["InstanceLootHeroic.Blackwing Descent.Magmatron"]= "65004:0,65076:0,65077:0,65078:0,65079:0,65080:0,65081:250,65082:384,65083:313,65084:327,65085:302,65086:237",
 	["InstanceLootHeroic.Blackwing Descent.Arcanotron"]= "65004:0,65076:0,65077:0,65078:0,65079:0,65080:0,65081:0,65082:0,65083:0,65084:0,65085:0,65086:0",
@@ -3860,6 +3907,50 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["InstanceLootLFR.Dragon Soul.Spine of Deathwing"] = "m,InstanceLootLFR.Dragon Soul.Greater Cache of the Aspects",
 	["InstanceLootLFR.Dragon Soul.Elementium Fragment"] = "78480:187,78481:242,78482:226,78483:196,78484:280,78485:268,78486:152,78487:273,78488:186",
 	["InstanceLootLFR.Dragon Soul.Madness of Deathwing"]=  "m,InstanceLootLFR.Dragon Soul.Elementium Fragment",
+]==]
+--[==[ Mists of Pandaria Instances
+-- Gate of the Setting Sun
+--	["InstanceLootHeroic.Gate of the Setting Sun.Saboteur Kip'tilak"] = "",
+--	["InstanceLootHeroic.Gate of the Setting Sun.Striker Ga'dok"] = "",
+--	["InstanceLootHeroic.Gate of the Setting Sun.Commander Ri'mok"] = "",
+--	["InstanceLootHeroic.Gate of the Setting Sun.Raigonn "] = "",
+---- Mogu'shan Palace
+--	["InstanceLootHeroic.Mogu'shan Palace.Trial of the King"] = "",
+--	["InstanceLootHeroic.Mogu'shan Palace.Gekkan"] = "",
+--	["InstanceLootHeroic.Mogu'shan Palace.Xin the Weaponmaster"] = "",
+---- Shado-Pan Monastery
+--	["InstanceLootHeroic.Shado-Pan Monastery.Gu Cloudstrike"] = "",
+--	["InstanceLootHeroic.Shado-Pan Monastery.Master Snowdrift"] = "",
+--	["InstanceLootHeroic.Shado-Pan Monastery.Sha of Violence"] = "",
+--	["InstanceLootHeroic.Shado-Pan Monastery.Taran Zhu"] = "",
+---- Siege of Niuzao Temple
+--	["InstanceLootHeroic.Shado-Pan Monastery.Vizier Jin'bak"] = "",
+--	["InstanceLootHeroic.Shado-Pan Monastery.Commander Vo'jak"] = "",
+--	["InstanceLootHeroic.Shado-Pan Monastery.General Pa'valak"] = "",
+--	["InstanceLootHeroic.Shado-Pan Monastery.Wing Leader Ner'onok"] = "",
+---- Stormstout Brewery
+--	["InstanceLootHeroic.Stormstout Brewery.Ook-Ook"] = "",
+--	["InstanceLootHeroic.Stormstout Brewery.Hoptallus"] = "",
+--	["InstanceLootHeroic.Stormstout Brewery.Yan-Zhu the Uncasked"] = "",
+---- Temple of the Jade Serpent
+--	["InstanceLootHeroic.Temple of the Jade Serpent.Wise Mari"] = "",
+--	["InstanceLootHeroic.Temple of the Jade Serpent.Lorewalker Stonestep"] = "",
+--	["InstanceLootHeroic.Temple of the Jade Serpent.Liu Flameheart"] = "",
+--	["InstanceLootHeroic.Temple of the Jade Serpent.Sha of Doubt"] = "",
+---- Scarlet Halls
+--	["InstanceLootHeroic.Scarlet Halls.Houndmaster Braun"] = "",
+--	["InstanceLootHeroic.Scarlet Halls.Armsmaster Harlan"] = "",
+--	["InstanceLootHeroic.Scarlet Halls.Flameweaver Koegler"] = "",
+---- Scarlet Monastery
+--	["InstanceLootHeroic.Scarle Monastery.Thalnos the Soulrender"] = "",
+--	["InstanceLootHeroic.Scarle Monastery.Brother Korloff"] = "",
+--	["InstanceLootHeroic.Scarle Monastery.High Inquisitor Whitemane"] = "",
+---- Scholomance
+--	["InstanceLootHeroic.Scholomance.Instructor Chillheart"] = "",
+--	["InstanceLootHeroic.Scholomance.Jandice Barov"] = "",
+--	["InstanceLootHeroic.Scholomance.Rattlegore"] = "",
+--	["InstanceLootHeroic.Scholomance.Lilian Voss"] = "",
+--	["InstanceLootHeroic.Scholomance.Darkmaster Gandling"] = "",
 ]==]
 ]=]
 ]]

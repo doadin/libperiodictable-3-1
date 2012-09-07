@@ -112,7 +112,6 @@ local function WH(page, value, filter)
 			-- we don't escape if filter is a string
 			url[#url + 1] = filter
 		end
---~ 		url[#url + 1] = ";eb=1" -- [ckaotik] exclude pandaria items
 	end
 	return table.concat(url)
 end
@@ -429,6 +428,7 @@ end
 local function basic_listview_get_npc_id(npc, zone)
 	-- override because of a bug in wowhead where the mob is not reported as lootable.
 	if npc == "Sathrovarr the Corruptor" then return 24892 end
+	if npc == "Electron" then return 42179 end
 	-- override because "," in names screws things up
 	if npc == "Corla Herald of Twilight" then return 39679 end
 	-- override because NPC name exists multiple times
