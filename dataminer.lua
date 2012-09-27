@@ -26,6 +26,7 @@ end
 local function dprint(dlevel, ...)
 	if dlevel and DEBUG >= dlevel then
 		print(...)
+		io.flush()
 	end
 end
 
@@ -697,6 +698,12 @@ local Tradeskill_Gather_GemsInNodes_nodes = {
 	["Rich Elementium Vein"] = 202741,
 	["Pyrite Deposit"] = 202737,
 	["Rich Pyrite Deposit"] = 202740,
+	["Ghost Iron Deposit"] = 209311,
+	["Rich Ghost Iron Deposit"] = 209328,
+	["Kyparite Deposit"] = 209312,
+	["Rich Kyparite Deposit"] = 209329,
+	["Trillium Vein"] = 209313,
+	["Rich Trillium Vein"] = 209330,
 }
 
 local Tradeskill_Profession_filters = {
@@ -1033,9 +1040,10 @@ local Currency_Items = {
 	["Elementium Bar"] = 52186,
 	["Hardened Elementium Bar"] = 53039,
 	["Pyrium Bar"] = 51950,
+	["Kyparite"] = 72093,
 --   Cooking
-	["Dalaran Cooking Award"] = -81,
-	["Chef's Award"] = -402,
+	["Epicurian's Award"] = -81,
+	["Ironpaw Token"] = -402,
 --   Enchanting
 	["Dream Shard"] = 34052,
 	["Abyss Crystal"] = 34057,
@@ -1045,6 +1053,7 @@ local Currency_Items = {
 --   Jewelcrafting
 	["Dalaran Jewelcrafter's Token"] = -61,
 	["Illustrious Jewelcrafter's Token"] = -361,
+	["Zen Jewelcrafter's Token"] = -698,
 --   Leatherworking
 	["Heavy Borean Leather"] = 38425,
 	["Arctic Fur"] = 44128,
@@ -1058,6 +1067,7 @@ local Currency_Items = {
 --	["Burning Blossom"] = 23247,
 --	["Coin of Ancestry"] = 21100,
 --	["Noblegarden Chocolate"] = 44791,
+	["Darkmoon Prize Ticket"] = -515,
 }
 
 local Tradeskill_Gem_Cut_level_filters = {
@@ -1826,6 +1836,11 @@ end
 handlers["^Tradeskill%.Crafted"] = function (set, data)
 	local profession = set:match("^Tradeskill%.Crafted%.(.+)$")
 	dprint(9, "profession", profession)
+	
+	if (profession == "Archeology") then --TODO
+		return nil
+	end
+	
 	local cat = Tradeskill_Profession_categories[profession]
 	if not cat then return end
 
