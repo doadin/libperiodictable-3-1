@@ -12,7 +12,7 @@ local TRANSMOGSETS_CHKSRC = TRANSMOGSETS_CHKSRC
 local INSTANCELOOT_CHKSRC = INSTANCELOOT_CHKSRC
 local INSTANCELOOT_MIN = INSTANCELOOT_MIN or 50
 local INSTANCELOOT_MAXSRC = INSTANCELOOT_MAXSRC or 5
-local INSTANCELOOT_TRASHMINSRC = INSTANCELOOT_TRASHMINSRC or 3
+local INSTANCELOOT_TRASHMINSRC = INSTANCELOOT_TRASHMINSRC or 5
 
 local MAX_TRADESKILL_LEVEL = 600
 
@@ -20,7 +20,6 @@ if arg[1] == "-chksrc" and arg[2] then
 	table.remove(arg, 1)
 	print("Enabling deep scan for Loot table of the following tables", arg[1])
 	INSTANCELOOT_CHKSRC = true
-	INSTANCELOOT_MIN = 100
 end
 
 local function dprint(dlevel, ...)
@@ -434,7 +433,7 @@ local function basic_listview_get_npc_id(npc, zone)
 	if npc == "Corla Herald of Twilight" then return 39679 end
 	-- override because NPC name exists multiple times
 	if npc == "Kael'thas Sunstrider" and zone == "Magisters' Terrace" then return 24664 end
-	local url = WH("npcs", nil, {na = npc, cr=9, crs=1, crv=0})
+	local url = WH("npcs", nil, {na = npc, cr={32,9}, crs={1,1}, crv={0,0}, ma=1})
 	local views = get_page_listviews(url)
 	if not views.npcs then return end
 	local data = views.npcs.data
@@ -472,54 +471,82 @@ end
 
 local Class_Skills_categories = {
 	["Death Knight"] = {
-		Blood = "7.6.770",
-		Frost = "7.6.771",
-		Unholy = "7.6.772",
+		General = "7.6",
+		Talent = "-2.6",
+		Blood = "-12.6.250",
+		Frost = "-12.6.251",
+		Unholy = "-12.6.252",
 	},
 	Druid = {
-		Balance = "7.11.574",
-		["Feral Combat"] = "7.11.134",
-		Restoration = "7.11.573",
+		General = "7.11",
+		Talent = "-2.11",
+		Balance = "-12.11.102",
+		Feral = "-12.11.103",
+		Guardian = "-12.11.104",
+		Restoration = "-12.11.105",
 	},
 	Hunter = {
-		["Beast Mastery"] = "7.3.50",
-		Marksmanship = "7.3.163",
-		Survival = "7.3.51",
+		General = "7.3",
+		Talent = "-2.3",
+		["Beast Mastery"] = "-12.3.253",
+		Marksmanship = "-12.3.254",
+		Survival = "-12.3.255",
 	},
 	Mage = {
-		Arcane = "7.8.237",
-		Fire = "7.8.8",
-		Frost = "7.8.6",
+		General = "7.8",
+		Talent = "-2.8",
+		Arcane = "-12.8.62",
+		Fire = "-12.8.63",
+		Frost = "-12.8.64",
+	},
+	Monk = {
+		General = "7.10",
+		Talent = "-2.10",
+		Brewmaster = "-12.10.268",
+		Windwalker = "-12.10.269",
+		Mistweaver = "-12.10.270",
 	},
 	Paladin = {
-		Holy = "7.2.594",
-		Protection = "7.2.267",
-		Retribution = "7.2.184",
+		General = "7.2",
+		Talent = "-2.2",
+		Holy = "-12.2.65",
+		Protection = "-12.2.73",
+		Retribution = "-12.2.70",
 	},
 	Priest = {
-		Discipline = "7.5.613",
-		Holy = "7.5.56",
-		["Shadow Magic"] = "7.5.78",
+		General = "7.5",
+		Talent = "-2.5",
+		Discipline = "-12.5.256",
+		Holy = "-12.5.257",
+		Shadow = "-12.5.258",
 	},
 	Rogue = {
-		Assassination = "7.4.253",
-		Combat = "7.4.38",
-		Subtlety = "7.4.39",
+		General = "7.4",
+		Talent = "-2.4",
+		Assassination = "-12.4.259",
+		Combat = "-12.4.260",
+		Subtlety = "-12.4.261",
 	},
 	Shaman = {
-		["Elemental Combat"] = "7.7.375",
-		Enhancement = "7.7.373",
-		Restoration = "7.7.374",
+		General = "7.7",
+		Talent = "-2.7",
+		Elemental = "-12.7.262",
+		Enhancement = "-12.7.263",
+		Restoration = "-12.7.264",
 	},
 	Warlock = {
-		Affliction = "7.9.355",
-		Demonology = "7.9.354",
-		Destruction = "7.9.593",
+		General = "7.9",
+		Talent = "-2.9",
+		Affliction = "-12.9.265",
+		Demonology = "-12.9.266",
+		Destruction = "-12.9.267",
 	},
 	Warrior = {
-		Arms = "7.1.26",
-		Fury = "7.1.256",
-		Protection = "7.1.257",
+		General = "7.1",
+		Talent = "-2.1",
+		Arms = "-12.1.71",
+		Fury = "-12.1.72",
+		Protection = "-12.1.73",
 	},
 }
 
@@ -586,13 +613,6 @@ local Tradeskill_Tool_filters = {
 	},
 }
 
---[[ deprecated [ckaotik]
-local Reagent_Ammo_categories = {
-	Arrow = "6.2",
-	Bullet = "6.3",
-	Thrown = "2.16",
-} ]]--
-
 local Containers_ItemsInType_items = {
 --	["Soul Shard"] = 21342,
 	Herb = 67393, -- "Carriage - Going Green" Herb Tote Bag
@@ -607,7 +627,6 @@ local Containers_ItemsInType_items = {
 
 local Bag_categories = {
 	Basic = "1.0",
---	["Soul Shard"] = "1.1",
 	Herb = "1.2",
 	Enchanting = "1.3",
 	Engineering = "1.4",
@@ -616,8 +635,6 @@ local Bag_categories = {
 	Leatherworking = "1.7",
 	Inscription = "1.8",
 	Tackle = "1.9",
---	Ammo = "11.3",
---	Quiver = "11.2",
 }
 
 local Minipet_filters = {
@@ -732,7 +749,6 @@ local Tradeskill_Profession_categories = {
 	Tailoring = "11.197",
 }
 
--- [ckaotik] fixed crv filter: 7 = socket?yes
 local Gear_Socketed_filters = {
 	Back	= {
 		{sl=16,cr=80,crs=7,crv=0},
@@ -769,9 +785,6 @@ local Gear_Socketed_filters = {
 	["One Hand"]	= {
 		{sl=13,cr=80,crs=7,crv=0},
 	},
-	Ranged	= {
-		{sl=15,cr=80,crs=7,crv=0},
-	},
 	Shield	= {
 		{sl=14,cr=80,crs=7,crv=0},
 	},
@@ -800,8 +813,9 @@ local Gear_level_filters = {
 	{minrl=70,maxrl=70},
 	{minrl=71,maxrl=79},
 	{minrl=80,maxrl=80},
-	{minrl=81,maxrl=84}, -- [ckaotik]
-	{minrl=85,maxrl=85}, -- [ckaotik]
+	{minrl=81,maxrl=84},
+	{minrl=85,maxrl=89},
+	{minrl=90,maxrl=90},
 }
 
 local GearSets_fixedids = {
@@ -1014,6 +1028,8 @@ local GearSets_fixedids = {
 	["Vestments of the Faceless Shroud"] = {["384"] = -467, ["397"] = 1072, ["410"] = -486},
 	["Colossal Dragonplate Armor"] = {["384"] = -466, ["397"] = 1074, ["410"] = -485},
 	["Colossal Dragonplate Battlegear"] = {["384"] = -465, ["397"] = 1073, ["410"] = -484},
+
+-- T14 [TODO]
 }
 
 local Currency_Items = {
@@ -1023,6 +1039,7 @@ local Currency_Items = {
 	["Champion's Seal"] = -241,
 	["Coilfang Armaments"] = 24368,
 	["Conquest Points"] = -390,
+	["Essence of Corrupted Deathwing"] = -615,
 	["Frozen Orb"] = 43102,
 	["Glowcap"] = 24245,
 	["Halaa Battle Token"] = 26045,
@@ -1034,7 +1051,8 @@ local Currency_Items = {
 	["Mark of the Illidari"] = 32897,
 	["Mark of the World Tree"] = -416,
 	["Mark of Thrallmar"] = 24581,
---	["Necrotic Rune"] = 22484,
+	["Mote of Darkness"] = -614,
+--	["Necrotic Rune"] = 22484, -- part of WotLK launch event
 	["Spirit Shard"] = 28558,
 	["Sunmote"] = 34664,
 	["Tol Barad Commendation"] = -391,
@@ -1048,7 +1066,7 @@ local Currency_Items = {
 	["Pyrium Bar"] = 51950,
 	["Kyparite"] = 72093,
 --   Cooking
-	["Epicurian's Award"] = -81,
+	["Epicurean's Award"] = -81,
 	["Ironpaw Token"] = -402,
 --   Enchanting
 	["Dream Shard"] = 34052,
@@ -1127,7 +1145,7 @@ local Consumable_Buff_Type_filters = {
 -- .heroic : will only search for heroic items
 -- .levels : only check items with these levels
 -- .format : method of parsing, 1:old
--- if old format: .israid : filter by raid difficulty (not dungeon)
+-- .israid : filter by raid difficulty (not dungeon)
 local InstanceLoot_TrashMobs = {
 	--[[ CLASSIC ]]
 	["Molten Core"] = { id = 2717, boe = true, levels = {66}, israid = true, format = 1 },
@@ -1143,14 +1161,16 @@ local InstanceLoot_TrashMobs = {
 	["Black Temple"] = { id = 3959, levels = {141}, israid = true, format = 1 },
 	["Sunwell Plateau"] = { id = 4075, levels = {154}, israid = true, format = 1 },
 	--[[ WRATH ]]
-	["Naxxramas"] = { id = 3456, levels = {200, 213} },
-	["Ulduar"] = { id = 4273, levels = {200, 219, 226} },
-	["Icecrown Citadel"] = { id = 4812, levels = {200, 264} },
+	["Naxxramas"] = { id = 3456, levels = {200, 213}, israid = true },
+	["Ulduar"] = { id = 4273, levels = {200, 219, 226}, israid = true },
+	["Icecrown Citadel"] = { id = 4812, levels = {200, 264}, israid = true },
 	--[[ CATACLYSM ]]
-	["The Bastion of Twilight"] = { id = 5334, levels = {359} },
-	["Blackwing Descent"] = { id = 5094, levels = {359} },
-	["Firelands"] = { id = 5723, levels = {359, 378}, boe = true },
-	["Dragon Soul"] = { id = 5892, levels = {397}, boe = true },
+	["The Bastion of Twilight"] = { id = 5334, levels = {359,372}, israid = true },
+	["Blackwing Descent"] = { id = 5094, levels = {359,372}, israid = true },
+	["Firelands"] = { id = 5723, levels = {359, 378}, israid = true, boe = true },
+	["Dragon Soul"] = { id = 5892, levels = {397}, israid = true, boe = true },
+	--[[ MOP ]]
+	-- [TODO]
 }
 
 --[[
@@ -1220,46 +1240,51 @@ local function handle_trash_mobs(set)
 	local info = assert(InstanceLoot_TrashMobs[instance], "Instance "..instance.." not found !")
 	local heroicset = set:match("^InstanceLootHeroic%.")
 
-	-- "Drops in ... ": <instance>, "Drops in 10 man normal (Raid)": <any>, etc.
+	-- Filters: "Drops in ... ": <instance> + "Drops in 10 man normal (Raid)": <any> + ...
 	local cr, crs, crv = { 16 }, { info.id }, { 0 }
-	if info.format and info.format == 1 then -- old format
-		if info.israid then -- raids
-			if heroicset or info.heroic then
-				table.insert(cr, "149") -- 10 man
-				table.insert(cr, "150") -- 25 man
-
-				table.insert(crs, "-2323") -- "Any"
-				table.insert(crs, "-2323")
-
-				table.insert(crv, 0)
-				table.insert(crv, 0)
-			elseif instance ~= "Dragon Soul" then 	-- hack
-				table.insert(cr, "147") -- 10 man
-				table.insert(cr, "148") -- 25 man
-
-				table.insert(crs, "-2323")
-				table.insert(crs, "-2323")
-
-				table.insert(crv, 0)
-				table.insert(crv, 0)
-			end
-		else -- dungeons
-			if heroicset or info.heroic then
-				table.insert(cr, "106") -- 10 man
-				table.insert(crs, "-2323")
-				table.insert(crv, 0)
+	if info.format and info.format == 1 then
+		-- old format: normal 10 = "normal", normal 25 = "heroic"
+		if info.israid then
+			if info.heroic or heroicset then
+				table.insert(cr, "148") -- normal 25
 			else
-				table.insert(cr, "105") -- 10 man
-				table.insert(crs, "-2323")
-				table.insert(crv, 0)
+				table.insert(cr, "147") -- normal 10
+			end
+		else
+			if info.heroic or heroicset then
+				table.insert(cr, "106") -- heroic 5
+			else
+				table.insert(cr, "105") -- normal 5
 			end
 		end
-	elseif heroicset or info.heroic then -- new format, heroic
-		table.insert(cr, "148") -- heroic?
-		table.insert(crs, 1)
+		table.insert(crs, "-2323")
 		table.insert(crv, 0)
+	else
+		-- new format: normal 10, normal 25 = "normal", heroic 10, heroic 25 = "heroic"
+		if info.israid then
+			if info.heroic or heroicset then
+				table.insert(cr, "149") -- heroic 10
+				table.insert(cr, "150") -- heroic 25
+			else
+				table.insert(cr, "147") -- normal 10
+				table.insert(cr, "148") -- normal 25
+			end
+			table.insert(crs, "-2323")
+			table.insert(crs, "-2323")
+			table.insert(crv, 0)
+			table.insert(crv, 0)
+		else
+			if info.heroic or heroicset then
+				table.insert(cr, "106") -- heroic 5
+			else
+				table.insert(cr, "105") -- normal 5
+			end
+			table.insert(crs, "-2323")
+			table.insert(crv, 0)
+		end
 	end
 
+	-- only search for boe items
 	if info.boe then
 		table.insert(cr, "3")
 		table.insert(crs, 1)
@@ -1268,10 +1293,15 @@ local function handle_trash_mobs(set)
 
 	local sets = {}
 	for _, level in ipairs(info.levels) do
-		local url = WH("items", nil, {minle = level, maxle = level, cr = cr, crs = crs, crv = crv})
+		-- we don't care about blues or higher
+		local url = WH("items", nil, {minle = level, maxle = level, cr = cr, crs = crs, crv = crv, qu = {3,4,5,6,7}})
 		local set = basic_listview_handler(url, function (item)
 			local itemid, count = item.id, 0
 			local url = WH("item", itemid)
+
+			if item.sourcemore and not item.sourcemore[1].bd then
+				return itemid
+			end
 
 			basic_listview_handler(url, function (item)
 				if instance == "Blackwing Lair" and item.name:find("Death Talon") then -- Hack for BWL
@@ -1562,8 +1592,8 @@ handlers["^InstanceLoot%."] = function (set, data)
 
 		local handler = function (item)
 			dprint(4, "checking item", item.id)
-
 			if is_junk_drop(item.id) then return end
+
 			local quality = 6 - tonumber(item.name:match("^(%d)"))
 			if quality < 1 then return end
 
@@ -1722,9 +1752,10 @@ handlers["^InstanceLootLFR%."] = function (set, data)
 	end
 end
 
+--[[-- trash mobs only get scanned with -chksrc
 handlers["^InstanceLootHeroic%..+%.Trash Mobs"] = function (set, data)
 	return handle_trash_mobs(set)
-end
+end--]]
 
 handlers["^Misc%.Bag%."] = function (set, data)
 	local setname = set:match("%.([^%.]+)$")
@@ -1786,11 +1817,6 @@ handlers["^Consumable.Food.Edible.Combo.Conjured"] = function (set, data)
 	end)
 end
 
---[[ too many by now, need to split into subgroups
-handlers["^Misc%.Minipet%.Normal"] = function (set, data)
-	return basic_listview_handler(WH("items", "15.2"))
-end ]]
-
 handlers["^Misc%.Minipet%."] = function (set, data)
 	local count = 0
 	local src = set:match("^Misc%.Minipet%.(.+)$")
@@ -1815,22 +1841,6 @@ handlers["^Misc%.Mount%."] = function (set, data)
 		end)
 end
 
-
---[[ deprecated
-handlers["^Misc%.Reagent%.Ammo"] = function (set, data)
-	local newset
-	local setname = set:match("%.([^%.]+)$")
-	local count = 0
-	local filter = Reagent_Ammo_categories[setname]
-	if not filter then return end
-	newset = basic_listview_handler(WH("items", filter), function (item)
-		count = count + 1
-		return item.id..":"..math.floor(item.dps * 10)
-	end)
-	dprint(2, "Reagent.Ammo."..setname..":"..count)
-	return newset
-end ]]--
-
 -- Misses way too much stuff
 handlers["^Misc%.Usable%.StartsQuest$"] = function (set, data)
 	local newset = {}
@@ -1842,11 +1852,11 @@ end
 handlers["^Tradeskill%.Crafted"] = function (set, data)
 	local profession = set:match("^Tradeskill%.Crafted%.(.+)$")
 	dprint(9, "profession", profession)
-	
-	if (profession == "Archeology") then --TODO
+
+	if (profession == "Archeology") then -- TODO
 		return nil
 	end
-	
+
 	local cat = Tradeskill_Profession_categories[profession]
 	if not cat then return end
 
@@ -1977,6 +1987,7 @@ handlers["^Tradeskill%.Gem%."] = function (set, data)
 		local gem_cut_func = function (item)
 			local itemid = item.id
 			basic_listview_handler(WH("item", itemid), function (item)
+				if not item.reagents then return end -- uncraftable gems, e.g. 89873
 				for _, reagent in ipairs(item.reagents) do
 					local src_id, count = unpack(reagent)
 					if src_id ~= 27860 then -- Purified Draenic Water

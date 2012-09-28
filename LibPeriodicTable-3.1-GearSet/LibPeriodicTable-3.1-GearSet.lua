@@ -635,7 +635,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("GearSet", gsub("$Rev$", "(%d+)", functi
 	["GearSet.Tier 13.384.Shaman.Spiritwalker's Vestments"]="78767,78786,78813,78820,78834",
 	["GearSet.Tier 13.384.Warlock.Vestments of the Faceless Shroud"]="78776,78797,78816,78825,78844",
 	["GearSet.Tier 13.384.Warrior.Colossal Dragonplate Armor"]="78753,78784,78800,78829",
-	["GearSet.Tier 13.384.Warrior.Colossal Dragonplate Battlege"]="78657,78668,78688,78706,78735",
+	["GearSet.Tier 13.384.Warrior.Colossal Dragonplate Battlegear"]="78752,78763,78783,78801,78830",
 
 	["GearSet.Tier 13.397.Death Knight.Necrotic Boneplate Armor"]="77008,77009,77010,77011,77012",
 	["GearSet.Tier 13.397.Death Knight.Necrotic Boneplate Battlegear"]="76974,76975,76976,76977,76978",
@@ -655,7 +655,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("GearSet", gsub("$Rev$", "(%d+)", functi
 	["GearSet.Tier 13.397.Shaman.Spiritwalker's Vestments"]="76756,76757,76758,76759,76760",
 	["GearSet.Tier 13.397.Warlock.Vestments of the Faceless Shroud"]="76339,76340,76341,76342,76343",
 	["GearSet.Tier 13.397.Warrior.Colossal Dragonplate Armor"]="76988,76989,76990,76991,76992",
-	["GearSet.Tier 13.397.Warrior.Colossal Dragonplate Battlege"]="78657,78668,78688,78706,78735",
+	["GearSet.Tier 13.397.Warrior.Colossal Dragonplate Battlegear"]="76983,76984,76985,76986,76987",
 
 	["GearSet.Tier 13.410.Death Knight.Necrotic Boneplate Armor"]="78663,78678,78697,78716,78751",
 	["GearSet.Tier 13.410.Death Knight.Necrotic Boneplate Battlegear"]="78659,78670,78687,78707,78736",
@@ -675,7 +675,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("GearSet", gsub("$Rev$", "(%d+)", functi
 	["GearSet.Tier 13.410.Shaman.Spiritwalker's Vestments"]="78672,78691,78718,78725,78739",
 	["GearSet.Tier 13.410.Warlock.Vestments of the Faceless Shroud"]="78681,78702,78721,78730,78749",
 	["GearSet.Tier 13.410.Warrior.Colossal Dragonplate Armor"]="78658,78669,78689,78705,78734",
-	["GearSet.Tier 13.410.Warrior.Colossal Dragonplate Battlege"]="78657,78668,78688,78706,78735",
+	["GearSet.Tier 13.410.Warrior.Colossal Dragonplate Battlegear"]="78657,78668,78688,78706,78735",
 
 -- PvP Sets
 	["GearSet.PvP.Arathi Basin.Alliance.The Highlander's Determination"]="20043,20050,20055",
