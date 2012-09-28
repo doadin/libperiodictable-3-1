@@ -14,7 +14,7 @@ local INSTANCELOOT_MIN = INSTANCELOOT_MIN or 50
 local INSTANCELOOT_MAXSRC = INSTANCELOOT_MAXSRC or 5
 local INSTANCELOOT_TRASHMINSRC = INSTANCELOOT_TRASHMINSRC or 3
 
-local MAX_TRADESKILL_LEVEL = 525
+local MAX_TRADESKILL_LEVEL = 600
 
 if arg[1] == "-chksrc" and arg[2] then
 	table.remove(arg, 1)
@@ -713,7 +713,13 @@ local Tradeskill_Profession_filters = {
 local Tradeskill_Profession_categories = {
 	Alchemy = "11.171",
 	Blacksmithing = "11.164",
-	Cooking = "9.185",
+	["Cooking.Basic"] = "9.185",
+	["Cooking.Way of the Brew"] = "9.980",
+	["Cooking.Way of the Grill"] = "9.975",
+	["Cooking.Way of the Oven"] = "9.979",
+	["Cooking.Way of the Pot"] = "9.977",
+	["Cooking.Way of the Steamer"] = "9.978",
+	["Cooking.Way of the Wok"] = "9.976",
 	Enchanting = "11.333",
 	["Engineering.Basic"] = "11.202",
 	["Engineering.Gnomish"] = "11.202.20219",
@@ -1862,9 +1868,9 @@ handlers["^Tradeskill%.Crafted"] = function (set, data)
 			-- local colorstring = itemstring:match("colors:(%b[])")
 			local skilllvl = math.min(MAX_TRADESKILL_LEVEL, tonumber(item.learnedat) or MAX_TRADESKILL_LEVEL)
 			local itemid = item.creates and item.creates[1] or (-1 * spellid) -- count ?
-			dprint(3, profession, itemid, skilllvl)
+			dprint(3, profession, itemid, item.name, skilllvl)
 			if itemid and skilllvl > 0 then
-				newset[#newset + 1] = itemid..":"..item.learnedat
+				newset[#newset + 1] = itemid..":"..(item.learnedat or 999)
 				local newrecipemats = itemid..":"
 				for _, reagent in ipairs(item.reagents) do
 					local reagentid, reagentnum = unpack(reagent)
