@@ -31,7 +31,7 @@ end
 
 local function printdiff(set, old, new)
 	if DEBUG < 2 then return end
-	-- we remove the drop rate for these sets in the diff,
+	-- we remove the drop rate for these sets in the diff
 	-- because they are irrelevant to the comparison
 	local has_drop_rate = set:find("InstanceLoot", nil, true)
 			and not set:find("Trash Mobs", nil, true)
