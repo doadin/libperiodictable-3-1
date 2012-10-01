@@ -1416,58 +1416,34 @@ handlers["^Consumable%.Scroll"] = function (set, data)
 end
 
 
-local Consumable_Cooldown_Potion_filters = {
-	["Restricted"] = {cr=107,crs=0,crv="only"},
-	["Rejuvenation"] = {cr="107:107",crs="0:0",crv="health:mana"},
-	["Trance"] = {cr=107,crs=0,crv="puts the"},
-	["Health"] = {cr=107,crs=0,crv="health"},
-	["Mana"] = {cr=107,crs=0,crv="mana"},
+local Consumable_Potion_Recovery_filters = {
+	["Rejuvenation.Basic"]		= {cr="107:107",		crs="0:0",		crv="health:mana"},
+	["Rejuvenation.Trance"] 	= {cr="107",			crs="0",		crv="puts the",									},
+	["Healing.Zone-Restricted"]	= {cr="107:107:107",	crs="0:0:0",	crv="restores:health:only"},
+	["Healing.Endless"]			= {cr="107:107:104",	crs="0:0:0",	crv="restores:health:not+consumed"},
+	["Healing.Basic"]			= {cr="107:107",		crs="0:0",		crv="restores:health",					excludes={"Healing.Zone-Restricted","Healing.Endless","Rejuvenation.Basic","Rejuvenation.Trance"}},
+	["Mana.Zone-Restricted"]	= {cr="107:107:107",	crs="0:0:0",	crv="restores:mana:only"},
+	["Mana.Endless"]			= {cr="107:107:104",	crs="0:0:0",	crv="restores:mana:not+consumed"},
+	["Mana.Basic"]				= {cr="107:107",		crs="0:0",		crv="restores:mana",					excludes={"Mana.Zone-Restricted","Mana.Endless","Rejuvenation.Basic","Rejuvenation.Trance"}},
 }
 
-handlers["Consumable.Cooldown.Potion.Mana.Basic"] = function (set, data)
-	local exclude = {}
-	basic_listview_handler(WH("items","0.1",Consumable_Cooldown_Potion_filters.Restricted),nil,nil, exclude)
-	basic_listview_handler(WH("items","0.1",Consumable_Cooldown_Potion_filters.Rejuvenation),nil,nil, exclude)
+handlers["^Consumable%.Potion%.Recovery"] = function (set, data)
 
-	return basic_listview_handler(WH("items","0.1",Consumable_Cooldown_Potion_filters.Mana), function(item)
-		if not is_in(exclude,tostring(item.id)) then
-			return item.id..":"..item.level
+	local setName = set:match("%.([^%.]+%.[^%.]+)$")
+	if not setName then return end
+
+	local setFilter = Consumable_Potion_Recovery_filters[setName]
+	if not setFilter then return end
+
+	print(setName, WH("items","0.1",Consumable_Potion_Recovery_filters[setName]))
+
+	local exclude = {}
+	if setFilter.excludes then
+		for _, v in ipairs(setFilter.excludes) do
+			basic_listview_handler(WH("items","0.1",Consumable_Potion_Recovery_filters[v]),nil,nil, exclude)
 		end
-	end)
-
-end
-
-handlers["Consumable.Cooldown.Potion.Health.Basic"] = function (set, data)
-	local exclude = {}
-	basic_listview_handler(WH("items","0.1",Consumable_Cooldown_Potion_filters.Restricted),nil,nil, exclude)
-	basic_listview_handler(WH("items","0.1",Consumable_Cooldown_Potion_filters.Rejuvenation),nil,nil, exclude)
-
-	return basic_listview_handler(WH("items","0.1",Consumable_Cooldown_Potion_filters.Health), function(item)
-		if not is_in(exclude,tostring(item.id)) then
-			return item.id..":"..item.level
-		end
-	end)
-
-end
-
-handlers["Consumable.Cooldown.Potion.Rejuvenation.Regular"] = function (set, data)
-	local exclude = {}
-	basic_listview_handler(WH("items","0.1",Consumable_Cooldown_Potion_filters.Restricted),nil,nil, exclude)
-	basic_listview_handler(WH("items","0.1",Consumable_Cooldown_Potion_filters.Trance),nil,nil, exclude)
-
-	return basic_listview_handler(WH("items","0.1",Consumable_Cooldown_Potion_filters.Rejuvenation), function(item)
-		if not is_in(exclude,tostring(item.id)) then
-			return item.id..":"..item.level
-		end
-	end)
-
-end
-
-handlers["Consumable.Cooldown.Potion.Rejuvenation.Trance"] = function (set, data)
-	local exclude = {}
-	basic_listview_handler(WH("items","0.1",Consumable_Cooldown_Potion_filters.Restricted),nil,nil, exclude)
-	print(table.concat(exclude,","))
-	return basic_listview_handler(WH("items","0.1",Consumable_Cooldown_Potion_filters.Trance), function(item)
+	end
+	return basic_listview_handler(WH("items","0.1",Consumable_Potion_Recovery_filters[setName]), function(item)
 		if not is_in(exclude,tostring(item.id)) then
 			return item.id..":"..item.level
 		end
@@ -2105,6 +2081,10 @@ handlers["^Tradeskill%.Mat%.ByProfession"] = function (set, data)
 	end
 	table.sort(newset)
 	return table.concat(newset, ",")
+end
+
+handlers["Tradeskill%.Mat%.ByProfession%.Farming"] = function(set, data)
+	return basic_listview_handler(WH("items","0.0",{cr=104,crs=0,crv="sunsong"}))
 end
 
 handlers["^Tradeskill%.Recipe%."] = function (set, data)
