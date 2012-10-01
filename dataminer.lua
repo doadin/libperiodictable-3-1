@@ -1415,6 +1415,66 @@ handlers["^Consumable%.Scroll"] = function (set, data)
 	return basic_listview_handler(WH("items", "0.4"))
 end
 
+
+local Consumable_Cooldown_Potion_filters = {
+	["Restricted"] = {cr=107,crs=0,crv="only"},
+	["Rejuvenation"] = {cr="107:107",crs="0:0",crv="health:mana"},
+	["Trance"] = {cr=107,crs=0,crv="puts the"},
+	["Health"] = {cr=107,crs=0,crv="health"},
+	["Mana"] = {cr=107,crs=0,crv="mana"},
+}
+
+handlers["Consumable.Cooldown.Potion.Mana.Basic"] = function (set, data)
+	local exclude = {}
+	basic_listview_handler(WH("items","0.1",Consumable_Cooldown_Potion_filters.Restricted),nil,nil, exclude)
+	basic_listview_handler(WH("items","0.1",Consumable_Cooldown_Potion_filters.Rejuvenation),nil,nil, exclude)
+
+	return basic_listview_handler(WH("items","0.1",Consumable_Cooldown_Potion_filters.Mana), function(item)
+		if not is_in(exclude,tostring(item.id)) then
+			return item.id..":"..item.level
+		end
+	end)
+
+end
+
+handlers["Consumable.Cooldown.Potion.Health.Basic"] = function (set, data)
+	local exclude = {}
+	basic_listview_handler(WH("items","0.1",Consumable_Cooldown_Potion_filters.Restricted),nil,nil, exclude)
+	basic_listview_handler(WH("items","0.1",Consumable_Cooldown_Potion_filters.Rejuvenation),nil,nil, exclude)
+
+	return basic_listview_handler(WH("items","0.1",Consumable_Cooldown_Potion_filters.Health), function(item)
+		if not is_in(exclude,tostring(item.id)) then
+			return item.id..":"..item.level
+		end
+	end)
+
+end
+
+handlers["Consumable.Cooldown.Potion.Rejuvenation.Regular"] = function (set, data)
+	local exclude = {}
+	basic_listview_handler(WH("items","0.1",Consumable_Cooldown_Potion_filters.Restricted),nil,nil, exclude)
+	basic_listview_handler(WH("items","0.1",Consumable_Cooldown_Potion_filters.Trance),nil,nil, exclude)
+
+	return basic_listview_handler(WH("items","0.1",Consumable_Cooldown_Potion_filters.Rejuvenation), function(item)
+		if not is_in(exclude,tostring(item.id)) then
+			return item.id..":"..item.level
+		end
+	end)
+
+end
+
+handlers["Consumable.Cooldown.Potion.Rejuvenation.Trance"] = function (set, data)
+	local exclude = {}
+	basic_listview_handler(WH("items","0.1",Consumable_Cooldown_Potion_filters.Restricted),nil,nil, exclude)
+	print(table.concat(exclude,","))
+	return basic_listview_handler(WH("items","0.1",Consumable_Cooldown_Potion_filters.Trance), function(item)
+		if not is_in(exclude,tostring(item.id)) then
+			return item.id..":"..item.level
+		end
+	end)
+
+end
+
 handlers["^CurrencyItems"] = function (set, data)
 	local currency = set:match("^CurrencyItems%.([^%.]+)")
 	if not Currency_Items[currency] then return end
