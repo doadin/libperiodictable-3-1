@@ -75,7 +75,7 @@ json.register_constant("undefined", json.null)
 local url = require("socket.url")
 local httptime, httpcount = 0, 0
 
-local WOWHEAD_FILTER_PARAMS = { "na", "ma", "minle", "maxle", "minrl", "maxrl", "minrs", "maxrs", "qu", "sl", "cr", "crs", "crv" }
+local WOWHEAD_FILTER_PARAMS = { "na", "ma", "minle", "maxle", "minrl", "maxrl", "minrs", "maxrs", "qu", "sl", "cr", "crs", "crv", "type" }
 
 local function WH(page, value, filter)
 	local escape = url.escape
@@ -1567,7 +1567,7 @@ handlers["^TransmogSet"] = function (set, data)
 	local setstub = "TransmogSet."..type.."."..quality
 	if transmogparsed[setstub] then return end
 
-	local url = "http://www.wowhead.com/transmog-sets?filter=qu="..ArmorQualities[quality]..";type="..ArmorTypes[type]
+	local url = WH("transmog-sets", nil, {qu=ArmorQualities[quality], type=ArmorTypes[type]})
 	if not url then return end
 	local page = assert(getpage(url))
 
