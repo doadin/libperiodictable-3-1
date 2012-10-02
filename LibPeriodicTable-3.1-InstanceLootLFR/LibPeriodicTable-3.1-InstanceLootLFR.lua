@@ -1,7 +1,7 @@
 -- (c) 2007 Nymbia.  see LGPLv2.1.txt for full details.
 --DO NOT MAKE CHANGES TO THIS FILE BEFORE READING THE WIKI PAGE REGARDING CHANGING THESE FILES
 if not LibStub("LibPeriodicTable-3.1", true) then error("PT3 must be loaded before data") end
-LibStub("LibPeriodicTable-3.1"):AddData("InstanceLootLFR", gsub("$Rev: 373 $", "(%d+)", function(n) return n+90000 end), {
+LibStub("LibPeriodicTable-3.1"):AddData("InstanceLootLFR", gsub("$Rev$", "(%d+)", function(n) return n+90000 end), {
 
 -- Dragon Soul
 	["InstanceLootLFR.Dragon Soul.Morchok"]="71716:260,71998:6,77952:3,77979:10,77980:13,77981:10,77982:12,77983:10,78375:195,78376:195,78377:181,78378:121,78380:113,78381:177,78382:226,78384:109,78385:105,78386:98,78494:10,78495:10,78496:11,78497:12,78498:12,78862:33,78863:25,78864:23,78865:30,78866:19,78867:24,78868:29,78869:26,78870:20,78871:29,78872:27,78873:24,78874:34,78875:27,78876:24",

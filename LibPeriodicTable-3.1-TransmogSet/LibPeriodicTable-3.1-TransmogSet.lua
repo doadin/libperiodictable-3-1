@@ -1,7 +1,7 @@
 -- (c) 2007 Nymbia.  see LGPLv2.1.txt for full details.
 --DO NOT MAKE CHANGES TO THIS FILE BEFORE READING THE WIKI PAGE REGARDING CHANGING THESE FILES
 if not LibStub("LibPeriodicTable-3.1", true) then error("PT3 must be loaded before data") end
-LibStub("LibPeriodicTable-3.1"):AddData("TransmogSet", gsub("$Rev: 373 $", "(%d+)", function(n) return n+90000 end), {
+LibStub("LibPeriodicTable-3.1"):AddData("TransmogSet", gsub("$Rev$", "(%d+)", function(n) return n+90000 end), {
 
 	["TransmogSet.Cloth.Uncommon.Abjurer Regalia"]="9940,9942,9936,9939,9941,9937,9945,9943",
 	["TransmogSet.Cloth.Uncommon.Aboriginal Regalia"]="14113,14117,14114,14119,14120",
