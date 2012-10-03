@@ -36,14 +36,18 @@ local function printdiff(set, old, new)
 	local has_drop_rate = set:find("InstanceLoot", nil, true)
 			and not set:find("Trash Mobs", nil, true)
 	local temp = {}
+	local oldEntries = 0
+	local newEntries = 0
 	if old then
 		for entry in old:gmatch("[^,]+") do
+			oldEntries = oldEntries + 1
 			if has_drop_rate then entry = entry:match("(%d+):%d+") end
-			temp[entry] = -1
+			temp[entry] = (temp[entry] or 0) - 1
 		end
 	end
 	if new then
 		for entry in new:gmatch("[^,]+") do
+			newEntries = newEntries + 1
 			if has_drop_rate then entry = entry:match("(%d+):%d+") end
 			temp[entry] = (temp[entry] or 0) + 1
 		end
@@ -57,7 +61,7 @@ local function printdiff(set, old, new)
 		end
 	end
 	if #added + #removed > 0 then
-		dprint(2, "CHANGED", set)
+		dprint(2, "CHANGED", set, "("..oldEntries.." -> "..newEntries..")")
 	end
 
 	if #removed > 0 then
