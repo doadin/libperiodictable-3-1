@@ -115,7 +115,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("Consumable", gsub("$Rev$", "(%d+)", fun
 	["Consumable.Cooldown.Stone.Health.Statue"]="25498:8,25880:16,25881:24,25882:36,25883:50",
 	["Consumable.Cooldown.Stone.Health.Warlock"]="m,Consumable.Warlock.Healthstone,",
 	["Consumable.Cooldown.Stone.Mana.Other"]="23354:60,23386:100,31451:300,20520:1200,12662:1200",
-	["Consumable.Cooldown.Stone.Mana.Mana Stone"]="36799:600",
+	["Consumable.Cooldown.Stone.Mana.Mana Stone"]="36799:47250,81901:9450",
 	["Consumable.Cooldown.Drums.Bombs"]="m,Misc.Explosives",
 	["Consumable.Cooldown.Drums.Drums"]="29528:1,29530:2,29531:3,29529:4,29532:5,49633:6,49634:7",
 	["Consumable.Cooldown.Drums.Nets"]="24268:70,24269:80,41509:83",
