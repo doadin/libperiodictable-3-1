@@ -1913,11 +1913,16 @@ handlers["^Reputation%.Reward%."] = function (set, data)
 	end, 'items')
 end
 
+handlers["^Tradeskill%.Crafted%.Archaeology"] = function (set, data)
+	-- items created by Archaeology which are at least white quality
+	local filters = {qu={1,2,3,4,5,6,7},cr=86,crs=16,crv=0}
+	return basic_listview_handler(WH("items", nil, filters), nil, 'items')
+end
 handlers["^Tradeskill%.Crafted"] = function (set, data)
 	local profession = set:match("^Tradeskill%.Crafted%.(.+)$")
 	dprint(9, "profession", profession)
 
-	if (profession == "Archeology") then -- TODO
+	if (profession == "Archaeology") then -- TODO
 		return nil
 	end
 
