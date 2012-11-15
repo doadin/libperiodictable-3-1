@@ -8,7 +8,7 @@
 
 local SOURCE = SOURCE or "data.lua"
 local DEBUG = DEBUG or 2
-local TRANSMOGSETS_CHKSRC = TRANSMOGSETS_CHKSRC
+local TRANSMOGSETS_CHKSRC = true or TRANSMOGSETS_CHKSRC
 local INSTANCELOOT_CHKSRC = INSTANCELOOT_CHKSRC
 local INSTANCELOOT_MIN = INSTANCELOOT_MIN or 50
 local INSTANCELOOT_MAXSRC = INSTANCELOOT_MAXSRC or 5
@@ -1581,11 +1581,14 @@ local ArmorQualities = {
 }
 local transmogparsed = {}
 
+-- parsing transmog sets is rather weird as we can retrieve all required data from the overview listview
 handlers["^TransmogSet"] = function (set, data)
 	if not TRANSMOGSETS_CHKSRC then return end
 	local type, quality, name = set:match("^TransmogSet%.([^%.]+)%.([^%.]+)%.?(.*)$")
 	local setstub = "TransmogSet."..type.."."..quality
+
 	if transmogparsed[setstub] then return end
+	local transmogsetparsed = {}
 
 	local url = WH("transmog-sets", nil, {qu=ArmorQualities[quality], type=ArmorTypes[type]})
 	if not url then return end
@@ -1596,10 +1599,21 @@ handlers["^TransmogSet"] = function (set, data)
 		data = json(var, true)
 	end
 
-	for _, tset in pairs(data) do
+	-- force order so we keep a consistent naming scheme
+	table.sort(data, function(a, b) return a.id < b.id end)
+	for _, tset in ipairs(data) do
 		local setname = string.sub(tset.name, 2)
-		local transmogset = sets[setstub.."."..setname]
+		setname = string.gsub(setname, " %(Recolor%)", "")
+		setname = string.gsub(setname, " %(Lookalike%)", "")
 
+		-- handle duplicate set names, e.g. Arcane Regalia (Recolor)
+		local offset = transmogsetparsed[setname]
+		transmogsetparsed[setname] = (offset or 0) + 1
+		if offset then
+			setname = string.format("%s (Recolor %d)", setname, offset)
+		end
+
+		local transmogset = sets[setstub.."."..setname]
 		if not transmogset then
 			dprint(2, "ERR MISSING transmogrification set " .. setstub.."."..setname)
 		else
@@ -1607,7 +1621,6 @@ handlers["^TransmogSet"] = function (set, data)
 		end
 	end
 	transmogparsed[setstub] = true
-
 end
 
 handlers["^InstanceLoot%."] = function (set, data)
