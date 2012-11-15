@@ -452,6 +452,22 @@ local function basic_listview_get_npc_id(npc, zone)
 	return first_id
 end
 
+local function basic_listview_get_id_by_name(url, name)
+	local views = get_page_listviews(url)
+	if not views then return end
+	local _, view = next(views)
+	if not view then return end
+
+	for _, entry in ipairs(view.data) do
+		if entry.name == name then
+			return entry.id
+		end
+		-- fallback to first id
+		if not first_id then first_id = entry.id end
+	end
+	return first_id
+end
+
 local function multiple_qualities_listview_handler(type, value, filter, set, typelevel)
 	local min, max = "min"..typelevel, "max"..typelevel
 	for q = 0, 7 do
@@ -1887,6 +1903,14 @@ handlers["^Misc%.Usable%.StartsQuest$"] = function (set, data)
 	multiple_qualities_listview_handler("items", nil, {cr=6,crs=1,crv=0}, newset, "rl")
 	table.sort(newset, sortSet)
 	return table.concat(newset, ",")
+end
+
+handlers["^Reputation%.Reward%."] = function (set, data)
+	local faction = set:match("([^%.]+)$")
+	local id = basic_listview_get_id_by_name(WH("factions"), faction)
+	return basic_listview_handler(WH('faction', id), function(item)
+		return item.id..':'..item.standing
+	end, 'items')
 end
 
 handlers["^Tradeskill%.Crafted"] = function (set, data)
