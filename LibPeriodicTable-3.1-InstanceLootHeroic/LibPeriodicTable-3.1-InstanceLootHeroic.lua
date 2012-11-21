@@ -452,9 +452,9 @@ LibStub("LibPeriodicTable-3.1"):AddData("InstanceLootHeroic", gsub("$Rev$", "(%d
 	["InstanceLootHeroic.Scarlet Halls.Armsmaster Harlan"]="81568:0,81697:0,81698:0,81699:0,81700:0",
 	["InstanceLootHeroic.Scarlet Halls.Flameweaver Koegler"]="81564:0,81565:0,82812:0,82813:0,82814:0,82815:0,82816:0,82817:0,82818:0,82819:0,87550:0",
 -- Scarlet Monastery
-	["InstanceLootHeroic.Scarle Monastery.Thalnos the Soulrender"]="",
-	["InstanceLootHeroic.Scarle Monastery.Brother Korloff"]="",
-	["InstanceLootHeroic.Scarle Monastery.High Inquisitor Whitemane"]="81265:0,81562:0,81577:0,81578:0,81687:0,81688:0,81689:0,81690:0,81691:0,81692:0,87551:0",
+	["InstanceLootHeroic.Scarlet Monastery.Thalnos the Soulrender"]="",
+	["InstanceLootHeroic.Scarlet Monastery.Brother Korloff"]="",
+	["InstanceLootHeroic.Scarlet Monastery.High Inquisitor Whitemane"]="81265:0,81562:0,81577:0,81578:0,81687:0,81688:0,81689:0,81690:0,81691:0,81692:0,87551:0",
 -- Scholomance
 	["InstanceLootHeroic.Scholomance.Instructor Chillheart"]="81566:0,82820:0,82821:0,82822:0,82823:0",
 	["InstanceLootHeroic.Scholomance.Jandice Barov"]="82847:0,82848:0,82850:0,82851:0,82852:0",

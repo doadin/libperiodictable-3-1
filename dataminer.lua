@@ -1954,6 +1954,9 @@ handlers["^Tradeskill%.Crafted"] = function (set, data)
 	for skilllevelfilter = 1, MAX_TRADESKILL_LEVEL, 25 do
 		skillfilter.minrs = skilllevelfilter
 		skillfilter.maxrs = skilllevelfilter + 24
+--		if (skillfilter.maxrs == MAX_TRADESKILL_LEVEL) then
+--			skillfilter.maxrs = nil
+--		end
 		basic_listview_handler(WH("spells", cat, skillfilter), function (item)
 			local spellid = item.id
 			if not item.reagents then return end
