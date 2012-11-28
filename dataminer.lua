@@ -8,7 +8,7 @@
 
 local SOURCE = SOURCE or "data.lua"
 local DEBUG = DEBUG or 2
-local TRANSMOGSETS_CHKSRC = true or TRANSMOGSETS_CHKSRC
+local TRANSMOGSETS_CHKSRC = TRANSMOGSETS_CHKSRC
 local INSTANCELOOT_CHKSRC = INSTANCELOOT_CHKSRC
 local INSTANCELOOT_MIN = INSTANCELOOT_MIN or 50
 local INSTANCELOOT_MAXSRC = INSTANCELOOT_MAXSRC or 5
@@ -1922,7 +1922,7 @@ handlers["^Reputation%.Reward%."] = function (set, data)
 	local faction = set:match("([^%.]+)$")
 	local id = basic_listview_get_id_by_name(WH("factions"), faction)
 	return basic_listview_handler(WH('faction', id), function(item)
-		return item.id..':'..item.standing
+		return item.id..':'..(item.standing+1)
 	end, 'items')
 end
 
