@@ -316,7 +316,7 @@ local locale_data
 local function fetch_locale_data()
 	if not locale_data then
 		local page = assert(getpage("http://static.wowhead.com/js/locale_enus.js"))
-		locale_data = json(page:match("g_zones=(%b{})"), true)
+		locale_data = json(page:match("g_zones%s*=%s*(%b{})"), true)
 	end
 end
 local function get_zone_name_from_id(id)
