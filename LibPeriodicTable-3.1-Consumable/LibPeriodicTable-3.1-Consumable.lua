@@ -228,7 +228,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("Consumable", gsub("$Rev$", "(%d+)", fun
 	["Consumable.Potion.Other.Runic"]="39327:50",
 
 	--NOW AUTOGENNED (These are now datamined based on effect text filters and exclusion lists. -JCinDE)
-	["Consumable.Potion.Recovery.Healing.Endless"]="43569:80,80040:90",
+	["Consumable.Potion.Recovery.Healing.Endless"]="43569:80",
 	["Consumable.Potion.Recovery.Healing.Basic"]="118:5,858:13,4596:15,929:22,1710:31,3928:45,18839:45,13446:55,28100:60,33934:60,22829:65,32763:65,32947:65,39327:65,43531:65,23822:66,33092:66,31676:69,31838:70,31839:70,31852:70,31853:70,39671:75,33447:80,41166:80,57191:81,63300:81,76097:90,88416:90,93742:90",
 	["Consumable.Potion.Recovery.Healing.Zone-Restricted"]="17349:45,17348:55,32904:65,32905:65,32784:70,32910:70,67415:81,63144:85,64994:85,92954:90",
 	["Consumable.Potion.Recovery.Mana.Endless"]="43570:80",
