@@ -1,4 +1,4 @@
-﻿## Interface: 50001
+﻿## Interface: 50200
 ## LoadOnDemand: 1
 ## Title: Lib: PeriodicTable-3.1 [|cffeda55fGear|r]
 ## Notes: PeriodicTable data module.
