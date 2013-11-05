@@ -301,12 +301,22 @@ local function get_page_listviews(url)
 	local views = {}
 	for view in page:gmatch("new Listview(%b())") do
 		local template = view:match("template: ?'(.-)'[,}]")
-		local id = view:match("id: ?'(.-)'[,}]")
-		local data = view:match("data: ?(%b[])[,}]")
-		if data and not REJECTED_TEMPLATES[template] then
-			-- for droprate support
-			local count = view:match("_totalCount: ?(%d+)[,}]")
-			views[id] = {id = id, data = json(data, true), count = count and tonumber(count)}
+		if not REJECTED_TEMPLATES[template] then
+			local id = view:match("id: ?'(.-)'[,}]")
+			local data = view:match("data: ?(%b[])[,}]")
+			if data then
+				-- for droprate support
+				local count = view:match("_totalCount: ?(%d+)[,}]")
+				views[id] = {id = id, data = json(data, true), count = count and tonumber(count)}
+			else
+				data = view:match("data: ?(%w+)[,}]")
+				if data then
+					data = page:match("var "..data.." = (%b[])")
+					if data then
+						views[id] = {id = id, data = json(data, true)}
+					end
+				end
+			end
 		end
 	end
 	return views
