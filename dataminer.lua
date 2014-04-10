@@ -478,15 +478,16 @@ local function basic_listview_get_id_by_name(url, name)
 	return first_id
 end
 
-local function multiple_qualities_listview_handler(type, value, filter, set, typelevel)
+local function multiple_qualities_listview_handler(type, value, filter, set, typelevel, level_step_size)
 	local min, max = "min"..typelevel, "max"..typelevel
+	level_step_size = level_step_size or 30
 	for q = 0, 7 do
 		filter.qu = q
 		if q == 1 then
 			-- we split here because there's a lot of them
-			for level = 0, 90, 30 do
+			for level = 0, 90, level_step_size do
 				filter[min] = level
-				filter[max] = level + 29
+				filter[max] = level + (level_step_size - 1)
 				basic_listview_handler(WH(type, value, filter), nil, nil, set)
 			end
 			filter[min] = nil
@@ -1853,14 +1854,15 @@ handlers["^Misc%.Container%.ItemsInType"] = function (set, data)
 	return basic_listview_handler(WH("item", container_id), nil, "can-contain")
 end
 
-handlers["^Misc%.Openable"] = function (set, data)
-	local newset = {}
-	multiple_qualities_listview_handler("items", nil, {cr=11,crs=1,crv=0}, newset, "le")
-	-- Add the clams that are not in the query
-	basic_listview_handler(WH("items", nil, {na="clam", cr=107, crs=0, crv="Open"}), nil, nil, newset)
-	table.sort(newset, sortSet)
-	return table.concat(newset, ",")
-end
+-- Misc.Openable has too many items to capture this way. Even adding MANY limits level 1 still has > 200 items
+--handlers["^Misc%.Openable"] = function (set, data)
+--	local newset = {}
+--	multiple_qualities_listview_handler("items", nil, {cr=11,crs=1,crv=0}, newset, "le", 5)
+--	-- Add the clams that are not in the query
+--	basic_listview_handler(WH("items", nil, {na="clam", cr=107, crs=0, crv="Open"}), nil, nil, newset)
+--	table.sort(newset, sortSet)
+--	return table.concat(newset, ",")
+--end
 
 handlers["^Misc%.Key"] = function (set, data)
 	local setname = set:match("%.([^%.]+)$")
