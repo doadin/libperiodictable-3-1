@@ -280,7 +280,7 @@ function PT3:IterateSet(set)
 	end
 end
 
--- Check if the item's contained in this set or any of it's child sets.  If it is, return the value
+-- Check if the item is contained in this set or any of its child sets.  If it is, return the value
 -- (which is true for items with no value set) and the set where the item is contained in data.
 function PT3:ItemInSet(item, set)
 	assert(type(item) == "number" or type(item) == "string", "Invalid arg1: item must be a number or item link")
