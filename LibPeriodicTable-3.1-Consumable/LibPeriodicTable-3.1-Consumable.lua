@@ -242,11 +242,8 @@ LibStub("LibPeriodicTable-3.1"):AddData("Consumable", gsub("$Rev$", "(%d+)", fun
 	["Consumable.Leatherworking.Drums"]="m,Consumable.Cooldown.Drums.Drums",
 	["Consumable.Tailor.Net"]="m,Consumable.Cooldown.Drums.Nets",
 
-	--NOT AUTOGENNED These are items you need to (right) click to use.  If it makes no sense in a button, it does not belong here.  Permanent: Vargoth's Staff, Pony Keg, etc. Quest: removed by Blizzard on quest completion. Replenished: dailies like booterang or others you can replenish like Halaa bombs.
-	["Consumable.Warlock.Firestone"]="",
+	--NOT AUTOGENNED
 	["Consumable.Warlock.Healthstone"]="5512:100",
-	["Consumable.Warlock.Soulstone"]="",
-	["Consumable.Warlock.Spellstone"]="",
 
 	--NOT AUTOGENNED (All water.  I'd like to get this mined, but the filters for these items on allakhazam and wowhead are nonexistant.)
 	["Consumable.Water.Basic"]="1401:60,159:151,1179:436,17404:436,1205:835,9451:835,19299:835,1708:1344,4791:1344,10841:1344,17405:1344,1645:1992,19300:1992,8766:2934,23161:2934,23585:2934,24006:2934,38429:2934,32455:4200,18300:4200,24007:4200,28399:5100,29454:5100,38430:5100,27860:7200,29395:7200,30457:7200,29401:7200,33042:7200,32668:7200,32453:7200,35954:7200,37253:7200,38431:7200,44750:7200,38698:9180,42777:12960,43086:9180,40357:7200,33445:12960,33444:9180,43236:12960,41731:12960,39520:12960,58256:45000,59029:45000,59230:45000,63251:96000,58257:96000,62675:96000,58274:19200,68140:96000,62672:96000,81924:100000,81923:200000",
@@ -260,17 +257,9 @@ LibStub("LibPeriodicTable-3.1"):AddData("Consumable", gsub("$Rev$", "(%d+)", fun
 	["Consumable.Water.Percentage"]="19997:60,21241:60",
 
 	--!!Add to miner
-	["Consumable.Weapon Buff.Firestone"]="",
 	["Consumable.Weapon Buff.Misc"]="3824,3829,31535,23123,34538,34539,44065",
 	["Consumable.Weapon Buff.Oil.Mana"]="20745:4,20747:8,20748:12,22521:14",
 	["Consumable.Weapon Buff.Oil.Wizard"]="20744:8,20746:16,20750:24,20749:36,22522:42",
-	["Consumable.Weapon Buff.Poison.Anesthetic"]="",
-	["Consumable.Weapon Buff.Poison.Crippling"]="",
-	["Consumable.Weapon Buff.Poison.Deadly"]="",
-	["Consumable.Weapon Buff.Poison.Instant"]="",
-	["Consumable.Weapon Buff.Poison.Mind Numbing"]="",
-	["Consumable.Weapon Buff.Poison.Wound"]="",
-	["Consumable.Weapon Buff.Spellstone"]="",
 	["Consumable.Weapon Buff.Stone.Sharpening Stone"]="23122,2862:2,2863:3,2871:4,7964:6,12404:8,18262,23528:12,23529:14",
 	["Consumable.Weapon Buff.Stone.Weight Stone"]="3239:2,3240:3,3241:4,7965:6,12643:8,28420:12,28421",
 })
