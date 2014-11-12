@@ -244,7 +244,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("Consumable", gsub("$Rev$", "(%d+)", fun
 
 	--NOT AUTOGENNED These are items you need to (right) click to use.  If it makes no sense in a button, it does not belong here.  Permanent: Vargoth's Staff, Pony Keg, etc. Quest: removed by Blizzard on quest completion. Replenished: dailies like booterang or others you can replenish like Halaa bombs.
 	["Consumable.Warlock.Firestone"]="",
-	["Consumable.Warlock.Healthstone"]="5509:500,5510:800,5511:250,5512:100,9421:1200,19004:110,19005:120,19006:275,19007:300,19008:550,19009:600,19010:880,19011:960,19012:1320,19013:1440,22103:2080,22104:2288,22105:2496,36889:3500,36890:3850,36891:4200,36892:4280,36893:4708,36894:5136",
+	["Consumable.Warlock.Healthstone"]="5512:100",
 	["Consumable.Warlock.Soulstone"]="",
 	["Consumable.Warlock.Spellstone"]="",
 
