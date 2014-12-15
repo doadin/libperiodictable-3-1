@@ -163,7 +163,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("Tradeskill", gsub("$Rev$", "(%d+)", fun
 	["Tradeskill.Mat.ByType.Vegetable"]="74840,74841,74842,74843,74844,74846,74847,74848,74849,74850,74660,74851,85583,85585",
 	["Tradeskill.Mat.ByType.Spice"]="2665,2678,2692,3713,17194,43007,2665,74661,74662,74832,74845,74852,74853,74854",
 	
-	["Tradeskill.Tool.Alchemy"]="9149,13503,31080,35748,35749,35750,35751,44322,44323,44324,58483,68775,68776,68777,75274",
+	["Tradeskill.Tool.Alchemy"]="9149,13503,31080,35748,35749,35750,35751,44322,44323,44324,58483,68775,68776,68777,75274,109262",
 	["Tradeskill.Tool.Blacksmithing"]="5956,40772,40892",
 	["Tradeskill.Tool.Cooking"]="4471,40772",
 	["Tradeskill.Tool.Enchanting"]="6218,6339,11130,11145,16207,22461,22462,22463,44452",
@@ -175,8 +175,8 @@ LibStub("LibPeriodicTable-3.1"):AddData("Tradeskill", gsub("$Rev$", "(%d+)", fun
 	["Tradeskill.Tool.Fishing.Tool"]="6256:0,12225:3,6367:20,6365:5,25978:20,19022:25,45858:25,44050:30,45991:30,45992:30,19970:35,84660:10,84661:30,118381:100",
 	["Tradeskill.Tool.Inscription"]="39505",
 	["Tradeskill.Tool.Jewelcrafting"]="20815,31080",
-	["Tradeskill.Tool.Mining"]="756,778,1819,1893,1959,2901,9465,20723,30855,40772,40892,40893,79063,85777",
-	["Tradeskill.Tool.Skinning"]="7005,12709,19901,40772,40893,69618",
+	["Tradeskill.Tool.Mining"]="756,778,1819,1893,1959,2901,9465,20723,30855,40772,40892,40893,85777,116913",
+	["Tradeskill.Tool.Skinning"]="7005,12709,19901,40772,40893,69618,118724,118756",
 
 	["Tradeskill.Recipe.Crafted"]="m,Tradeskill.Recipe.Alchemy.Crafted,Tradeskill.Recipe.Blacksmithing.Crafted,Tradeskill.Recipe.Cooking.Crafted,Tradeskill.Recipe.Enchanting.Crafted,Tradeskill.Recipe.Engineering.Crafted,Tradeskill.Recipe.First Aid.Crafted,Tradeskill.Recipe.Fishing.Crafted,Tradeskill.Recipe.Jewelcrafting.Crafted,Tradeskill.Recipe.Leatherworking.Crafted,Tradeskill.Recipe.Mining.Crafted,Tradeskill.Recipe.Tailoring.Crafted",
 	["Tradeskill.Recipe.Drop"]="m,Tradeskill.Recipe.Alchemy.Drop,Tradeskill.Recipe.Blacksmithing.Drop,Tradeskill.Recipe.Cooking.Drop,Tradeskill.Recipe.Enchanting.Drop,Tradeskill.Recipe.Engineering.Drop,Tradeskill.Recipe.First Aid.Drop,Tradeskill.Recipe.Fishing.Drop,Tradeskill.Recipe.Jewelcrafting.Drop,Tradeskill.Recipe.Leatherworking.Drop,Tradeskill.Recipe.Mining.Drop,Tradeskill.Recipe.Tailoring.Drop",

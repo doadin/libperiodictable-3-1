@@ -627,6 +627,7 @@ local Tradeskill_Tool_filters = {
 	Inscription = {
 		--{cr=91,crs=81,crv=0}, -- Tool - Hollow Quill
 		{cr=91,crs=121,crv=0},-- Tool - Scribe Tools
+		{na="draenic mortar"},-- Tool - Draenic Mortar
 	},
 --	Jewelcrafting = { -- TODO: missing on wowhead 10/12/20
 	-- Tool - Jeweler's Kit still missing as of 12/06/04
