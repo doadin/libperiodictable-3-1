@@ -1517,7 +1517,13 @@ handlers["^Consumable%.Buff Type"] = function (set, data)
 end
 
 handlers["^Consumable%.Scroll"] = function (set, data)
-	return basic_listview_handler(WH("items", "0.4"))
+	local newset ={}
+	basic_listview_handler(WH("items", "0.4", {na="scroll", cr="161", crs="1"}), nil, nil, newset )
+	basic_listview_handler(WH("items", "0.4", {na="runescroll", cr="161", crs="1"}), nil, nil, newset )
+	
+	table.sort(newset, sortSet)
+	return table.concat(newset, ",")
+
 end
 
 
