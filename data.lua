@@ -5120,7 +5120,7 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["Tradeskill.Mat.ByType.Spice"]				= "2665,2678,2692,3713,17194,43007,2665,74661,74662,74832,74845,74852,74853,74854",
 
 
-	["Tradeskill.Tool.Alchemy"]				= "9149,13503,31080,35748,35749,35750,35751,44322,44323,44324,58483,68775,68776,68777,75274,109262",
+	["Tradeskill.Tool.Alchemy"]				= "9149,13503,31080,35748,35749,35750,35751,44322,44323,44324,58483,68775,68776,68777,75274,109262,122601,122602,122603,122604",
 	["Tradeskill.Tool.Blacksmithing"]			= "5956,40772,40892",
 	["Tradeskill.Tool.Cooking"]				= "4471,40772",
 	["Tradeskill.Tool.Enchanting"]				= "6218,6339,11130,11145,16207,22461,22462,22463,44452",
