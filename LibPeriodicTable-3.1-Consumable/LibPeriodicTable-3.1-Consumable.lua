@@ -70,7 +70,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("Consumable", gsub("$Rev$", "(%d+)", fun
 	["Consumable.Buff.Resistance.Target"]="12455:15,12457:15",
 	["Consumable.Buff.Shadow Power"]="9264:40,22835:65",
 	["Consumable.Buff.Shield"]="23575:1000,23576:4000",
-	["Consumable.Buff.Speed.Self"]="29530:15,20081:20,2459:50,33226:14,43135:15",
+	["Consumable.Buff.Speed.Self"]="29530:15,20081:20,2459:50,33226:14,43135:15,122452:70,116266:70",
 	["Consumable.Buff.Spell Crit.Self"]="22839:2,28103:24,40212:200",
 	["Consumable.Buff.Spell Damage.Flask"]="32601:23,13512:70,32900:70,22861:80,22866:80,46376:125",
 	["Consumable.Buff.Spell Damage.Self"]="6373:10,22710:10,17708:15,22778:15,9155:20,22238:23,23326:23,28103:24,29528:30,13454:35,9264:40,49857:45,49860:45,22833:55,40070:58,22835:65,22788:80,22839:120,40212:200,58091:1200,76093:4000",
