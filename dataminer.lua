@@ -1062,11 +1062,11 @@ local GearSets_fixedids = {
 	["Colossal Dragonplate Battlegear"] = {["384"] = -465, ["397"] = 1073, ["410"] = -484},
 
 -- T14 [TODO]
-	-- ["Plate of the Lost Catacomb"] = {["483"] = 0, ["496"] = 0, ["509"] = 0},
-	-- ["Battlegear of the Lost Catacomb"] = {["483"] = 0, ["496"] = 0, ["509"] = 0},
-	-- ["Armor of the Eternal Blossom"] = {["483"] = 0, ["496"] = 0, ["509"] = 0},
-	-- ["Battlegear of the Eternal Blossom"] = {["483"] = 0, ["496"] = 0, ["509"] = 0},
-	-- ["Regalia of the Eternal Blossom"] = {["483"] = 0, ["496"] = 0, ["509"] = 0},
+	 ["Plate of the Lost Catacomb"] = {["483"] = -503, ["496"] = 1124, ["509"] = -526},
+	 ["Battlegear of the Lost Catacomb"] = {["483"] = -504, ["496"] = 1123, ["509"] = -527},
+	 ["Armor of the Eternal Blossom"] = {["483"] = -505, ["496"] = 1128, ["509"] = -528},
+	 ["Battlegear of the Eternal Blossom"] = {["483"] = -508, ["496"] = 1127, ["509"] = -531},
+	 ["Regalia of the Eternal Blossom"] = {["483"] = -506, ["496"] = 1126, ["509"] = -529},
 	-- ["Vestments of the Eternal Blossom"] = {["483"] = 0, ["496"] = 0, ["509"] = 0},
 	-- ["Yaungol Slayer Battlegear"] = {["483"] = 0, ["496"] = 0, ["509"] = 0},
 	-- ["Regalia of the Burning Scroll"] = {["483"] = 0, ["496"] = 0, ["509"] = 0},
