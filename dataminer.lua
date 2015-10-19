@@ -1061,7 +1061,7 @@ local GearSets_fixedids = {
 	["Colossal Dragonplate Armor"] = {["384"] = -466, ["397"] = 1074, ["410"] = -485},
 	["Colossal Dragonplate Battlegear"] = {["384"] = -465, ["397"] = 1073, ["410"] = -484},
 
--- T14 [TODO]
+-- T14
 	 ["Plate of the Lost Catacomb"] = {["483"] = -503, ["496"] = 1124, ["509"] = -526},
 	 ["Battlegear of the Lost Catacomb"] = {["483"] = -504, ["496"] = 1123, ["509"] = -527},
 	 ["Armor of the Eternal Blossom"] = {["483"] = -505, ["496"] = 1128, ["509"] = -528},
@@ -1087,30 +1087,30 @@ local GearSets_fixedids = {
 	 ["Battleplate of Resounding Rings"] = {["483"] = -516, ["496"] = 1144, ["509"] = -539},
 	 ["Plate of Resounding Rings"] = {["483"] = -517, ["496"] = 1145, ["509"] = -540},
 
--- T15 [TODO]
+-- T15
 	["Battleplate of the All-Consuming Maw"] = {["502"] = -701, ["522"] = 1152, ["535"] = -724},
 	["Plate of the All-Consuming Maw"] = {["502"] = -702, ["522"] = 1151, ["535"] = -725},
-	-- ["Armor of the Haunted Forest"] = {["502"] = 0, ["522"] = 0, ["535"] = 0},
-	-- ["Battlegear of the Haunted Forest"] = {["502"] = 0, ["522"] = 0, ["535"] = 0},
-	-- ["Regalia of the Haunted Forest"] = {["502"] = 0, ["522"] = 0, ["535"] = 0},
-	-- ["Vestments of the Haunted Forest"] = {["502"] = 0, ["522"] = 0, ["535"] = 0},
-	-- ["Battlegear of the Saurok Stalker"] = {["502"] = 0, ["522"] = 0, ["535"] = 0},
-	-- ["Regalia of the Chromatic Hydra"] = {["502"] = 0, ["522"] = 0, ["535"] = 0},
-	-- ["Fire-Charm Armor"] = {["502"] = 0, ["522"] = 0, ["535"] = 0},
-	-- ["Fire-Charm Battlegear"] = {["502"] = 0, ["522"] = 0, ["535"] = 0},
-	-- ["Fire-Charm Vestments"] = {["502"] = 0, ["522"] = 0, ["535"] = 0},
-	-- ["Battlegear of the Lightning Emperor"] = {["502"] = 0, ["522"] = 0, ["535"] = 0},
-	-- ["Plate of the Lightning Emperor"] = {["502"] = 0, ["522"] = 0, ["535"] = 0},
-	-- ["Vestments of the Lightning Emperor"] = {["502"] = 0, ["522"] = 0, ["535"] = 0},
-	-- ["Regalia of the Exorcist"] = {["502"] = 0, ["522"] = 0, ["535"] = 0},
-	-- ["Vestments of the Exorcist"] = {["502"] = 0, ["522"] = 0, ["535"] = 0},
-	-- ["Nine-Tail Battlegear"] = {["502"] = 0, ["522"] = 0, ["535"] = 0},
-	-- ["Battlegear of the Spiritbreaker"] = {["502"] = 0, ["522"] = 0, ["535"] = 0},
-	-- ["Regalia of the Spiritbreaker"] = {["502"] = 0, ["522"] = 0, ["535"] = 0},
-	-- ["Vestments of the Spiritbreaker"] = {["502"] = 0, ["522"] = 0, ["535"] = 0},
-	-- ["Regalia of the Thousand Hells"] = {["502"] = 0, ["522"] = 0, ["535"] = 0},
-	-- ["Battleplate of the Last Mogu"] = {["502"] = 0, ["522"] = 0, ["535"] = 0},
-	-- ["Plate of the Last Mogu"] = {["502"] = 0, ["522"] = 0, ["535"] = 0},
+	["Armor of the Haunted Forest"] = {["502"] = -706, ["522"] = 1156, ["535"] = -729},
+	["Battlegear of the Haunted Forest"] = {["502"] = -703, ["522"] = 1153, ["535"] = -726},
+	["Regalia of the Haunted Forest"] = {["502"] = -705, ["522"] = 1155, ["535"] = -728},
+	["Vestments of the Haunted Forest"] = {["502"] = -704, ["522"] = 1154, ["535"] = -727, },
+	["Battlegear of the Saurok Stalker"] = {["502"] = -707, ["522"] = 1157, ["535"] = -730, },
+	["Regalia of the Chromatic Hydra"] = {["502"] = -708, ["522"] = 1158, ["535"] = -731, },
+	["Fire-Charm Armor"] = {["502"] = -711, ["522"] = 1161, ["535"] = -734, },
+	["Fire-Charm Battlegear"] = {["502"] = -709, ["522"] = 1159, ["535"] = -732, },
+	["Fire-Charm Vestments"] = {["502"] = -710, ["522"] = 1160, ["535"] = -733, },
+	["Battlegear of the Lightning Emperor"] = {["502"] = -712, ["522"] = 1162, ["535"] = -735, },
+	["Plate of the Lightning Emperor"] = {["502"] = -714, ["522"] = 1164, ["535"] = -737, },
+	["Vestments of the Lightning Emperor"] = {["502"] = -713, ["522"] = 1163, ["535"] = -736, },
+	["Regalia of the Exorcist"] = {["502"] = -716, ["522"] = 1166, ["535"] = -739, },
+	["Vestments of the Exorcist"] = {["502"] = -715, ["522"] = 1165, ["535"] = -738, },
+	["Nine-Tail Battlegear"] = {["502"] = -717, ["522"] = 1167, ["535"] = -740, },
+	["Battlegear of the Witch Doctor"] = {["502"] = -719, ["522"] = 1169, ["535"] = -742, },
+	["Regalia of the Witch Doctor"] = {["502"] = -720, ["522"] = 1170, ["535"] = -743, },
+	["Vestments of the Witch Doctor"] = {["502"] = -718, ["522"] = 1168, ["535"] = -741, },
+	["Regalia of the Thousand Hells"] = {["502"] = -721, ["522"] = 1171, ["535"] = -744, },
+	["Battleplate of the Last Mogu"] = {["502"] = -722, ["522"] = 1172, ["535"] = -745},
+	["Plate of the Last Mogu"] = {["502"] = -723, ["522"] = 1173, ["535"] = -746},
 
 -- T16
 	["Battleplate of Cyclopean Dread"] = {["528"] = -1025, ["540"] = -1048, ["553"] = 1200, ["566"] = -1002},
@@ -1652,7 +1652,7 @@ handlers["^GearSet"] = function (set, data)
 				error("no itemid")
 			end
 		end
-		dprint(2, "GearSet: "..setname.." has "..count)
+		dprint(3, "GearSet: "..setname.." has "..count)
 		table.sort(newset, sortSet)
 		return table.concat(newset, ",")
 	end
