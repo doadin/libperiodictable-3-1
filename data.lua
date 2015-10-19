@@ -1053,7 +1053,7 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["GearSet.Tier 13.384.Shaman.Spiritwalker's Regalia"] = "78761,78780,78806,78818,78836",
 	["GearSet.Tier 13.384.Shaman.Spiritwalker's Vestments"] = "78767,78786,78813,78820,78834",
 	["GearSet.Tier 13.384.Warlock.Vestments of the Faceless Shroud"] = "78776,78797,78816,78825,78844",
-	["GearSet.Tier 13.384.Warrior.Colossal Dragonplate Armor"] = "78753,78784,78800,78829",
+	["GearSet.Tier 13.384.Warrior.Colossal Dragonplate Armor"] = "78753,78764,78784,78800,78829",
 	["GearSet.Tier 13.384.Warrior.Colossal Dragonplate Battlegear"] = "78752,78763,78783,78801,78830",
 
 	["GearSet.Tier 13.397.Death Knight.Necrotic Boneplate Armor"] = "77008,77009,77010,77011,77012",
