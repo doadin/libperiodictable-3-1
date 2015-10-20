@@ -817,6 +817,9 @@ local Gear_Socketed_filters = {
 	["One Hand"]	= {
 		{sl=13,cr=80,crs=7,crv=0},
 	},
+	Ranged	= {
+		{sl=15,cr=80,crs=7,crv=0},
+	},
 	Shield	= {
 		{sl=14,cr=80,crs=7,crv=0},
 	},
