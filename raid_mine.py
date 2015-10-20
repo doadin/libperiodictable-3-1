@@ -8,9 +8,12 @@ from collections import defaultdict
 
 class_ids = {"Death Knight" : 6, "Druid" : 11, "Hunter" : 3, "Mage" : 8, "Monk" : 10, "Paladin" : 2, "Priest" : 5, "Rogue" : 4, "Shaman" : 7, "Warlock" : 9, "Warrior" : 1}
 
-set_id = 43
+#set_id = 38 #Tier 13 
+#set_id = 43 #Tier 15
+#set_id = 65 #tier 17
+set_id = 71 #tier 18
 
-def process_class_set(p_class_id, p_set_id):
+def get_data(p_class_id, p_set_id):
 	opener = urllib2.build_opener()
 	opener.addheaders = [('User-agent', 'Mozilla/5.0')]
 	urllib2.install_opener(opener)
@@ -21,7 +24,11 @@ def process_class_set(p_class_id, p_set_id):
 	usock.close()
 	
 	m = re.search(r'new\s+Listview\s*\((.+?)\)', data, flags=re.DOTALL)
-	listview = m.group(1)
+	try:
+		listview = m.group(1)
+	except AttributeError:
+		print "Error: failed to find data for class id {0}".format(p_class_id)
+		return
 	#print "id:{1}\n {0}\n".format(listview, p_class_id)
 	
 	listview2 = re.search(r'data:\s*(\[.+\])', listview, flags=re.DOTALL).group(1)
@@ -56,20 +63,44 @@ def process_class_set(p_class_id, p_set_id):
 	
 	#print sorted(my_dict.keys())
 	
-	for key in sorted(my_dict.keys()):
+	return my_dict
+	
+def process_miner_data(p_data_dict):
+	for key in sorted(p_data_dict.keys()):
 		#print "key:{0}, value:{1}".format(key, my_dict[key])
 	
 		line = "\t[\"{0}\"] = {{".format(key)
-		for id_key in sorted(my_dict[key].keys()):
-			line += "[\"{0}\"] = {1}, ".format(id_key, my_dict[key][id_key] )
+		for id_key in sorted(p_data_dict[key].keys()):
+			line += "[\"{0}\"] = {1}, ".format(id_key, p_data_dict[key][id_key] )
 	
 		line += "},"
 		print line
 
+def process_data_lua(p_data_dict, p_tier, p_class_name):
+	for name in sorted(p_data_dict.keys()):
+		#print "name:{0}, value:{1}".format(name, my_dict[key])
+	
+		for id_key in sorted(p_data_dict[name].keys()):
+			line = "\t[\"GearSet.Tier {0}.{1}.{2}.{3}\"] = \"\",".format(p_tier, id_key, p_class_name, name)	
+			print line
+#["GearSet.Tier 16.566.Warrior.Plate of the Prehistoric Marauder"] = "99407,99408,99409,99410,99415",
+
 
 for class_key in sorted(class_ids.keys()):
-	print class_key
+#	print class_key
 	
-	process_class_set(class_ids[class_key], set_id)
+	data = get_data(class_ids[class_key], set_id)
+	
+	process_miner_data(data)
 
-	print ""
+print ""
+	
+for class_key in sorted(class_ids.keys()):
+	
+	data = get_data(class_ids[class_key], set_id)
+	
+	process_data_lua(data, 18, class_key)
+
+print ""
+
+	

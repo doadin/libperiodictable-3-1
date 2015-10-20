@@ -1136,6 +1136,20 @@ local GearSets_fixedids = {
 	["Regalia of the Horned Nightmare"] = {["528"] = -1045, ["540"] = -1068, ["553"] = 1181, ["566"] = -1022},
 	["Battleplate of the Prehistoric Marauder"] = {["528"] = -1046, ["540"] = -1069, ["553"] = 1180, ["566"] = -1023},
 	["Plate of the Prehistoric Marauder"] = {["528"] = -1047, ["540"] = -1070, ["553"] = 1179, ["566"] = -1024},
+	
+--T18
+	["Demongaze Armor"] = {["695"] = 1249, ["710"] = -1305, ["725"] = -1306, },
+	["Oathclaw Wargarb"] = {["695"] = 1250, ["710"] = -1307, ["725"] = -1308, },
+	["Battlegear of the Savage Hunt"] = {["695"] = 1253, ["710"] = -1313, ["725"] = -1314, },
+	["Raiment of the Arcanic Conclave"] = {["695"] = 1251, ["710"] = -1309, ["725"] = -1310, },
+	["Battlewrap of the Hurricane's Eye"] = {["695"] = 1252, ["710"] = -1311, ["725"] = -1312, },
+	["Watch of the Ceaseless Vigil"] = {["695"] = 1254, ["710"] = -1315, ["725"] = -1316, },
+	["Attire of Piety"] = {["695"] = 1255, ["710"] = -1317, ["725"] = -1318, },
+	["Felblade Armor"] = {["695"] = 1256, ["710"] = -1319, ["725"] = -1320, },
+	["Embrace of the Living Mountain"] = {["695"] = 1257, ["710"] = -1321, ["725"] = -1322, },
+	["Deathrattle Regalia"] = {["695"] = 1259, ["710"] = -1325, ["725"] = -1326, },
+	["Battlegear of Iron Wrath"] = {["695"] = 1258, ["710"] = -1323, ["725"] = -1324, },
+
 }
 
 local Currency_Items = {
