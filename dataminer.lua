@@ -2243,7 +2243,13 @@ handlers["^Tradeskill%.Mat%.ByProfession"] = function (set, data)
 end
 
 handlers["Tradeskill%.Mat%.ByProfession%.Farming"] = function(set, data)
-	return basic_listview_handler(WH("items","0.0",{cr=104,crs=0,crv="sunsong"}))
+	local newset = {}
+	basic_listview_handler(WH("items","0.0",{cr=107,crs=0,crv="Tilled Soil"}), nil, nil, newset)
+	basic_listview_handler(WH("items","0.0",{cr=104,crs=0,crv="sunsong"}), nil, nil, newset)
+	
+	table.sort(newset, sortSet)
+	return table.concat(newset, ",")
+
 end
 
 handlers["^Tradeskill%.Recipe%."] = function (set, data)
