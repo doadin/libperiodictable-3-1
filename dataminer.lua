@@ -1481,6 +1481,13 @@ handlers["^ClassSpell"] = function (set, data)
 	end)
 end
 
+handlers["^Consumable%.Artifact Power"] = function (set, data)
+	return basic_listview_handler(WH("items", nil, "224;1;"),
+		function (item)
+			return item.id..":"..item.level
+		end)
+end
+
 handlers["^Consumable%.Bandage"] = function (set, data)
 	local newset = {}
 	local setname = set:match("%.([^%.]+)$")
