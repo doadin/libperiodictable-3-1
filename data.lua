@@ -110,7 +110,6 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["Consumable.Buff.Defense.Flask"]			= "22851:10,32898:10",
 	["Consumable.Buff.Dodge.Target"]			= "12459:60",
 	["Consumable.Buff.Energy.Self"]				= "31451:20,7676:40,27553:55",
-	["Consumable.Buff.Fear"]				= "29532",
 	["Consumable.Buff.Fire Power"]				= "6373:10,21546:40,22833:65",
 	["Consumable.Buff.Free Action"]				= "20008,5634",
 	["Consumable.Buff.Frost Power"]				= "17708:15,22827:55",
