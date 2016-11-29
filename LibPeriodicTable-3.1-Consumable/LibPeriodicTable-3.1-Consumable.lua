@@ -84,7 +84,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("Consumable", gsub("$Rev$", "(%d+)", fun
 	["Consumable.Buff Group.Melee.Self"]="m,Consumable.Buff.Armor.Self,Consumable.Buff.Attack Damage,Consumable.Buff.Agility.Self,Consumable.Buff.Attack Power.Self,Consumable.Buff.Attack Speed.Self,Consumable.Buff.Strength.Self,Consumable.Buff.Hit Rating.Self",
 	["Consumable.Buff Group.Melee.Target"]="m,Consumable.Buff.Armor.Target,Consumable.Buff.Agility.Target,Consumable.Buff.Attack Power.Target,Consumable.Buff.Attack Speed.Target,Consumable.Buff.Strength.Target",
 
-	["Consumable.Buff Pet"]="27656,33874,43005,62678,62679",
+	["Consumable.Buff Pet"]="33874,43005",
 
 	-- Items on Health Stone vs Potion cooldown, each with Health, Mana & Rejuvenation subsets.
 	["Consumable.Cooldown.Potion.Combat.Battle"]="13442,22828,22837,22838,22839,40211,40212,58084",
