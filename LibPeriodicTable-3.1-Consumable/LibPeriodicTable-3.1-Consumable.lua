@@ -201,27 +201,6 @@ LibStub("LibPeriodicTable-3.1"):AddData("Consumable", gsub("$Rev$", "(%d+)", fun
 	["Consumable.Food.Percent.Basic"]="19696:50,19994:50,19995:50,21235:50,19996:50",
 	["Consumable.Food.Percent.Bonus"]="20516:48,21254:48,44791:50",
 
-	-- Deprecated: Consumable.Potion.Buff.Armor - Consumable.Potion.Other.Rage
-	-- See Consumable.Buff.*
-	["Consumable.Potion.Buff.Armor"]="5997:50,8951:250,3389:150,13445:450,4623:1000,13455:2000",
-	["Consumable.Potion.Buff.Attack Power"]="9224:265,12820:35",
-	["Consumable.Potion.Buff.Elemental Protection"]="6048:900,6049:1300,6050:1800,6051:400,6052:1800,13457:2600,13459:2600,13456:2600,13458:2600,13461:2600",
-	["Consumable.Potion.Buff.Health"]="2458:27,3825:120,13510:1200",
-	["Consumable.Potion.Buff.Mana"]="13511:2000",
-	["Consumable.Potion.Buff.Other"]="3387,10592,3823,2459,5996,3828,9233,9154,9172,5634,9197,6372,13506,8529",
-	["Consumable.Potion.Buff.Regen"]="3382:2,3388:6,3826:12",
-	["Consumable.Potion.Buff.Resistance"]="9088:10,3384:25,9036:50,13513:25",
-	["Consumable.Potion.Buff.Spell Damage"]="6373:10,17708:15,13454:35,9155:20,9264:40,13512:70,32900:70",
-	["Consumable.Potion.Buff.Stat.Agility"]="2457:4,3390:8,8949:15,9187:25,13452:25,22831:35",
-	["Consumable.Potion.Buff.Stat.Intellect"]="3383:6,13447:18,9179:25",
-	["Consumable.Potion.Buff.Stat.Spirit"]="13447:18",
-	["Consumable.Potion.Buff.Stat.Stamina"]="13453:18",
-	["Consumable.Potion.Buff.Stat.Strength"]="2454:4,6662:8,3391:8,13453:18,9206:25",
-	["Consumable.Potion.Other.Energy"]="7676,27553",
-	["Consumable.Potion.Other.Rage"]="5631:30,5633:45,13442:45",
-	["Consumable.Potion.Other.Cure"]="3386,13462,9030,2633",
-	["Consumable.Potion.Other.Runic"]="39327:50",
-
 	--NOW AUTOGENNED (These are now datamined based on effect text filters and exclusion lists. -JCinDE)
 	["Consumable.Potion.Recovery.Healing.Endless"]="43569:80",
 	["Consumable.Potion.Recovery.Healing.Basic"]="118:5,858:13,4596:15,929:22,1710:31,3928:45,18839:45,13446:55,28100:60,33934:60,22829:65,32947:65,39327:65,43531:65,23822:66,33092:66,31676:69,31838:70,31839:70,31852:70,31853:70,39671:75,33447:80,41166:80,57191:81,63300:81,76097:90,93742:90,109223:100,115498:100,117415:100,129196:100,127834:110,136569:110,140351:110",
