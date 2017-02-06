@@ -1982,7 +1982,7 @@ end
 handlers["^Misc%.Lockboxes"] = function (set, data)
 	return basic_listview_handler(WH("items", nil, {cr=10,crs=1,crv=0}), function (item)
 		page = getpage(WH("item", item.id).."&xml") -- hack
-		local skill = page:match("Requires Lockpicking %((%d+)%)")
+		local skill = page:match("Requires Lockpicking %((%d+)%)") or 0
 		if skill then
 			return item.id..":"..skill
 		else
