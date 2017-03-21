@@ -169,8 +169,6 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["Consumable.Cooldown.Potion.Rejuvenation.Regular"]			= "2456:120,11952:425,9144:750,29531:750,18253:1600,22850:2200,34440:2200,40087:3300,40077:3800,57193:8800,57099:15000",
 	["Consumable.Cooldown.Potion.Rejuvenation.Dreamless Sleep"]		= "12190:1200,20002:2100,22836:3600,40081:5400",
 	["Consumable.Cooldown.Potion.Rune"]					= "39327:50",
-	["Consumable.Cooldown.Stone.Combat.Battle"]				= "22788",
-	["Consumable.Cooldown.Stone.Combat.Guardian"]				= "22795,22797",
 	["Consumable.Cooldown.Stone.Health.Other"]				= "11951:800,32578:2000,",
 	["Consumable.Cooldown.Stone.Health.Statue"]				= "25498:8,25880:16,25881:24,25882:36,25883:50",--NOT AUTOGENNED
 	["Consumable.Cooldown.Stone.Health.Warlock"]				= "m,Consumable.Warlock.Healthstone,",
