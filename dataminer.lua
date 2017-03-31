@@ -295,6 +295,9 @@ when the amount of elements returned by a simple search is too important.
 local REJECTED_TEMPLATES = {
 	comment = true,
 	screenshot = true,
+	mission = true,
+	video = true,
+	guide = true,
 }
 local function get_page_listviews(url)
 	local page = assert(getpage(url))
@@ -1155,6 +1158,7 @@ local GearSets_fixedids = {
 
 }
 
+--Negative values are for proper Currency items, positive values are for items that are used like currency
 local Currency_Items = {
 	["Apexis Crystal"] = 32572,
 	["Apexis Shard"] = 32569,
@@ -1589,7 +1593,7 @@ end
 
 handlers["^CurrencyItems"] = function (set, data)
 	local currency = set:match("^CurrencyItems%.([^%.]+)")
-	if not Currency_Items[currency] then return end
+	--if not Currency_Items[currency] then return end
 	local currency_id = assert(Currency_Items[currency])
 	if currency_id > 0 then
 		return basic_listview_handler(WH("item", currency_id), function (item)
