@@ -1172,18 +1172,14 @@ local Currency_Items = {
 	["Halaa Battle Token"] = 26045,
 	["Halaa Research Token"] = 26044,
 	["Holy Dust"] = 29735,
-	["Honor Points"] = -392,
-	["Justice Points"] = -395,
 	["Mark of Honor Hold"] = 24579,
 	["Mark of the Illidari"] = 32897,
 	["Mark of the World Tree"] = -416,
 	["Mark of Thrallmar"] = 24581,
 	["Mote of Darkness"] = -614,
---	["Necrotic Rune"] = 22484, -- part of WotLK launch event
 	["Spirit Shard"] = 28558,
 	["Sunmote"] = 34664,
 	["Tol Barad Commendation"] = -391,
-	["Valor Points"] = -396,
 	["Winterfin Clam"] = 34597,
 
 -- PROFESSIONS
