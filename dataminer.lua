@@ -1165,7 +1165,6 @@ local Currency_Items = {
 	["Arcane Rune"] = 29736,
 	["Champion's Seal"] = -241,
 	["Coilfang Armaments"] = 24368,
-	["Conquest Points"] = -390,
 	["Essence of Corrupted Deathwing"] = -615,
 	["Frozen Orb"] = 43102,
 	["Glowcap"] = 24245,
