@@ -1209,10 +1209,10 @@ local Currency_Items = {
 	["Dreamcloth"] = 54440,
 
 -- SEASONAL
---	["Brewfest Prize Token"] = 37829,
---	["Burning Blossom"] = 23247,
---	["Coin of Ancestry"] = 21100,
---	["Noblegarden Chocolate"] = 44791,
+	["Brewfest Prize Token"] = 37829,
+	["Burning Blossom"] = 23247,
+	["Coin of Ancestry"] = 21100,
+	["Noblegarden Chocolate"] = 44791,
 	["Darkmoon Prize Ticket"] = -515,
 }
 
