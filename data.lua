@@ -1,11 +1,7 @@
 -- (c) 2007 Nymbia.  see LGPLv2.1.txt for full details.
---[[
-tab size for this file is 8, since nymbia is quite insane.
-so please, do not run around adjusting tabs, just edit your items & check it in & enjoy the randomly spaced look.
-
-
-This file does not have valid lua syntax, because it should never be loaded directly.  Syntax is now checked so we block comment the whole shebang.
-]]
+--tab size for this file is 8, since nymbia is quite insane.
+--so please, do not run around adjusting tabs, just edit your items & check it in & enjoy the randomly spaced look.
+--This file does not have valid lua syntax, because it should never be loaded directly.  Syntax is now checked so we block comment the whole shebang.
 
 --[[ ClassSpell
 	["ClassSpell.Death Knight.General"] = "-190780:0,-205224:1,-82246:1,-127344:40,-55095:55,-55078:55,-53428:55,-53343:55,-50977:55,-49998:55,-49576:55,-48707:57,-56222:58,-51986:61,-47528:62,-3714:66,-111673:69,-53344:70,-62158:72,-61999:72",
@@ -1086,7 +1082,7 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["GearSet.Tier 14.483.Warlock.Sha-Skin Regalia"] = "86709,86710,86711,86712,86713",
 	["GearSet.Tier 14.483.Warrior.Battleplate of Resounding Rings"] = "86669,86670,86671,86672,86673",
 	["GearSet.Tier 14.483.Warrior.Plate of Resounding Rings"] = "86664,86665,86666,86667,86668",
-	
+
 	["GearSet.Tier 14.496.Death Knight.Battlegear of the Lost Catacomb"] = "85334,85335,85336,85337,85338",
 	["GearSet.Tier 14.496.Death Knight.Plate of the Lost Catacomb"] = "85314,85315,85316,85317,85318",
 	["GearSet.Tier 14.496.Druid.Armor of the Eternal Blossom"] = "85379,85380,85381,85382,85383",
@@ -1110,7 +1106,7 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["GearSet.Tier 14.496.Warlock.Sha-Skin Regalia"] = "85369,85370,85371,85372,85373",
 	["GearSet.Tier 14.496.Warrior.Battleplate of Resounding Rings"] = "85329,85330,85331,85332,85333",
 	["GearSet.Tier 14.496.Warrior.Plate of Resounding Rings"] = "85324,85325,85326,85327,85328",
-	
+
 	["GearSet.Tier 14.509.Death Knight.Battlegear of the Lost Catacomb"] = "86913,86914,86915,86916,86917",
 	["GearSet.Tier 14.509.Death Knight.Plate of the Lost Catacomb"] = "86918,86919,86920,86921,86922",
 	["GearSet.Tier 14.509.Druid.Armor of the Eternal Blossom"] = "86938,86939,86940,86941,86942",
@@ -1158,7 +1154,7 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["GearSet.Tier 15.502.Warlock.Regalia of the Thousand Hells"] = "95981,95982,95983,95984,95985",
 	["GearSet.Tier 15.502.Warrior.Battleplate of the Last Mogu"] = "95986,95987,95988,95989,95990",
 	["GearSet.Tier 15.502.Warrior.Plate of the Last Mogu"] = "95991,95992,95993,95994,95995",
-	
+
 	["GearSet.Tier 15.522.Death Knight.Battleplate of the All-Consuming Maw"] = "95225,95226,95227,95228,95229",
 	["GearSet.Tier 15.522.Death Knight.Plate of the All-Consuming Maw"] = "95230,95231,95232,95233,95234",
 	["GearSet.Tier 15.522.Druid.Armor of the Haunted Forest"] = "95250,95251,95252,95253,95254",
@@ -4876,7 +4872,7 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["Misc.Usable.Replenished"]				= "17202,44698,32907,33837,33851,33852,4384,11020,21212,21213,24429,24538,28452,32971,33096,33098,33929,33930,33931,33932,33933,34248,34253,34255,34257,34338,34368,34414,34475,34483,34489,34533,35233,34500,35228,35506,37576,38556,38566,38574,39213,39266,39577,39598,39599,39689,39693,39694,39748,41989,42104,42105,42106,42107,42108,42479,42769,42774,43101,43142,43147,43139,44986,45005,45046,45281,45902,46367,46380,46382,46870,46885,47006,47009,47029,47033,47036,49351,49352,49668,49669,49670,50130,50131,50851,114943",--NOT AUTOGENNED
 	["Misc.Usable.Fun"]					= "1973,5740,9312,9313,9314,9315,9317,9318,17712,18662,20397,20398,20399,20409,20410,20411,20413,20414,20557,21328,21519,21536,21557,21558,21559,21561,21562,21569,21571,21574,21576,21589,21590,21592,21593,21595,21713,21714,21716,21718,21744,21745,21747,21813,22200,22206,22218,22261,22728,23767,23768,23769,23770,23771,25886,28455,31666,32542,33079,33081,33226,33808,33927,34068,34191,34258,34480,34494,34497,34498,34499,34686,36862,36863,37431,37460,37710,37750,37816,37925,38506,39477,39769,41427,43352,43626,44114,44228,44430,44481,44482,44606,44731,44800,44812,44844,45011,45013,45014,45015,45016,45017,45018,45019,45020,45021,45037,45047,45061,45063,45073,45176,45177,45178,45179,45850,45851,45852,45853,45854,45984,46718,46725,46779,46780,46783,46831,46843,46861,46887,46888,49126,50163,87214,119093,37863,113542",--NOT AUTOGENNED
 
-]
+]]
 
 --[[ Reputation
 	--NOT AUTOGENNED (ALL REP REWARDS)
