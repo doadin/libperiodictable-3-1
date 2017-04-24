@@ -1191,6 +1191,8 @@ local Currency_Items = {
 	["Timewarped Badge"] = -1166,
 	["Tol Barad Commendation"] = -391,
 	["Winterfin Clam"] = 34597,
+	["Elder Charm of Good Fortune"] = -697,
+	["Bloody Coin"] = -789,
 
 -- PROFESSIONS
 --   Blacksmithing
