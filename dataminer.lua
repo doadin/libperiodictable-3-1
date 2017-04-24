@@ -1161,12 +1161,17 @@ local GearSets_fixedids = {
 
 --Negative values are for proper Currency items, positive values are for items that are used like currency
 local Currency_Items = {
+	
+	["Ancient Mana"] = -1155,
 	["Apexis Crystal"] = 32572,
 	["Apexis Shard"] = 32569,
 	["Arcane Rune"] = 29736,
+	["Brawler's Gold"] = -1299,
 	["Champion's Seal"] = -241,
 	["Coilfang Armaments"] = 24368,
 	["Curious Coin"] = -1275,
+	["Echoes of Battle"] = -1356,
+	["Echoes of Domination"] = -1357,
 	["Essence of Corrupted Deathwing"] = -615,
 	["Frozen Orb"] = 43102,
 	["Glowcap"] = 24245,
@@ -1174,13 +1179,16 @@ local Currency_Items = {
 	["Halaa Research Token"] = 26044,
 	["Holy Dust"] = 29735,
 	["Mark of Honor Hold"] = 24579,
+	["Mark of Thrallmar"] = 24581,
 	["Mark of the Illidari"] = 32897,
 	["Mark of the World Tree"] = -416,
-	["Mark of Thrallmar"] = 24581,
 	["Mote of Darkness"] = -614,
 	["Nethershard"] = -1226,
+	["Order Resources"] = -1220,
+	["Sightless Eye"] = -1149,
 	["Spirit Shard"] = 28558,
 	["Sunmote"] = 34664,
+	["Timewarped Badge"] = -1166,
 	["Tol Barad Commendation"] = -391,
 	["Winterfin Clam"] = 34597,
 
@@ -1215,8 +1223,8 @@ local Currency_Items = {
 	["Brewfest Prize Token"] = 37829,
 	["Burning Blossom"] = 23247,
 	["Coin of Ancestry"] = 21100,
-	["Noblegarden Chocolate"] = 44791,
 	["Darkmoon Prize Ticket"] = -515,
+	["Noblegarden Chocolate"] = 44791,
 }
 
 local Tradeskill_Gem_Cut_level_filters = {
