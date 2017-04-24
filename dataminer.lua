@@ -649,7 +649,7 @@ local Tradeskill_Tool_filters = {
 }
 
 local Containers_ItemsInType_items = {
---	["Soul Shard"] = 21342,
+	Cooking = 92748, -- Portable Refrigerator
 	Herb = 67393, -- "Carriage - Going Green" Herb Tote Bag
 	Enchanting = 67389, -- "Carriage - Exclusive" Enchanting Evening Purse
 	Engineering = 67390, -- "Carriage - Maddy" High Tech Bag
