@@ -2347,10 +2347,22 @@ end
 local function write_output(file, sets)
 	local f = assert(io.open(SOURCE, "w"))
 	for line in file:gmatch('([^\n]-\n)') do
-		local setname, spaces, comment = line:match('\t%[%"([^"]+)%"%]([^=]-)= "[^"]-",([^\n]-)\n')
-		if setname and sets[setname] then
-			f:write('\t["',setname,'"]',spaces,'= "',sets[setname],'",',comment,'\n')
-		else
+		local setname, spaces, set_data, comment = line:match('\t%[%"([^"]+)%"%]([^=]-)=%s-"([^"]-)",([^\n]-)\n')
+		
+		--If it's a properly formatted set line either write out the updated info (if any) or write the original line back out
+		if setname then
+			if sets[setname] then
+				f:write('\t["',setname,'"]',spaces,'= "',sets[setname],'",',comment,'\n')
+			else
+				f:write('\t["',setname,'"]',spaces,'= "',set_data,'",',comment,'\n')
+			end
+		else	--It's not a set line, could be a typo
+			local comment_ptn = '^%s*%-%-'
+			local block_end_ptn = '%]=-%]'
+			local blank_ptn = '^%s-\n'
+			if (DEBUG > 0)  and not (string.match(line, comment_ptn) or string.match(line, block_end_ptn) or string.match(line, blank_ptn)) then --A weird line, possibly an error
+				print("warning: weird line:".. line)
+			end
 			f:write(line)
 		end
 	end
