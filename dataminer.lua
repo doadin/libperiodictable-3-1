@@ -7,7 +7,7 @@
 --if available, sqlite3 will be used for the cache database
 
 local SOURCE = SOURCE or "data.lua"
-local DEBUG = DEBUG or 2
+local DEBUG = DEBUG or 9
 local TRANSMOGSETS_CHKSRC = TRANSMOGSETS_CHKSRC
 local INSTANCELOOT_CHKSRC = INSTANCELOOT_CHKSRC
 local INSTANCELOOT_MIN = INSTANCELOOT_MIN or 50
@@ -662,6 +662,7 @@ local Containers_ItemsInType_items = {
 
 local Bag_categories = {
 	Basic = "1.0",
+	Cooking = "1.10",
 	Herb = "1.2",
 	Enchanting = "1.3",
 	Engineering = "1.4",
