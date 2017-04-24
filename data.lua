@@ -4705,7 +4705,6 @@ This file does not have valid lua syntax, because it should never be loaded dire
 	["Misc.Bag.Special.Mining"]		= "30746:20,67396:20,29540:28,38347:32,70137:36,116260:36",
 	["Misc.Bag.Special.Tackle"]		= "60218:36",
 
-	["Misc.Battleground Tokens"]				= "20558,20559,20560,29024",--NOT AUTOGENNED
 	["Misc.Battle Standard.Battleground"]			= "18606,18607",--NOT AUTOGENNED
 	["Misc.Battle Standard.Alterac Valley"]			= "19045,19046",--NOT AUTOGENNED
 	["Misc.Battle Standard.Guild"]			= "64402:6,64399:6,64401:4,64400:2,63359:2,64398:4",--NOT AUTOGENNED
