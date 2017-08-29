@@ -81,6 +81,45 @@ local httptime, httpcount = 0, 0
 
 local WOWHEAD_FILTER_PARAMS = { "na", "ma", "minle", "maxle", "minrl", "maxrl", "minrs", "maxrs", "qu", "sl", "cr", "crs", "crv", "type" }
 
+local function WH2(page, p_name, filter)
+	local escape = url.escape
+	local url = {"http://www.wowhead.com/", page}
+	if p_name then
+		url[#url + 1] = "/name:"
+		url[#url + 1] = escape(p_name)
+	end
+	if filter then
+		url[#url + 1] = "&filter="
+		if type(filter) == "table" then
+			local first = true
+			for _, k in ipairs(WOWHEAD_FILTER_PARAMS) do
+				local v = filter[k]
+				if v then
+					if not first then
+						url[#url + 1] = ";"
+					else
+						first = false
+					end
+					url[#url + 1] = escape(k)
+					url[#url + 1] = "="
+					if type(v) == "table" then
+						for i, s in ipairs(v) do
+							if i > 1 then url[#url + 1] = ":" end
+							url[#url + 1] = escape(s)
+						end
+					else
+						url[#url + 1] = escape(v)
+					end
+				end
+			end
+		else
+			-- we don't escape if filter is a string
+			url[#url + 1] = filter
+		end
+	end
+	return table.concat(url)
+end
+
 local function WH(page, value, filter)
 	local escape = url.escape
 	local url = {"http://www.wowhead.com/", page}
@@ -1555,8 +1594,7 @@ end
 
 handlers["^Consumable%.Scroll"] = function (set, data)
 	local newset ={}
-	basic_listview_handler(WH("items", "0.4", {na="scroll", cr="161", crs="1"}), nil, nil, newset )
-	basic_listview_handler(WH("items", "0.4", {na="runescroll", cr="161", crs="1"}), nil, nil, newset )
+	basic_listview_handler(WH2("other-consumables", "scroll", {cr="161", crs="1"}), nil, nil, newset )
 	
 	table.sort(newset, sortSet)
 	return table.concat(newset, ",")
