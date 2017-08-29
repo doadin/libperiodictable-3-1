@@ -1301,9 +1301,9 @@ local Tradeskill_Gem_Color_categories = {
 
 local Consumable_Bandage_filters = {
 	Basic = { cr=86,crs=6,crv=0},
-	["Alterac Valley"] = {na="bandage",cr={92,104},crs={1,0},crv={0,"Alterac"}},
-	["Warsong Gulch"] = {na="bandage",cr={92,107},crs={1,0},crv={0,"Warsong"}},
-	["Arathi Basin"] = {na="bandage",cr={92,107},crs={1,0},crv={0,"Arathi"}},
+	["Alterac Valley"] = {cr=104,crs=0,crv="Alterac"},
+	["Warsong Gulch"] = {cr=107,crs=0,crv="Warsong"},
+	["Arathi Basin"] = {cr=107,crs=0,crv="Arathi"},
 }
 
 local Consumable_Buff_Type_filters = {
@@ -1544,10 +1544,10 @@ handlers["^Consumable%.Bandage"] = function (set, data)
 	local setname = set:match("%.([^%.]+)$")
 	local filter = Consumable_Bandage_filters[setname]
 	if not filter then return end
-	local page = getpage(WH("items", nil, filter))
+	local page = getpage(WH2("bandages", nil, filter))
 	for itemid in page:gmatch("_%[(%d+)%]=") do
 		local item_url = WH("item", itemid)
-		local item_page = getpage(item_url):gmatch("tooltip_enus = '.-'")() --Just focus on tooltip, otherwise it can match comments on the page
+		local item_page = getpage(item_url):gmatch("tooltip_enus = '<table>.-</table>'")() --Just focus on tooltip, otherwise it can match comments on the page
 		item_page = item_page:gsub("<!--.--->", "")	--remove off commented html tags
 		local heal = item_page:match("Heals (%d+) damage")
 		if heal then
