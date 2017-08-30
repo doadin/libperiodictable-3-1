@@ -81,13 +81,18 @@ local httptime, httpcount = 0, 0
 
 local WOWHEAD_FILTER_PARAMS = { "na", "ma", "minle", "maxle", "minrl", "maxrl", "minrs", "maxrs", "qu", "sl", "cr", "crs", "crv", "type" }
 
-local function WH2(page, p_name, filter)
+local function WH2(page, p_name, p_tag, filter)
 	local escape = url.escape
 	local url = {"http://www.wowhead.com/", page}
 	if p_name then
 		url[#url + 1] = "/name:"
 		url[#url + 1] = escape(p_name)
 	end
+	if p_tag then
+		url[#url + 1] = "/tag:"
+		url[#url + 1] = escape(p_tag)
+	end
+
 	if filter then
 		url[#url + 1] = "&filter="
 		if type(filter) == "table" then
@@ -896,7 +901,19 @@ local Gear_level_filters = {
 	{minrl=90,maxrl=90},
 }
 
+local GearSets_tags = {
+	["Tier 2"] = 4
+
+
+}
+
 local GearSets_fixedids = {
+
+--Crafted. The miner chooses the wrong thing so we hardcode it
+	["The Unyielding"] = 570,
+	
+	["The Gladiator"] = 1,
+
 	["Battlegear of Undead Slaying"] = 533,
 	["Blessed Battlegear of Undead Slaying"] = 784,
 	["Conqueror's Battlegear"] = 496,
@@ -925,6 +942,10 @@ local GearSets_fixedids = {
 	["Gladiator's Vindication"] = 583,
 	["Gladiator's Wartide"] = 686,
 	["Gladiator's Wildhide"] = 585,
+
+-- T6
+	["Tempest Regalia"] = 671,
+	["Slayer's Armor"] = 668,
 
 -- T9
 	["Conqueror's Garona's Battlegear"] = -816,
@@ -1544,7 +1565,7 @@ handlers["^Consumable%.Bandage"] = function (set, data)
 	local setname = set:match("%.([^%.]+)$")
 	local filter = Consumable_Bandage_filters[setname]
 	if not filter then return end
-	local page = getpage(WH2("bandages", nil, filter))
+	local page = getpage(WH2("bandages", nil, nil, filter))
 	for itemid in page:gmatch("_%[(%d+)%]=") do
 		local item_url = WH("item", itemid)
 		local item_page = getpage(item_url):gmatch("tooltip_enus = '<table>.-</table>'")() --Just focus on tooltip, otherwise it can match comments on the page
@@ -1594,7 +1615,7 @@ end
 
 handlers["^Consumable%.Scroll"] = function (set, data)
 	local newset ={}
-	basic_listview_handler(WH2("other-consumables", "scroll", {cr="161", crs="1"}), nil, nil, newset )
+	basic_listview_handler(WH2("other-consumables", "scroll", nil, {cr="161", crs="1"}), nil, nil, newset )
 	
 	table.sort(newset, sortSet)
 	return table.concat(newset, ",")
@@ -1709,13 +1730,18 @@ handlers["^GearSet"] = function (set, data)
 		return nil
 	elseif set:find(".PvP.Arena.") then
 	-- wowhead can't do exact match on name as it seems so other arena sets including the name would show up to (and be picked unfortunately)
-		id = basic_listview_get_first_id(WH("itemsets", nil, {qu=4, na=setname}))
+		id = basic_listview_get_first_id(WH2("item-sets", setname, nil, {qu=4}))
 	else
-		id = basic_listview_get_first_id(WH("itemsets", nil, {na=setname}))
+		local tiertag = set:match("(Tier %d+)")
+		if(tiertag and GearSets_tags[tiertag]) then
+			id = basic_listview_get_first_id(WH2("item-sets", setname, GearSets_tags[tiertag]))		
+		else
+			id = basic_listview_get_first_id(WH2("item-sets", setname, nil))
+		end
 	end
 	if id then
 		local count = 0
-		page = getpage(WH("itemset", id))
+		local page = getpage(WH("item-set", id))
 		local summary = json(page:match("new Summary%((%b{})%)"), true)
 		for _, g in ipairs(summary.groups) do
 			local itemid = g[1][1]
