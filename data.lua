@@ -4991,6 +4991,7 @@
 	["Reputation.Reward.Wrynn's Vanguard"]		= "114126:5,115513:5,115521:5,115522:6,115532:6,115496:7,116396:7,115517:8,116776:8",
 	["Reputation.Reward.Zandalar Tribe"]		= "19766:5,19771:5,19778:5,19781:5,20001:5,20012:5,20757:5,19765:6,19770:6,19773:6,19777:6,19780:6,20000:6,20014:6,20756:6,19764:7,19769:7,19772:7,19776:7,19779:7,20011:7",
 
+--NOT AUTOGENNED
 	["Reputation.Turnin.Argent Dawn"]		= "12840:v50/20,12841:v50/10,12843:v50,12844:v100,22529:v20/30,22525:v20/30,22526:v20/30,22527:v20/30,22528:v20/30",
 	["Reputation.Turnin.Brood of Nozdormu"]		= "21229:v500,21230:v1000,20384:v1;stop2999",
 	["Reputation.Turnin.Cenarion Circle"]		= "20404:v50,21229:v100,20513:v50,20514:v500/3,20515:v700/3",
@@ -4999,7 +5000,7 @@
 	["Reputation.Turnin.Darnassus"]			= "14047:v75/20,11040:v75/10",
 	["Reputation.Turnin.Exodar"]			= "14047:v75/20",
 	["Reputation.Turnin.Gadgetzan"]			= "8483:v10/5",
-	["Reputation.Turnin.Gnomeregan Exiles"]		= "14047:v75/20",
+	["Reputation.Turnin.Gnomeregan"]		= "14047:v75/20",
 	["Reputation.Turnin.Ironforge"]			= "14047:v75/20",
 	["Reputation.Turnin.Kurenai"]			= "25433:v50",
 	["Reputation.Turnin.Lower City"]		= "25719:v250/30;stop9000",

@@ -117,7 +117,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("Reputation", gsub("$Rev$", "(%d+)", fun
 	["Reputation.Turnin.Darnassus"]="14047:v75/20,11040:v75/10",
 	["Reputation.Turnin.Exodar"]="14047:v75/20",
 	["Reputation.Turnin.Gadgetzan"]="8483:v10/5",
-	["Reputation.Turnin.Gnomeregan Exiles"]="14047:v75/20",
+	["Reputation.Turnin.Gnomeregan"]="14047:v75/20",
 	["Reputation.Turnin.Ironforge"]="14047:v75/20",
 	["Reputation.Turnin.Kurenai"]="25433:v50",
 	["Reputation.Turnin.Lower City"]="25719:v250/30;stop9000",
