@@ -14,6 +14,8 @@ local INSTANCELOOT_MIN = INSTANCELOOT_MIN or 50
 local INSTANCELOOT_MAXSRC = INSTANCELOOT_MAXSRC or 5
 local INSTANCELOOT_TRASHMINSRC = INSTANCELOOT_TRASHMINSRC or 5
 
+local DEBUG_TRACK_URL = false
+
 local MAX_TRADESKILL_LEVEL = 600
 
 if arg[1] == "-chksrc" and arg[2] then
@@ -176,7 +178,7 @@ do
 		end
 		local c = curl.new()
 		function getpage(url)
-			dprint(3, "curl", url)
+			if DEBUG_TRACK_URL then dprint(1, "curl", url); end;
 			local temp = {}
 			c:setopt(curl.OPT_URL, url)
 			c:setopt(curl.OPT_USERAGENT, "Mozilla/5.0") -- needed or item information will be missing
@@ -199,7 +201,7 @@ do
 		local http = require("socket.http")
 
 		function getpage(url)
-			dprint(3, "socket.http", url)
+			if DEBUG_TRACK_URL then dprint(1, "socket.http", url); end;
 			local stime = os.time()
 			local r = http.request(url)
 			httptime = httptime + (os.time() - stime)
@@ -465,7 +467,7 @@ local function basic_listview_handler(url, handler, names, inplace_set)
 		if not names then break end
 	end
 	local itemcount = #newset
-	dprint(3, "BasicListViewHandler", itemcount, url)
+	if DEBUG_TRACK_URL then dprint(3, "BasicListViewHandler", itemcount, url); end;
 	if not inplace_set then
 		table.sort(newset, sortSet)
 		return table.concat(newset, ",")
