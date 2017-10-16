@@ -16,7 +16,7 @@ local INSTANCELOOT_TRASHMINSRC = INSTANCELOOT_TRASHMINSRC or 5
 
 local DEBUG_TRACK_URL = false
 
-local MAX_TRADESKILL_LEVEL = 600
+local MAX_TRADESKILL_LEVEL = 800
 
 if arg[1] == "-chksrc" and arg[2] then
 	table.remove(arg, 1)
