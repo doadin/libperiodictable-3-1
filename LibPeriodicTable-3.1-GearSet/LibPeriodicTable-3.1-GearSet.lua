@@ -325,7 +325,6 @@ LibStub("LibPeriodicTable-3.1"):AddData("GearSet", gsub("$Rev$", "(%d+)", functi
 	["GearSet.Tier 8.10.Druid.Valorous Nightsong Battlegear"]="45355,45356,45357,45358,45359",
 	["GearSet.Tier 8.10.Druid.Valorous Nightsong Garb"]="45351,45352,45353,45354,46313",
 	["GearSet.Tier 8.10.Druid.Valorous Nightsong Regalia"]="45345,45346,45347,45348,45349",
-	["GearSet.Tier 8.10.Hunter.Valorous Scourgestalker Battlegear"]="45360,45361,45362,45363,45364",
 	["GearSet.Tier 8.10.Mage.Valorous Kirin Tor Garb"]="45365,45367,45368,45369,46131",
 	["GearSet.Tier 8.10.Paladin.Valorous Aegis Battlegear"]="45375,45376,45377,45379,45380",
 	["GearSet.Tier 8.10.Paladin.Valorous Aegis Plate"]="45381,45382,45383,45384,45385",
@@ -336,7 +335,6 @@ LibStub("LibPeriodicTable-3.1"):AddData("GearSet", gsub("$Rev$", "(%d+)", functi
 	["GearSet.Tier 8.10.Shaman.Valorous Worldbreaker Battlegear"]="45412,45413,45414,45415,45416",
 	["GearSet.Tier 8.10.Shaman.Valorous Worldbreaker Garb"]="45406,45408,45409,45410,45411",
 	["GearSet.Tier 8.10.Shaman.Valorous Worldbreaker Regalia"]="45401,45402,45403,45404,45405",
-	["GearSet.Tier 8.10.Warlock.Valorous Deathbringer Garb"]="45417,45419,45420,45421,45422",
 	["GearSet.Tier 8.10.Warrior.Valorous Siegebreaker Battlegear"]="45429,45430,45431,45432,45433",
 	["GearSet.Tier 8.10.Warrior.Valorous Siegebreaker Plate"]="45424,45425,45426,45427,45428",
 
