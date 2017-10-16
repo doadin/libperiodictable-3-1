@@ -163,11 +163,11 @@ LibStub("LibPeriodicTable-3.1"):AddData("Tradeskill", gsub("$Rev$", "(%d+)", fun
 	["Tradeskill.Mat.ByType.Vegetable"]="74840,74841,74842,74843,74844,74846,74847,74848,74849,74850,74660,74851,85583,85585",
 	["Tradeskill.Mat.ByType.Spice"]="2665,2678,2692,3713,17194,43007,2665,74661,74662,74832,74845,74852,74853,74854",
 	
-	["Tradeskill.Tool.Alchemy"]="9149,13503,31080,35748,35749,35750,35751,44322,44323,44324,58483,68775,68776,68777,75274,109262,122601,122602,122603,122604,128023,128024",
-	["Tradeskill.Tool.Blacksmithing"]="5956,40772,40892",
+	["Tradeskill.Tool.Alchemy"]="9149,13503,31080,35748,35749,35750,35751,44322,44323,44324,58483,68775,68776,68777,75274,109262,122601,122602,122603,122604,127842,128023,128024,151607",
+	["Tradeskill.Tool.Blacksmithing"]="5956,40772,40892,136350,140209",
 	["Tradeskill.Tool.Cooking"]="4471,40772",
 	["Tradeskill.Tool.Enchanting"]="6218,6339,11130,11145,16207,22461,22462,22463,44452",
-	["Tradeskill.Tool.Engineering"]="5956,6219,10498,40772",
+	["Tradeskill.Tool.Engineering"]="5956,6219,10498,40772,136350,140209",
 	["Tradeskill.Tool.Fishing.Bait"]="110293,110289,110291,110274,110290,110292,110294",
 	["Tradeskill.Tool.Fishing.Gear"]="19969:5,7996:5,19972:5,33820:5,50287:5,88710:5",
 	["Tradeskill.Tool.Fishing.Lure"]="6529:25,6530:50,6811:50,6532:75,7307:75,33820:75,6533:100,34861:100,46006:100,62673:100,68049:150,88710:150,118391:200",
@@ -175,7 +175,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("Tradeskill", gsub("$Rev$", "(%d+)", fun
 	["Tradeskill.Tool.Fishing.Tool"]="6256:0,12225:3,6367:20,6365:5,25978:20,19022:25,45858:25,44050:30,45991:30,45992:30,19970:35,84660:10,84661:30,118381:100,133755:60",
 	["Tradeskill.Tool.Inscription"]="39505,114942",
 	["Tradeskill.Tool.Jewelcrafting"]="20815,31080",
-	["Tradeskill.Tool.Mining"]="756,778,1819,1893,1959,2901,9465,20723,30855,40772,40892,40893,85777,116913",
+	["Tradeskill.Tool.Mining"]="756,778,1819,1893,1959,2901,9465,20723,30855,40772,40892,40893,85777,116913,140208,153290",
 	["Tradeskill.Tool.Skinning"]="7005,12709,19901,40772,40893,69618,118724,118756",
 
 	["Tradeskill.Recipe.Crafted"]="m,Tradeskill.Recipe.Alchemy.Crafted,Tradeskill.Recipe.Blacksmithing.Crafted,Tradeskill.Recipe.Cooking.Crafted,Tradeskill.Recipe.Enchanting.Crafted,Tradeskill.Recipe.Engineering.Crafted,Tradeskill.Recipe.First Aid.Crafted,Tradeskill.Recipe.Fishing.Crafted,Tradeskill.Recipe.Jewelcrafting.Crafted,Tradeskill.Recipe.Leatherworking.Crafted,Tradeskill.Recipe.Mining.Crafted,Tradeskill.Recipe.Tailoring.Crafted",
