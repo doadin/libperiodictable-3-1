@@ -65,9 +65,11 @@ local function printdiff(set, old, new)
 	end
 
 	if #removed > 0 then
+		table.sort(removed, sortSet_id)
 		dprint(2, "REMOVED", table.concat(removed, ","))
 	end
 	if #added > 0 then
+		table.sort(added, sortSet_id)
 		dprint(2, "ADDED", table.concat(added, ","))
 	end
 end
