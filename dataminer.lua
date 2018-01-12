@@ -14,7 +14,7 @@ local INSTANCELOOT_MIN = INSTANCELOOT_MIN or 50
 local INSTANCELOOT_MAXSRC = INSTANCELOOT_MAXSRC or 5
 local INSTANCELOOT_TRASHMINSRC = INSTANCELOOT_TRASHMINSRC or 5
 
-local DEBUG_TRACK_URL = false
+local DEBUG_TRACK_URL = true
 
 local MAX_TRADESKILL_LEVEL = 800
 
@@ -184,6 +184,7 @@ do
 			c:setopt(curl.OPT_USERAGENT, "Mozilla/5.0") -- needed or item information will be missing
 			c:setopt(curl.OPT_WRITEFUNCTION, write)
 			c:setopt(curl.OPT_WRITEDATA, temp)
+			c:setopt(curl.OPT_FOLLOWLOCATION, true)
 			local stime = os.time()
 			local status, info = c:perform()
 			httptime = httptime + (os.time() - stime)
@@ -1563,6 +1564,37 @@ handlers["^Consumable%.Artifact Power"] = function (set, data)
 			return item.id..":"..item.level
 		end)
 end
+
+--handlers["^Disenchant%.Strange Dust"] = function (set, data)
+--	return basic_listview_handler("http://www.wowhead.com/items?filter=161:3:163;1:1:10940;0:0:0",
+--		function (item)
+--			return item.id
+--		end)
+--end
+
+local Disenchant_urls = {
+	["Draenic Dust"] =  "http://www.wowhead.com/items?filter=161:3:163;1:1:109693;0:0:0",
+	["Dream Dust"] =    "http://www.wowhead.com/items?filter=161:3:163;1:1:11176;0:0:0",
+	["Illusion Dust"] = "http://www.wowhead.com/items?filter=161:3:163;1:1:16204;0:0:0",
+	["Infinite Dust"] = "http://www.wowhead.com/items?filter=161:3:163;1:1:34054;0:0:0",
+	["Soul Dust"] =     "http://www.wowhead.com/items?filter=161:3:163;1:1:11083;0:0:0",
+	["Strange Dust"] =  "http://www.wowhead.com/items?filter=161:3:163;1:1:10940;0:0:0",
+	["Vision Dust"] =   "http://www.wowhead.com/items?filter=161:3:163;1:1:11137;0:0:0",
+}
+
+--handlers["^Disenchant%."] = function (set, data)
+--	local newset ={}
+--	local setname = set:match("%.([^%.]+)$")
+--	local url = Disenchant_urls[setname];
+	
+--	basic_listview_handler(url, nil, nil, newset )
+	
+--	table.sort(newset, sortSet)
+--	return table.concat(newset, ",")
+
+--end
+
+
 
 handlers["^Consumable%.Bandage"] = function (set, data)
 	local newset = {}
