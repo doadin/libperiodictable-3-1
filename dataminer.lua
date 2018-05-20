@@ -1573,26 +1573,29 @@ end
 --end
 
 local Disenchant_urls = {
+	["Arcane Dust"] =  	"http://www.wowhead.com/items?filter=161:3:163;1:1:22445;0:0:0",
+	["Arkhana"] =  	"http://www.wowhead.com/items?filter=161:3:163;1:1:124440;0:0:0",
 	["Draenic Dust"] =  "http://www.wowhead.com/items?filter=161:3:163;1:1:109693;0:0:0",
-	["Dream Dust"] =    "http://www.wowhead.com/items?filter=161:3:163;1:1:11176;0:0:0",
-	["Illusion Dust"] = "http://www.wowhead.com/items?filter=161:3:163;1:1:16204;0:0:0",
+	["Hypnotic Dust"] =  "http://www.wowhead.com/items?filter=161:3:163;1:1:52555;0:0:0",
 	["Infinite Dust"] = "http://www.wowhead.com/items?filter=161:3:163;1:1:34054;0:0:0",
-	["Soul Dust"] =     "http://www.wowhead.com/items?filter=161:3:163;1:1:11083;0:0:0",
+	["Light Illusion Dust"] =   	"http://www.wowhead.com/items?filter=161:3:163;1:1:16204;0:0:0",
+	["Rich Illusion Dust"] =   "http://www.wowhead.com/items?filter=161:3:163;1:1:156930;0:0:0",
+	["Shadow Dust"] =     "http://www.wowhead.com/items?filter=161:3:163;1:1:152875;0:0:0",
+	["Spirit Dust"] =     "http://www.wowhead.com/items?filter=161:3:163;1:1:74249;0:0:0",
 	["Strange Dust"] =  "http://www.wowhead.com/items?filter=161:3:163;1:1:10940;0:0:0",
-	["Vision Dust"] =   "http://www.wowhead.com/items?filter=161:3:163;1:1:11137;0:0:0",
 }
 
---handlers["^Disenchant%."] = function (set, data)
---	local newset ={}
---	local setname = set:match("%.([^%.]+)$")
---	local url = Disenchant_urls[setname];
-	
---	basic_listview_handler(url, nil, nil, newset )
-	
---	table.sort(newset, sortSet)
---	return table.concat(newset, ",")
+handlers["^Disenchant%."] = function (set, data)
+	local newset ={}
+	local setname = set:match("%.([^%.]+)$")
+	local url = Disenchant_urls[setname];
 
---end
+	basic_listview_handler(url, nil, nil, newset )
+
+	table.sort(newset, sortSet)
+	return table.concat(newset, ",")
+
+end
 
 
 
