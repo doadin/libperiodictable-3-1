@@ -1374,7 +1374,7 @@ local Tradeskill_Gem_Color_categories = {
 }
 
 local Consumable_Bandage_filters = {
-	Basic = { cr=86,crs=6,crv=0},
+	Basic = "86;11;0",
 	["Alterac Valley"] = {cr=104,crs=0,crv="Alterac"},
 	["Warsong Gulch"] = {cr=107,crs=0,crv="Warsong"},
 	["Arathi Basin"] = {cr=107,crs=0,crv="Arathi"},
