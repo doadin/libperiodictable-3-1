@@ -1297,13 +1297,15 @@ local Currency_Items = {
 	["Nethershard"] = -1226,
 	["Order Resources"] = -1220,
 	["Sightless Eye"] = -1149,
-	["Spirit Shard"] = 28558,
+	["Spirit Shard"] = -1704,
 	["Sunmote"] = 34664,
 	["Timewarped Badge"] = -1166,
 	["Tol Barad Commendation"] = -391,
 	["Winterfin Clam"] = 34597,
 	["Elder Charm of Good Fortune"] = -697,
 	["Bloody Coin"] = -789,
+	["War Resources"] = -1560,
+	["Seafarer's Dubloon"] = -1710,
 
 -- PROFESSIONS
 --   Blacksmithing
