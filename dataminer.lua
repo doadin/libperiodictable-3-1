@@ -16,6 +16,13 @@ local INSTANCELOOT_TRASHMINSRC = INSTANCELOOT_TRASHMINSRC or 5
 
 local DEBUG_TRACK_URL = true
 
+local TRANSPORT_TYPES = {
+	SOCKET = 1,	--use luasocket
+	CURL = 2,	--use luacurl
+	CURL_SHELL = 3,	-- shell out and run the system's curl executable
+}
+local URL_TRANSPORT = TRANSPORT_TYPES.CURL_SHELL
+
 local MAX_TRADESKILL_LEVEL = 800
 
 if arg[1] == "-chksrc" and arg[2] then
@@ -97,13 +104,13 @@ local sets
 
 local json = require("json")
 json.register_constant("undefined", json.null)
-local url = require("socket.url")
+local socket_url = require("socket.url")
 local httptime, httpcount = 0, 0
 
 local WOWHEAD_FILTER_PARAMS = { "na", "ma", "minle", "maxle", "minrl", "maxrl", "minrs", "maxrs", "qu", "sl", "cr", "crs", "crv", "type" }
 
 local function WH2(page, p_name, p_tag, filter)
-	local escape = url.escape
+	local escape = socket_url.escape
 	local url = {"https://www.wowhead.com/", page}
 	if p_name then
 		url[#url + 1] = "/name:"
@@ -147,7 +154,7 @@ local function WH2(page, p_name, p_tag, filter)
 end
 
 local function WH(page, value, filter)
-	local escape = url.escape
+	local escape = socket_url.escape
 	local url = {"https://www.wowhead.com/", page}
 	if value then
 		url[#url + 1] = "="
@@ -187,35 +194,40 @@ end
 
 local getpage
 do
-	local status, curl = pcall(require, "luacurl")
-	if status then
-		local write = function (temp, s)
-			temp[#temp + 1] = s
-			return s:len()
-		end
-		local c = curl.new()
-		function getpage(url)
-			if DEBUG_TRACK_URL then dprint(1, "curl", url); end;
-			local temp = {}
-			c:setopt(curl.OPT_URL, url)
-			c:setopt(curl.OPT_USERAGENT, "Mozilla/5.0") -- needed or item information will be missing
-			c:setopt(curl.OPT_WRITEFUNCTION, write)
-			c:setopt(curl.OPT_WRITEDATA, temp)
-			c:setopt(curl.OPT_FOLLOWLOCATION, true)
-			local stime = os.time()
-			local status, info = c:perform()
-			httptime = httptime + (os.time() - stime)
-			httpcount = httpcount + 1
-			if not status then
-				dprint(1, "curl error", url, info)
-			else
-				temp = table.concat(temp)
-				if temp:len() > 0 then
-					return temp
+	if(URL_TRANSPORT == TRANSPORT_TYPES.CURL) then
+		local curl_status, curl = pcall(require, "luacurl")
+		if (not curl_status) then
+			print("TRANSPORT_TYPES.CURL requested, but library not found")
+			os.exit()
+		else
+			local write = function (temp, s)
+				temp[#temp + 1] = s
+				return s:len()
+			end
+			local c = curl.new()
+			function getpage(url)
+				if DEBUG_TRACK_URL then dprint(1, "curl", url); end;
+				local temp = {}
+				c:setopt(curl.OPT_URL, url)
+				c:setopt(curl.OPT_USERAGENT, "Mozilla/5.0") -- needed or item information will be missing
+				c:setopt(curl.OPT_WRITEFUNCTION, write)
+				c:setopt(curl.OPT_WRITEDATA, temp)
+				c:setopt(curl.OPT_FOLLOWLOCATION, true)
+				local stime = os.time()
+				local status, info = c:perform()
+				httptime = httptime + (os.time() - stime)
+				httpcount = httpcount + 1
+				if not status then
+					dprint(1, "curl error", url, info)
+				else
+					temp = table.concat(temp)
+					if temp:len() > 0 then
+						return temp
+					end
 				end
 			end
 		end
-	else
+	elseif(URL_TRANSPORT == TRANSPORT_TYPES.SOCKET) then
 		local http = require("socket.http")
 
 		function getpage(url)
@@ -226,8 +238,25 @@ do
 			httpcount = httpcount + 1
 			return r
 		end
+	elseif(URL_TRANSPORT == TRANSPORT_TYPES.CURL_SHELL) then
+		function getpage(p_url)
+			if DEBUG_TRACK_URL then dprint(1, "curl shell", p_url); end;
+			local start_time = os.time()
+			local shell_command = 'curl --silent --show-error --user-agent "Mozilla/5.0" --insecure --location "' .. p_url .. '"'
+--print(shell_command)
+			local file = assert(io.popen(shell_command, 'r'))
+			local output = file:read('*all')
+			file:close()
+			httptime = httptime + (os.time() - start_time)
+			httpcount = httpcount + 1
+			return output
+		end
+
 	end
 end
+
+
+
 
 if not NOCACHE then
 	local real_getpage = getpage
