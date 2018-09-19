@@ -24,6 +24,7 @@ local TRANSPORT_TYPES = {
 local URL_TRANSPORT = TRANSPORT_TYPES.CURL_SHELL
 
 local MAX_TRADESKILL_LEVEL = 800
+local MAX_ITEM_LEVEL = 1000
 
 if arg[1] == "-chksrc" and arg[2] then
 	table.remove(arg, 1)
@@ -583,7 +584,7 @@ local function multiple_qualities_listview_handler(type, value, filter, set, typ
 		filter.qu = q
 		if q == 1 then
 			-- we split here because there's a lot of them
-			for level = 0, 90, level_step_size do
+			for level = 0, MAX_ITEM_LEVEL, level_step_size do
 				filter[min] = level
 				filter[max] = level + (level_step_size - 1)
 				basic_listview_handler(WH(type, value, filter), nil, nil, set)
@@ -2123,14 +2124,14 @@ handlers["^Misc%.Container%.ItemsInType"] = function (set, data)
 end
 
 -- Misc.Openable has too many items to capture this way. Even adding MANY limits level 1 still has > 200 items
---handlers["^Misc%.Openable"] = function (set, data)
---	local newset = {}
---	multiple_qualities_listview_handler("items", nil, {cr=11,crs=1,crv=0}, newset, "le", 5)
---	-- Add the clams that are not in the query
---	basic_listview_handler(WH("items", nil, {na="clam", cr=107, crs=0, crv="Open"}), nil, nil, newset)
---	table.sort(newset, sortSet)
---	return table.concat(newset, ",")
---end
+handlers["^Misc%.Openable"] = function (set, data)
+	local newset = {}
+	multiple_qualities_listview_handler("items", nil, {cr=11,crs=1,crv=0}, newset, "le", 50)
+	-- Add the clams that are not in the query
+	basic_listview_handler(WH("items", nil, {na="clam", cr=107, crs=0, crv="Open"}), nil, nil, newset)
+	table.sort(newset, sortSet)
+	return table.concat(newset, ",")
+end
 
 handlers["^Misc%.Key"] = function (set, data)
 	local setname = set:match("%.([^%.]+)$")
