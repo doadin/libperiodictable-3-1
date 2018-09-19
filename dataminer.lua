@@ -31,6 +31,23 @@ local function dprint(dlevel, ...)
 	end
 end
 
+function tprint (tbl, indent)
+  if not indent then indent = 0 end
+  for k, v in pairs(tbl) do
+    formatting = string.rep("  ", indent) .. k .. ": "
+    if type(v) == "table" then
+      print(formatting)
+      tprint(v, indent+1)
+    elseif type(v) == 'boolean' then
+      print(formatting .. tostring(v))      
+    elseif type(v) == 'function' then
+      print(formatting .. tostring(v))      
+    else
+      print(formatting .. v)
+    end
+  end
+end
+
 local function printdiff(set, old, new)
 	if DEBUG < 2 then return end
 	-- we remove the drop rate for these sets in the diff
@@ -87,7 +104,7 @@ local WOWHEAD_FILTER_PARAMS = { "na", "ma", "minle", "maxle", "minrl", "maxrl", 
 
 local function WH2(page, p_name, p_tag, filter)
 	local escape = url.escape
-	local url = {"http://www.wowhead.com/", page}
+	local url = {"https://www.wowhead.com/", page}
 	if p_name then
 		url[#url + 1] = "/name:"
 		url[#url + 1] = escape(p_name)
@@ -131,7 +148,7 @@ end
 
 local function WH(page, value, filter)
 	local escape = url.escape
-	local url = {"http://www.wowhead.com/", page}
+	local url = {"https://www.wowhead.com/", page}
 	if value then
 		url[#url + 1] = "="
 		url[#url + 1] = escape(value)
@@ -377,7 +394,7 @@ end
 local locale_data
 local function fetch_locale_data()
 	if not locale_data then
-		local page = assert(getpage("http://static.wowhead.com/js/locale_enus.js"))
+		local page = assert(getpage("https://static.wowhead.com/js/locale_enus.js"))
 		locale_data = json(page:match("g_zones%s*=%s*(%b{})"), true)
 	end
 end
