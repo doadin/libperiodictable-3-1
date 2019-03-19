@@ -1653,16 +1653,20 @@ handlers["^Consumable%.Bandage"] = function (set, data)
 	local setname = set:match("%.([^%.]+)$")
 	local filter = Consumable_Bandage_filters[setname]
 	if not filter then return end
-	local page = getpage(WH2("bandages", nil, nil, filter))
-	for itemid in page:gmatch("_%[(%d+)%]=") do
-		local item_url = WH("item", itemid)
+	local views = get_page_listviews(WH2("bandages", nil, nil, filter))
+	--tprint(views.items.data)
+	for _, item in ipairs(views.items.data) do
+		--tprint(item)
+		local item_url = WH("item", item.id)
 		local item_page = getpage(item_url):gmatch("tooltip_enus = '<table>.-</table>'")() --Just focus on tooltip, otherwise it can match comments on the page
 		item_page = item_page:gsub("<!--.--->", "")	--remove off commented html tags
 		local heal = item_page:match("Heals (%d+) damage")
 		if heal then
-			newset[#newset + 1] = itemid..":".. heal
+			newset[#newset + 1] = item.id .. ":" .. heal
 		end
+
 	end
+
 	table.sort(newset, sortSet)
 	return  table.concat(newset, ",")
 end
