@@ -1607,13 +1607,6 @@ handlers["^ClassSpell"] = function (set, data)
 	end)
 end
 
-handlers["^Consumable%.Artifact Power"] = function (set, data)
-	return basic_listview_handler(WH("items", nil, "224;1;"),
-		function (item)
-			return item.id..":"..item.level
-		end)
-end
-
 --handlers["^Disenchant%.Strange Dust"] = function (set, data)
 --	return basic_listview_handler("http://www.wowhead.com/items?filter=161:3:163;1:1:10940;0:0:0",
 --		function (item)
