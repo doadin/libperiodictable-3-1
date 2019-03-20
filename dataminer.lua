@@ -1647,9 +1647,7 @@ handlers["^Consumable%.Bandage"] = function (set, data)
 	local filter = Consumable_Bandage_filters[setname]
 	if not filter then return end
 	local views = get_page_listviews(WH2("bandages", nil, nil, filter))
-	--tprint(views.items.data)
 	for _, item in ipairs(views.items.data) do
-		--tprint(item)
 		local item_url = WH("item", item.id)
 		local item_page = getpage(item_url):gmatch("tooltip_enus = '<table>.-</table>'")() --Just focus on tooltip, otherwise it can match comments on the page
 		item_page = item_page:gsub("<!--.--->", "")	--remove off commented html tags
@@ -2304,7 +2302,7 @@ handlers["^Tradeskill%.Gather%."] = function (set, data)
 		local id = Tradeskill_Gather_GemsInNodes_nodes[nodetype]
 		if not id then return end
 		return basic_listview_handler(WH("object", id), function(item)
-			if item.classs == 3 then return item.id end
+			if item.classs == 7 and item.subclass == 4 then return item.id end
 		end, "mining")
 	else
 		local gathertype = set:match("%.([^%.]+)$")
