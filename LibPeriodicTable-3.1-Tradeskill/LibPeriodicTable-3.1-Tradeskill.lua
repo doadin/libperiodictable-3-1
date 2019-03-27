@@ -44,7 +44,7 @@ LibStub("LibPeriodicTable-3.1"):AddData("Tradeskill", gsub("$Rev$", "(%d+)", fun
 	["Tradeskill.Gather.GemsInNodes.Gold Vein"]="1529,1705,3864",
 	["Tradeskill.Gather.GemsInNodes.Ooze Covered Gold Vein"]="",
 	["Tradeskill.Gather.GemsInNodes.Mithril Deposit"]="1206,1210,1705,3864,7909,7910",
-	["Tradeskill.Gather.GemsInNodes.Ooze Covered Mithril Deposit"]="3864,7910",
+	["Tradeskill.Gather.GemsInNodes.Ooze Covered Mithril Deposit"]="",
 	["Tradeskill.Gather.GemsInNodes.Ooze Covered Truesilver Deposit"]="3864,7909,7910",
 	["Tradeskill.Gather.GemsInNodes.Truesilver Deposit"]="1705,3864,7909,7910",
 	["Tradeskill.Gather.GemsInNodes.Dark Iron Deposit"]="11382",
