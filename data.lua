@@ -119,7 +119,7 @@
 	["Consumable.Buff.Health.Flask"]			= "13510:400,22851:500,32898:500,46379:1300",
 	["Consumable.Buff.Health.Self"]				= "2458:27,23444:70,3825:120,32062:250,22837:700,22797:2000",
 	["Consumable.Buff.Other.Flask"]				= "13506",
-	["Consumable.Buff.Other.Self"]				= "3387,3823,3828,5634,6372,8529,8956,9233,9154,9172,9197,10592,13506,22823,43090,43094,43134,43141,43462,43470,43472,43473,128475,128482,127843,127844,142117,127839,127838,140587,153023,152559,152560,160053",
+	["Consumable.Buff.Other.Self"]				= "3387,3823,3828,5634,6372,8529,8956,9233,9154,9172,9197,10592,13506,22823,43090,43094,43134,43141,43462,43470,43472,43473,128475,128482,127843,127844,142117,127839,127838,140587,153023,152559,152560,160053,169299,168529,168506",
 	["Consumable.Buff.Rage.Self"]				= "31451:10,5631:30,5633:45,13442:45",
 	["Consumable.Buff.Regen Health.Self"]			= "3382:2,3388:6,32062:10,3826:12,20004:20",
 	["Consumable.Buff.Regen Mana.Flask"]			= "32596:8,22853:25,32899:25",
@@ -130,7 +130,7 @@
 	["Consumable.Buff.Resistance.Target"]			= "12455:15,12457:15",
 	["Consumable.Buff.Shadow Power"]			= "9264:40,22835:65",
 	["Consumable.Buff.Shield"]				= "23575:1000,23576:4000",
-	["Consumable.Buff.Speed.Self"]				= "29530:15,20081:20,2459:50,33226:14,43135:15,122452:70,116266:70,127841:150",
+	["Consumable.Buff.Speed.Self"]				= "29530:15,20081:20,2459:50,33226:14,43135:15,122452:70,116266:70,127841:150,152497:120",
 	["Consumable.Buff.Spell Crit.Self"]			= "22839:2,28103:24,40212:200",
 	["Consumable.Buff.Spell Damage.Flask"]			= "32601:23,13512:70,32900:70,22861:80,22866:80,46376:125",
 	["Consumable.Buff.Spell Damage.Self"]			= "6373:10,22710:10,17708:15,22778:15,9155:20,22238:23,23326:23,28103:24,29528:30,13454:35,9264:40,49857:45,49860:45,22833:55,40070:58,22835:65,22788:80,22839:120,40212:200,58091:1200,76093:4000",
@@ -1192,7 +1192,7 @@
 	["GearSet.Tier 15.522.Warlock.Regalia of the Thousand Hells"] = "95325,95326,95327,95328,95329",
 	["GearSet.Tier 15.522.Warrior.Battleplate of the Last Mogu"] = "95330,95331,95332,95333,95334",
 	["GearSet.Tier 15.522.Warrior.Plate of the Last Mogu"] = "95335,95336,95337,95338,95339",
-	
+
 	["GearSet.Tier 15.535.Death Knight.Battleplate of the All-Consuming Maw"] = "96569,96570,96571,96572,96573",
 	["GearSet.Tier 15.535.Death Knight.Plate of the All-Consuming Maw"] = "96574,96575,96576,96577,96578",
 	["GearSet.Tier 15.535.Druid.Armor of the Haunted Forest"] = "96594,96595,96596,96597,96598",
@@ -1240,7 +1240,7 @@
 	["GearSet.Tier 16.528.Warlock.Regalia of the Horned Nightmare"] = "99045,99053,99054,99055,99056",
 	["GearSet.Tier 16.528.Warrior.Battleplate of the Prehistoric Marauder"] = "99034,99035,99036,99046,99047",
 	["GearSet.Tier 16.528.Warrior.Plate of the Prehistoric Marauder"] = "99030,99032,99033,99037,99038",
-	
+
 	["GearSet.Tier 16.540.Death Knight.Battleplate of Cyclopean Dread"] = "99571,99572,99608,99609,99639",
 	["GearSet.Tier 16.540.Death Knight.Plate of Cyclopean Dread"] = "99564,99604,99605,99640,99652",
 	["GearSet.Tier 16.540.Druid.Armor of the Shattered Vale"] = "99610,99622,99623,99624,99664",
@@ -1312,7 +1312,7 @@
 	["GearSet.Tier 16.566.Warlock.Regalia of the Horned Nightmare"] = "99416,99417,99424,99425,99426",
 	["GearSet.Tier 16.566.Warrior.Battleplate of the Prehistoric Marauder"] = "99411,99412,99413,99414,99418",
 	["GearSet.Tier 16.566.Warrior.Plate of the Prehistoric Marauder"] = "99407,99408,99409,99410,99415",
-	
+
 	["GearSet.Tier 17.670.Death Knight.Ogreskull Boneplate Battlegear"] = "115535,115536,115537,115538,115539",
 	["GearSet.Tier 17.670.Druid.Living Wood Battlegear"] = "115540,115541,115542,115543,115544",
 	["GearSet.Tier 17.670.Hunter.Rylakstalker's Battlegear"] = "115545,115546,115547,115548,115549",
