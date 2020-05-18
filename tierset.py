@@ -108,8 +108,11 @@ def get_data(p_class_id, p_set_id, classic):
     #print(sorted(my_dict.keys()))
     return my_dict
 
-def process_data_lua(p_data_dict, p_tier, p_class_name, filename):
-    f = open(filename, "a")
+def process_data_lua(p_data_dict, p_tier, p_class_name, classic):
+    if classic:
+        f = open(LibPeriodicTable-3.1-GearSet-classic.lua, "a")
+    else:
+        f = open(LibPeriodicTable-3.1-GearSet.lua, "a")
     for name in p_data_dict.keys():
         for id_key in sorted(p_data_dict[name].keys()):
             line = "\t[\"GearSet.Tier {0}.{1}.{2}.{3}\"] = \"\",\n".format(p_tier, id_key, p_class_name, name)	
@@ -126,11 +129,11 @@ def createendfile(filename):
     f = open(filename, "a")
     line = '}\n'
     f.write(line)
-def generatelist(tier,setid, filename): 
+def generatelist(tier,setid, classic): 
     for class_key in sorted(class_ids.keys()):
         data = get_data(class_ids[class_key], setid, classic)
         
-        process_data_lua(data, tier, class_key, filename)
+        process_data_lua(data, tier, class_key, classic)
 createstartfile()
 def createretaillist():
     filename = "LibPeriodicTable-3.1-GearSet.lua"
@@ -142,7 +145,7 @@ def createclassiclist():
     filename = "LibPeriodicTable-3.1-GearSet-classic.lua"
     createstartfile(filename)
     for tier, id in classictierlisttoid:
-        generatelist(tier,id)
+        generatelist(tier,id,true)
     createendfile(filename)
 createretaillist()
 createclassiclist()
