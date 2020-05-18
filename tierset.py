@@ -18,7 +18,7 @@ def get_data(p_class_id, p_set_id):
     opener.addheaders = [('User-agent', 'Mozilla/5.0')]
     urllib.request.install_opener(opener)
     
-    item_url = "http://classic.wowhead.com/item-sets?filter=cl={0};ta={1}&xml".format(p_class_id, p_set_id)
+    item_url = "http://wowhead.com/item-sets?filter=cl={0};ta={1}&xml".format(p_class_id, p_set_id)
     #print(item_url)
     usock = urllib.request.urlopen(url=item_url, timeout=30)
     data = usock.read().decode('utf-8')
@@ -63,7 +63,7 @@ def get_data(p_class_id, p_set_id):
     return my_dict
 
 def process_data_lua(p_data_dict, p_tier, p_class_name):
-    f = open("gearset.txt", "a")
+    f = open("LibPeriodicTable-3.1-GearSet.lua", "a")
     for name in p_data_dict.keys():
         for id_key in sorted(p_data_dict[name].keys()):
             line = "\t[\"GearSet.Tier {0}.{1}.{2}.{3}\"] = \"\",\n".format(p_tier, id_key, p_class_name, name)	
@@ -71,13 +71,13 @@ def process_data_lua(p_data_dict, p_tier, p_class_name):
         f.write(line)
 #["GearSet.Tier 16.566.Warrior.Plate of the Prehistoric Marauder"] = "99407,99408,99409,99410,99415",  
 def createstartfile():  
-    f = open("gearset.txt", "a")
+    f = open("LibPeriodicTable-3.1-GearSet.lua", "a")
     line = 'if not LibStub("LibPeriodicTable-3.1", true) then error("PT3 must be loaded before data") end\n'
     f.write(line)
     line = 'LibStub("LibPeriodicTable-3.1"):AddData("GearSet", gsub("$Rev: 584 $", "(%d+)", function(n) return n+90000 end), {\n'
     f.write(line)
 def createendfile():  
-    f = open("gearset.txt", "a")
+    f = open("LibPeriodicTable-3.1-GearSet.lua", "a")
     line = '}\n'
     f.write(line)
 createstartfile()
