@@ -11,7 +11,7 @@ class_ids = {"Druid" : 11, "Hunter" : 3, "Mage" : 8, "Paladin" : 2, "Priest" : 5
 #set_id = 38 #Tier 13 
 #set_id = 43 #Tier 15
 #set_id = 65 #tier 17
-set_id = 71 #tier 18
+#set_id = 71 #tier 18
 
 def get_data(p_class_id, p_set_id):
     opener = urllib.request.build_opener()
@@ -81,10 +81,15 @@ def createendfile():
     line = '}\n'
     f.write(line)
 createstartfile()
-for class_key in sorted(class_ids.keys()):
-    data = get_data(class_ids[class_key], set_id)
-    
-    process_data_lua(data, 18, class_key)
+def generatelist(tier,setid): 
+    for class_key in sorted(class_ids.keys()):
+        data = get_data(class_ids[class_key], setid)
+        
+        process_data_lua(data, tier, class_key)
+generatelist(13, 38)
+generatelist(15, 43) 
+generatelist(17, 65) 
+generatelist(18, 71) 
 createendfile()
 
 #print()
