@@ -7,7 +7,12 @@ import json
 from collections import defaultdict
 
 class_ids = {"Death Knight" : 6, "Druid" : 11, "Hunter" : 3, "Mage" : 8, "Monk" : 10, "Paladin" : 2, "Priest" : 5, "Rogue" : 4, "Shaman" : 7, "Warlock" : 9, "Warrior" : 1}
-tierlisttoid = {
+classictierlisttoid = {
+    "1" : 3,
+    "2" : 4,
+    "3" : 5
+}
+retailtierlisttoid = {
     "1" : 3,
     "2" : 4,
     "3" : 5,
@@ -52,12 +57,14 @@ tierlisttoid = {
 #set_id = 82 #tier 20
 #set_id = 86 #tier 21
 
-def get_data(p_class_id, p_set_id):
+def get_data(p_class_id, p_set_id, classic):
     opener = urllib.request.build_opener()
     opener.addheaders = [('User-agent', 'Mozilla/5.0')]
     urllib.request.install_opener(opener)
-    
-    item_url = "http://wowhead.com/item-sets?filter=cl={0};ta={1}&xml".format(p_class_id, p_set_id)
+    if classic:
+        item_url = "http://classic.wowhead.com/item-sets?filter=cl={0};ta={1}&xml".format(p_class_id, p_set_id)
+    else:
+        item_url = "http://wowhead.com/item-sets?filter=cl={0};ta={1}&xml".format(p_class_id, p_set_id)
     #print(item_url)
     usock = urllib.request.urlopen(url=item_url, timeout=30)
     data = usock.read().decode('utf-8')
@@ -101,54 +108,42 @@ def get_data(p_class_id, p_set_id):
     #print(sorted(my_dict.keys()))
     return my_dict
 
-def process_data_lua(p_data_dict, p_tier, p_class_name):
-    f = open("gearset.txt", "a")
+def process_data_lua(p_data_dict, p_tier, p_class_name, filename):
+    f = open(filename, "a")
     for name in p_data_dict.keys():
         for id_key in sorted(p_data_dict[name].keys()):
             line = "\t[\"GearSet.Tier {0}.{1}.{2}.{3}\"] = \"\",\n".format(p_tier, id_key, p_class_name, name)	
             f.write(line)
         f.write(line)
 #["GearSet.Tier 16.566.Warrior.Plate of the Prehistoric Marauder"] = "99407,99408,99409,99410,99415",  
-def createstartfile():  
-    f = open("gearset.txt", "a")
+def createstartfile(filename):  
+    f = open(filename, "a")
     line = 'if not LibStub("LibPeriodicTable-3.1", true) then error("PT3 must be loaded before data") end\n'
     f.write(line)
     line = 'LibStub("LibPeriodicTable-3.1"):AddData("GearSet", gsub("$Rev: 584 $", "(%d+)", function(n) return n+90000 end), {\n'
     f.write(line)
-def createendfile():  
-    f = open("gearset.txt", "a")
+def createendfile(filename):  
+    f = open(filename, "a")
     line = '}\n'
     f.write(line)
-createstartfile()
-def generatelist(tier,setid): 
+def generatelist(tier,setid, filename): 
     for class_key in sorted(class_ids.keys()):
-        data = get_data(class_ids[class_key], setid)
+        data = get_data(class_ids[class_key], setid, classic)
         
-        process_data_lua(data, tier, class_key)
-generatelist(1,3)
-generatelist(2,4)
-generatelist(3,5)
-generatelist(4,12)
-generatelist(5,13)
-generatelist(6,18)
-generatelist(7,23)
-generatelist(8,25)
-generatelist(9,27)
-generatelist(10,29)
-generatelist(11,31)
-generatelist(12,35)
-generatelist(13,38)
-generatelist(14,39)
-generatelist(15,43)
-generatelist(16,64)
-generatelist(17,65)
-generatelist(18,71)
-generatelist(19,78)
-generatelist(20,82)
-generatelist(21,86)
-#TODO Replace all the calls above
-#for tier, id in tierlisttoid:
-#    generatelist(tier,id)
-createendfile()
-
+        process_data_lua(data, tier, class_key, filename)
+createstartfile()
+def createretaillist():
+    filename = "LibPeriodicTable-3.1-GearSet.lua"
+    createstartfile(filename)
+    for tier, id in retailtierlisttoid:
+        generatelist(tier,id)
+    createendfile(filename)
+def createclassiclist():
+    filename = "LibPeriodicTable-3.1-GearSet-classic.lua"
+    createstartfile(filename)
+    for tier, id in classictierlisttoid:
+        generatelist(tier,id)
+    createendfile(filename)
+createretaillist()
+createclassiclist()
 #print()
